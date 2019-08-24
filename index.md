@@ -4,3 +4,6 @@
 
 layout: default 
 ---
+<img src='../assets/network.jpg'>
+
+<h2>Welcome!</h2>
