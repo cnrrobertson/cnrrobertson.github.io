@@ -20,7 +20,7 @@
 
 **My contact info:**
 
-- [**CV**](/assets/CV_Connor_Robertson_11_21.pdf)
+- [**CV**](/assets/CV_Connor_Robertson_5_22.pdf)
 - [**Email**](mailto:cjr59@njit.edu)
 - [**LinkedIn**](https://www.linkedin.com/in/connor-robertson-773ba8b1)
 - [**Github**](https://github.com/cnrrobertson)
