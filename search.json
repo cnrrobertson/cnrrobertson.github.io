@@ -161,13 +161,6 @@
     "text": "Several models have been proposed for this system via a continuum “Q-tensor” theory. The models consist of coupled partial differential evolution equations for the orientation and velocity of the microtubules (and occasionally the concentration). Though successful, there has been some disagreement on the model form [2–5]\nOur goal is to provide a data-driven model that can lend insight into the various proposed model forms using the Sparse Identification of Nonlinear Dynamics (SINDy) modeling framework [6].\nThis work has been presented at a few events including the APS March meeting 2022.\n\n\n\n\nReferences\n\n[1] J. Pringle, A. Muthukumar, A. Tan, L. Crankshaw, L. Conway, and J. L. Ross, Microtubule Organization by Kinesin Motors and Microtubule Crosslinking Protein MAP65, Journal of Physics: Condensed Matter 25, 374103 (2013).\n\n\n[2] S. J. DeCamp, G. S. Redner, A. Baskaran, M. F. Hagan, and Z. Dogic, Orientational Order of Motile Defects in Active Nematics, Nature Materials 14, 1110 (2015).\n\n\n[3] A. Doostmohammadi, J. Ignés-Mullol, J. M. Yeomans, and F. Sagués, Active Nematics, Nature Communications 9, 1 (2018).\n\n\n[4] A. U. Oza and J. Dunkel, Antipolar Ordering of Topological Defects in Active Liquid Crystals, New Journal of Physics 18, 093006 (2016).\n\n\n[5] T. Gao, M. D. Betterton, A.-S. Jhang, and M. J. Shelley, Analytical Structure, Dynamics, and Coarse Graining of a Kinetic Model of an Active Fluid, Physical Review Fluids 2, 093302 (2017).\n\n\n[6] S. L. Brunton, J. L. Proctor, and J. N. Kutz, Discovering Governing Equations from Data by Sparse Identification of Nonlinear Dynamical Systems, Proceedings of the National Academy of Sciences 113, 3932 (2016)."
   },
   {
-    "objectID": "about2.html",
-    "href": "about2.html",
-    "title": "About",
-    "section": "",
-    "text": "It’s as easy as this?\n\nx = 10\ny = 20\nx+y\n\n\nPlot test\nAnd plots?\n\ndomain = np.linspace(0, 10, 100)\nrange = np.sin(domain)\nplt.plot(domain, range)\n\nSo easy!!!\n\n\nKernel test\nCan I add another kernel?\nxjul = 24\nyjul = 13\nxjul-yjul\nNo …"
-  },
-  {
     "objectID": "teaching/teaching.html",
     "href": "teaching/teaching.html",
     "title": "Teaching",
