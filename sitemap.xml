@@ -1,22 +1,75 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-<url>
-    <loc>https://cnrrobertson.github.io/404/index.html</loc>
-    <lastmod>2022-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
+  <url>
     <loc>https://cnrrobertson.github.io/index.html</loc>
-    <lastmod>2022-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://cnrrobertson.github.io/projects/index.html</loc>
-    <lastmod>2022-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
+    <lastmod>2022-09-07T11:18:07.098Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.html</loc>
+    <lastmod>2022-09-07T11:18:07.591Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/other/machinelearning_optimization_seminar/workshop1_intro.html</loc>
+    <lastmod>2022-09-07T11:18:10.438Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/other/fun/polygon_angles.html</loc>
+    <lastmod>2022-09-07T11:20:01.484Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/other/fun/heliocentric_geocentric.html</loc>
+    <lastmod>2022-09-07T11:21:36.867Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/other/fun/fun.html</loc>
+    <lastmod>2022-09-07T11:21:37.200Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/other/other.html</loc>
+    <lastmod>2022-09-07T11:21:37.504Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/research/bacteria.html</loc>
+    <lastmod>2022-09-07T11:21:37.867Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/research/research.html</loc>
+    <lastmod>2022-09-07T11:21:38.207Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/research/active_nematics.html</loc>
+    <lastmod>2022-09-07T11:21:38.637Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/about2.html</loc>
+    <lastmod>2022-09-07T11:21:38.960Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/teaching/teaching.html</loc>
+    <lastmod>2022-09-07T11:21:39.307Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/teaching/math110/math110.html</loc>
+    <lastmod>2022-09-07T11:21:39.620Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/teaching/math110/section4_1.html</loc>
+    <lastmod>2022-09-07T11:21:39.974Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/teaching/math340/Lab1_matlab_taylor_series/Lab1_Examples.html</loc>
+    <lastmod>2022-09-07T11:21:40.314Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html</loc>
+    <lastmod>2022-09-07T11:21:42.790Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/teaching/math111/math111.html</loc>
+    <lastmod>2022-09-07T11:21:43.114Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnrrobertson.github.io/teaching/math111/section2_1.html</loc>
+    <lastmod>2022-09-07T11:21:43.480Z</lastmod>
+  </url>
 </urlset>

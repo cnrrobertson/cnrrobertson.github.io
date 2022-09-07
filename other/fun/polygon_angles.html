@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Connor Robertson">
+
+<title>Connor Robertson - The exterior angles of a polygon make a circle</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Connor Robertson</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../assets/CV_Connor_Robertson_5_22.pdf">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/teaching.html">Teaching</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/research.html">Research</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
+        <li>
+    <a class="dropdown-item" href="../../other/fun/fun.html">
+ <span class="dropdown-text">Just for Fun</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.html">
+ <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">The exterior angles of a polygon make a circle</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../other/fun/fun.html" class="sidebar-item-text sidebar-link">Just for fun</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../other/fun/polygon_angles.html" class="sidebar-item-text sidebar-link active">Polygon angles</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../other/fun/heliocentric_geocentric.html" class="sidebar-item-text sidebar-link">Geocentrism</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#setting-up" id="toc-setting-up" class="nav-link" data-scroll-target="#setting-up">Setting up</a></li>
+  <li><a href="#animating" id="toc-animating" class="nav-link" data-scroll-target="#animating">Animating</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">The exterior angles of a polygon make a circle</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Connor Robertson </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>I recently saw a <a href="https://gfycat.com/bluesecondblackwidowspider-geometry-math">fun little GIF</a> from a weekly news email I get called the New Paper. It shows a simple plot of the exterior angles of a few polygons. As the polygons shrink, the exterior angles combine to eventually make a circle, which shows a simple graphical example of how the exterior angles of any polygon add to <span class="math inline">\(2\pi\)</span>. <!-- The GIF can be seen below: --></p>
+<!-- <div style='position:relative; padding-bottom:calc(100.00% + 44px)'><iframe src='https://gfycat.com/ifr/BlueSecondBlackwidowspider' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div> -->
+<p>I thought I’d try to recreate this little GIF with my favorite plotting library <code>Makie.jl</code>.</p>
+</section>
+<section id="setting-up" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up">Setting up</h2>
+<p>Basically, we can start by getting the plots of each polygon set. We can then animate the sides of the polygons shrinking.</p>
+<p>To start we are going to need a <code>Figure</code> with 4 <code>axes</code>:</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">activate</span>(<span class="st">"."</span>);</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CairoMakie;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fu">Figure</span>(resolution<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">800</span>));</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>axes <span class="op">=</span> [</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Axis</span>(f[<span class="fl">1</span>,<span class="fl">1</span>]) <span class="fu">Axis</span>(f[<span class="fl">1</span>,<span class="fl">2</span>]);</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Axis</span>(f[<span class="fl">2</span>,<span class="fl">1</span>]) <span class="fu">Axis</span>(f[<span class="fl">2</span>,<span class="fl">2</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes ax.limits<span class="op">=</span>(<span class="op">-</span><span class="fl">6</span>,<span class="fl">6</span>,<span class="op">-</span><span class="fl">6</span>,<span class="fl">6</span>) <span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can now list the vertices for each polygon:</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>poly11 <span class="op">=</span> [(<span class="op">-</span><span class="fl">2.0</span>,<span class="fl">3.0</span>),(<span class="fl">3.0</span>,<span class="op">-</span><span class="fl">3.0</span>),(<span class="op">-</span><span class="fl">4.0</span>,<span class="op">-</span><span class="fl">2.0</span>),(<span class="op">-</span><span class="fl">2.0</span>,<span class="fl">3.0</span>)];</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>poly12 <span class="op">=</span> [(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">2.0</span>),(<span class="fl">1.0</span>,<span class="fl">1.0</span>),(<span class="fl">3.0</span>,<span class="op">-</span><span class="fl">2.0</span>),(<span class="op">-</span><span class="fl">4.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">2.0</span>)];</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>poly21 <span class="op">=</span> [(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">3.0</span>),(<span class="fl">1.0</span>,<span class="fl">3.0</span>),(<span class="fl">3.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="fl">1.0</span>,<span class="op">-</span><span class="fl">3.0</span>),(<span class="op">-</span><span class="fl">2.0</span>,<span class="op">-</span><span class="fl">2.0</span>),(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">1.0</span>),(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">3.0</span>)];</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>poly22 <span class="op">=</span> [(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">2.0</span>),(<span class="fl">1.0</span>,<span class="fl">2.0</span>),(<span class="fl">4.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="fl">2.0</span>,<span class="op">-</span><span class="fl">3.0</span>),(<span class="op">-</span><span class="fl">4.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">2.0</span>)];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>where <code>poly11</code> is the polygon in the 1st row and 1st column. Plotting these lines on each respective axis, we get:</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lines!</span>(axes[<span class="fl">1</span>,<span class="fl">1</span>],poly11,color<span class="op">=:</span>black);</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines!</span>(axes[<span class="fl">1</span>,<span class="fl">2</span>],poly12,color<span class="op">=:</span>black);</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines!</span>(axes[<span class="fl">2</span>,<span class="fl">1</span>],poly21,color<span class="op">=:</span>black);</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines!</span>(axes[<span class="fl">2</span>,<span class="fl">2</span>],poly22,color<span class="op">=:</span>black);</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">poly!</span>(axes[<span class="fl">1</span>,<span class="fl">1</span>],poly11,transparency<span class="op">=</span><span class="cn">true</span>,color<span class="op">=</span><span class="fu">RGBAf</span>(<span class="fl">1.0</span>,<span class="fl">0.6</span>,<span class="fl">0.0</span>,<span class="fl">0.2</span>));</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">poly!</span>(axes[<span class="fl">1</span>,<span class="fl">2</span>],poly12,transparency<span class="op">=</span><span class="cn">true</span>,color<span class="op">=</span><span class="fu">RGBAf</span>(<span class="fl">0.0</span>,<span class="fl">0.0</span>,<span class="fl">1.0</span>,<span class="fl">0.2</span>));</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">poly!</span>(axes[<span class="fl">2</span>,<span class="fl">1</span>],poly21,transparency<span class="op">=</span><span class="cn">true</span>,color<span class="op">=</span><span class="fu">RGBAf</span>(<span class="fl">0.5</span>,<span class="fl">0.0</span>,<span class="fl">0.5</span>,<span class="fl">0.2</span>));</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">poly!</span>(axes[<span class="fl">2</span>,<span class="fl">2</span>],poly22,transparency<span class="op">=</span><span class="cn">true</span>,color<span class="op">=</span><span class="fu">RGBAf</span>(<span class="fl">0.0</span>,<span class="fl">0.5</span>,<span class="fl">0.0</span>,<span class="fl">0.2</span>));</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="polygon_angles_files/figure-html/cell-5-output-1.svg" class="img-fluid"></p>
+</div>
+</div>
+<p>These are obviously not exactly the polygons in the GIF, but they are generally similar and use nice easy vertex coordinates. Now, in order to accentuate the exterior angles, the GIF uses lines which extend beyond the vertices. To achieve this, we can consider each line segment and shift the first vertex some distance in the opposite direction of the second vertex. To do so, we should shift adjust our polygon representation to separate each line segment:</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lpoly11 <span class="op">=</span> [[poly11[i],poly11[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(poly11)<span class="op">-</span><span class="fl">1</span>];</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>lpoly12 <span class="op">=</span> [[poly12[i],poly12[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(poly12)<span class="op">-</span><span class="fl">1</span>];</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>lpoly21 <span class="op">=</span> [[poly21[i],poly21[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(poly21)<span class="op">-</span><span class="fl">1</span>];</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>lpoly22 <span class="op">=</span> [[poly22[i],poly22[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(poly22)<span class="op">-</span><span class="fl">1</span>];</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(lpoly11)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>3-element Vector{Vector{Tuple{Float64, Float64}}}:
+ [(-2.0, 3.0), (3.0, -3.0)]
+ [(3.0, -3.0), (-4.0, -2.0)]
+ [(-4.0, -2.0), (-2.0, 3.0)]</code></pre>
+</div>
+</div>
+<p>We can now the vector between the first and second indices of each line segment and shift our first vertex by the negative of that vector. That is a mouthful but more easily written mathematically. If we consider a single line segment with vertices <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span>, we can calculate the distance between them <span class="math inline">\(d = v_2 - v_1\)</span> such that <span class="math inline">\(v_1 + d = v_2\)</span> and then redefine our first vertex in the opposite direction as <span class="math inline">\(v_1^* = v_1 - l\frac{d}{\|d\|}\)</span> where <span class="math inline">\(l\)</span> is the length of the external line. This boils down to the following:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">shift_first_vertices!</span>(lpoly, l<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> line <span class="kw">in</span> lpoly</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     v1 <span class="op">=</span> <span class="fu">collect</span>(line[<span class="fl">1</span>]); v2 <span class="op">=</span> <span class="fu">collect</span>(line[<span class="fl">2</span>])</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     d <span class="op">=</span> v2 <span class="op">-</span> v1</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>     v1star <span class="op">=</span> v1 <span class="op">-</span> l<span class="op">*</span>d<span class="op">/</span><span class="fu">sqrt</span>(d[<span class="fl">1</span>]<span class="op">^</span><span class="fl">2</span><span class="op">+</span>d[<span class="fl">2</span>]<span class="op">^</span><span class="fl">2</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>     line[<span class="fl">1</span>] <span class="op">=</span> <span class="fu">tuple</span>(v1star<span class="op">...</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>   <span class="cf">end</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">shift_first_vertices!</span>(lpoly11)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shift_first_vertices!</span>(lpoly12)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">shift_first_vertices!</span>(lpoly21)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">shift_first_vertices!</span>(lpoly22)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_line_segments!</span>(ax,lpoly)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  lines <span class="op">=</span> []</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> line <span class="kw">in</span> lpoly <span class="fu">push!</span>(lines,<span class="fu">lines!</span>(ax,line,color<span class="op">=:</span>black)) <span class="cf">end</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> lines</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_line_segments!</span>(axes[<span class="fl">1</span>,<span class="fl">1</span>],lpoly11)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_line_segments!</span>(axes[<span class="fl">1</span>,<span class="fl">2</span>],lpoly12)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_line_segments!</span>(axes[<span class="fl">2</span>,<span class="fl">1</span>],lpoly21)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_line_segments!</span>(axes[<span class="fl">2</span>,<span class="fl">2</span>],lpoly22)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="polygon_angles_files/figure-html/cell-7-output-1.svg" class="img-fluid"></p>
+</div>
+</div>
+<p>Once we have these lines in place, we can add the external angles. Ironically, the best tool in Makie for these angle drawings is the <code>poly!</code> function which plots a filled polygon from some given vertices. Thus, we need to compute the vertices of the arc for each angle of each polygon.</p>
+<p>This computation can be done by taking two connected line segments <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span>, identifying the angle between them using the law of cosines <span class="math inline">\(\arccos(d_1 \cdot d_2)\)</span>, and sampling points along the arc of given radius <span class="math inline">\(l\)</span>. Sampling the arc requires a little change of coordinates to center the points around the vertex connecting the two line segments and to rotate the standard <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> coordinates to align <span class="math inline">\(x\)</span> with <span class="math inline">\(d_1\)</span> and <span class="math inline">\(y\)</span> with <span class="math inline">\(d_1^\perp\)</span>. This is, in my opinion, the most challenging part of the plot.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">angle_vertices</span>(line1,line2,l<span class="op">=</span><span class="fl">1</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  v1 <span class="op">=</span> <span class="fu">collect</span>(line1[<span class="fl">1</span>])</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  v2 <span class="op">=</span> <span class="fu">collect</span>(line1[<span class="fl">2</span>]) <span class="co"># Shared vertex</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  v3 <span class="op">=</span> <span class="fu">collect</span>(line2[<span class="fl">2</span>])</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  d1 <span class="op">=</span> v2<span class="op">-</span>v1</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  d2 <span class="op">=</span> v3<span class="op">-</span>v2</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Line segment directions (normalized</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  d1 <span class="op">./=</span> <span class="fu">sqrt</span>(d1[<span class="fl">1</span>]<span class="op">^</span><span class="fl">2</span><span class="op">+</span>d1[<span class="fl">2</span>]<span class="op">^</span><span class="fl">2</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  d2 <span class="op">./=</span> <span class="fu">sqrt</span>(d2[<span class="fl">1</span>]<span class="op">^</span><span class="fl">2</span><span class="op">+</span>d2[<span class="fl">2</span>]<span class="op">^</span><span class="fl">2</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  d1perp <span class="op">=</span> [d1[<span class="fl">2</span>],<span class="op">-</span>d1[<span class="fl">1</span>]]</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  vertex <span class="op">=</span> <span class="fu">tuple</span>(v2<span class="op">...</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Computing angle between lines, then sampling arc points</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  angle <span class="op">=</span> <span class="fu">acos</span>(d1<span class="op">'*</span>d2)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  angle <span class="op">=</span> <span class="fu">isnan</span>(angle) ? <span class="fl">0.0</span> <span class="op">:</span> angle</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  angles <span class="op">=</span> <span class="fu">range</span>(<span class="fl">0</span>, angle, length<span class="op">=</span><span class="fl">10</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># arc has radius l, origin at v2, "x"-direction is d1, "y"-direction is d1perp</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  arc_points <span class="op">=</span> [<span class="fu">tuple</span>(@.( v2 <span class="op">-</span> <span class="fu">l*</span>(<span class="fu">d1*cos</span>(a) <span class="op">+</span> <span class="fu">d1perp*sin</span>(a)))<span class="op">...</span>) for a <span class="kw">in</span> angles]</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  vertices <span class="op">=</span> <span class="fu">vcat</span>(vertex,arc_points,vertex)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> vertices</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_arcs!</span>(ax,lpoly)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  arcs <span class="op">=</span> []</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  colors <span class="op">=</span> <span class="fu">to_colormap</span>(<span class="op">:</span>seaborn_colorblind)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(lpoly)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i<span class="op">+</span><span class="fl">1</span> <span class="op">&gt;</span> <span class="fu">length</span>(lpoly) <span class="co"># The angle between the last line segment and first</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>      color <span class="op">=</span> colors[i<span class="op">+</span><span class="fl">1</span>]</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>      arc_vertices <span class="op">=</span> <span class="fu">angle_vertices</span>(lpoly[i],lpoly[<span class="fl">1</span>])</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>      color <span class="op">=</span> colors[i]</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>      arc_vertices <span class="op">=</span> <span class="fu">angle_vertices</span>(lpoly[i],lpoly[i<span class="op">+</span><span class="fl">1</span>])</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(arcs,<span class="fu">poly!</span>(ax,arc_vertices,color<span class="op">=</span>color))</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> arcs</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_arcs!</span>(axes[<span class="fl">1</span>,<span class="fl">1</span>],lpoly11)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_arcs!</span>(axes[<span class="fl">1</span>,<span class="fl">2</span>],lpoly12)</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_arcs!</span>(axes[<span class="fl">2</span>,<span class="fl">1</span>],lpoly21)</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_arcs!</span>(axes[<span class="fl">2</span>,<span class="fl">2</span>],lpoly22)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="polygon_angles_files/figure-html/cell-8-output-1.svg" class="img-fluid"></p>
+</div>
+</div>
+<p>Now, removing the axes decorations, we have a clean plot of (almost) the first frame of the GIF:</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">remove_axis_decor!</span>(ax)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  ax.topspinevisible <span class="op">=</span> <span class="cn">false</span>; ax.bottomspinevisible <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  ax.leftspinevisible <span class="op">=</span> <span class="cn">false</span>; ax.rightspinevisible <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  ax.xgridvisible <span class="op">=</span> <span class="cn">false</span>; ax.ygridvisible <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  ax.xticksvisible <span class="op">=</span> <span class="cn">false</span>; ax.yticksvisible <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  ax.xticklabelsvisible <span class="op">=</span> <span class="cn">false</span>; ax.yticklabelsvisible <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">remove_axis_decor!</span>.(axes)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="polygon_angles_files/figure-html/cell-9-output-1.svg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="animating" class="level2">
+<h2 class="anchored" data-anchor-id="animating">Animating</h2>
+<p>With the initial plot now done, to complete the animation, it remains to shrink each polygon until the angles come together to form a circle. This can be simply done (with slight error) by computing the center of each polygon via averaging, centering the vertices around that center, then shrinking the vertices proportional to the number of steps in the animation. Putting everything together:</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fu">Figure</span>(resolution<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">800</span>));</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>axes <span class="op">=</span> [</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Axis</span>(f[<span class="fl">1</span>,<span class="fl">1</span>]) <span class="fu">Axis</span>(f[<span class="fl">1</span>,<span class="fl">2</span>]);</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Axis</span>(f[<span class="fl">2</span>,<span class="fl">1</span>]) <span class="fu">Axis</span>(f[<span class="fl">2</span>,<span class="fl">2</span>])</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes ax.limits <span class="op">=</span> (<span class="op">-</span><span class="fl">6</span>,<span class="fl">6</span>,<span class="op">-</span><span class="fl">6</span>,<span class="fl">6</span>) <span class="cf">end</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">remove_axis_decor!</span>.(axes)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>poly11 <span class="op">=</span> [(<span class="op">-</span><span class="fl">2.0</span>,<span class="fl">3.0</span>),(<span class="fl">3.0</span>,<span class="op">-</span><span class="fl">3.0</span>),(<span class="op">-</span><span class="fl">4.0</span>,<span class="op">-</span><span class="fl">2.0</span>),(<span class="op">-</span><span class="fl">2.0</span>,<span class="fl">3.0</span>)];</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>poly12 <span class="op">=</span> [(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">2.0</span>),(<span class="fl">1.0</span>,<span class="fl">1.0</span>),(<span class="fl">3.0</span>,<span class="op">-</span><span class="fl">2.0</span>),(<span class="op">-</span><span class="fl">4.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">2.0</span>)];</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>poly21 <span class="op">=</span> [(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">3.0</span>),(<span class="fl">1.0</span>,<span class="fl">3.0</span>),(<span class="fl">3.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="fl">1.0</span>,<span class="op">-</span><span class="fl">3.0</span>),(<span class="op">-</span><span class="fl">2.0</span>,<span class="op">-</span><span class="fl">2.0</span>),(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">1.0</span>),(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">3.0</span>)];</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>poly22 <span class="op">=</span> [(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">2.0</span>),(<span class="fl">1.0</span>,<span class="fl">2.0</span>),(<span class="fl">4.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="fl">2.0</span>,<span class="op">-</span><span class="fl">3.0</span>),(<span class="op">-</span><span class="fl">4.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">2.0</span>)];</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Polygon average centers</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">compute_center</span>(poly)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vec</span>(<span class="fu">sum</span>(<span class="fu">hcat</span>(<span class="fu">collect</span>.(poly)<span class="op">...</span>),dims<span class="op">=</span><span class="fl">2</span>)<span class="op">./</span><span class="fu">length</span>(poly))</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>c11 <span class="op">=</span> <span class="fu">compute_center</span>(poly11)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>c12 <span class="op">=</span> <span class="fu">compute_center</span>(poly12)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>c21 <span class="op">=</span> <span class="fu">compute_center</span>(poly21)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>c22 <span class="op">=</span> <span class="fu">compute_center</span>(poly22)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">shrink_polygon</span>(poly,c,step,steps)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  new_vertices <span class="op">=</span> <span class="fu">similar</span>(poly)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="fu">eachindex</span>(poly)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    vertex <span class="op">=</span> <span class="fu">collect</span>(poly[i]) <span class="op">-</span> c</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    new_vertex <span class="op">=</span> @. <span class="fu">vertex*</span>((steps<span class="op">-</span>step)<span class="op">/</span>(steps))</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    new_vertices[i] <span class="op">=</span> <span class="fu">tuple</span>((new_vertex <span class="op">+</span> c)<span class="op">...</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> new_vertices</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Animation (somewhat inefficient since it doesn't use Observables)</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> <span class="fl">120</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="fu">record</span>(f, <span class="st">"gifs/angle_gif.gif"</span>, <span class="fu">vcat</span>(<span class="fl">1</span><span class="op">:</span>(steps<span class="op">-</span><span class="fl">1</span>),<span class="fu">fill</span>(steps<span class="op">-</span><span class="fl">1</span>,steps<span class="op">÷</span><span class="fl">4</span>),(steps<span class="op">-</span><span class="fl">1</span>)<span class="op">:-</span><span class="fl">1</span><span class="op">:</span><span class="fl">1</span>)) <span class="cf">do</span> t</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">empty!</span>(axes[<span class="fl">1</span>,<span class="fl">1</span>].scene.plots)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">empty!</span>(axes[<span class="fl">1</span>,<span class="fl">2</span>].scene.plots)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">empty!</span>(axes[<span class="fl">2</span>,<span class="fl">1</span>].scene.plots)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">empty!</span>(axes[<span class="fl">2</span>,<span class="fl">2</span>].scene.plots)</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  npoly11 <span class="op">=</span> <span class="fu">shrink_polygon</span>(poly11,c11,t,steps)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>  npoly12 <span class="op">=</span> <span class="fu">shrink_polygon</span>(poly12,c12,t,steps)</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>  npoly21 <span class="op">=</span> <span class="fu">shrink_polygon</span>(poly21,c21,t,steps)</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>  npoly22 <span class="op">=</span> <span class="fu">shrink_polygon</span>(poly22,c22,t,steps)</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>  lpoly11 <span class="op">=</span> [[npoly11[i],npoly11[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(npoly11)<span class="op">-</span><span class="fl">1</span>];</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>  lpoly12 <span class="op">=</span> [[npoly12[i],npoly12[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(npoly12)<span class="op">-</span><span class="fl">1</span>];</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  lpoly21 <span class="op">=</span> [[npoly21[i],npoly21[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(npoly21)<span class="op">-</span><span class="fl">1</span>];</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>  lpoly22 <span class="op">=</span> [[npoly22[i],npoly22[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(npoly22)<span class="op">-</span><span class="fl">1</span>];</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shift_first_vertices!</span>(lpoly11)</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shift_first_vertices!</span>(lpoly12)</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shift_first_vertices!</span>(lpoly21)</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shift_first_vertices!</span>(lpoly22)</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">poly!</span>(axes[<span class="fl">1</span>,<span class="fl">1</span>],npoly11,transparency<span class="op">=</span><span class="cn">true</span>,color<span class="op">=</span><span class="fu">RGBAf</span>(<span class="fl">1.0</span>,<span class="fl">0.6</span>,<span class="fl">0.0</span>,<span class="fl">0.2</span>));</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">poly!</span>(axes[<span class="fl">1</span>,<span class="fl">2</span>],npoly12,transparency<span class="op">=</span><span class="cn">true</span>,color<span class="op">=</span><span class="fu">RGBAf</span>(<span class="fl">0.0</span>,<span class="fl">0.0</span>,<span class="fl">1.0</span>,<span class="fl">0.2</span>));</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">poly!</span>(axes[<span class="fl">2</span>,<span class="fl">1</span>],npoly21,transparency<span class="op">=</span><span class="cn">true</span>,color<span class="op">=</span><span class="fu">RGBAf</span>(<span class="fl">0.5</span>,<span class="fl">0.0</span>,<span class="fl">0.5</span>,<span class="fl">0.2</span>));</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">poly!</span>(axes[<span class="fl">2</span>,<span class="fl">2</span>],npoly22,transparency<span class="op">=</span><span class="cn">true</span>,color<span class="op">=</span><span class="fu">RGBAf</span>(<span class="fl">0.0</span>,<span class="fl">0.5</span>,<span class="fl">0.0</span>,<span class="fl">0.2</span>));</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_arcs!</span>(axes[<span class="fl">1</span>,<span class="fl">1</span>],lpoly11)</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_arcs!</span>(axes[<span class="fl">1</span>,<span class="fl">2</span>],lpoly12)</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_arcs!</span>(axes[<span class="fl">2</span>,<span class="fl">1</span>],lpoly21)</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_arcs!</span>(axes[<span class="fl">2</span>,<span class="fl">2</span>],lpoly22)</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_line_segments!</span>(axes[<span class="fl">1</span>,<span class="fl">1</span>],lpoly11)</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_line_segments!</span>(axes[<span class="fl">1</span>,<span class="fl">2</span>],lpoly12)</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_line_segments!</span>(axes[<span class="fl">2</span>,<span class="fl">1</span>],lpoly21)</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_line_segments!</span>(axes[<span class="fl">2</span>,<span class="fl">2</span>],lpoly22)</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="gifs/angle_gif.gif" class="img-fluid"></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/connor-robertson-773ba8b1/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cnrrobertson">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">Connor Robertson, Copyright 2022</div>
+  </div>
+</footer>
+
+
+
+</body></html>
