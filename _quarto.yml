@@ -86,6 +86,7 @@ website:
           href: other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd
           contents:
             - text: ""
+            - text: ""
             # - text: "Workshop 1: Intro"
             #   href: other/machinelearning_optimization_seminar/workshop1_intro.qmd
 
