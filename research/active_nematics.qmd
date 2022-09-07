@@ -11,7 +11,7 @@ Most prominent may be in the cell cytoplasm, where suspensions of microtubules i
 An experiment was pioneered by Zvonimir Dogic and collaboraters that allowed for high quality video to be taken of this microtubule-kinesin system[@decamp2015orientational]:
 
 <div style="text-align: center;">
-<video width="80%" height="80%" controls src="resources/CUT_DeCamp_2015-Supplemental_Video_1.mp4"></video>
+![](resources/CUT_DeCamp_2015-Supplemental_Video_1.mp4){width="80%" height="80%"}
 </div>
 
 Several models have been proposed for this system via a continuum "Q-tensor" theory.
