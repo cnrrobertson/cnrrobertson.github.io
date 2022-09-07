@@ -62,7 +62,11 @@ website:
       style: "floating"
       collapse-level: 1
       contents:
-        - research/research.qmd
+        - section: "Research"
+          href: research/research.qmd
+          contents:
+            - text: "Data-driven modeling of active nematics"
+              href: research/active_nematics.qmd
     - title: "Just for Fun"
       style: "floating"
       collapse-level: 1
@@ -96,5 +100,9 @@ format:
     css: styles.css
     toc: true
 
-
+# --------------------------------------------------------------------------
+# Execution global options
+# --------------------------------------------------------------------------
+execute:
+  freeze: auto
 
