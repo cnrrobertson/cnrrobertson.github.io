@@ -1,0 +1,13 @@
+---
+title: Research
+---
+
+This section contains various overviews of the research projects that I have worked on or which I am currently working on.
+They are high level overviews of the project scope as well as references to papers and results.
+
+## Projects
+
+- [Data-driven discovery of a PDE model for an active nematic system](active_nematics.qmd)
+<!-- - [Predicting bacterial growth using convolutional recurrent neural networks]() -->
+<!-- - [Predicting water main breaks for public utilities]() -->
+<!-- - [Optimizing decision-making for new water infrastructure in developing areas]() -->

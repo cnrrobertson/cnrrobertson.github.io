@@ -1,0 +1,48 @@
+---
+title: Machine Learning and Optimization Seminar
+---
+
+This is a Department of Mathematical Sciences student-led seminar at NJIT.
+The goal of the seminar is to expose the participants to topics in machine learning and optimization by:
+
+1. Facilitating hands-on workshops and group discussions to explore and gain experience
+2. Inviting speakers to introduce machine learning and optimization concepts (both established and under development)
+
+## Fall 2022
+
+### Workshops
+
+### Presentations
+
+---
+## Past Semesters
+
+
+### Spring 2022
+- [Wasserstein GANs Work Because They Fail](spring_2022/O_MT_1_Turnquist.pdf) - Axel Turnquist
+- [Mean-field Theory: Drift and the Mean Drift](spring_2022/O_MT_2_G u.pdf) - Binan Gu
+
+### Fall 2021
+- [Computing the Distance Between Probability Measures](fall_2021/Computing\ the\ Distance\ Between\ Probability\ Measures\ -\ Axel\ Turnquist.pdf) - Axel Turnquist
+- [Full Waveform Inversion Using the Wasserstein Metric](fall_2021/Full\ Waveform\ Inversion\ Using\ the\ Wasserstein\ Metric\ -\ Brittany\ Hamfeldt.pdf) - Brittany Hamfeldt
+- [Image Sharpening](fall_2021/Image\ Sharpening\ -\ Axel\ Turnquist.pdf) - Axel Turnquist
+- [Neural Networks for function approximation and data-driven modeling](fall_2021/Neural\ networks\ for\ function\ approximation\ and\ -\ Connor\ Robertson.pdf) - Connor Robertson
+- [Optimal control of systems governed by PDEs with uncertainty](fall_2021/Optimal\ control\ of\ systems\ governed\ by\ PDEs\ with\ -\ Georg\ Stadler.pdf) - Georg Stadler
+- [Stochastic Temporal Networks](fall_2021/Stochastic\ Temporal\ Networks\ -\ Binan\ Gu.pdf) - Binan Gu
+- [Topological Data Analysis Applied to Interaction Networks in Particulate Systems](fall_2021/Topological\ Data\ Analysis\ Applied\ to\ Interaction\ Networks\ in\ Particulate\ Systems\ -\ Lou\ Kondic.pdf) - Lou Kondic
+
+### Spring 2021
+- [Spin Glass and High Dimensional Energy Landscape](spring_2021/Talk_II_Gu_energy_landscape.pdf) - Binan Gu
+- [Diffusion Approximations and Applications in Non-convex Optimization](spring_2021/Talk_IX_Gu_diffusion_approx.pdf) - Binan Gu
+- [Stochastic Gradient Descent and How I Learned to Love the Randomness](spring_2021/Talk_X_McCann_SGD.pptx) - Joe McCann
+
+### Fall 2020
+- [Why does stochastic gradient descent work so well?](fall_2020/Autumn\ Machine\ Learning\ I.pdf) - Axel Turnquist
+- [Information Geometry & Learning](fall_2020/Autumn\ Machine\ Learning\ II.pdf) - Axel Turnquist
+- [Graph-based Learning Beyond the Paradigm of Neural Networks](fall_2020/Autumn\ Machine\ Learning\ III.pdf) - Binan Gu
+- [Effective Dimension in High-Dimensional Problems](fall_2020/Autumn\ Machine\ Learning\ IV.pdf) - Axel Turnquist
+- [Bayesian Statistics and Machine Learning](fall_2020/Autumn\ Machine\ Learning\ V.pdf) - Gan Luan
+- [Matrix Completion and Sparse Recovery](fall_2020/Autumn\ Machine\ Learning\ VI.pdf) - Axel Turnquist
+- [Wasserstein GAN](fall_2020/Autumn\ Machine\ Learning\ VII.pdf) - Yixuan Sun
+- [Graphical Model Selection](fall_2020/Autumn\ Machine\ Learning\ VIII.pdf) - Binan Gu
+- [Learning Frameworks](fall_2020/Autumn\ Machine\ Learning\ X.pdf) - Axel Turnquist

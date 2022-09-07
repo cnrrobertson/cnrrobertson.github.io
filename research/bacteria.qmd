@@ -1,0 +1,6 @@
+---
+title: Predicting bacterial growth via recurrent neural networks and experimental images
+csl: american-physics-society.csl
+author: Connor Robertson, [Miguel Fuentes-Cabrera](https://www.ornl.gov/staff-profile/miguel-fuentes-cabrera)
+---
+

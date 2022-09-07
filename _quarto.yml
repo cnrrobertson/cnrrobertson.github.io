@@ -1,0 +1,100 @@
+project:
+  type: website
+
+website:
+  # --------------------------------------------------------------------------
+  # General website settings
+  # --------------------------------------------------------------------------
+  title: "Connor Robertson"
+  # favicon: assets/wavy-dash-svgrepo-com.svg
+  favicon: assets/circle-svgrepo-com.svg
+  search:
+    location: navbar
+    type: textbox
+  # --------------------------------------------------------------------------
+  # Top bar
+  # --------------------------------------------------------------------------
+  navbar:
+    left:
+      - text: "CV"
+        href: assets/CV_Connor_Robertson_5_22.pdf
+      - text: "Teaching"
+        file: teaching/teaching.qmd
+      - text: "Research"
+        file: research/research.qmd
+      - text: "Other"
+        menu:
+          - text: "Just for Fun"
+            file: other/fun/fun.qmd
+          - text: "Machine Learning and Optimization Seminar"
+            file: other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd
+  # --------------------------------------------------------------------------
+  # Footer
+  # --------------------------------------------------------------------------
+  page-footer: 
+    right: "Connor Robertson, Copyright 2022" 
+    left:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/connor-robertson-773ba8b1/
+      - icon: github
+        href: https://github.com/cnrrobertson
+  # --------------------------------------------------------------------------
+  # Sidebar
+  # --------------------------------------------------------------------------
+  sidebar:
+    - title: "Teaching"
+      style: "floating"
+      collapse-level: 1
+      contents:
+        - teaching/teaching.qmd
+        - section: "Math 110 - Precalculus"
+          href: teaching/math110/math110.qmd
+          contents:
+            - teaching/math110/section4_1.qmd
+        - section: "Math 111 - Calculus I"
+          href: teaching/math111/math111.qmd
+          contents:
+            - teaching/math111/section2_1.qmd
+        - section: "Math 340 - Applied Numerical Methods"
+          contents:
+            - teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.qmd
+    - title: "Research"
+      style: "floating"
+      collapse-level: 1
+      contents:
+        - research/research.qmd
+    - title: "Just for Fun"
+      style: "floating"
+      collapse-level: 1
+      contents:
+        - section: "Just for fun"
+          href: other/fun/fun.qmd
+          contents:
+            - text: "Polygon angles"
+              href: other/fun/polygon_angles.qmd
+            - text: "Geocentrism"
+              href: other/fun/heliocentric_geocentric.qmd
+    - title: "Machine Learning and Optimization Seminar"
+      style: "floating"
+      collapse-level: 1
+      contents:
+        - section: "Machine Learning and Optimization Seminar"
+          href: other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd
+          contents:
+            - text: ""
+            # - text: "Workshop 1: Intro"
+            #   href: other/machinelearning_optimization_seminar/workshop1_intro.qmd
+
+# --------------------------------------------------------------------------
+# Theme
+# --------------------------------------------------------------------------
+format:
+  html:
+    theme: 
+      light: simplex
+      dark: cyborg
+    css: styles.css
+    toc: true
+
+
+

@@ -1,0 +1,6 @@
+---
+title: Math 110 - Precalculus
+---
+
+This website section contains some resources for the Fall 2022 Math 110 Sections 11 and 13 at NJIT.
+Hopefully, the notes, problems, and supplementary plots/videos/animations can help deepen understanding or act as a reference for review.

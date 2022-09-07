@@ -1,0 +1,256 @@
+---
+title: Lab 1 - Brief Introduction to Matlab
+author: Connor Robertson
+<!-- date: today -->
+---
+
+## Example 1: Arrays
+
+Here are a few basic calculations and constructions that you will need to use throughout the course for building arrays of numbers. Take note of these constructions as they will be useful for the entire course.
+
+### Creating arrays
+A row vector, `X=(0 1 2 3)` is commonly written in three ways:
+
+**1. Using brackets:**
+```{matlab}
+X=[0 1 2 3]
+```
+If `;` is included at the end of the line, the output will be supressed.
+The command will still be executed, but nothing will be printed.
+```{matlab}
+X=[0 1 2 3];
+```
+**2. Using the `linspace` function:**
+```{matlab}
+X=linspace(0, 3, 4)
+```
+This gives `4` equally spaced points between and including `0` and `3` as shown above.
+`linspace` is a function included in the Matlab standard library i.e. it is always available.
+
+**3. In the form `a:step:b`:**
+```{matlab}
+X=0:1:3
+```
+This will give all points between and including `0` to `3` with step size `1` between each point.
+It can also be written as `X=0:3` which uses the default step size `1`.
+
+### Array operations
+Once we have these arrays, we can apply an operation to each element in the array.
+For example, to compute $Y = [e^0, e^2, e^2, e^3]$, we use the Matlab standard library function `exp` for exponential:
+```{matlab}
+Y=exp(X)
+```
+Or to apply `sin` to each element of the array:
+```{matlab}
+S=sin(X)
+```
+Or to make an array `Q` with the square root to each element of the array `X`:
+```{matlab}
+Q=sqrt(X)
+```
+
+### Standard array forms
+To create a $2\times2$ identity matrix:
+```{matlab}
+Id=[1 0; 0 1]
+```
+Note that the `;` in the array definition marks the end of a row.
+There is also a Matlab standard library function `eye` that can be used as:
+```{matlab}
+Id2=eye(2)
+```
+A $4\times 4$ identity matrix is then:
+```{matlab}
+Id4=eye(4)
+```
+To make a length 4 column vector (4 rows, 1 column) of all zeros, we can use the standard library `zeros` function:
+```{matlab}
+z = zeros(4,1)
+```
+This can be extended to a $4\times4$ matrix of all zeros:
+```{matlab}
+Z=zeros(4,4)
+```
+Or a $3\times3$ matrix of all ones:
+```{matlab}
+W=ones(3,3)
+```
+
+### Array manipulation
+If we wanted to compute the matrix-vector product of `Id4` with our previous row vector `X`, we would first need to transpose `X` into a column vector.
+This can be done with either the standard library `transpose` function or the operator `'`:
+```{matlab}
+Y=Id4 * X'
+```
+or
+```{matlab}
+Y=Id4 * transpose(X)
+```
+Failing to transpose will give an error:
+```{matlab}
+Id4 * X
+```
+
+## Example 2: Common operations
+In Matlab, the `*` operator means "dot product" when working with matrices and vectors.
+If we instead wish to apply a multiplication operation to each element of an array, we preface the operation with a dot, i.e. `.*`.
+This elementwise operator syntax with an additional period extends to division and exponents as `./` and `.^` respectively.
+Observe the difference between the products `A*B` and `A.*B` in the following examples:
+```{matlab}
+A=[1 0; 0 1]
+B=[0 1; 1 0]
+x = [1 ; 0]
+```
+The dot product is `A*B`:
+```{matlab}
+A*B
+A * x
+```
+The elementwise product is `A.*B`:
+```{matlab}
+A.*B
+```
+This product is the product of each element of `A` with each corresponding element of `B`.
+
+## Example 3: Plotting in Matlab
+To plot a line in Matlab, you will need to pass in arrays of $x$ and $y$ positions to the standard library `plot` function.
+These positions will be used as $(x,y)$ coordinates through which the line will pass.
+In this example we will define our function using an inline (or anonymous) function.
+More complicated functions can be found at the bottom of this page.
+
+First, create the function we would like to plot:
+```{matlab}
+f=@(x) x.^3;
+```
+This is now a function variable `f` to which we can pass in a value `x` and it will compute $x^3$.
+We use `.^` so that we can pass an array `x` into the function.
+We can now create a set of 1000 equally spaced `x` values between -2 and 2:
+```{matlab}
+X =linspace(-2, 2, 1000);
+```
+and cube each of them using our function `f` to get an array of 1000 `y` points:
+```{matlab}
+Y=f(X);
+```
+We can now pass `X` and `Y` as our $x$ and $y$ positions to the `plot` function to get a line that passes through each $(x,y)$ in order.
+```{matlab}
+plot(X,Y)
+```
+There are several additional parameters we can pass into the `plot` function to change the line style and color of the lines.
+Judgement should be used to determine which plot options to use to make your results of your work clear.
+
+We can now create a new `figure` (a new plotting area with no lines on it) and plot our points with several additional decorations:
+```{matlab}
+figure()
+plot(X,Y,'r','LineWidth',1); % 'r' => red line
+
+hold on
+plot(X,X);
+
+grid on
+
+axis([-1 1 -2 2]);
+
+xlabel('x','fontsize',14); 
+ylabel('f(x)','fontsize',14);
+
+title('Plot example',...
+    'fontsize',14);
+
+legend('x^3', 'x');
+```
+The `'LineWidth'` marks that the width will be changed and 1 is the selected line width.
+The `hold on` command will keep the current `figure` for all new plots and plotting commands until a new figure is created with `figure()` or the hold is removed with `hold off`.
+This allows more lines to be added to the current figure.
+`grid on` turns on grid lines for the figure and `axis` is a function to determine the limits of the x and y axes.
+`xlabel` and `ylabel` are functions for labeling the figure axes and `title` is a function to give the figure a title.
+Note that the `...` tells Matlab that the function inputs are continued on the next line.
+The `legend` function allows for annotating the plots in the figure in the order they were plotted.
+
+## Example 4: Control flow
+One standard programming construct is that of a "for loop."
+The following simple example shows how to implement a for loop to add the numbers between 1 and N. 
+We will find the sum of the first 50 numbers
+
+```{matlab}
+N=50;
+
+% Initialize the sum variable as 0. We are going to add to this
+sumN = 0;
+for i=1:N
+    
+    % In each iteration we will add the new number i to our sum
+    sumN = sumN+i;
+end
+```
+
+`disp` is the matlab function for "displaying" or printing a value or array.
+`num2str` is the matlab function to convert a number to a "string" which is a datatype meant for sequences of letters.
+This is especially useful for printing by combining different strings as shown below:
+
+```{matlab}
+result = ['The sum of the first ' num2str(N) ' numbers is ' num2str(sumN)];
+disp(result)
+```
+This algorithm is also packaged as a Matlab function `SumN` at the bottom of this file.
+In this course, all algorithms will be written as a function so they can be easily reused.
+However, all functions in Matlab scripts must be placed at the end of the file, so scroll down to see the function `SumN`.
+```{matlab}
+total=SumN(N);
+result2 = ['The Sum is still ', num2str(total)];
+disp(result2)
+```
+
+## Example 5: A simple numerical method (Taylor series)
+As an application of the examples above, the following shows how to approximate the $\sin$ function at a point $x$using the Taylor series of $\sin$ (centered at 0).
+This makes use of for loops as demonstrated above.
+
+If we consider $x=1$ and use the first $N=20$ terms in the Taylor series, we initialize our variables:
+```{matlab}
+x = 1;
+N = 20;
+```
+We then initialize a variable `my_sin1` in which we will store the result and use the for loop to add each term evaluated at $x=1$ to the variable:
+```{matlab}
+my_sin1 = 0;
+for n=0:N
+    new_term = (-1)^n * (x^(2*n+1)) / factorial(2*n + 1);
+    my_sin1 = my_sin1 + new_term;
+end
+```
+We can compare our approximation with Matlab's approximation of $\sin(1)$ by comparing it with the standard library function `sin`:
+```{matlab}
+disp("My answer:")
+disp(my_sin1)
+disp("Matlab's answer:")
+disp(sin(1))
+```
+A function that takes as inputs `x` and `N` and computes the taylor series approximation of $\sin$ as we just have for `x=1,N=20` can be seen at the bottom of this file under the name `my_sin`.
+We can verify that it gives the same result:
+```{matlab}
+disp(my_sin(1, 20))
+```
+
+## Functions
+```matlab
+function [output] = SumN(input)
+    % The names "input" and "output" are chosen to make it clear how this
+    % function works. The names don't matter as long as they are consistent.
+    N=input;
+    sum=0;
+    for i=1:N
+        % In each iteration we will add the new number to our sum
+        sum=sum+i;
+    end
+    output=sum;
+end;
+```
+```matlab
+function [answer] = my_sin(x, N)
+    answer = 0;
+    for n=0:N
+        new_term = (-1)^n * (x^(2*n+1)) / factorial(2*n + 1);
+        answer = answer + new_term;
+    end
+end
+```

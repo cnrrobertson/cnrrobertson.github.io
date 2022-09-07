@@ -1,0 +1,31 @@
+---
+title: "Connor Robertson"
+about:
+    template: trestles
+    image: assets/Robertson2.jpg
+    links:
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/connor-robertson-773ba8b1/
+      - icon: github
+        text: Github
+        href: https://github.com/cnrrobertson
+---
+
+I am a PhD student of Applied Mathematics at the New Jersey Institute of Technology.
+My current research is focused on data-driven model discovery for active nematic fluid systems.
+But I'm generally interested in the intersections between machine learning and data science with traditional approaches in computational science.
+
+<!-- I am also fascinated by the topics of public infrastructure and agriculture, although they are quite unrelated to my current work. -->
+<!-- Honestly, I'm interested in most topics once I get chatting, so please reach out! -->
+
+On this site you can find my [CV](assets/CV_Connor_Robertson_5_22.pdf), my [LinkedIn](https://www.linkedin.com/in/connor-robertson-773ba8b1/) and [Github](https://github.com/cnrrobertson) profiles, and some other little tidbits for [teaching](teaching/teaching.html), [research](research/research.html), [seminars](other/machinelearning_optimization_seminar/workshop1_intro.qmd), and [general exploration](other/fun/fun.qmd).
+
+<!-- ## Education -->
+<!---->
+<!-- **PhD in Applied Mathematics** | Sep 2018 - Now |  -->
+<!-- New Jersey Institute of Technology | Newark, NJ -->
+<!---->
+<!-- **B.S. in Applied and Computational Mathematics** | Sep 2012 - Apr 2018 |  -->
+<!-- Brigham Young University | Provo, UT -->
+

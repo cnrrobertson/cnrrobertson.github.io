@@ -1,0 +1,23 @@
+---
+title: Data-driven model discovery for an active nematic system
+bibliography: active_nematics.bib
+csl: american-physics-society.csl
+author: Connor Robertson, [Anand Oza](https://people.njit.edu/faculty/oza), [Travis Askham](https://people.njit.edu/faculty/askham)
+---
+
+Active nematics are an active matter system made up of self-propelled rod-like material in nematic order (loosely aligned without being spatially organized).
+This seemingly obscure system actually appears in a variety of, mostly biological, settings.
+Most prominent may be in the cell cytoplasm, where suspensions of microtubules interact to transport nutrients and organelles throughout the cell[@Pringle_2013].
+An experiment was pioneered by Zvonimir Dogic and collaboraters that allowed for high quality video to be taken of this microtubule-kinesin system[@decamp2015orientational]:
+
+<div style="text-align: center;">
+<video width="80%" height="80%" controls src="resources/CUT_DeCamp_2015-Supplemental_Video_1.mp4"></video>
+</div>
+
+Several models have been proposed for this system via a continuum "Q-tensor" theory.
+The models consist of coupled partial differential evolution equations for the orientation and velocity of the microtubules (and occasionally the concentration).
+Though successful, there has been some disagreement on the model form[@doostmohammadi2018active;@oza2016antipolar;@gao2017analytical;@decamp2015orientational]
+
+Our goal is to provide a data-driven model that can lend insight into the various proposed model forms using the Sparse Identification of Nonlinear Dynamics (SINDy) modeling framework[@brunton2016discovering].
+
+This work has been presented at a few events including the [APS March meeting 2022](https://meetings.aps.org/Meeting/MAR22/Session/M20.7).
