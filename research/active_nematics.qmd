@@ -2,22 +2,28 @@
 title: Data-driven model discovery for an active nematic system
 bibliography: active_nematics.bib
 csl: american-physics-society.csl
-author: Connor Robertson, [Anand Oza](https://people.njit.edu/faculty/oza), [Travis Askham](https://people.njit.edu/faculty/askham)
+author: Connor Robertson, [Anand Oza (NJIT)](https://people.njit.edu/faculty/oza), [Travis Askham (NJIT)](https://people.njit.edu/faculty/askham)
 ---
 
-Active nematics are an active matter system made up of self-propelled rod-like material in nematic order (loosely aligned without being spatially organized).
+Active nematics refer to active matter systems made up of self-propelled rod-like material in nematic order (loosely aligned without being spatially organized).
 This seemingly obscure system actually appears in a variety of, mostly biological, settings.
-Most prominent may be in the cell cytoplasm, where suspensions of microtubules interact to transport nutrients and organelles throughout the cell[@Pringle_2013].
-An experiment was pioneered by Zvonimir Dogic and collaboraters that allowed for high quality video to be taken of this microtubule-kinesin system[@decamp2015orientational]:
+Most prominently, active nematics play a large role in the cell cytoplasm, where suspensions of microtubules moved by kinesin proteins are key in the structural integrity of the cell and in transporting nutrients and organelles within the cell[@Pringle_2013].
+High quality video of this microtubule-kinesin system in a 2D plane were taken in a pioneering experiment by Zvonimir Dogic and collaborators[@decamp2015orientational] as seen below:
 
 <div style="text-align: center;">
 ![](resources/CUT_DeCamp_2015-Supplemental_Video_1.mp4){width="80%" height="80%"}
 </div>
 
 Several models have been proposed for this system via a continuum "Q-tensor" theory.
-The models consist of coupled partial differential evolution equations for the orientation and velocity of the microtubules (and occasionally the concentration).
-Though successful, there has been some disagreement on the model form[@doostmohammadi2018active;@oza2016antipolar;@gao2017analytical;@decamp2015orientational]
+The models consist of coupled partial differential time-evolution equations for the orientation and velocity of the microtubules (and occasionally the concentration).
+Though successful in recreating some of the most salient qualitative behavior, there has been some disagreement on the model form and the exact quantitative agreement[@doostmohammadi2018active;@oza2016antipolar;@gao2017analytical;@decamp2015orientational].
 
-Our goal is to provide a data-driven model that can lend insight into the various proposed model forms using the Sparse Identification of Nonlinear Dynamics (SINDy) modeling framework[@brunton2016discovering].
+This project aims to provide a data-driven model that can lend insight into the various proposed model forms using the Sparse Identification of Nonlinear Dynamics (SINDy) modeling framework[@brunton2016discovering].
+It involves:
 
-This work has been presented at a few events including the [APS March meeting 2022](https://meetings.aps.org/Meeting/MAR22/Session/M20.7).
+1. Accurately extracting the orientation, concentration, and velocity of the microtubles in the above video
+2. Generating a library of possible terms for each evolution equation via symbolic computation, data fitting, and numerical differentiation of noisy data
+3. Using techniques in sparse regression and variable selection to identify the most probable form for the evolution equations
+4. Simulating the resulting models and comparing the results both qualitatively and quantitatively with the information extracted from the experimental images
+
+This work was presented at the [APS March meeting 2022](https://meetings.aps.org/Meeting/MAR22/Session/M20.7) and will soon be presented at [APS DFD meeting 2022](https://www.apsdfd2022.org).

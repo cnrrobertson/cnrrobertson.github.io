@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Connor Robertson, Anand Oza, Travis Askham">
+<meta name="author" content="Connor Robertson, Anand Oza (NJIT), Travis Askham (NJIT)">
 
 <title>Connor Robertson - Data-driven model discovery for an active nematic system</title>
 <style>
@@ -184,7 +184,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Connor Robertson, <a href="https://people.njit.edu/faculty/oza">Anand Oza</a>, <a href="https://people.njit.edu/faculty/askham">Travis Askham</a> </p>
+             <p>Connor Robertson, <a href="https://people.njit.edu/faculty/oza">Anand Oza (NJIT)</a>, <a href="https://people.njit.edu/faculty/askham">Travis Askham (NJIT)</a> </p>
           </div>
   </div>
     
@@ -194,13 +194,19 @@ div.csl-indent {
 
 </header>
 
-<p>Active nematics are an active matter system made up of self-propelled rod-like material in nematic order (loosely aligned without being spatially organized). This seemingly obscure system actually appears in a variety of, mostly biological, settings. Most prominent may be in the cell cytoplasm, where suspensions of microtubules interact to transport nutrients and organelles throughout the cell<span class="citation" data-cites="Pringle_2013">&nbsp;[<a href="#ref-Pringle_2013" role="doc-biblioref">1</a>]</span>. An experiment was pioneered by Zvonimir Dogic and collaboraters that allowed for high quality video to be taken of this microtubule-kinesin system<span class="citation" data-cites="decamp2015orientational">&nbsp;[<a href="#ref-decamp2015orientational" role="doc-biblioref">2</a>]</span>:</p>
+<p>Active nematics refer to active matter systems made up of self-propelled rod-like material in nematic order (loosely aligned without being spatially organized). This seemingly obscure system actually appears in a variety of, mostly biological, settings. Most prominently, active nematics play a large role in the cell cytoplasm, where suspensions of microtubules moved by kinesin proteins are key in the structural integrity of the cell and in transporting nutrients and organelles within the cell<span class="citation" data-cites="Pringle_2013">&nbsp;[<a href="#ref-Pringle_2013" role="doc-biblioref">1</a>]</span>. High quality video of this microtubule-kinesin system in a 2D plane were taken in a pioneering experiment by Zvonimir Dogic and collaborators<span class="citation" data-cites="decamp2015orientational">&nbsp;[<a href="#ref-decamp2015orientational" role="doc-biblioref">2</a>]</span> as seen below:</p>
 <div style="text-align: center;">
 <p><video src="resources/CUT_DeCamp_2015-Supplemental_Video_1.mp4" style="width:80.0%;height:80.0%" controls=""><a href="resources/CUT_DeCamp_2015-Supplemental_Video_1.mp4">Video</a></video></p>
 </div>
-<p>Several models have been proposed for this system via a continuum “Q-tensor” theory. The models consist of coupled partial differential evolution equations for the orientation and velocity of the microtubules (and occasionally the concentration). Though successful, there has been some disagreement on the model form<span class="citation" data-cites="doostmohammadi2018active oza2016antipolar gao2017analytical decamp2015orientational">&nbsp;[<a href="#ref-decamp2015orientational" role="doc-biblioref">2</a>–<a href="#ref-gao2017analytical" role="doc-biblioref">5</a>]</span></p>
-<p>Our goal is to provide a data-driven model that can lend insight into the various proposed model forms using the Sparse Identification of Nonlinear Dynamics (SINDy) modeling framework<span class="citation" data-cites="brunton2016discovering">&nbsp;[<a href="#ref-brunton2016discovering" role="doc-biblioref">6</a>]</span>.</p>
-<p>This work has been presented at a few events including the <a href="https://meetings.aps.org/Meeting/MAR22/Session/M20.7">APS March meeting 2022</a>.</p>
+<p>Several models have been proposed for this system via a continuum “Q-tensor” theory. The models consist of coupled partial differential time-evolution equations for the orientation and velocity of the microtubules (and occasionally the concentration). Though successful in recreating some of the most salient qualitative behavior, there has been some disagreement on the model form and the exact quantitative agreement<span class="citation" data-cites="doostmohammadi2018active oza2016antipolar gao2017analytical decamp2015orientational">&nbsp;[<a href="#ref-decamp2015orientational" role="doc-biblioref">2</a>–<a href="#ref-gao2017analytical" role="doc-biblioref">5</a>]</span>.</p>
+<p>This project aims to provide a data-driven model that can lend insight into the various proposed model forms using the Sparse Identification of Nonlinear Dynamics (SINDy) modeling framework<span class="citation" data-cites="brunton2016discovering">&nbsp;[<a href="#ref-brunton2016discovering" role="doc-biblioref">6</a>]</span>. It involves:</p>
+<ol type="1">
+<li>Accurately extracting the orientation, concentration, and velocity of the microtubles in the above video</li>
+<li>Generating a library of possible terms for each evolution equation via symbolic computation, data fitting, and numerical differentiation of noisy data</li>
+<li>Using techniques in sparse regression and variable selection to identify the most probable form for the evolution equations</li>
+<li>Simulating the resulting models and comparing the results both qualitatively and quantitatively with the information extracted from the experimental images</li>
+</ol>
+<p>This work was presented at the <a href="https://meetings.aps.org/Meeting/MAR22/Session/M20.7">APS March meeting 2022</a> and will soon be presented at <a href="https://www.apsdfd2022.org">APS DFD meeting 2022</a>.</p>
 
 
 
