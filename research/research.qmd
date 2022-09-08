@@ -8,6 +8,6 @@ They are high level overviews of the project scope as well as references to pape
 ## Projects
 
 - [Data-driven discovery of a PDE model for an active nematic system](active_nematics.qmd)
-<!-- - [Predicting bacterial growth using convolutional recurrent neural networks]() -->
+- [Predicting bacterial growth in experimental images using recurrent neural networks](bacteria.qmd)
 <!-- - [Predicting water main breaks for public utilities]() -->
 <!-- - [Optimizing decision-making for new water infrastructure in developing areas]() -->

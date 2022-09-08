@@ -1,6 +1,24 @@
 ---
-title: Predicting bacterial growth via recurrent neural networks and experimental images
+title: Predicting bacterial growth in experimental images via recurrent neural networks
+bibliography: bacteria.bib
 csl: american-physics-society.csl
-author: Connor Robertson, [Miguel Fuentes-Cabrera](https://www.ornl.gov/staff-profile/miguel-fuentes-cabrera)
+author: Connor Robertson, [Miguel Fuentes-Cabrera (ORNL)](https://www.ornl.gov/staff-profile/miguel-fuentes-cabrera)
 ---
 
+Over the last several decades, advances in genetic sequencing and identification have massively expanded the catalog of bacterial species and strains.
+This in turn has exposed the myriad of ways that communities of bacteria contribute to the health and proper function of the natural world.
+However, these communities are often made up of a variety of species and strains whose interactions are incredibly complex.
+Researchers have thus looked for new experimental and analytical tools to capture and model this complexity or to forecast its outcome.
+Recently, deep learning methods developed for fields as diverse as weather prediction or self-driving cars have presented a new angle with which to approach this analysis.
+
+This project focused on predicting the growth of a heterogeneous culture of bacterial strains via experimental images of their interactions and a spatiotemporal convolutional recurrent neural network called [PredRNN](https://github.com/thuml/predrnn-pytorch)[@9749915].
+Specifically, the network was trained on sequences of images from microwell arrays which show the growth of two mutant strains of _Pseudomonas aeruginosa_ in a single well (one which can kill the other)[@timm2017assembly].
+A sample of one of these sequences can be seen below.
+The network then outputs a predicted sequence of subsequent images, which we compared with the true images via popular image metrics such as Learned Perceptual Image Patch Similarity (LPIPS) as well as with biological metrics such as the number and size of colonies of each strain.
+The results of this work can be found in this [preprint](http://export.arxiv.org/abs/2205.05810v1)[@robertson2022performing].
+
+<div style="text-align: center;">
+![](resources/show_well.jpg){width="100%" height="100%"}
+</div>
+
+This same technique was also applied to accelerate the results of an agent based model of the same system which can be found in this [preprint](https://www.biorxiv.org/content/10.1101/2021.10.11.463942v1)[@Sakkos2021.10.11.463942].

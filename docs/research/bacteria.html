@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Connor Robertson, Miguel Fuentes-Cabrera">
+<meta name="author" content="Connor Robertson, Miguel Fuentes-Cabrera (ORNL)">
 
-<title>Connor Robertson - Predicting bacterial growth via recurrent neural networks and experimental images</title>
+<title>Connor Robertson - Predicting bacterial growth in experimental images via recurrent neural networks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -126,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Predicting bacterial growth via recurrent neural networks and experimental images</h1>
+<h1 class="title">Predicting bacterial growth in experimental images via recurrent neural networks</h1>
 </div>
 
 
@@ -136,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Connor Robertson, <a href="https://www.ornl.gov/staff-profile/miguel-fuentes-cabrera">Miguel Fuentes-Cabrera</a> </p>
+             <p>Connor Robertson, <a href="https://www.ornl.gov/staff-profile/miguel-fuentes-cabrera">Miguel Fuentes-Cabrera (ORNL)</a> </p>
           </div>
   </div>
     
@@ -146,10 +165,30 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Over the last several decades, advances in genetic sequencing and identification have massively expanded the catalog of bacterial species and strains. This in turn has exposed the myriad of ways that communities of bacteria contribute to the health and proper function of the natural world. However, these communities are often made up of a variety of species and strains whose interactions are incredibly complex. Researchers have thus looked for new experimental and analytical tools to capture and model this complexity or to forecast its outcome. Recently, deep learning methods developed for fields as diverse as weather prediction or self-driving cars have presented a new angle with which to approach this analysis.</p>
+<p>This project focused on predicting the growth of a heterogeneous culture of bacterial strains via experimental images of their interactions and a spatiotemporal convolutional recurrent neural network called <a href="https://github.com/thuml/predrnn-pytorch">PredRNN</a><span class="citation" data-cites="9749915">&nbsp;[<a href="#ref-9749915" role="doc-biblioref">1</a>]</span>. Specifically, the network was trained on sequences of images from microwell arrays which show the growth of two mutant strains of <em>Pseudomonas aeruginosa</em> in a single well (one which can kill the other)<span class="citation" data-cites="timm2017assembly">&nbsp;[<a href="#ref-timm2017assembly" role="doc-biblioref">2</a>]</span>. A sample of one of these sequences can be seen below. The network then outputs a predicted sequence of subsequent images, which we compared with the true images via popular image metrics such as Learned Perceptual Image Patch Similarity (LPIPS) as well as with biological metrics such as the number and size of colonies of each strain. The results of this work can be found in this <a href="http://export.arxiv.org/abs/2205.05810v1">preprint</a><span class="citation" data-cites="robertson2022performing">&nbsp;[<a href="#ref-robertson2022performing" role="doc-biblioref">3</a>]</span>.</p>
+<div style="text-align: center;">
+<p><img src="resources/show_well.jpg" style="width:100.0%;height:100.0%"></p>
+</div>
+<p>This same technique was also applied to accelerate the results of an agent based model of the same system which can be found in this <a href="https://www.biorxiv.org/content/10.1101/2021.10.11.463942v1">preprint</a><span class="citation" data-cites="Sakkos2021.10.11.463942">&nbsp;[<a href="#ref-Sakkos2021.10.11.463942" role="doc-biblioref">4</a>]</span>.</p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-9749915" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Y. Wang, H. Wu, J. Zhang, Z. Gao, J. Wang, P. Yu, and M. Long, <em><a href="https://doi.org/10.1109/TPAMI.2022.3165153">PredRNN: A Recurrent Neural Network for Spatiotemporal Predictive Learning</a></em>, IEEE Transactions on Pattern Analysis and Machine Intelligence 1 (2022).</div>
+</div>
+<div id="ref-timm2017assembly" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">A. C. Timm, M. C. Halsted, J. L. Wilmoth, and S. T. Retterer, <em>Assembly and Tracking of Microbial Community Development Within a Microwell Array Platform</em>, JoVE (Journal of Visualized Experiments) e55701 (2017).</div>
+</div>
+<div id="ref-robertson2022performing" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">C. Robertson, J. L. Wilmoth, S. Retterer, and M. Fuentes-Cabrera, <em><a href="https://arxiv.org/abs/2205.05810">Performing Video Frame Prediction of Microbial Growth with a Recurrent Neural Network</a></em>, (2022).</div>
+</div>
+<div id="ref-Sakkos2021.10.11.463942" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">J. Sakkos et al., <em><a href="https://doi.org/10.1101/2021.10.11.463942">Investigating the Growth of an Engineered Strain of Cyanobacteria with an Agent-Based Model and a Recurrent Neural Network</a></em>, bioRxiv (2021).</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
