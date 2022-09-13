@@ -84,6 +84,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -192,7 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#machine-learning-and-optimization-seminar" id="toc-machine-learning-and-optimization-seminar" class="nav-link" data-scroll-target="#machine-learning-and-optimization-seminar">Machine Learning and Optimization Seminar</a></li>
   <li><a href="#this-workshop" id="toc-this-workshop" class="nav-link" data-scroll-target="#this-workshop">This workshop</a></li>
   </ul></li>
-  <li><a href="#your-programming-environment" id="toc-your-programming-environment" class="nav-link" data-scroll-target="#your-programming-environment">Your programming environment</a>
+  <li><a href="#your-python-environment" id="toc-your-python-environment" class="nav-link" data-scroll-target="#your-python-environment">Your Python environment</a>
   <ul class="collapse">
   <li><a href="#setting-up" id="toc-setting-up" class="nav-link" data-scroll-target="#setting-up">Setting up</a></li>
   <li><a href="#environments" id="toc-environments" class="nav-link" data-scroll-target="#environments">Environments</a></li>
@@ -200,7 +219,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#cleaning-up" id="toc-cleaning-up" class="nav-link" data-scroll-target="#cleaning-up">Cleaning up</a></li>
   <li><a href="#google-colab" id="toc-google-colab" class="nav-link" data-scroll-target="#google-colab">Google Colab</a></li>
   </ul></li>
-  <li><a href="#basic-concepts-of-machine-learning" id="toc-basic-concepts-of-machine-learning" class="nav-link" data-scroll-target="#basic-concepts-of-machine-learning">Basic concepts of machine learning</a></li>
+  <li><a href="#basic-concepts-of-machine-learning" id="toc-basic-concepts-of-machine-learning" class="nav-link" data-scroll-target="#basic-concepts-of-machine-learning">Basic concepts of machine learning</a>
+  <ul class="collapse">
+  <li><a href="#the-concept" id="toc-the-concept" class="nav-link" data-scroll-target="#the-concept">The concept</a></li>
+  <li><a href="#the-practice" id="toc-the-practice" class="nav-link" data-scroll-target="#the-practice">The practice</a></li>
+  </ul></li>
   <li><a href="#warming-up" id="toc-warming-up" class="nav-link" data-scroll-target="#warming-up">Warming up</a>
   <ul class="collapse">
   <li><a href="#gradient-descent" id="toc-gradient-descent" class="nav-link" data-scroll-target="#gradient-descent">Gradient descent</a></li>
@@ -269,18 +292,18 @@ Other formats
 <li>Facilitating hands-on workshops and group discussions to explore and gain experience</li>
 <li>Inviting speakers to introduce machine learning and optimization concepts</li>
 </ol>
-<p>We are excited to get started on this but recognize that since neither machine learning nor optimization are standardized in the department, each participant will have a different level of experience and exposure to the different topics. Although this will require some additional work on the part of the organizers (and additional commitment from the participants), our hope is that this disparity of experience will increase the collaboration between faculty, students in any year of the program, and even visitors from other departments. Whether you are a participant or an organizer please take the opportunity to share their knowledge and experience with one another openly during the workshops.</p>
-<p>As a student run seminar, we also recognize that some participants may have expertise beyond the workshop organizer. If this is the case for you, please engage in discussion of the material during the workshop and give feedback after. All the workshop material will be available online for later reference.</p>
+<p>We are excited to get started on this but recognize that since neither machine learning nor optimization are standardized in the department, participants will have a varied level of exposure to different topics. Our hope is that we can use this disparity of experience to increase collaboration during the workshops in a deeper way than is facilitated by talks. All are encouraged to share their knowledge and experience with one another openly during the workshop and feedback to the organizers after.</p>
+<p>All workshop material will be available <a href="../../other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.html">here</a> for later reference.</p>
 </section>
 <section id="this-workshop" class="level3">
 <h3 class="anchored" data-anchor-id="this-workshop">This workshop</h3>
-<p>This first workshop is mostly focused on tooling and the basic concepts of machine learning and optimization with the goal that everyone can be prepared on the same footing for later workshops. It will also give each of us a chance to get a view of everyone else’s perspective, interests, and experience.</p>
+<p>This first workshop is focused on tooling and the basic concepts of machine learning and optimization with the goal that everyone can be on the same footing for later workshops.</p>
 </section>
 </section>
-<section id="your-programming-environment" class="level2">
-<h2 class="anchored" data-anchor-id="your-programming-environment">Your programming environment</h2>
-<p>It is safe to say that Python is the language of choice for machine learning. This interpreted language has a very clear and high-level syntax, is extremely convenient for interactive programming and debugging, and has an enormous user base of enterprises, researchers, and hobbyists who have built an almost infinite array of open-source packages for every topic. It is exactly for these three reasons that the workshops for this seminar will use Python.</p>
-<p>So, to get started, we will give the basics of the Python programming language. Just kidding! That would take too long. We will instead guide you on how to install Python most conveniently, teach you how to get started learning about Python, and then point you to a curated library of much more high-quality instruction for using Python. A list of some such references as well as documentation for setup and important Python packages can be found in the Appendix <a href="#python-resources-and-packages">here</a>.</p>
+<section id="your-python-environment" class="level2">
+<h2 class="anchored" data-anchor-id="your-python-environment">Your Python environment</h2>
+<p>It is safe to say that Python is the language of choice for machine learning. This interpreted language has a very clear and high-level syntax, is extremely convenient for interactive programming and debugging, and has an enormous user base of enterprises, researchers, and hobbyists who have built an almost infinite array of open-source packages for every topic. For these three reasons the workshops for this seminar will use Python.</p>
+<p>To get started, we will give the basics of the Python programming language. Just kidding! That would take too long. We will instead guide you on how to install Python most conveniently, teach you how to get started learning about Python, and then point you to a curated library of much more high-quality instruction for using Python. A list of some such references as well as documentation for setup and important Python packages can be found in the Appendix <a href="#python-resources-and-packages">here</a>.</p>
 <section id="setting-up" class="level3">
 <h3 class="anchored" data-anchor-id="setting-up">Setting up</h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -310,7 +333,7 @@ Note
 <p>If you are using a computer with Windows, the terminal instructions may not apply.</p>
 </div>
 </div>
-<p>Python is installed by default on MacOS and most Linux distributions. However, it can get challenging to navigate between the versions and packages that your operating system uses and those needed for other projects. Thus, there are a variety of version, package, and environment management tools:</p>
+<p>Python is installed by default on MacOS and most Linux distributions. However, it can be challenging to navigate between the versions and packages that your operating system uses and those needed for other projects. Thus, there are a variety of version, package, and environment management tools:</p>
 <ul>
 <li><strong>Version management</strong>: Which version of Python are you using? Can you change versions to run a specific Python program if it requires?
 <ul>
@@ -331,18 +354,18 @@ Note
 <li>many more</li>
 </ul></li>
 </ul>
-<p>The <code>conda</code> package manager is the only one that fills all three roles. It is formally a part of the Anaconda Python distribution which is a favorite for those in the fields of data science and machine learning. Mamba is a newer and faster rewrite used in exactly the same way and which is highly recommended.</p>
+<p>The <code>conda</code> package manager is the only one that fills all three roles. It is formally a part of the Anaconda Python distribution which is a favorite in the fields of data science and machine learning. <code>mamba</code> is a newer and faster rewrite used in exactly the same way and which is highly recommended.</p>
 <p>The best way to get started with <code>mamba</code> is to install <code>mambaforge</code>. You can find installer downloads for Windows, MacOS, or Linux <a href="https://github.com/conda-forge/miniforge#mambaforge">here</a>.</p>
 <p>For Windows, run the <code>.exe</code> file once it is downloaded.</p>
 <p>For MacOS and Linux, open a terminal and navigate to the download location:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Downloads</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then run the installer as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./Mambaforge-Linux-x86_64.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The installer will walk you through a few steps and end by asking if you’d like to “initialize Mambaforge by running conda init?” Answer yes to this and restart your terminal. This final command will have added <code>conda</code> and <code>mamba</code> to your system <code>$PATH</code> variable, which means it is available to your terminal. Once restarted, run <code>mamba -V</code> to print the version and to verify that the installation worked.</p>
+<p>The installer will walk you through a few steps and end by asking if you’d like to “initialize Mambaforge by running conda init?” Answer yes and restart your terminal. This final command will have added <code>conda</code> and <code>mamba</code> to your system <code>$PATH</code> variable, which means it is available to your terminal. Once restarted, run <code>mamba -V</code> to print the version and to verify that the installation worked.</p>
 </section>
 <section id="environments" class="level3">
 <h3 class="anchored" data-anchor-id="environments">Environments</h3>
-<p>The idea of a <code>conda</code>/<code>mamba</code> environment is that once an environment is created and activated, all new packages added will be added to that environment and will be accessible to any Python program run while the environment is active. As an example, let’s create an environment called <code>workshop</code> with a specific version of Python installed. The following will create the environment and install the desired <code>python</code> version:</p>
+<p>The idea of a <code>conda</code>/<code>mamba</code> environment is that once an environment is created and activated, all new packages installed will be added to that environment and will be accessible to any Python program run while the environment is active. As an example, let’s create an environment called <code>workshop</code> with a specific version of Python installed. The following will create the environment and install a specific version of <code>python</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">-n</span> workshop python=3.9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Once created, we can list our environments via the command</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -350,7 +373,7 @@ Note
 #
 base                     /home/user/mambaforge
 workshop                 /home/user/mambaforge/envs/workshop</code></pre>
-<p>Note that there is a “base” environment which is where <code>conda</code> and <code>mamba</code> themselves are installed as well as their dependencies. The best practice is to create an environment for each of your projects to minimize dependency issues (when packages depend on other packages and sometimes require separate versions of the same package).</p>
+<p>Note that there is a “base” environment which is where <code>conda</code> and <code>mamba</code> themselves are installed as well as their dependencies. The best practice is to create an environment for each of your projects to minimize dependency issues (when packages require separate versions of the same package).</p>
 <p>To activate our new environment:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> activate workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Running <code>mamba env list</code> will now show our active environment via an asterisk:</p>
@@ -359,9 +382,9 @@ workshop              *  /home/user/mambaforge/envs/workshop</code></pre>
 </section>
 <section id="installing-packages" class="level3">
 <h3 class="anchored" data-anchor-id="installing-packages">Installing packages</h3>
-<p>Now that we have an active <code>conda</code> environment, let’s install some common machine learning packages in python. It is as easy as writing:</p>
+<p>Now that we have activated the <code>workshop</code> <code>conda</code> environment, let’s install some common machine learning packages in Python. It is as easy as writing:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> install numpy matplotlib pandas jupyter scipy scikit-learn scikit-image</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This command will search the <a href="https://conda-forge.org/#page-top">conda-forge</a> repository of packages and install the most up to date versions. Hence the <code>forge</code> in <code>mambaforge</code>.</p>
+<p>This command will search the <a href="https://conda-forge.org/#page-top">conda-forge</a> repository of packages and install the most up-to-date versions (the <code>forge</code> in <code>mambaforge</code>).</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -372,7 +395,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Either <code>conda</code> or <code>mamba</code> could be used for all the commands discussed in this section. However, when installing packages, <code>mamba</code> is significantly faster.</p>
+<p>Either <code>conda</code> or <code>mamba</code> could be used for all the commands discussed in this section. However, <code>mamba</code> is significantly faster when installing packages.</p>
 </div>
 </div>
 <p>Now that these packages have been installed, we can easily use them in an interactive <code>ipython</code> prompt (installed with the <code>jupyter</code> package):</p>
@@ -398,11 +421,11 @@ Tip
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> deactivate workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If we have somehow broken our environment and need to remove it:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> env remove <span class="at">-n</span> workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>There are many more commands and functionalities that <code>conda</code> and <code>mamba</code> provide so further references can be found in the next section.</p>
+<p>There are many more commands and functionalities that <code>conda</code> and <code>mamba</code> provide that can be found in the <a href="#python-resources-and-packages">python resources and packages</a> section of the Appendix.</p>
 </section>
 <section id="google-colab" class="level3">
 <h3 class="anchored" data-anchor-id="google-colab">Google Colab</h3>
-<p>As an alternative to the entire procedure above, you can use an online <a href="https://jupyter.org">Jupyter Notebook</a> service hosted by Google called <a href="https://colab.research.google.com">Colab</a>. This service will get you up and running immediately but cannot save your environment between notebooks. Thus, if your notebook requires a package that is not installed by default, you will need to add the installation command in one of the first notebook cells. For example, to install the <a href="">reservoirpy</a> package, we would write in a notebook cell:</p>
+<p>As an alternative to the entire procedure above, you can use an online <a href="https://jupyter.org">Jupyter Notebook</a> service hosted by Google called <a href="https://colab.research.google.com">Colab</a>. This service will get you up and running immediately but cannot save your environment between notebooks and has limited functionality to run scripts or save data. Thus, if your notebook requires a package that is not installed by default, you will need to add the installation command in one of the first notebook cells. For example, to install the <a href="">reservoirpy</a> package, we would write in a notebook cell:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>!pip install reservoirpy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In a notebook, the <code>!</code> denotes a terminal command. The package will now be ready for import and use within the current notebook session:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>from reservoirpy.nodes import Input,Reservoir,Ridge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -410,10 +433,57 @@ Tip
 </section>
 <section id="basic-concepts-of-machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="basic-concepts-of-machine-learning">Basic concepts of machine learning</h2>
+<section id="the-concept" class="level3">
+<h3 class="anchored" data-anchor-id="the-concept">The concept</h3>
+<p>Machine learning is, at its most basic, automated data analysis, usually with the goal of finding patterns or making predictions. The “machines” in this analysis are equations or algorithms and the “learning” is usually some form of parameter selection and/or fitting. Due to the uncertain nature of most data, the majority of these models are probabilistic in nature. In fact, it can be hard to distinguish the methodological lines between what is termed “machine learning” and the field of statistics. However, there are some important distinctions between the tools, goals, and terminology of the two areas. Today, machine learning has emerged as a broad description of data-driven computing which may or may not include classical descriptive and inferential statistics <span class="citation" data-cites="murphy2012machine">(<a href="#ref-murphy2012machine" role="doc-biblioref">Murphy 2012</a>)</span>.</p>
+<p>At first glance, machine learning can be separated into three main classes:</p>
+<ul>
+<li><strong>Supervised learning</strong>: Given data of inputs and outputs, train a model to in the inputs to give the outputs
+<ul>
+<li>Generalized linear models (linear, logistic, etc. regression)</li>
+<li>Naive Bayes</li>
+<li>Neural networks (most)</li>
+<li>Support vector machine (SVM)</li>
+<li>Random forests</li>
+<li>etc.</li>
+</ul></li>
+<li><strong>Unsupervised learning</strong>: Given data, find patterns (no specified output)
+<ul>
+<li>Clustering</li>
+<li>Mixture models</li>
+<li>Dimensionality reduction</li>
+<li>Association rules</li>
+<li>etc.</li>
+</ul></li>
+<li><strong>Reinforcement learning</strong>: Given input data and a desired outcome, simulate and update model to best achieve those outcomes
+<ul>
+<li>Q-learning</li>
+<li>SARSA</li>
+<li>etc.</li>
+</ul></li>
+</ul>
+<p>There is an enormous amount of high-quality material on machine learning, so we will end our introduction here and direct you to established textbooks <span class="citation" data-cites="james2013introduction hastie2009elements murphy2012machine">(<a href="#ref-james2013introduction" role="doc-biblioref">James et al. 2013</a>; <a href="#ref-hastie2009elements" role="doc-biblioref">Hastie et al. 2009</a>; <a href="#ref-murphy2012machine" role="doc-biblioref">Murphy 2012</a>)</span>, NJIT classes (Math 478, Math 678, Math 680, CS 675, CS 677), and online resources (too many to even start listing).</p>
+</section>
+<section id="the-practice" class="level3">
+<h3 class="anchored" data-anchor-id="the-practice">The practice</h3>
+<p>In practice, machine learning algorithms often boil down to an optimization problem. To characterize this in a few steps, consider a problem with data <span class="math inline">\(x\)</span>:</p>
+<ol type="1">
+<li>Select a model representation <span class="math inline">\(f\)</span> with parameters <span class="math inline">\(p\)</span> for the problem: <span class="math display">\[
+y = f(x;p)
+\]</span></li>
+<li>Determine an appropriate objective function <span class="math inline">\(\mathcal{L}\)</span>: <span class="math display">\[
+\mathcal{L}(f(x;p),x)
+\]</span></li>
+<li>Use an optimization method <span class="math inline">\(\mathcal{O}\)</span> with parameters <span class="math inline">\(d\)</span> to find parameters <span class="math inline">\(p\)</span> that minimize or maximize the objective for the model: <span class="math display">\[
+p^* = \mathcal{O}(\mathcal{L},f,x;d)
+\]</span></li>
+</ol>
+<p>In some sense, this is the same procedure as <em>inverse problems</em> in traditional applied mathematics but with a broader set of non-physical models <span class="math inline">\(f\)</span>.</p>
+</section>
 </section>
 <section id="warming-up" class="level2">
 <h2 class="anchored" data-anchor-id="warming-up">Warming up</h2>
-<p>Let’s use what we have understood so far to fit a simple “machine” to some data. Given a prescribed model form and some data, we can fit our model using a simple gradient descent algorithm.</p>
+<p>These workshops are all about learning by doing, so let’s build understanding by fitting a simple “machine” to some data. Given a prescribed model form and some data, we can fit our model using a simple gradient descent algorithm.</p>
 <section id="gradient-descent" class="level3">
 <h3 class="anchored" data-anchor-id="gradient-descent">Gradient descent</h3>
 <!-- TODO: Come up with simple model in which parameters are non-convex -->
@@ -532,11 +602,22 @@ Tip
 </ul>
 
 
+
 </section>
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-hastie2009elements" class="csl-entry" role="doc-biblioentry">
+Hastie, Trevor, Robert Tibshirani, Jerome H Friedman, and Jerome H Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. Vol. 2. Springer.
+</div>
+<div id="ref-james2013introduction" class="csl-entry" role="doc-biblioentry">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer.
+</div>
+<div id="ref-murphy2012machine" class="csl-entry" role="doc-biblioentry">
+Murphy, Kevin P. 2012. <em>Machine Learning: A Probabilistic Perspective</em>. MIT press.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

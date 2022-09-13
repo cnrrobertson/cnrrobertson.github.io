@@ -1,5 +1,6 @@
 ---
 title: "Introduction to machine learning: set up and basics"
+bibliography: workshops.bib
 author: Connor Robertson
 execute:
     keep-ipynb: true
@@ -22,24 +23,21 @@ The goal of the Machine Learning and Optimization seminar this year is to expose
 1. Facilitating hands-on workshops and group discussions to explore and gain experience
 2. Inviting speakers to introduce machine learning and optimization concepts
 
-We are excited to get started on this but recognize that since neither machine learning nor optimization are standardized in the department, each participant will have a different level of experience and exposure to the different topics.
-Although this will require some additional work on the part of the organizers (and additional commitment from the participants), our hope is that this disparity of experience will increase the collaboration between faculty, students in any year of the program, and even visitors from other departments.
-Whether you are a participant or an organizer please take the opportunity to share their knowledge and experience with one another openly during the workshops.
+We are excited to get started on this but recognize that since neither machine learning nor optimization are standardized in the department, participants will have a varied level of exposure to different topics.
+Our hope is that we can use this disparity of experience to increase collaboration during the workshops in a deeper way than is facilitated by talks.
+All are encouraged to share their knowledge and experience with one another openly during the workshop and feedback to the organizers after.
 
-As a student run seminar, we also recognize that some participants may have expertise beyond the workshop organizer.
-If this is the case for you, please engage in discussion of the material during the workshop and give feedback after.
-All the workshop material will be available online for later reference.
+All workshop material will be available [here](machinelearning_optimization_seminar.qmd) for later reference.
 
 ### This workshop
-This first workshop is mostly focused on tooling and the basic concepts of machine learning and optimization with the goal that everyone can be prepared on the same footing for later workshops.
-It will also give each of us a chance to get a view of everyone else's perspective, interests, and experience.
+This first workshop is focused on tooling and the basic concepts of machine learning and optimization with the goal that everyone can be on the same footing for later workshops.
 
-## Your programming environment 
+## Your Python environment 
 It is safe to say that Python is the language of choice for machine learning.
 This interpreted language has a very clear and high-level syntax, is extremely convenient for interactive programming and debugging, and has an enormous user base of enterprises, researchers, and hobbyists who have built an almost infinite array of open-source packages for every topic.
-It is exactly for these three reasons that the workshops for this seminar will use Python.
+For these three reasons the workshops for this seminar will use Python.
 
-So, to get started, we will give the basics of the Python programming language. 
+To get started, we will give the basics of the Python programming language. 
 Just kidding!
 That would take too long.
 We will instead guide you on how to install Python most conveniently, teach you how to get started learning about Python, and then point you to a curated library of much more high-quality instruction for using Python.
@@ -57,7 +55,7 @@ If you are using a computer with Windows, the terminal instructions may not appl
 :::
 
 Python is installed by default on MacOS and most Linux distributions.
-However, it can get challenging to navigate between the versions and packages that your operating system uses and those needed for other projects.
+However, it can be challenging to navigate between the versions and packages that your operating system uses and those needed for other projects.
 Thus, there are a variety of version, package, and environment management tools:
 
 - **Version management**: Which version of Python are you using? Can you change versions to run a specific Python program if it requires?
@@ -74,8 +72,8 @@ Thus, there are a variety of version, package, and environment management tools:
     - many more
     
 The `conda` package manager is the only one that fills all three roles.
-It is formally a part of the Anaconda Python distribution which is a favorite for those in the fields of data science and machine learning.
-Mamba is a newer and faster rewrite used in exactly the same way and which is highly recommended.
+It is formally a part of the Anaconda Python distribution which is a favorite in the fields of data science and machine learning.
+`mamba` is a newer and faster rewrite used in exactly the same way and which is highly recommended.
 
 The best way to get started with `mamba` is to install `mambaforge`.
 You can find installer downloads for Windows, MacOS, or Linux [here](https://github.com/conda-forge/miniforge#mambaforge).
@@ -91,14 +89,14 @@ Then run the installer as follows:
 ./Mambaforge-Linux-x86_64.sh
 ```
 The installer will walk you through a few steps and end by asking if you'd like to "initialize Mambaforge by running conda init?"
-Answer yes to this and restart your terminal.
+Answer yes and restart your terminal.
 This final command will have added `conda` and `mamba` to your system `$PATH` variable, which means it is available to your terminal.
 Once restarted, run `mamba -V` to print the version and to verify that the installation worked.
 
 ### Environments
-The idea of a `conda`/`mamba` environment is that once an environment is created and activated, all new packages added will be added to that environment and will be accessible to any Python program run while the environment is active.
+The idea of a `conda`/`mamba` environment is that once an environment is created and activated, all new packages installed will be added to that environment and will be accessible to any Python program run while the environment is active.
 As an example, let's create an environment called `workshop` with a specific version of Python installed.
-The following will create the environment and install the desired `python` version:
+The following will create the environment and install a specific version of `python`:
 ```bash
 mamba create -n workshop python=3.9
 ```
@@ -113,7 +111,7 @@ base                     /home/user/mambaforge
 workshop                 /home/user/mambaforge/envs/workshop
 ```
 Note that there is a "base" environment which is where `conda` and `mamba` themselves are installed as well as their dependencies.
-The best practice is to create an environment for each of your projects to minimize dependency issues (when packages depend on other packages and sometimes require separate versions of the same package).
+The best practice is to create an environment for each of your projects to minimize dependency issues (when packages require separate versions of the same package).
 
 To activate our new environment:
 ```bash
@@ -126,17 +124,16 @@ workshop              *  /home/user/mambaforge/envs/workshop
 ```
 
 ### Installing packages
-Now that we have an active `conda` environment, let's install some common machine learning packages in python.
+Now that we have activated the `workshop` `conda` environment, let's install some common machine learning packages in Python.
 It is as easy as writing:
 ```bash
 mamba install numpy matplotlib pandas jupyter scipy scikit-learn scikit-image
 ```
-This command will search the [conda-forge](https://conda-forge.org/#page-top) repository of packages and install the most up to date versions.
-Hence the `forge` in `mambaforge`.
+This command will search the [conda-forge](https://conda-forge.org/#page-top) repository of packages and install the most up-to-date versions (the `forge` in `mambaforge`).
 
 :::{.callout-tip}
 Either `conda` or `mamba` could be used for all the commands discussed in this section.
-However, when installing packages, `mamba` is significantly faster.
+However, `mamba` is significantly faster when installing packages.
 :::
 
 Now that these packages have been installed, we can easily use them in an interactive `ipython` prompt (installed with the `jupyter` package):
@@ -169,11 +166,11 @@ If we have somehow broken our environment and need to remove it:
 ```bash
 mamba env remove -n workshop
 ```
-There are many more commands and functionalities that `conda` and `mamba` provide so further references can be found in the next section.
+There are many more commands and functionalities that `conda` and `mamba` provide that can be found in the [python resources and packages](#python-resources-and-packages) section of the Appendix.
 
 ### Google Colab
 As an alternative to the entire procedure above, you can use an online [Jupyter Notebook](https://jupyter.org) service hosted by Google called [Colab](https://colab.research.google.com).
-This service will get you up and running immediately but cannot save your environment between notebooks.
+This service will get you up and running immediately but cannot save your environment between notebooks and has limited functionality to run scripts or save data.
 Thus, if your notebook requires a package that is not installed by default, you will need to add the installation command in one of the first notebook cells.
 For example, to install the [reservoirpy]() package, we would write in a notebook cell:
 ```default
@@ -185,11 +182,59 @@ The package will now be ready for import and use within the current notebook ses
 from reservoirpy.nodes import Input,Reservoir,Ridge
 ```
 
-
 ## Basic concepts of machine learning 
 
+### The concept
+Machine learning is, at its most basic, automated data analysis, usually with the goal of finding patterns or making predictions.
+The "machines" in this analysis are equations or algorithms and the "learning" is usually some form of parameter selection and/or fitting.
+Due to the uncertain nature of most data, the majority of these models are probabilistic in nature.
+In fact, it can be hard to distinguish the methodological lines between what is termed "machine learning" and the field of statistics.
+However, there are some important distinctions between the tools, goals, and terminology of the two areas.
+Today, machine learning has emerged as a broad description of data-driven computing which may or may not include classical descriptive and inferential statistics [@murphy2012machine].
+
+At first glance, machine learning can be separated into three main classes: 
+
+- **Supervised learning**: Given data of inputs and outputs, train a model to in the inputs to give the outputs
+    - Generalized linear models (linear, logistic, etc. regression)
+    - Naive Bayes
+    - Neural networks (most)
+    - Support vector machine (SVM)
+    - Random forests
+    - etc.
+- **Unsupervised learning**: Given data, find patterns (no specified output)
+    - Clustering
+    - Mixture models
+    - Dimensionality reduction
+    - Association rules
+    - etc.
+- **Reinforcement learning**: Given input data and a desired outcome, simulate and update model to best achieve those outcomes 
+    - Q-learning
+    - SARSA
+    - etc.
+
+There is an enormous amount of high-quality material on machine learning, so we will end our introduction here and direct you to established textbooks [@james2013introduction;@hastie2009elements;@murphy2012machine], NJIT classes (Math 478, Math 678, Math 680, CS 675, CS 677), and online resources (too many to even start listing).
+
+### The practice
+In practice, machine learning algorithms often boil down to an optimization problem.
+To characterize this in a few steps, consider a problem with data $x$:
+
+1. Select a model representation $f$ with parameters $p$ for the problem:
+$$
+y = f(x;p)
+$$
+2. Determine an appropriate objective function $\mathcal{L}$:
+$$
+\mathcal{L}(f(x;p),x)
+$$
+3. Use an optimization method $\mathcal{O}$ with parameters $d$ to find parameters $p$ that minimize or maximize the objective for the model:
+$$
+p^* = \mathcal{O}(\mathcal{L},f,x;d)
+$$
+
+In some sense, this is the same procedure as _inverse problems_ in traditional applied mathematics but with a broader set of non-physical models $f$.
+
 ## Warming up
-Let's use what we have understood so far to fit a simple "machine" to some data.
+These workshops are all about learning by doing, so let's build understanding by fitting a simple "machine" to some data.
 Given a prescribed model form and some data, we can fit our model using a simple gradient descent algorithm.
 
 ### Gradient descent
