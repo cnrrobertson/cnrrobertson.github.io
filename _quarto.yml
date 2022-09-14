@@ -48,14 +48,10 @@ website:
       collapse-level: 1
       contents:
         - teaching/teaching.qmd
-        - section: "Math 110 - Precalculus"
+        - text: "Math 110 - Precalculus"
           href: teaching/math110/math110.qmd
-          contents:
-            - teaching/math110/section4_1.qmd
-        - section: "Math 111 - Calculus I"
+        - text: "Math 111 - Calculus I"
           href: teaching/math111/math111.qmd
-          contents:
-            - teaching/math111/section2_1.qmd
         - section: "Math 340 - Applied Numerical Methods"
           contents:
             - teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.qmd

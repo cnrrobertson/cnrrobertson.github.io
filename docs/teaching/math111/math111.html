@@ -62,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -132,44 +133,24 @@ ul.task-list li input[type="checkbox"] {
   <a href="../../teaching/teaching.html" class="sidebar-item-text sidebar-link">Teaching</a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../teaching/math110/math110.html" class="sidebar-item-text sidebar-link">Math 110 - Precalculus</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../teaching/math111/math111.html" class="sidebar-item-text sidebar-link active">Math 111 - Calculus I</a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../teaching/math110/math110.html" class="sidebar-item-text sidebar-link">Math 110 - Precalculus</a>
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Math 340 - Applied Numerical Methods</a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../teaching/math110/section4_1.html" class="sidebar-item-text sidebar-link">Section 4.1 - Polynomial Functions and Models</a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../teaching/math111/math111.html" class="sidebar-item-text sidebar-link active">Math 111 - Calculus I</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../teaching/math111/section2_1.html" class="sidebar-item-text sidebar-link">Section 2.1 - Limits and Continuity</a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Math 340 - Applied Numerical Methods</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html" class="sidebar-item-text sidebar-link">Lab 1 - Brief Introduction to Matlab</a>
@@ -182,7 +163,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#limits-and-continuity" id="toc-limits-and-continuity" class="nav-link active" data-scroll-target="#limits-and-continuity">Limits and Continuity</a>
+  <ul class="collapse">
+  <li><a href="#average-and-instantaneous-rates-of-change" id="toc-average-and-instantaneous-rates-of-change" class="nav-link" data-scroll-target="#average-and-instantaneous-rates-of-change">Average and Instantaneous Rates of Change</a></li>
+  <li><a href="#helpful-animation" id="toc-helpful-animation" class="nav-link" data-scroll-target="#helpful-animation">Helpful animation</a></li>
+  </ul></li>
+  <li><a href="#problems" id="toc-problems" class="nav-link" data-scroll-target="#problems">Problems</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -203,9 +195,39 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This website section contains some resources for the Fall 2022 Math 111 Section 23 at NJIT. Hopefully, the notes, problems, and supplementary plots/videos/animations can help deepen understanding or act as a reference for review.</p>
+<p>This section contains some resources for the Fall 2022 Math 111 Section 23 at NJIT. Hopefully, the notes, problems, and supplementary plots/videos/animations can help deepen understanding or act as a reference for review.</p>
+<section id="limits-and-continuity" class="level2">
+<h2 class="anchored" data-anchor-id="limits-and-continuity">Limits and Continuity</h2>
+<p><strong>Motivation:</strong> People were interested in the speed and direction of planets at any moment in time. So, they wanted to know if they could calculate that by measuring the path of the planets. We can use a concept called “limits” to find this speed and direction.</p>
+<ul>
+<li>Calculus relates the rate of changes of things. i.e.&nbsp;how quickly does water empty out of a barrel is a ratio of the rate of change of the water relative to the rate of change of time.</li>
+</ul>
+<section id="average-and-instantaneous-rates-of-change" class="level3">
+<h3 class="anchored" data-anchor-id="average-and-instantaneous-rates-of-change">Average and Instantaneous Rates of Change</h3>
+<ul>
+<li><p><strong>Average speed</strong>: Divide the distance traveled by the time elapsed</p></li>
+<li><p><strong>Instantaneous speed</strong>: The average speed over an infinitely small amount of time</p></li>
+<li><p><strong>Secant line</strong>: A line connecting two points on a curve</p></li>
+<li><p>As the two points of a secant line get closer and closer, the slope of the secant approaches the instantaneous velocity</p></li>
+<li><p><strong>Tangent line</strong>: A line that only touches one point on a line</p></li>
+<li><p>The slope of a curve at a point <span class="math inline">\(x\)</span> is the slope of the tangent line that passes through only <span class="math inline">\(x\)</span></p></li>
+<li><p>For a curve that represents a quantity (y-axis) over time (x-axis), the slope of the tangent line at a point <span class="math inline">\(t\)</span> in time is the instantaneous velocity (or rate of change of time) at <span class="math inline">\(t\)</span></p></li>
+<li><p>Formula for secant line / average velocity from time <span class="math inline">\(t_1\)</span> to <span class="math inline">\(t_2\)</span> where function <span class="math inline">\(f(t)\)</span> is the position at time <span class="math inline">\(t\)</span> and <span class="math inline">\(\Delta\)</span> represents “change in …”: <span class="math display">\[
+\boxed{\frac{\Delta f}{\Delta t}} = \frac{f(t_2) - f(t_1)}{t_2 - t_1} = \frac{f(t+h) - f(t)}{t+h - t} = \boxed{\frac{f(t+h) - f(t)}{h}}
+\]</span></p></li>
+</ul>
+</section>
+<section id="helpful-animation" class="level3">
+<h3 class="anchored" data-anchor-id="helpful-animation">Helpful animation</h3>
+<p>Animation of <strong>Figure 2.6</strong> from the book.</p>
+<p><img src="animations/section2_1.gif" class="img-fluid"></p>
+</section>
+</section>
+<section id="problems" class="level2">
+<h2 class="anchored" data-anchor-id="problems">Problems</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

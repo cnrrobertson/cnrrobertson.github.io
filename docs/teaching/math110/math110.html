@@ -62,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -132,44 +133,24 @@ ul.task-list li input[type="checkbox"] {
   <a href="../../teaching/teaching.html" class="sidebar-item-text sidebar-link">Teaching</a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../teaching/math110/math110.html" class="sidebar-item-text sidebar-link active">Math 110 - Precalculus</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../teaching/math110/section4_1.html" class="sidebar-item-text sidebar-link">Section 4.1 - Polynomial Functions and Models</a>
+  <a href="../../teaching/math110/math110.html" class="sidebar-item-text sidebar-link active">Math 110 - Precalculus</a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../teaching/math111/math111.html" class="sidebar-item-text sidebar-link">Math 111 - Calculus I</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../teaching/math111/section2_1.html" class="sidebar-item-text sidebar-link">Section 2.1 - Limits and Continuity</a>
+  <a href="../../teaching/math111/math111.html" class="sidebar-item-text sidebar-link">Math 111 - Calculus I</a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Math 340 - Applied Numerical Methods</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Math 340 - Applied Numerical Methods</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html" class="sidebar-item-text sidebar-link">Lab 1 - Brief Introduction to Matlab</a>
@@ -182,7 +163,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#polynomial-functions" id="toc-polynomial-functions" class="nav-link active" data-scroll-target="#polynomial-functions">Polynomial functions</a>
+  <ul class="collapse">
+  <li><a href="#nonpolynomial-functions" id="toc-nonpolynomial-functions" class="nav-link" data-scroll-target="#nonpolynomial-functions">Nonpolynomial Functions</a></li>
+  <li><a href="#leading-order-test" id="toc-leading-order-test" class="nav-link" data-scroll-target="#leading-order-test">Leading order test</a></li>
+  <li><a href="#finding-zeros-of-polynomials" id="toc-finding-zeros-of-polynomials" class="nav-link" data-scroll-target="#finding-zeros-of-polynomials">Finding zeros of polynomials</a></li>
+  </ul></li>
+  <li><a href="#problems" id="toc-problems" class="nav-link" data-scroll-target="#problems">Problems</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -204,8 +197,73 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>This website section contains some resources for the Fall 2022 Math 110 Sections 11 and 13 at NJIT. Hopefully, the notes, problems, and supplementary plots/videos/animations can help deepen understanding or act as a reference for review.</p>
+<section id="polynomial-functions" class="level2">
+<h2 class="anchored" data-anchor-id="polynomial-functions">Polynomial functions</h2>
+<p><strong>Motivation</strong>: We’d like to understand functions that involve exponents because they show up in innumerable places in our life</p>
+<ul>
+<li><p>Polynomials are equations with several terms involving different “orders” of exponents (which are whole number exponents i.e.&nbsp;not fractions). A polynomial function can be written as: <span class="math display">\[
+P(x) = a_nx^n + a_{n-1}x^{n-1} + \ldots + a_1x^1 + a_0x^0
+\]</span> where <span class="math inline">\(a_n,\ldots,a_0\)</span> are the “coefficients” of the many terms <span class="math inline">\(x^j\)</span> for <span class="math inline">\(j=0,\ldots,n\)</span>.</p></li>
+<li><p><strong>Constant</strong>: A polynomial where <span class="math inline">\(n=0\)</span></p></li>
+<li><p><strong>Linear</strong>: A polynomial where <span class="math inline">\(n=1\)</span></p></li>
+<li><p><strong>Quadratic</strong>: A polynomial where <span class="math inline">\(n=2\)</span></p></li>
+<li><p><strong>Cubic</strong>: A polynomial where <span class="math inline">\(n=3\)</span></p></li>
+<li><p><strong>Quartic</strong>: A polynomial where <span class="math inline">\(n=4\)</span></p></li>
+</ul>
+<section id="nonpolynomial-functions" class="level3">
+<h3 class="anchored" data-anchor-id="nonpolynomial-functions">Nonpolynomial Functions</h3>
+<ul>
+<li>Functions that don’t have whole number exponents or exponents at all or are fractions of polynomials</li>
+<li>Examples:
+<ul>
+<li><span class="math inline">\(f(x) = |x+2|\)</span></li>
+<li><span class="math inline">\(f(x) = \sqrt{x}-1\)</span></li>
+<li><span class="math inline">\(f(x) = x^{4/5}\)</span></li>
+<li><span class="math inline">\(f(x) = \frac{x+1}{x-2}\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="leading-order-test" class="level3">
+<h3 class="anchored" data-anchor-id="leading-order-test">Leading order test</h3>
+<ul>
+<li>The largest exponent determines how the polynomial behaves for very large or very small values of <span class="math inline">\(x\)</span></li>
+<li>You can tell the shape of a plotted polynomial by its largest exponent
+<ul>
+<li><strong>Largest exponent is even</strong>: As <span class="math inline">\(x\)</span> gets very large or very negative, the polynomial either gets very large or very negative. See book.</li>
+<li><strong>Largest exponent is odd</strong>: As <span class="math inline">\(x\)</span> gets very large or very negative, one side of the polynomial gets very large and the other very negative. See book.</li>
+</ul></li>
+</ul>
+</section>
+<section id="finding-zeros-of-polynomials" class="level3">
+<h3 class="anchored" data-anchor-id="finding-zeros-of-polynomials">Finding zeros of polynomials</h3>
+<ul>
+<li>Once a polynomial is factored, it is very easy to find its zeros
+<ul>
+<li>Example:
+<ul>
+<li>For function <span class="math display">\[g(x) = x^2 - 2x - 8 = (x + 2)(x-4)\]</span> there are zeros at <span class="math inline">\(x=-2,4\)</span></li>
+<li>This is easy to check:
+<ul>
+<li>If <span class="math inline">\(x=-2\)</span>: <span class="math display">\[g(-2) = (-2 + 2)(-2 - 4) = 0(-2-4) = 0\]</span></li>
+<li>If <span class="math inline">\(x=4\)</span>: <span class="math display">\[g(4) = (4 + 2)(4 - 4) = (4 + 2)0 = 0\]</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>The multiplicity of a zero or “root” of the polynomial function is the number of times that number appears in the factored form
+<ul>
+<li>Example:
+<ul>
+<li>For function <span class="math display">\[g(x) = x^2 - 8x + 16 = (x-4)(x-4)\]</span> which means it has only one root of <span class="math inline">\(x=4\)</span>. But, the root appears twice in the factored form, so the multiplicity of the root is 2.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="problems" class="level2">
+<h2 class="anchored" data-anchor-id="problems">Problems</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -4,3 +4,45 @@ title: Math 110 - Precalculus
 
 This website section contains some resources for the Fall 2022 Math 110 Sections 11 and 13 at NJIT.
 Hopefully, the notes, problems, and supplementary plots/videos/animations can help deepen understanding or act as a reference for review.
+
+## Polynomial functions
+**Motivation**: We'd like to understand functions that involve exponents because they show up in innumerable places in our life
+
+- Polynomials are equations with several terms involving different "orders" of exponents (which are whole number exponents i.e. not fractions). A polynomial function can be written as:
+$$
+P(x) = a_nx^n + a_{n-1}x^{n-1} + \ldots + a_1x^1 + a_0x^0
+$$
+where $a_n,\ldots,a_0$ are the "coefficients" of the many terms $x^j$ for $j=0,\ldots,n$.
+
+- **Constant**: A polynomial where $n=0$
+- **Linear**: A polynomial where $n=1$
+- **Quadratic**: A polynomial where $n=2$
+- **Cubic**: A polynomial where $n=3$
+- **Quartic**: A polynomial where $n=4$
+
+### Nonpolynomial Functions
+- Functions that don't have whole number exponents or exponents at all or are fractions of polynomials
+- Examples:
+	- $f(x) = |x+2|$
+	- $f(x) = \sqrt{x}-1$
+	- $f(x) = x^{4/5}$
+	- $f(x) = \frac{x+1}{x-2}$
+
+### Leading order test
+- The largest exponent determines how the polynomial behaves for very large or very small values of $x$
+- You can tell the shape of a plotted polynomial by its largest exponent
+    - **Largest exponent is even**: As $x$ gets very large or very negative, the polynomial either gets very large or very negative. See book.
+    - **Largest exponent is odd**: As $x$ gets very large or very negative, one side of the polynomial gets very large and the other very negative. See book.
+
+### Finding zeros of polynomials
+- Once a polynomial is factored, it is very easy to find its zeros
+    - Example:
+        - For function $$g(x) = x^2 - 2x - 8 = (x + 2)(x-4)$$ there are zeros at $x=-2,4$
+        - This is easy to check: 
+            - If $x=-2$: $$g(-2) = (-2 + 2)(-2 - 4) = 0(-2-4) = 0$$
+            - If $x=4$: $$g(4) = (4 + 2)(4 - 4) = (4 + 2)0 = 0$$
+- The multiplicity of a zero or "root" of the polynomial function is the number of times that number appears in the factored form
+    - Example:
+	    - For function $$g(x) = x^2 - 8x + 16 = (x-4)(x-4)$$ which means it has only one root of $x=4$. But, the root appears twice in the factored form, so the multiplicity of the root is 2.
+
+## Problems
