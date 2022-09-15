@@ -763,21 +763,28 @@ Implementing such a method relies heavily on computer science techniques since i
 This represents one of the clearest differences in the approaches of machine learning to those of statistics or optimization due to its computer language-heavy principles.
 Through this lens, machine learning could be viewed as "inferential statistics using new tools from computer science for non-traditional problems."
 
-## Appendix
+## Further Exploration
 
-### Python resources and packages
-**Python**
+1. Each of the parameters for the gradient descent methods was chosen by hand for the above animations. Try adjusting the starting point and parameters for each to get a feel for how they behave.
+2. Try splitting the sample data into a training and a testing set. Use the training set and one of the gradient descent methods to fit some parameters, then see how well the model generalizes to the testing set with those parameters.
+3. Try implementing another gradient descent method from[@sebastian_ruder_2020] using the given methods as a template.
+4. Add the missing subtraction (`__sub__`, `__rsub__`) and division (`__truediv__`, `__rtruediv__`) methods in the `DualNumber` class and play around with automatically differentiation functions using those operators (you can use [this](https://github.com/Mostafa-Samir/Hands-on-Intro-to-Auto-Diff/blob/master/dualnumbers/dualnumbers.py) as a reference). You can also make functions such as `sin`,`cos`, or `exp` that are meant to compute with `DualNumber`s.
+
+## Appendix {.appendix}
+
+### Python resources and packages {.appendix}
+**Python help**
 
 - [Python documentation (especially sections 3-9)](https://docs.python.org/3.9/tutorial/introduction.html)
 - [Quick cheatsheet of general Python knowledge](https://www.pythoncheatsheet.org)
 - [Quicker introduction](https://learnxinyminutes.com/docs/python/)
 
-**Conda/mamba**
+**Conda/mamba help**
 
 - [Conda user guide](https://docs.conda.io/projects/conda/en/latest/user-guide/index.html)
 - [Mamba website](https://mamba.readthedocs.io/en/latest/index.html)
 
-**Essential packages**
+**Python essential packages**
 
 - [`numpy`](https://numpy.org) - Creating, manipulating, and operating (linear algebra, fft, etc.) on multi-dimensional arrays. A list of packages built on `numpy` for a variety of domains can be found on the homepage under the _ECOSYSTEM_ heading.
 - [`scipy`](https://scipy.org) - Fundamentals in optimization, integration, interpolation, differential equations, statistics, signal processing, etc.
@@ -790,7 +797,7 @@ Through this lens, machine learning could be viewed as "inferential statistics u
 - [`scikit-image`](https://scikit-image.org) - Image processing algorithms and tools
 - [`jupyter`](https://jupyter.org) - Interactive "notebook" style programming
 
-### Julia as an alternative to Python
+### Julia as an alternative to Python {.appendix}
 Julia is a fairly new language that has been mainly proposed as an alternative to Python and Matlab, though it is general use.
 Its strength and its weakness is that it is "just-in-time" compiled (meaning your code is automatically analyzed and compiled just before it is run).
 A clever language design combined with just-in-time compilation makes Julia as clear to read and write as Python while being much faster.
@@ -801,14 +808,14 @@ Nonetheless, it is an elegant and high-performance language to use and has shown
 Concise, simple, and easy to read and contribute to packages have been quickly emerging and it already provides many useful tools.
 As a result, it is worth describing it's installation process, environment management, and noteable packages.
 
-#### Installation
+#### Installation {.appendix}
 The officially supported method of installation for Julia is now using the `juliaup` version manager.
 The [installer](https://github.com/JuliaLang/juliaup#windows) can be downloaded from the Windows store on Windows or run on MacOS or Linux with:
 
 ```bash
 curl -fsSL https://install.julialang.org | sh
 ```
-#### Environments
+#### Environments {.appendix}
 Julia comes with a standard environment and package manager named [`Pkg`](https://pkgdocs.julialang.org/v1/).
 Interestingly, the easiest way to use it is to run the Julia REPL (read-eval-print-loop), i.e. to run `julia` interactively.
 You can do so by typing `julia` into the terminal.
@@ -841,7 +848,7 @@ After running this command, our `Pkg` mode will have changed to represent the ac
 (@workshop) pkg>
 ```
 
-#### Installing packages
+#### Installing packages {.appendix}
 To install some packages in the active environment, write:
 ```default
 (@workshop) pkg> add Plots MLJ DataFrames Flux Pluto
@@ -862,7 +869,7 @@ Also note that the call to `plot(x,y)` took some time.
 This is due to the just-in-time compilation.
 Now that the compilation has been done for inputs of the types of `x` and `y`, if you run `plot(x,y)` again, it should be almost instantaneous.
 
-#### Cleaning up
+#### Cleaning up {.appendix}
 To deactivate the environment, enter the `Pkg` mode again by pressing `]` on an empty line, then enter:
 
 ```default
@@ -871,15 +878,13 @@ To deactivate the environment, enter the `Pkg` mode again by pressing `]` on an 
 To delete the environment we created you can delete the environment folder at the listed location at creation.
 This is usually `/home/user/.julia/environments/workshop` on MacOS or Linux.
 
-#### References
-
-**Julia**
+**Julia help**
 
 - [Julia documentation](https://docs.julialang.org/en/v1/)
 - [Quick cheatsheet of Julia](https://juliadocs.github.io/Julia-Cheat-Sheet/)
 - [Comparison of the syntax of Julia, Python, and Matlab](https://cheatsheets.quantecon.org)
 
-**Packages**
+**Julia packages**
 
 As compared to Python, Julia has many scientific computing tools built into its standard library.
 Thus, a lot of the functionality found in `numpy` are loaded by default.
