@@ -82,9 +82,9 @@ website:
         - section: "Machine Learning and Optimization Seminar"
           href: other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd
           contents:
-            - text: ""
-            # - text: "Workshop 1: Intro"
-            #   href: other/machinelearning_optimization_seminar/workshop1_intro.qmd
+            - text: "Workshop 1: Python set up, basics, gradient descent, automatic differentiation"
+              href: other/machinelearning_optimization_seminar/fall_2022/workshop1_intro/workshop1_intro.qmd
+            # - text: ""
 
 # --------------------------------------------------------------------------
 # Theme
