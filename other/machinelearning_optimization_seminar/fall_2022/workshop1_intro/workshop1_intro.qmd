@@ -12,7 +12,7 @@ jupyter: python3
 ## Other formats
 Download the workshop as a Jupyter notebook <a href="workshop1_intro.ipynb" download>here</a>.
 
-Open the workshop as a Jupyter notebook in Google Colab [here](https://colab.research.google.com/drive/1eyAxZgdgxWSIsH6oAx9KyRoflI_plqhX?usp=sharing) (with your NJIT Google account).
+After downloading the workshop Jupyter notebook, you can upload it to [Google Colab](https://colab.research.google.com/) to get a quick start, but you will not be able to see the animations.
 :::
 
 
@@ -45,7 +45,7 @@ A list of some such references as well as documentation for setup and important 
 
 ### Setting up
 :::{.callout-tip}
-If you are looking for the easiest and most immediate way to get going, check out the [Google Colab](#google-colab) section.
+If you are looking for the easiest and most immediate way to get going with a Python Jupyter Notebook, check out the [Google Colab](#google-colab) section.
 :::
 :::{.callout-note}
 This section will require use of a terminal emulator for installing and running Python.
@@ -170,7 +170,7 @@ There are many more commands and functionalities that `conda` and `mamba` provid
 
 ### Google Colab
 As an alternative to the entire procedure above, you can use an online [Jupyter Notebook](https://jupyter.org) service hosted by Google called [Colab](https://colab.research.google.com).
-This service will get you up and running immediately but cannot save your environment between notebooks and has limited functionality to run scripts or save data.
+This service will get you up and running immediately but cannot save your environment between notebooks and has limited functionality to run scripts, save data, view animations, change package versions, etc.
 Thus, if your notebook requires a package that is not installed by default, you will need to add the installation command in one of the first notebook cells.
 For example, to install the [reservoirpy]() package, we would write in a notebook cell:
 ```default
@@ -259,6 +259,8 @@ Consider some data $(x,y)$:
 #| code-summary: Data generation
 import numpy as np
 import matplotlib.pyplot as plt
+# To see animations in a Jupyter notebook, uncomment the following line:
+# %matplotlib notebook
 def f_known(x):
     part1 = np.exp(-x)*(np.sin((x)**3) + np.sin((x)**2) - x)
     part2 = 1/(1 + np.exp(-1*(x-1)))
@@ -332,11 +334,13 @@ It uses the following animation code and the `autograd` automatic differentiatio
 from matplotlib import animation as anim
 from matplotlib import gridspec
 from mpl_toolkits.mplot3d import Axes3D
+# To display the animations in a jupyer notebook uncomment the following line:
+# %matplotlib notebook
 
-def animate_steps_2d(xs,loss,savefile=None,xmin=-.1,xmax=2.5,ymin=-1,ymax=3,interval=50):
+def animate_steps_2d(xs,loss,xmin=-.1,xmax=2.5,ymin=-1,ymax=3,interval=50):
     fig = plt.figure(figsize=(10,6),constrained_layout=True)
     gs = gridspec.GridSpec(ncols=6,nrows=2,figure=fig)
-    ax = fig.add_subplot(gs[:,0:4],projection="3d",computed_zorder=False)
+    ax = fig.add_subplot(gs[:,0:4],projection="3d")
     ax1 = fig.add_subplot(gs[0,4:])
     ax2 = fig.add_subplot(gs[1,4:])
     ax.view_init(47,47)
@@ -382,10 +386,7 @@ def animate_steps_2d(xs,loss,savefile=None,xmin=-.1,xmax=2.5,ymin=-1,ymax=3,inte
         return plots
 
     tanim = anim.FuncAnimation(fig,anim_func,interval=50,frames=len(xs),blit=True)
-    if savefile == None:
-        plt.show()
-    else:
-        tanim.save(savefile)
+    return tanim
 ```
 ```{python}
 from autograd import grad
