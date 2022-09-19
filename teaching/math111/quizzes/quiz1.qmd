@@ -1,0 +1,59 @@
+---
+title: Quiz 1 - Limits and rate of change
+---
+
+## Problem 1
+### Question
+Find
+$$
+\lim_{t\rightarrow 0} \frac{\tan(t)\sec(t)}{3t}
+$$
+
+### Solution
+$$
+\begin{align*}
+\lim_{t\rightarrow 0} \frac{\tan(t)\sec(t)}{3t} &= \frac{1}{3}\lim_{t\rightarrow 0} \frac{\sin(t)}{\cos(t)} \times \frac{1}{\cos(t)} \times \frac{1}{t} \\
+&= \frac{1}{3} \lim_{t\rightarrow 0} \cancelto{1}{\frac{\sin(t)}{t}} \times \frac{1}{\cos^2(t)} \\
+&= \frac{1}{3} \lim_{t\rightarrow 0} \frac{1}{\cos^2(t)} \\
+&= \boxed{\frac{1}{3}}
+\end{align*}
+$$
+
+## Problem 2
+### Question
+For function $y = f(x) = 3x^2 + 1$:
+
+a. Find the rate of change $\frac{\Delta y}{\Delta x}$
+b. Find the average rate of change over intervals $[2,3]$ and $[-1,1]$
+
+### Solution
+
+#### a.
+$$
+\begin{align*}
+\frac{\Delta y}{\Delta x} &= \frac{f(x + \Delta x) - f(x)}{x + \Delta x - x} \\
+&= \frac{3(x+\Delta x)^2 + 1 - (3x^2 + 1)}{\Delta x} \\
+&= \frac{\cancel{3x^2} + 6x\cancel{(\Delta x)} + 3(\Delta x)^\cancel{2} + \cancel{1}- \cancel{ 3x^2} -\cancel{1} }{\cancel{\Delta x}} \\
+&= \boxed{6x + 3(\Delta x)}
+\end{align*}
+$$
+
+
+#### b.
+For $[2,3]$:
+$$
+\begin{align*}
+\frac{f(x_2) - f(x_1)}{x_2 - x_1} &= \frac{f(3) - f(2)}{3 - 2} \\
+&= \frac{3(3)^2 + 1 - (3(2)^2 + 1)}{1} \\
+&= 27 - 12 = \boxed{15}\\
+\end{align*}
+$$
+For $[-1,1]$:
+$$
+\begin{align*}
+\frac{f(x_2) - f(x_1)}{x_2 - x_1} &= \frac{f(1) - f(-1)}{1 + 1} \\
+&= \frac{3(1)^2 + 1 - (3(-1)^2 + 1)}{2} \\
+&= \frac{0}{2} = \boxed{0}\\
+\end{align*}
+$$
+
