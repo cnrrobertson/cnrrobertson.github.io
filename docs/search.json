@@ -196,6 +196,13 @@
     "text": "Problem 2\n\nQuestion\nFor function \\(y = f(x) = 3x^2 + 1\\):\n\nFind the rate of change \\(\\frac{\\Delta y}{\\Delta x}\\)\nFind the average rate of change over intervals \\([2,3]\\) and \\([-1,1]\\)\n\n\n\nSolution\n\na.\n\\[\n\\begin{align*}\n\\frac{\\Delta y}{\\Delta x} &= \\frac{f(x + \\Delta x) - f(x)}{x + \\Delta x - x} \\\\\n&= \\frac{3(x+\\Delta x)^2 + 1 - (3x^2 + 1)}{\\Delta x} \\\\\n&= \\frac{\\cancel{3x^2} + 6x\\cancel{(\\Delta x)} + 3(\\Delta x)^\\cancel{2} + \\cancel{1}- \\cancel{ 3x^2} -\\cancel{1} }{\\cancel{\\Delta x}} \\\\\n&= \\boxed{6x + 3(\\Delta x)}\n\\end{align*}\n\\]\n\n\nb.\nFor \\([2,3]\\): \\[\n\\begin{align*}\n\\frac{f(x_2) - f(x_1)}{x_2 - x_1} &= \\frac{f(3) - f(2)}{3 - 2} \\\\\n&= \\frac{3(3)^2 + 1 - (3(2)^2 + 1)}{1} \\\\\n&= 27 - 12 = \\boxed{15}\\\\\n\\end{align*}\n\\] For \\([-1,1]\\): \\[\n\\begin{align*}\n\\frac{f(x_2) - f(x_1)}{x_2 - x_1} &= \\frac{f(1) - f(-1)}{1 + 1} \\\\\n&= \\frac{3(1)^2 + 1 - (3(-1)^2 + 1)}{2} \\\\\n&= \\frac{0}{2} = \\boxed{0}\\\\\n\\end{align*}\n\\]"
   },
   {
+    "objectID": "teaching/math111/quizzes/quiz2.html",
+    "href": "teaching/math111/quizzes/quiz2.html",
+    "title": "Quiz 2 - Limits and rate of change",
+    "section": "",
+    "text": "Show that the graph of \\(f(x) = 3x^2 + 5x - 11 = 0\\) has a solution between \\(x=1\\) and \\(x=2\\). State which theorem you used.\n\n\n\nSince we know that \\(f(x)\\) is a polynomial and thus continous, we can use the intermediate value theorem to show that there exists a root between the points. To do so we need to show that the function is above the x-axis at one of the endpoints and below at the other: \\[\n\\begin{align*}\nf(1) &= 3(1)^2 + 5(1) - 11 = 3 + 5 - 11 = -3 < 0 \\\\\nf(2) &= 3(2)^2 + 5(2) - 11 = 12 + 10 - 11 = 11 > 0\n\\end{align*}\n\\]"
+  },
+  {
     "objectID": "teaching/math111/quizzes/quiz2.html#problem-2",
     "href": "teaching/math111/quizzes/quiz2.html#problem-2",
     "title": "Quiz 2 - Limits and rate of change",
@@ -214,7 +221,7 @@
     "href": "teaching/math111/math111.html#quiz-solutions",
     "title": "Math 111 - Calculus I",
     "section": "Quiz Solutions",
-    "text": "Quiz Solutions\n\nQuiz 1"
+    "text": "Quiz Solutions\n\nQuiz 1\nQuiz 2"
   },
   {
     "objectID": "teaching/math111/math111.html#notes",
