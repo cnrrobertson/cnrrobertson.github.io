@@ -22,3 +22,9 @@ result = eq.solve(h,t_range=tmax,dt=dt,tracker=storage.tracker(save_dt))
 # Visualize
 pde.plot_kymograph(storage)
 movie = pde.visualization.movie(storage,"videos/simple_wave.mp4")
+
+# Save data
+h=np.array(storage.data)
+x=storage.grid.coordinate_arrays[0]
+t=np.array(storage.times)
+np.savez("data/simple_wave.npz",h=h,x=x,t=t)
