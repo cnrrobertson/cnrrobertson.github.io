@@ -28,7 +28,7 @@ website:
           - text: "Just for Fun"
             file: other/fun/fun.qmd
           - text: "Machine Learning and Optimization Seminar"
-            file: other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd
+            file: other/mlseminar/mlseminar.qmd
   # --------------------------------------------------------------------------
   # Footer
   # --------------------------------------------------------------------------
@@ -80,10 +80,10 @@ website:
       collapse-level: 1
       contents:
         - section: "Machine Learning and Optimization Seminar"
-          href: other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd
+          href: other/mlseminar/mlseminar.qmd
           contents:
             - text: "Workshop 1: Python set up, basics, gradient descent, automatic differentiation"
-              href: other/machinelearning_optimization_seminar/fall_2022/workshop1_intro/workshop1_intro.qmd
+              href: other/mlseminar/fall_2022/workshop1_intro/workshop1_intro.qmd
             # - text: ""
 
 # --------------------------------------------------------------------------

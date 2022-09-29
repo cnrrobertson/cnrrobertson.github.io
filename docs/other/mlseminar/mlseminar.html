@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Connor Robertson - Math 110 - Precalculus</title>
+<title>Connor Robertson - Machine Learning and Optimization Seminar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,7 +62,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -87,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../assets/CV_Connor_Robertson_9_22.pdf">CV</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../teaching/teaching.html" aria-current="page">Teaching</a>
+    <a class="nav-link" href="../../teaching/teaching.html">Teaching</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../research/research.html">Research</a>
@@ -115,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Math 110 - Precalculus</h1>
+      <h1 class="quarto-secondary-nav-title">Machine Learning and Optimization Seminar</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -128,32 +127,17 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../teaching/teaching.html" class="sidebar-item-text sidebar-link">Teaching</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../teaching/math110/math110.html" class="sidebar-item-text sidebar-link active">Math 110 - Precalculus</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../teaching/math111/math111.html" class="sidebar-item-text sidebar-link">Math 111 - Calculus I</a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Math 340 - Applied Numerical Methods</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a href="../../other/mlseminar/mlseminar.html" class="sidebar-item-text sidebar-link active">Machine Learning and Optimization Seminar</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html" class="sidebar-item-text sidebar-link">Lab 1 - Brief Introduction to Matlab</a>
+  <a href="../../other/mlseminar/fall_2022/workshop1_intro/workshop1_intro.html" class="sidebar-item-text sidebar-link">Workshop 1: Python set up, basics, gradient descent, automatic differentiation</a>
   </div>
 </li>
       </ul>
@@ -167,13 +151,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#polynomial-functions" id="toc-polynomial-functions" class="nav-link active" data-scroll-target="#polynomial-functions">Polynomial functions</a>
+  <li><a href="#fall-2022" id="toc-fall-2022" class="nav-link active" data-scroll-target="#fall-2022">Fall 2022</a>
   <ul class="collapse">
-  <li><a href="#nonpolynomial-functions" id="toc-nonpolynomial-functions" class="nav-link" data-scroll-target="#nonpolynomial-functions">Nonpolynomial Functions</a></li>
-  <li><a href="#leading-order-test" id="toc-leading-order-test" class="nav-link" data-scroll-target="#leading-order-test">Leading order test</a></li>
-  <li><a href="#finding-zeros-of-polynomials" id="toc-finding-zeros-of-polynomials" class="nav-link" data-scroll-target="#finding-zeros-of-polynomials">Finding zeros of polynomials</a></li>
+  <li><a href="#workshops" id="toc-workshops" class="nav-link" data-scroll-target="#workshops">Workshops</a></li>
+  <li><a href="#presentations" id="toc-presentations" class="nav-link" data-scroll-target="#presentations">Presentations</a></li>
   </ul></li>
-  <li><a href="#problems" id="toc-problems" class="nav-link" data-scroll-target="#problems">Problems</a></li>
+  <li><a href="#past-presentations" id="toc-past-presentations" class="nav-link" data-scroll-target="#past-presentations">Past Presentations</a>
+  <ul class="collapse">
+  <li><a href="#spring-2022" id="toc-spring-2022" class="nav-link" data-scroll-target="#spring-2022">Spring 2022</a></li>
+  <li><a href="#fall-2021" id="toc-fall-2021" class="nav-link" data-scroll-target="#fall-2021">Fall 2021</a></li>
+  <li><a href="#spring-2021" id="toc-spring-2021" class="nav-link" data-scroll-target="#spring-2021">Spring 2021</a></li>
+  <li><a href="#fall-2020" id="toc-fall-2020" class="nav-link" data-scroll-target="#fall-2020">Fall 2020</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -182,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Math 110 - Precalculus</h1>
+<h1 class="title d-none d-lg-block">Machine Learning and Optimization Seminar</h1>
 </div>
 
 
@@ -196,73 +185,78 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This website section contains some resources for the Fall 2022 Math 110 Sections 11 and 13 at NJIT. Hopefully, the notes, problems, and supplementary plots/videos/animations can help deepen understanding or act as a reference for review.</p>
-<section id="polynomial-functions" class="level2">
-<h2 class="anchored" data-anchor-id="polynomial-functions">Polynomial functions</h2>
-<p><strong>Motivation</strong>: We’d like to understand functions that involve exponents because they show up in innumerable places in our life</p>
+<p>The Machine Learning and Optimization is a student-led seminar in the Department of Mathematical Sciences at NJIT. Its goal is to expose the participants to topics in machine learning and optimization by:</p>
+<ol type="1">
+<li>Facilitating hands-on workshops and group discussions to explore and gain experience</li>
+<li>Inviting speakers to introduce machine learning and optimization concepts (both established and under development)</li>
+</ol>
+<section id="fall-2022" class="level2">
+<h2 class="anchored" data-anchor-id="fall-2022">Fall 2022</h2>
+<section id="workshops" class="level3">
+<h3 class="anchored" data-anchor-id="workshops">Workshops</h3>
 <ul>
-<li><p>Polynomials are equations with several terms involving different “orders” of exponents (which are whole number exponents i.e.&nbsp;not fractions). A polynomial function can be written as: <span class="math display">\[
-P(x) = a_nx^n + a_{n-1}x^{n-1} + \ldots + a_1x^1 + a_0x^0
-\]</span> where <span class="math inline">\(a_n,\ldots,a_0\)</span> are the “coefficients” of the many terms <span class="math inline">\(x^j\)</span> for <span class="math inline">\(j=0,\ldots,n\)</span>.</p></li>
-<li><p><strong>Constant</strong>: A polynomial where <span class="math inline">\(n=0\)</span></p></li>
-<li><p><strong>Linear</strong>: A polynomial where <span class="math inline">\(n=1\)</span></p></li>
-<li><p><strong>Quadratic</strong>: A polynomial where <span class="math inline">\(n=2\)</span></p></li>
-<li><p><strong>Cubic</strong>: A polynomial where <span class="math inline">\(n=3\)</span></p></li>
-<li><p><strong>Quartic</strong>: A polynomial where <span class="math inline">\(n=4\)</span></p></li>
-</ul>
-<section id="nonpolynomial-functions" class="level3">
-<h3 class="anchored" data-anchor-id="nonpolynomial-functions">Nonpolynomial Functions</h3>
-<ul>
-<li>Functions that don’t have whole number exponents or exponents at all or are fractions of polynomials</li>
-<li>Examples:
-<ul>
-<li><span class="math inline">\(f(x) = |x+2|\)</span></li>
-<li><span class="math inline">\(f(x) = \sqrt{x}-1\)</span></li>
-<li><span class="math inline">\(f(x) = x^{4/5}\)</span></li>
-<li><span class="math inline">\(f(x) = \frac{x+1}{x-2}\)</span></li>
-</ul></li>
+<li>9/15/22: <a href="../../other/mlseminar/fall_2022/workshop1_intro/workshop1_intro.html">Python set up, machine learning basics, gradient descent, and automatic differentiation</a> - Connor Robertson</li>
+<li>10/6/22: Neural networks - Jake Brusca</li>
+<li>10/13/22: Data-driven model discovery - Connor Robertson</li>
+<li>10/20/22: Convolutional neural networks - Soheil Saghafi</li>
+<li>11/3/22: Recurrent neural networks - Austin Juhl</li>
+<li>12/1/22: Reinforcement learning - Sepideh Saghafi</li>
 </ul>
 </section>
-<section id="leading-order-test" class="level3">
-<h3 class="anchored" data-anchor-id="leading-order-test">Leading order test</h3>
+<section id="presentations" class="level3">
+<h3 class="anchored" data-anchor-id="presentations">Presentations</h3>
 <ul>
-<li>The largest exponent determines how the polynomial behaves for very large or very small values of <span class="math inline">\(x\)</span></li>
-<li>You can tell the shape of a plotted polynomial by its largest exponent
+<li>11/10/22: Recurrent neural networks for beat prediction - Prianka Bose</li>
+<li>12/8/22: Generative adversarial networks - Soheil Saghafi</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="past-presentations" class="level2">
+<h2 class="anchored" data-anchor-id="past-presentations">Past Presentations</h2>
+<section id="spring-2022" class="level3">
+<h3 class="anchored" data-anchor-id="spring-2022">Spring 2022</h3>
 <ul>
-<li><strong>Largest exponent is even</strong>: As <span class="math inline">\(x\)</span> gets very large or very negative, the polynomial either gets very large or very negative. See book.</li>
-<li><strong>Largest exponent is odd</strong>: As <span class="math inline">\(x\)</span> gets very large or very negative, one side of the polynomial gets very large and the other very negative. See book.</li>
-</ul></li>
+<li><a href="spring_2022/O_MT_1_Turnquist.pdf">Wasserstein GANs Work Because They Fail</a> - Axel Turnquist</li>
+<li><a href="spring_2022/O_MT_2_G%20u.pdf">Mean-field Theory: Drift and the Mean Drift</a> - Binan Gu</li>
 </ul>
 </section>
-<section id="finding-zeros-of-polynomials" class="level3">
-<h3 class="anchored" data-anchor-id="finding-zeros-of-polynomials">Finding zeros of polynomials</h3>
+<section id="fall-2021" class="level3">
+<h3 class="anchored" data-anchor-id="fall-2021">Fall 2021</h3>
 <ul>
-<li>Once a polynomial is factored, it is very easy to find its zeros
-<ul>
-<li>Example:
-<ul>
-<li>For function <span class="math display">\[g(x) = x^2 - 2x - 8 = (x + 2)(x-4)\]</span> there are zeros at <span class="math inline">\(x=-2,4\)</span></li>
-<li>This is easy to check:
-<ul>
-<li>If <span class="math inline">\(x=-2\)</span>: <span class="math display">\[g(-2) = (-2 + 2)(-2 - 4) = 0(-2-4) = 0\]</span></li>
-<li>If <span class="math inline">\(x=4\)</span>: <span class="math display">\[g(4) = (4 + 2)(4 - 4) = (4 + 2)0 = 0\]</span></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>The multiplicity of a zero or “root” of the polynomial function is the number of times that number appears in the factored form
-<ul>
-<li>Example:
-<ul>
-<li>For function <span class="math display">\[g(x) = x^2 - 8x + 16 = (x-4)(x-4)\]</span> which means it has only one root of <span class="math inline">\(x=4\)</span>. But, the root appears twice in the factored form, so the multiplicity of the root is 2.</li>
-</ul></li>
-</ul></li>
+<li><a href="fall_2021/Computing%20the%20Distance%20Between%20Probability%20Measures%20-%20Axel%20Turnquist.pdf">Computing the Distance Between Probability Measures</a> - Axel Turnquist</li>
+<li><a href="fall_2021/Full%20Waveform%20Inversion%20Using%20the%20Wasserstein%20Metric%20-%20Brittany%20Hamfeldt.pdf">Full Waveform Inversion Using the Wasserstein Metric</a> - Brittany Hamfeldt</li>
+<li><a href="fall_2021/Image%20Sharpening%20-%20Axel%20Turnquist.pdf">Image Sharpening</a> - Axel Turnquist</li>
+<li><a href="fall_2021/Neural%20networks%20for%20function%20approximation%20and%20-%20Connor%20Robertson.pdf">Neural Networks for function approximation and data-driven modeling</a> - Connor Robertson</li>
+<li><a href="fall_2021/Optimal%20control%20of%20systems%20governed%20by%20PDEs%20with%20-%20Georg%20Stadler.pdf">Optimal control of systems governed by PDEs with uncertainty</a> - Georg Stadler</li>
+<li><a href="fall_2021/Stochastic%20Temporal%20Networks%20-%20Binan%20Gu.pdf">Stochastic Temporal Networks</a> - Binan Gu</li>
+<li><a href="fall_2021/Topological%20Data%20Analysis%20Applied%20to%20Interaction%20Networks%20in%20Particulate%20Systems%20-%20Lou%20Kondic.pdf">Topological Data Analysis Applied to Interaction Networks in Particulate Systems</a> - Lou Kondic</li>
 </ul>
 </section>
+<section id="spring-2021" class="level3">
+<h3 class="anchored" data-anchor-id="spring-2021">Spring 2021</h3>
+<ul>
+<li><a href="spring_2021/Talk_II_Gu_energy_landscape.pdf">Spin Glass and High Dimensional Energy Landscape</a> - Binan Gu</li>
+<li><a href="spring_2021/Talk_IX_Gu_diffusion_approx.pdf">Diffusion Approximations and Applications in Non-convex Optimization</a> - Binan Gu</li>
+<li><a href="spring_2021/Talk_X_McCann_SGD.pptx">Stochastic Gradient Descent and How I Learned to Love the Randomness</a> - Joe McCann</li>
+</ul>
 </section>
-<section id="problems" class="level2">
-<h2 class="anchored" data-anchor-id="problems">Problems</h2>
+<section id="fall-2020" class="level3">
+<h3 class="anchored" data-anchor-id="fall-2020">Fall 2020</h3>
+<ul>
+<li><a href="fall_2020/Autumn%20Machine%20Learning%20I.pdf">Why does stochastic gradient descent work so well?</a> - Axel Turnquist</li>
+<li><a href="fall_2020/Autumn%20Machine%20Learning%20II.pdf">Information Geometry &amp; Learning</a> - Axel Turnquist</li>
+<li><a href="fall_2020/Autumn%20Machine%20Learning%20III.pdf">Graph-based Learning Beyond the Paradigm of Neural Networks</a> - Binan Gu</li>
+<li><a href="fall_2020/Autumn%20Machine%20Learning%20IV.pdf">Effective Dimension in High-Dimensional Problems</a> - Axel Turnquist</li>
+<li><a href="fall_2020/Autumn%20Machine%20Learning%20V.pdf">Bayesian Statistics and Machine Learning</a> - Gan Luan</li>
+<li><a href="fall_2020/Autumn%20Machine%20Learning%20VI.pdf">Matrix Completion and Sparse Recovery</a> - Axel Turnquist</li>
+<li><a href="fall_2020/Autumn%20Machine%20Learning%20VII.pdf">Wasserstein GAN</a> - Yixuan Sun</li>
+<li><a href="fall_2020/Autumn%20Machine%20Learning%20VIII.pdf">Graphical Model Selection</a> - Binan Gu</li>
+<li><a href="fall_2020/Autumn%20Machine%20Learning%20X.pdf">Learning Frameworks</a> - Axel Turnquist</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
