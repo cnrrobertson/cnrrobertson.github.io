@@ -17,7 +17,7 @@ Its goal is to expose the participants to topics in machine learning and optimiz
 - 10/13/22: Data-driven model discovery - Connor Robertson
 - 10/20/22: Convolutional neural networks - Soheil Saghafi
 - 11/3/22: Recurrent neural networks - Austin Juhl
-- 12/1/22: Reinforcement learning - Sepideh Saghafi
+- 12/1/22: Reinforcement learning - Sepideh Nikookar
 
 ### Presentations
 - 11/10/22: Recurrent neural networks for beat prediction - Prianka Bose
