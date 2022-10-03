@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Connor Robertson - Quiz 2 - Continuity</title>
+<title>Connor Robertson - Quiz 3 - Definition of a derivative</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,11 +128,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">Question</a></li>
   <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
   </ul></li>
-  <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem 2</a>
-  <ul class="collapse">
-  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question</a></li>
-  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -141,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quiz 2 - Continuity</h1>
+<h1 class="title">Quiz 3 - Definition of a derivative</h1>
 </div>
 
 
@@ -159,44 +154,19 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="problem-1">Problem 1</h2>
 <section id="question" class="level3">
 <h3 class="anchored" data-anchor-id="question">Question</h3>
-<p>Show that the graph of <span class="math inline">\(f(x) = 3x^2 + 5x - 11 = 0\)</span> has a solution between <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=2\)</span>. State which theorem you used.</p>
+<p>Use the definition of a derivative to find the derivative <span class="math inline">\(f'(x)\)</span> of the function <span class="math inline">\(f(x) = \frac{1}{x}\)</span>.</p>
 </section>
 <section id="solution" class="level3">
 <h3 class="anchored" data-anchor-id="solution">Solution</h3>
-<p>Since we know that <span class="math inline">\(f(x)\)</span> is a polynomial and thus continous, we can use the <a href="https://en.wikipedia.org/wiki/Intermediate_value_theorem">intermediate value theorem</a> to show that there exists a root between the points. To do so we need to show that the function is above the x-axis at one of the endpoints and below at the other: <span class="math display">\[
+<p>Using the definition: <span class="math display">\[
 \begin{align*}
-f(1) &amp;= 3(1)^2 + 5(1) - 11 = 3 + 5 - 11 = -3 &lt; 0 \\
-f(2) &amp;= 3(2)^2 + 5(2) - 11 = 12 + 10 - 11 = 11 &gt; 0
-\end{align*}
-\]</span></p>
-</section>
-</section>
-<section id="problem-2" class="level2">
-<h2 class="anchored" data-anchor-id="problem-2">Problem 2</h2>
-<section id="question-1" class="level3">
-<h3 class="anchored" data-anchor-id="question-1">Question</h3>
-<p>Find constants <span class="math inline">\(a,b\)</span> so that the function given below is continuous for all <span class="math inline">\(x\)</span>: <span class="math display">\[
-f(x) = \begin{cases}
-x^2 + 3 &amp; x&lt;2 \\
-a &amp; x = 2 \\
-ax+b &amp; x &gt; 2
-\end{cases}
-\]</span></p>
-</section>
-<section id="solution-1" class="level3">
-<h3 class="anchored" data-anchor-id="solution-1">Solution</h3>
-<p>First, we need to make sure that the left most part of the function connects with the center part: <span class="math display">\[
-\begin{align*}
-a &amp;= x^2 + 3 \text{ at }x=2 \\
-&amp;= (2)^2 + 3 \\
-\Aboxed{a &amp;= 7}
-\end{align*}
-\]</span> Next, we match the center part to the rightmost part: <span class="math display">\[
-\begin{align*}
-a &amp;= ax + b\text{ at }x=2 \\
-7 &amp;= 7(2) + b \\
-b &amp;= 7 - 14 \\
-\Aboxed{b &amp;= -7}
+f'(x) &amp;= \lim_{h\rightarrow 0}\left(\frac{f(x + h) - f(x)}{h}\right) \\
+&amp;= \lim_{h\rightarrow 0}\left(\frac{\frac{1}{x+h} - \frac{1}{x}}{h}\right) \\
+&amp;= \lim_{h\rightarrow 0}\left(\frac{\frac{x}{x(x+h)} - \frac{x+h}{x(x+h)}}{h}\right) \\
+&amp;= \lim_{h\rightarrow 0}\left(\frac{\frac{x - (x+h)}{x(x+h)}}{h}\right) \\
+&amp;= \lim_{h\rightarrow 0}\left(\frac{\frac{ -h}{x(x+h)}}{h}\right) \\
+&amp;= \lim_{h\rightarrow 0}\left(\frac{-1}{x(x+h)}\right) \\
+\Aboxed{f'(x) &amp;= -\frac{1}{x^2}}
 \end{align*}
 \]</span></p>
 

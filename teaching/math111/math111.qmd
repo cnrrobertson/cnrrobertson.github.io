@@ -8,6 +8,7 @@ Hopefully, the notes, problems, and supplementary plots/videos/animations can he
 ## Quiz Solutions
 - [Quiz 1](quizzes/quiz1.qmd)
 - [Quiz 2](quizzes/quiz2.qmd)
+- [Quiz 3](quizzes/quiz3.qmd)
 
 ## Notes
 

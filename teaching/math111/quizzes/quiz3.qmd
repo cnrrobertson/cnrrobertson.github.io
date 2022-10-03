@@ -1,0 +1,23 @@
+---
+title: Quiz 3 - Definition of a derivative
+---
+
+## Problem 1
+### Question
+Use the definition of a derivative to find the derivative $f'(x)$ of the function $f(x) = \frac{1}{x}$.
+
+### Solution
+Using the definition:
+$$
+\begin{align*}
+f'(x) &= \lim_{h\rightarrow 0}\left(\frac{f(x + h) - f(x)}{h}\right) \\
+&= \lim_{h\rightarrow 0}\left(\frac{\frac{1}{x+h} - \frac{1}{x}}{h}\right) \\
+&= \lim_{h\rightarrow 0}\left(\frac{\frac{x}{x(x+h)} - \frac{x+h}{x(x+h)}}{h}\right) \\
+&= \lim_{h\rightarrow 0}\left(\frac{\frac{x - (x+h)}{x(x+h)}}{h}\right) \\
+&= \lim_{h\rightarrow 0}\left(\frac{\frac{ -h}{x(x+h)}}{h}\right) \\
+&= \lim_{h\rightarrow 0}\left(\frac{-1}{x(x+h)}\right) \\
+\Aboxed{f'(x) &= -\frac{1}{x^2}}
+\end{align*}
+$$
+
+

@@ -198,14 +198,14 @@
   {
     "objectID": "teaching/math111/quizzes/quiz2.html",
     "href": "teaching/math111/quizzes/quiz2.html",
-    "title": "Quiz 2 - Limits and rate of change",
+    "title": "Quiz 2 - Continuity",
     "section": "",
     "text": "Show that the graph of \\(f(x) = 3x^2 + 5x - 11 = 0\\) has a solution between \\(x=1\\) and \\(x=2\\). State which theorem you used.\n\n\n\nSince we know that \\(f(x)\\) is a polynomial and thus continous, we can use the intermediate value theorem to show that there exists a root between the points. To do so we need to show that the function is above the x-axis at one of the endpoints and below at the other: \\[\n\\begin{align*}\nf(1) &= 3(1)^2 + 5(1) - 11 = 3 + 5 - 11 = -3 < 0 \\\\\nf(2) &= 3(2)^2 + 5(2) - 11 = 12 + 10 - 11 = 11 > 0\n\\end{align*}\n\\]"
   },
   {
     "objectID": "teaching/math111/quizzes/quiz2.html#problem-2",
     "href": "teaching/math111/quizzes/quiz2.html#problem-2",
-    "title": "Quiz 2 - Limits and rate of change",
+    "title": "Quiz 2 - Continuity",
     "section": "Problem 2",
     "text": "Problem 2\n\nQuestion\nFind constants \\(a,b\\) so that the function given below is continuous for all \\(x\\): \\[\nf(x) = \\begin{cases}\nx^2 + 3 & x<2 \\\\\na & x = 2 \\\\\nax+b & x > 2\n\\end{cases}\n\\]\n\n\nSolution\nFirst, we need to make sure that the left most part of the function connects with the center part: \\[\n\\begin{align*}\na &= x^2 + 3 \\text{ at }x=2 \\\\\n&= (2)^2 + 3 \\\\\n\\Aboxed{a &= 7}\n\\end{align*}\n\\] Next, we match the center part to the rightmost part: \\[\n\\begin{align*}\na &= ax + b\\text{ at }x=2 \\\\\n7 &= 7(2) + b \\\\\nb &= 7 - 14 \\\\\n\\Aboxed{b &= -7}\n\\end{align*}\n\\]"
   },
@@ -221,7 +221,7 @@
     "href": "teaching/math111/math111.html#quiz-solutions",
     "title": "Math 111 - Calculus I",
     "section": "Quiz Solutions",
-    "text": "Quiz Solutions\n\nQuiz 1\nQuiz 2"
+    "text": "Quiz Solutions\n\nQuiz 1\nQuiz 2\nQuiz 3"
   },
   {
     "objectID": "teaching/math111/math111.html#notes",
@@ -299,5 +299,12 @@
     "title": "Connor Robertson",
     "section": "",
     "text": "On this site you can find my CV, my LinkedIn and Github profiles, and some other little tidbits for teaching, research, seminars, and general exploration."
+  },
+  {
+    "objectID": "teaching/math111/quizzes/quiz3.html",
+    "href": "teaching/math111/quizzes/quiz3.html",
+    "title": "Quiz 3 - Definition of a derivative",
+    "section": "",
+    "text": "Use the definition of a derivative to find the derivative \\(f'(x)\\) of the function \\(f(x) = \\frac{1}{x}\\).\n\n\n\nUsing the definition: \\[\n\\begin{align*}\nf'(x) &= \\lim_{h\\rightarrow 0}\\left(\\frac{f(x + h) - f(x)}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{1}{x+h} - \\frac{1}{x}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{x}{x(x+h)} - \\frac{x+h}{x(x+h)}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{x - (x+h)}{x(x+h)}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{ -h}{x(x+h)}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{-1}{x(x+h)}\\right) \\\\\n\\Aboxed{f'(x) &= -\\frac{1}{x^2}}\n\\end{align*}\n\\]"
   }
 ]
