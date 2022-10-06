@@ -85,7 +85,7 @@ website:
             - text: "Workshop 1: Python set up, basics, gradient descent, automatic differentiation"
               href: other/mlseminar/fall_2022/workshop1_intro/workshop1_intro.qmd
             - text: "Workshop 2: Neural networks - structure, building, and training"
-              href: other/mlseminar/fall_2022/workshop2_nn/workshop2_nn.pdf
+              href: other/mlseminar/fall_2022/workshop2_nn/workshop2_nn.qmd
 
 # --------------------------------------------------------------------------
 # Theme
