@@ -4,7 +4,7 @@ import jax
 import jax.numpy as jnp
 import optax
 import flax.linen as nn
-from tensorflow import keras
+# from tensorflow import keras
 # from tensorflow.keras import layers
 
 # %%

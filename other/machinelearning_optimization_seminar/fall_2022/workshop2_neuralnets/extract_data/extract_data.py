@@ -5,6 +5,7 @@ import skimage as img
 import imageio.v3 as iio
 
 # Load video (the portion with good side view)
+raw_frames = []
 frames = []
 heights = []
 cut = (160,200)
@@ -12,6 +13,7 @@ for i in range(200,232):
     frame = iio.imread("youtube_video.mp4",plugin="pyav",index=i)
 
     # Cut the image to focus only on the wave portion
+    raw_frame = frame[cut[0]:cut[1],:,:]
     frame = frame[cut[0]:cut[1],:,:]
 
     # Find where the image is more green than red or blue and very bright green
@@ -24,6 +26,7 @@ for i in range(200,232):
     for j in range(frame.shape[1]):
         height[j] = np.mean(np.where(frame[:,j] == 1)[0])
 
+    raw_frames.append(raw_frame)
     frames.append(frame)
     heights.append(height)
 
@@ -45,18 +48,40 @@ for i in range(len(heights)):
     heights[i] = height
 
 frames = np.array(frames)
+raw_frames = np.array(raw_frames)
 heights = np.array(heights)
+
+# Drop heights to baseline
+base = heights[16, 0]
+heights -= base
+
 # %%
 # Show animation for visual validation
 fig = plt.figure(figsize=(10,4))
 im = plt.imshow(frames[0], cmap="gray")
-line = plt.plot(heights[0], color="red")[0]
+line = plt.plot(base+heights[0], color="red",lw=3)[0]
+line2 = plt.plot([0,heights.shape[1]], [31,31], color="orange", ls="--")[0]
 
 def animation_function(i):
     im.set_array(frames[i])
-    line.set_ydata(heights[i])
+    line.set_ydata(base+heights[i])
+    return [im,line,line2]
+
+wave_animation = anim.FuncAnimation(fig, animation_function, frames=range(len(frames)), blit=True)
+plt.show()
+
+# %%
+# Show animation on original image
+fig = plt.figure(figsize=(10,4))
+im = plt.imshow(raw_frames[0])
+line = plt.plot(base+heights[0], color="red",lw=4)[0]
+
+def animation_function(i):
+    im.set_array(raw_frames[i])
+    line.set_ydata(base+heights[i])
     return [im,line]
 
+plt.axis(False)
 wave_animation = anim.FuncAnimation(fig, animation_function, frames=range(len(frames)), blit=True)
 plt.show()
 
@@ -64,5 +89,6 @@ plt.show()
 # Save data
 # Video portion is about 2 seconds long
 times = np.linspace(0,2,len(heights))
-np.save("../data/video_wave_images.npy",frames)
-np.save("../data/video_wave_heights.npz",h=heights,)
+x_domain = len(heights[0])
+np.save("../data/video_wave_images.npy",raw_frames)
+np.savez("../data/video_wave_heights.npz",h=heights,x=x_domain,t=times)
