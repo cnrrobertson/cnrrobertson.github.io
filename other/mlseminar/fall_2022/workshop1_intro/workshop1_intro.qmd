@@ -28,7 +28,7 @@ We are excited to get started on this but recognize that since neither machine l
 Our hope is that we can use this disparity of experience to increase collaboration during the workshops in a way that can't be achieved during the talks.
 All are encouraged to share their knowledge and experience with one another openly during the workshops and to give feedback to the organizers after.
 
-All workshop material will be available [here](../../machinelearning_optimization_seminar.qmd) for later reference.
+All workshop material will be available [here](../../mlseminar.qmd) for later reference.
 
 This first workshop is focused on tooling and the basic concepts of machine learning and optimization with the goal that everyone can be on the same footing for later workshops.
 
