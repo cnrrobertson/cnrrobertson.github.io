@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 # Domain
 xmax = 1.0
 nx = 100
-tmax = 1.0
 dt = 1e-6
+tmax = 1.0-2*dt
 save_dt = 0.01
 init_cond = ".1*exp(-(1/.01)*(x-0.3)**2)"
 

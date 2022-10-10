@@ -1,15 +1,18 @@
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.animation as anim
 import jax
 import jax.numpy as jnp
 import optax
 import flax.linen as nn
 import sympy as sp
 from itertools import combinations_with_replacement
+import sklearn.linear_model as lm
 
 # %%
 # Load data
-raw_data = np.load("../workshop2_neuralnets/data/simple_wave.npz")
+raw_data = np.load("data/simple_wave.npz")
 h = raw_data["h"].astype(jnp.float32)
 x = raw_data["x"].astype(jnp.float32)
 t = raw_data["t"].astype(jnp.float32)
@@ -32,11 +35,11 @@ for ind in range(0,len(index_list),batch_size):
 class MyNet(nn.Module):
     @nn.compact
     def __call__(self, x):
-        x = nn.Dense(64)(x)
+        x = nn.Dense(12)(x)
         x = nn.tanh(x)
-        x = nn.Dense(64)(x)
+        x = nn.Dense(12)(x)
         x = nn.tanh(x)
-        x = nn.Dense(64)(x)
+        x = nn.Dense(12)(x)
         x = nn.tanh(x)
         x = nn.Dense(1)(x)
         return x
@@ -55,7 +58,7 @@ def mse(params,input,targets):
         return jnp.mean((y - pred)**2)
     return jnp.mean(jax.vmap(squared_error)(input,targets),axis=0)
 
-tx = optax.adam(1e-3)
+tx = optax.adam(1e-1)
 opt_state = tx.init(params)
 loss_grad_fn = jax.value_and_grad(mse)
 
@@ -73,45 +76,103 @@ for i in range(1000):
 
 # %%
 # Plot fit
-h1 = h[0,:]
-hhat = [float(model.apply(params,jnp.array([x[i],t[0]]))[0]) for i in range(len(x))]
-plt.plot(x,h1)
-plt.plot(x,hhat)
-plt.savefig("testgraph.png")
+
+X,T = jnp.meshgrid(x,t)
+xt_points = jnp.vstack([X.flatten(),T.flatten()]).T
+hhat = model.apply(params,xt_points).reshape(X.shape)
+# hhat_t = h_t.reshape(X.shape)
+hhat_t = np.array(term_matrix[diff_terms[1]]).reshape(X.shape)
+
+fig = plt.figure()
+p1 = plt.plot(x,h[0,:])[0]
+p2 = plt.plot(x,hhat[0,:])[0]
+p3 = plt.plot(x,hhat_t[0,:])[0]
+
+def anim_func(j):
+    p1.set_ydata(h[j,:])
+    p2.set_ydata(hhat[j,:])
+    p3.set_ydata(hhat_t[j,:])
+
+approx_anim = anim.FuncAnimation(fig, anim_func, range(len(t)))
 plt.show()
 
 # %%
 # Test grad
 t = 0.3
-def model_sub(x):
+def model_for_diff(x,t):
     new_x = jnp.array([x,t])
     return model.apply(params, new_x)[0]
-# test_pt = jnp.array([0.3,0.3])
-# print(model_sub(test_pt))
+
+def model_in_x(x):
+    new_x = jnp.array([x,t])
+    return model.apply(params, new_x)[0]
+
+def model_in_t(t):
+    new_t = jnp.array([x,t])
+    return model.apply(params, new_t)[0]
+
 test_x = 0.3
-print(model_sub(test_x))
-jax.grad(model_sub)(test_x)
-jax.grad(jax.grad(model_sub))(test_x)
-jax.grad(jax.grad(jax.grad(model_sub)))(test_x)
+print(model_in_x(test_x))
+jax.grad(model_in_x)(test_x)
+jax.grad(model_for_diff,0)(test_x,t)
+jax.grad(jax.grad(model_in_x))(test_x)
+jax.grad(jax.grad(jax.grad(model_in_x)))(test_x)
+
+# Apply to all x
+jax.lax.map(jax.grad(model_in_x), X.flatten())
 
 # %%
 # symoblic library
 x_sym,t_sym = sp.symbols("x t")
 h_sym = sp.Function("h")
-dh = sp.diff(h_sym(x_sym,t_sym), t_sym)
-expr = dh*dh
-
-def substitute_arr(expr, sym, arr):
-    result = np.zeros_like(arr)
-    for index in np.ndindex(arr.shape):
-        result[index] = expr.subs(sym, arr[index])
-    return result
-
-print(substitute_arr(expr, dh, np.array([0,1,2])))
 
 # Make library
-poly_orders = range(4)
-diff_orders = range(4)
+max_poly_order = 4
+max_diff_order = 4
 
-terms = [sp.diff(h_sym(x_sym,t_sym), x_sym, i) for i in diff_orders]
-permutations = []
+# diff_terms = [sp.diff(h_sym(x_sym,t_sym), x_sym, i) for i in range(max_diff_order+1)]
+diff_terms = [h_sym(x_sym,t_sym)] + [sp.Function(str(h_sym)+"_"+(i*str(x_sym)))(x_sym,t_sym) for i in range(1,max_diff_order+1)]
+
+# Differentiate model and store results with autodiff
+diff_term_values = {}
+for i in range(max_diff_order+1):
+    diff_func = model_for_diff
+    for _ in range(i):
+        diff_func = jax.grad(diff_func, 0)
+    def unpack_diff_func(x):
+        new_x,new_t = x
+        return diff_func(new_x,new_t)
+    diff_term_values[diff_terms[i]] = np.array(jax.lax.map(unpack_diff_func, xt_points))
+
+# Construct terms
+term_values = {}
+for po in range(max_poly_order+1):
+    if po == 0:
+        term = sp.core.numbers.One()
+        term_values[term] = np.ones(xt_points.shape[0])
+    else:
+        combos = combinations_with_replacement(diff_terms,po)
+        for combo in combos:
+            term = 1
+            temp_term_value = 1
+            for combo_term in combo:
+                term *= combo_term
+                temp_term_value *= diff_term_values[combo_term]
+            term_values[term] = temp_term_value
+
+# Time derivative
+def unpack_diff_func(x):
+    new_x,new_t = x
+    return jax.grad(model_for_diff,1)(new_x,new_t)
+
+# term_values[sp.Function(str(h_sym)+"_"+str(t_sym))] = jax.lax.map(unpack_diff_func, xt_points)
+h_t = -np.array(jax.lax.map(unpack_diff_func, xt_points))
+
+# %%
+term_matrix = pd.DataFrame(term_values)
+ols = lm.LinearRegression()
+ols.fit(term_matrix,h_t)
+print(ols.coef_ > 1e-5)
+lasso = lm.Lasso(2)
+lasso.fit(term_matrix,h_t)
+
