@@ -84,7 +84,8 @@ website:
           contents:
             - text: "Workshop 1: Python set up, basics, gradient descent, automatic differentiation"
               href: other/machinelearning_optimization_seminar/fall_2022/workshop1_intro/workshop1_intro.qmd
-            # - text: ""
+            - text: "Workshop 3: Data-driven discovery via Sparse Identification of Nonlinear Dynamics"
+              href: other/machinelearning_optimization_seminar/fall_2022/workshop3_discovery/workshop3_discovery.qmd
 
 # --------------------------------------------------------------------------
 # Theme
