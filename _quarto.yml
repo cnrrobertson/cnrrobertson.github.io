@@ -86,6 +86,8 @@ website:
               href: other/mlseminar/fall_2022/workshop1_intro/workshop1_intro.qmd
             - text: "Workshop 2: Neural networks - structure, building, and training"
               href: other/mlseminar/fall_2022/workshop2_nn/workshop2_nn.qmd
+            - text: "Workshop 3: Data-driven discovery via Sparse Identification of Nonlinear Dynamics"
+              href: other/mlseminar/fall_2022/workshop3_discovery/workshop3_discovery.qmd
 
 # --------------------------------------------------------------------------
 # Theme
