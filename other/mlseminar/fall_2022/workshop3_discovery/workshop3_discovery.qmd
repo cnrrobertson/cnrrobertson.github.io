@@ -243,13 +243,14 @@ print(terms)
 In order to provide numerical derivatives of our data, we will use a neural network approximation.
 
 :::{.callout-note}
-This is far beyond what is necessary for this particular setting, but is a method that can generalize to data outside of a grid and in high dimension, so is fairly robust.
+This is far beyond what is necessary for this particular setting, but is a method that can generalize to data not on a uniform grid and in high dimension, which can be useful.
 The lack of requirement for a grid can also help with robustly fitting to noisy data by using a train-test methodology in @sec-noisy which classical basis functions do not handle well.
+Using neural networks in this way as a combination with SINDy is explored more in[@xu2019dl].
 :::
 
 To begin, we will be using the Google developed [`flax`](https://flax.readthedocs.io/en/latest/) neural network framework which is built on their [`jax`](https://jax.readthedocs.io/en/latest/index.html) automatic differentiation library and the [`optax`](https://optax.readthedocs.io/en/latest/optax-101.html) optimization library.
 The reason for this will become clearer when we consider taking a fourth order derivative in $x$ of the network, a task which many other popular frameworks (`pytorch`, `keras`, `tensorflow`, etc.) cannot do (at least not nearly as concisely).
-However, the `jax` library is state-of-the-art for automatic differentiation and is used heavily for differentiable programming and neural network research today (see Appendix for more information). <!-- TODO: Write appendix section briefly lauding how JAX works)-->
+However, the `jax` library is state-of-the-art for automatic differentiation and is used heavily for differentiable programming and neural network research today (see Appendix for more information). 
 
 #### Creating the neural network model
 First, we will create a simple dense neural network model using the $\tanh$ activation (to ensure a smooth approximation):
@@ -292,7 +293,7 @@ Since our data is known to be quite smooth and we want to maximize the fit, we w
 ```{python}
 import jax.numpy as jnp
 
-def load_data(data_path,noise_scale=0):
+def load_data(data_path,noise_scale=0,norm=True):
     raw_data = np.load(data_path)
     h = raw_data["h"].astype(jnp.float32)
     x = raw_data["x"].astype(jnp.float32)
@@ -302,9 +303,10 @@ def load_data(data_path,noise_scale=0):
     h += noise_scale*jnp.std(h)*np.random.normal(size=h.shape)
 
     # Mean center, std center data
-    h = (h - jnp.mean(h)) / jnp.std(h)
-    x = (x - jnp.mean(x)) / jnp.std(x)
-    t = (t - jnp.mean(t)) / jnp.std(t)
+    if norm:
+        h = (h - jnp.mean(h)) / jnp.std(h)
+        x = (x - jnp.mean(x)) / jnp.std(x)
+        t = (t - jnp.mean(t)) / jnp.std(t)
     return x,t,h
 
 def batch_data(x,t,h,batch_size):
@@ -366,8 +368,8 @@ import matplotlib.animation as anim
 
 X,T = jnp.meshgrid(x,t)
 xt_points = jnp.vstack([X.flatten(),T.flatten()]).T
-hhat = model1.apply(params1,xt_points).reshape(X.shape)
-diff = np.sqrt((h - hhat)**2)
+hhat1 = model1.apply(params1,xt_points).reshape(X.shape)
+diff = np.sqrt((h - hhat1)**2)
 
 def animate_data(x,t,data_list,labels):
     fig = plt.figure()
@@ -387,7 +389,7 @@ def animate_data(x,t,data_list,labels):
     approx_anim = anim.FuncAnimation(fig, anim_func, range(len(t)))
     return approx_anim
 
-animation1 = animate_data(x,t,[h,hhat,diff],["$h$","$\hat{h}$","$L^2$ error"])
+animation1 = animate_data(x,t,[h,hhat1,diff],["$h$","$\hat{h}$","$L^2$ error"])
 animation1.save("clean_h_compare.gif")
 plt.close()
 ```
@@ -577,7 +579,6 @@ Simply put, this means that we will hold out a portion of our data from the trai
 Part of this held-back data (validation set) will be used to validate that our model can generalize to other points during training.
 The other part of the held-back data (test set) will be used as a final check on how well the model extrapolates out of the training data.
 
-<!-- TODO: Function to split data into train,valid,test sets (scikit-learn?) -->
 ```{python}
 import sklearn.model_selection as ms
 
@@ -633,10 +634,14 @@ for i in range(epochs):
 test_loss = mse(params2,xt_test,h_test)
 print("Test loss after training: {}".format(test_loss))
 
-hhat = model2.apply(params2,xt_points).reshape(X.shape)
-diff = np.sqrt((noisy_h - hhat)**2)
-animation3 = animate_data(x,t,[noisy_h,hhat,diff],["$h$","$\hat{h}$","$L^2$ error"])
+hhat2 = model2.apply(params2,xt_points).reshape(X.shape)
+diff = np.sqrt((noisy_h - hhat2)**2)
+diff2 = np.sqrt((hhat1 - hhat2)**2)
+animation3 = animate_data(x,t,[noisy_h,hhat2,diff],["$h$","$\hat{h}$","$L^2$ error"])
 animation3.save("noisy_h_compare.gif")
+plt.close()
+animation3 = animate_data(x,t,[hhat1,hhat2,diff2],["$\hat{h}$ clean","$\hat{h}$ noisy","$L^2$ error"])
+animation3.save("noisy_hhat_compare.gif")
 plt.close()
 ```
 
@@ -645,6 +650,10 @@ The resulting fit can be seen in the following video:
 ![](noisy_h_compare.gif)
 
 Looks pretty good all things considered!
+We can also compare this with the fit on clean data to see how impressive the robustness to noise was:
+
+![](noisy_hhat_compare.gif)
+
 Finally, we construct the terms and check the results after forward selection:
 
 ```{python}
@@ -751,7 +760,6 @@ plt.axis(False); plt.show()
 
 Finally, we can note that the video is not quite level to the wave surface, so we can use a linear adjustment to align the water boundary heights at the middle of the video:
 
-<!-- TODO: Show wave baseline adjustment. -->
 ```{python}
 # Adjust images and heights for an un-leveled camera
 im_width = len(heights[16])
@@ -907,3 +915,85 @@ forward_r2_select(term_matrix, h_t)
 
 Feel free to play with the parameters of each step to try to change/improve the results we have seen here.
 
+## Appendix {.appendix}
+
+### The benefits of JAX {.appendix}
+[`jax`](https://jax.readthedocs.io/en/latest/index.html) is an automatic differentiation based on the [XLA](https://www.tensorflow.org/xla) compiler for Tensorflow.
+The largest difference between this library and the alternative libraries (like those included in `tensorflow` main, `pytorch`, `keras`, etc.) is that it compiles Python code down to a computational graph structure.
+Although the majority of excitement around this compiler has surrounded the optimizations that can take place one the graph structure has been identified, it also facilitates taking derivatives of arbitrarry objects.
+This is because rather than compute gradients along the path (forward mode automatic differentiation) or keeping track of operations as it goes (backward mode automatic differentiation), it has a graph structure to analyze exactly what happens to each value and parameter.
+At the end of the day, this means it is much easier to compute gradients of exactly what you want.
+
+If `jax` and `flax` have appeared too hands-on and complicated after this workshop, consider trying [`treex`](https://cgarciae.github.io/treex/) which aims to make using `jax` for neural networks simple and only need a few lines of code.
+
+### Training without normalizing the data {.appendix}
+
+In the @sec-simulated section, the `load_data` function performs a normalization of the simulated data from a range of $h(x,t) \in [0,.1]$ where $x \in [0,1]$ and $t \in [0,1]$ to a range of $h(x,t) \in [-1,1]$ with mean $\bar{h}=0$ and standard deviation 1 with $x \in [-1.7,1.7]$ and $t \in [-1.7,1.7]$.
+Normalizing data like this is common in machine learning, but it is not always apparent why.
+Our case can give a strong demonstration as to the benefits of normalizing in this way.
+
+Consider that our neural network uses only the $\tanh$ activation function.
+For those unfamiliar, this function has the form:
+
+```{python}
+tanh_dom = np.linspace(-5,5,100)
+tanh_range = np.tanh(tanh_dom)
+plt.plot(tanh_dom, tanh_range, label="$\\tanh(x)$")
+plt.xlabel("$x$"); plt.legend(); plt.show()
+```
+
+Each layer of our neural network is connected via linear transformations of the form $\vec{x}^T\mathbf{W} + \vec{b}$, thus we should be able to shift the data into the appropriate domain and range for the $\tanh$ function.
+However, in practice, optimizing our parameters to attain this is hard to find.
+To demonstrate, consider the training of the neural network on clean simulation data without normalization:
+
+```{python}
+x,t,h = load_data("simple_wave.npz",norm=False)
+X,T = jnp.meshgrid(x,t)
+data = batch_data(X.flatten(),T.flatten(),h.flatten(),10000)
+# Random generator seed
+rng1,rng2 = jax.random.split(jax.random.PRNGKey(42))
+random_data = jax.random.normal(rng1,(2,))
+model4 = MyNet()
+params4 = model1.init(rng2,random_data)
+
+@jax.jit
+def mse(params,input,targets):
+    def squared_error(x,y):
+        pred = model4.apply(params,x)
+        return jnp.mean((y - pred)**2)
+    return jnp.mean(jax.vmap(squared_error)(input,targets),axis=0)
+loss_grad_fn = jax.value_and_grad(mse)
+
+learning_rate = 1e-2
+tx = optax.adam(learning_rate)
+opt_state = tx.init(params4)
+
+epochs = 1000
+all_xt = jnp.array([data[i][0] for i in range(len(data))])
+all_h = jnp.array([data[i][1] for i in range(len(data))])
+for i in range(epochs):
+    xt_batch = data[i%len(data)][0]
+    h_batch = data[i%len(data)][1]
+    loss_val, grads = loss_grad_fn(params4, xt_batch, h_batch)
+    updates, opt_state = tx.update(grads, opt_state)
+    params4 = optax.apply_updates(params4, updates)
+    if i % 100 == 0:
+        train_loss = mse(params4,all_xt,all_h)
+        print("Training loss step {}: {}".format(i,train_loss))
+
+xt_points = jnp.vstack([X.flatten(),T.flatten()]).T
+hhat4 = model1.apply(params4,xt_points).reshape(X.shape)
+diff = np.sqrt((h - hhat4)**2)
+animation4 = animate_data(x,t,[h,hhat4,diff],["$h$","$\hat{h}$","$L^2$ error"])
+animation4.save("nonorm_h_compare.gif")
+plt.close()
+```
+
+![](nonorm_h_compare.gif)
+
+The fit is terrible!
+We have apparently fallen into a local minimum far from the global minimum we would like to find.
+This demonstrates two important ideas relating to neural networks (validated by experience):
+
+1. They are fickle and in some cases small changes to data, architecture, and training, can dramatically change results
+2. Any help that can be given to the neural network via knowledge of the system or data can help. In this case, adjusting for the gap between the range of our data and that of the activation function was sufficient.
