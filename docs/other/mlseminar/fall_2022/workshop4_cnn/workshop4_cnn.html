@@ -228,36 +228,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Needed package for computer vision problems</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>2022-10-18 14:16:48.058716: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.</code></pre>
+</div>
 </div>
 </section>
 <section id="loading-the-mnist-data-from-keras-library-and-split-that-into-train-and-test-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="loading-the-mnist-data-from-keras-library-and-split-that-into-train-and-test-dataset">Loading the MNIST data from keras library and split that into train and test dataset</h2>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(x_train, y_train), (x_test, y_test) <span class="op">=</span> tf.keras.datasets.mnist.load_data()</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>image_index <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The number for index = '</span> <span class="op">+</span> <span class="bu">str</span>(image_index) <span class="op">+</span> <span class="st">' is '</span> <span class="op">+</span> <span class="bu">str</span>(y_train[image_index])) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(x_train, y_train), (x_test, y_test) <span class="op">=</span> tf.keras.datasets.mnist.load_data()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>image_index <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The number for index = '</span> <span class="op">+</span> <span class="bu">str</span>(image_index) <span class="op">+</span> <span class="st">' is '</span> <span class="op">+</span> <span class="bu">str</span>(y_train[image_index])) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The number for index = 0 is 5</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(x_train[image_index], cmap<span class="op">=</span><span class="st">'Greys'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f19e71c49a0&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(x_train[image_index], cmap<span class="op">=</span><span class="st">'Greys'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fe3cf11db20&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="workshop4_cnn_files/figure-html/cell-4-output-2.png" width="415" height="411"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x_train.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x_train.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>(60000, 28, 28)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x_train[image_index].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x_train[image_index].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>(28, 28)</code></pre>
 </div>
 </div>
@@ -265,18 +269,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="normalize-data-and-put-them-into-the-correct-format" class="level2">
 <h2 class="anchored" data-anchor-id="normalize-data-and-put-them-into-the-correct-format">Normalize data and put them into the correct format</h2>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train.reshape(x_train.shape[<span class="dv">0</span>], <span class="dv">28</span>, <span class="dv">28</span>, <span class="dv">1</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> x_test.reshape(x_test.shape[<span class="dv">0</span>], <span class="dv">28</span>, <span class="dv">28</span>, <span class="dv">1</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>input_shape <span class="op">=</span> (<span class="dv">28</span>, <span class="dv">28</span>, <span class="dv">1</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Making sure that the values are float so that we can get decimal points after division</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train.astype(<span class="st">'float32'</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> x_test.astype(<span class="st">'float32'</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">/=</span> <span class="dv">255</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">/=</span> <span class="dv">255</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'x_train shape:'</span>, x_train.shape)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of images in x_train'</span>, x_train.shape[<span class="dv">0</span>])</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of images in x_test'</span>, x_test.shape[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train.reshape(x_train.shape[<span class="dv">0</span>], <span class="dv">28</span>, <span class="dv">28</span>, <span class="dv">1</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> x_test.reshape(x_test.shape[<span class="dv">0</span>], <span class="dv">28</span>, <span class="dv">28</span>, <span class="dv">1</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>input_shape <span class="op">=</span> (<span class="dv">28</span>, <span class="dv">28</span>, <span class="dv">1</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Making sure that the values are float so that we can get decimal points after division</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x_train.astype(<span class="st">'float32'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> x_test.astype(<span class="st">'float32'</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">/=</span> <span class="dv">255</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">/=</span> <span class="dv">255</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'x_train shape:'</span>, x_train.shape)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of images in x_train'</span>, x_train.shape[<span class="dv">0</span>])</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of images in x_test'</span>, x_test.shape[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x_train shape: (60000, 28, 28, 1)
 Number of images in x_train 60000
@@ -287,20 +291,23 @@ Number of images in x_test 10000</code></pre>
 <section id="convolutional-neural-network-cnn-structure" class="level2">
 <h2 class="anchored" data-anchor-id="convolutional-neural-network-cnn-structure">Convolutional Neural Network (CNN) structure</h2>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Sequential()</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>model.add(Conv2D(<span class="dv">32</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">3</span>), input_shape<span class="op">=</span>input_shape))</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>model.add(MaxPooling2D(pool_size<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>)))</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>model.add(Conv2D(<span class="dv">32</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">3</span>), input_shape<span class="op">=</span>input_shape))</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>model.add(MaxPooling2D(pool_size<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>)))</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>model.add(Flatten()) </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>model.add(Dense(<span class="dv">256</span>, activation<span class="op">=</span>tf.nn.relu))</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>model.add(Dropout(<span class="fl">0.2</span>))</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>model.add(Dense(<span class="dv">10</span>,activation<span class="op">=</span>tf.nn.softmax))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Sequential()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>model.add(Conv2D(<span class="dv">32</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">3</span>), input_shape<span class="op">=</span>input_shape))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>model.add(MaxPooling2D(pool_size<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>)))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>model.add(Conv2D(<span class="dv">32</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">3</span>), input_shape<span class="op">=</span>input_shape))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>model.add(MaxPooling2D(pool_size<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>)))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>model.add(Flatten()) </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>model.add(Dense(<span class="dv">256</span>, activation<span class="op">=</span>tf.nn.relu))</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>model.add(Dropout(<span class="fl">0.2</span>))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>model.add(Dense(<span class="dv">10</span>,activation<span class="op">=</span>tf.nn.softmax))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>2022-10-18 14:16:49.743398: E tensorflow/stream_executor/cuda/cuda_driver.cc:265] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected</code></pre>
+</div>
 </div>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Model: "sequential_2"</code></pre>
+<pre><code>Model: "sequential"</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>_________________________________________________________________</code></pre>
@@ -312,13 +319,28 @@ Number of images in x_test 10000</code></pre>
 <pre><code>=================================================================</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> conv2d_4 (Conv2D)           (None, 26, 26, 32)        320       </code></pre>
+<pre><code> conv2d (Conv2D)             (None, 26, 26, 32)        320       </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                                                 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> max_pooling2d_4 (MaxPooling  (None, 13, 13, 32)       0         </code></pre>
+<pre><code> max_pooling2d (MaxPooling2D  (None, 13, 13, 32)       0         </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> )                                                               </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> conv2d_1 (Conv2D)           (None, 11, 11, 32)        9248      </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> max_pooling2d_1 (MaxPooling  (None, 5, 5, 32)         0         </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 2D)                                                             </code></pre>
@@ -327,40 +349,25 @@ Number of images in x_test 10000</code></pre>
 <pre><code>                                                                 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> conv2d_5 (Conv2D)           (None, 11, 11, 32)        9248      </code></pre>
+<pre><code> flatten (Flatten)           (None, 800)               0         </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                                                 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> max_pooling2d_5 (MaxPooling  (None, 5, 5, 32)         0         </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> 2D)                                                             </code></pre>
+<pre><code> dense (Dense)               (None, 256)               205056    </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                                                 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> flatten_2 (Flatten)         (None, 800)               0         </code></pre>
+<pre><code> dropout (Dropout)           (None, 256)               0         </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                                                 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> dense_4 (Dense)             (None, 256)               205056    </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                                                                 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> dropout_2 (Dropout)         (None, 256)               0         </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                                                                 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code> dense_5 (Dense)             (None, 10)                2570      </code></pre>
+<pre><code> dense_1 (Dense)             (None, 10)                2570      </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                                                 </code></pre>
@@ -385,54 +392,57 @@ Number of images in x_test 10000</code></pre>
 <section id="training-the-cnn" class="level2">
 <h2 class="anchored" data-anchor-id="training-the-cnn">Training the CNN</h2>
 <div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="st">'adam'</span>, </span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>              loss<span class="op">=</span><span class="st">'sparse_categorical_crossentropy'</span>, </span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>              metrics<span class="op">=</span>[<span class="st">'accuracy'</span>])</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>model.fit(x<span class="op">=</span>x_train,y<span class="op">=</span>y_train, epochs<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="st">'adam'</span>, </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>              loss<span class="op">=</span><span class="st">'sparse_categorical_crossentropy'</span>, </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>              metrics<span class="op">=</span>[<span class="st">'accuracy'</span>])</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>model.fit(x<span class="op">=</span>x_train,y<span class="op">=</span>y_train, epochs<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>model.evaluate(x_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>model.evaluate(x_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  1/313 [..............................] - ETA: 21s - loss: 0.0849 - accuracy: 0.9688</code></pre>
+<pre><code>  1/313 [..............................] - ETA: 25s - loss: 4.0738e-04 - accuracy: 1.0000</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 37/313 [==&gt;...........................] - ETA: 0s - loss: 0.0444 - accuracy: 0.9890 </code></pre>
+<pre><code> 34/313 [==&gt;...........................] - ETA: 0s - loss: 0.0621 - accuracy: 0.9835     </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 73/313 [=====&gt;........................] - ETA: 0s - loss: 0.0587 - accuracy: 0.9837</code></pre>
+<pre><code> 67/313 [=====&gt;........................] - ETA: 0s - loss: 0.0693 - accuracy: 0.9799</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>112/313 [=========&gt;....................] - ETA: 0s - loss: 0.0632 - accuracy: 0.9827</code></pre>
+<pre><code>102/313 [========&gt;.....................] - ETA: 0s - loss: 0.0678 - accuracy: 0.9813</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>153/313 [=============&gt;................] - ETA: 0s - loss: 0.0632 - accuracy: 0.9818</code></pre>
+<pre><code>138/313 [============&gt;.................] - ETA: 0s - loss: 0.0743 - accuracy: 0.9798</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>194/313 [=================&gt;............] - ETA: 0s - loss: 0.0543 - accuracy: 0.9844</code></pre>
+<pre><code>175/313 [===============&gt;..............] - ETA: 0s - loss: 0.0649 - accuracy: 0.9818</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>235/313 [=====================&gt;........] - ETA: 0s - loss: 0.0493 - accuracy: 0.9860</code></pre>
+<pre><code>212/313 [===================&gt;..........] - ETA: 0s - loss: 0.0602 - accuracy: 0.9833</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>276/313 [=========================&gt;....] - ETA: 0s - loss: 0.0433 - accuracy: 0.9878</code></pre>
+<pre><code>246/313 [======================&gt;.......] - ETA: 0s - loss: 0.0527 - accuracy: 0.9854</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>313/313 [==============================] - 0s 1ms/step - loss: 0.0422 - accuracy: 0.9883</code></pre>
+<pre><code>284/313 [==========================&gt;...] - ETA: 0s - loss: 0.0472 - accuracy: 0.9870</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="36">
-<pre><code>[0.04220385476946831, 0.9883000254631042]</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>313/313 [==============================] - 1s 1ms/step - loss: 0.0452 - accuracy: 0.9876</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>[0.04519505798816681, 0.9876000285148621]</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>image_index <span class="op">=</span> <span class="dv">59</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(x_test[image_index].reshape(<span class="dv">28</span>, <span class="dv">28</span>),cmap<span class="op">=</span><span class="st">'Greys'</span>)</span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> model.predict(x_test[image_index].reshape(<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>, <span class="dv">1</span>))</span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">' For image_index = '</span> <span class="op">+</span> <span class="bu">str</span>(image_index) <span class="op">+</span> <span class="st">' CNN predicted number = '</span> <span class="op">+</span> <span class="bu">str</span>(pred.argmax()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>image_index <span class="op">=</span> <span class="dv">59</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(x_test[image_index].reshape(<span class="dv">28</span>, <span class="dv">28</span>),cmap<span class="op">=</span><span class="st">'Greys'</span>)</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> model.predict(x_test[image_index].reshape(<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>, <span class="dv">1</span>))</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">' For image_index = '</span> <span class="op">+</span> <span class="bu">str</span>(image_index) <span class="op">+</span> <span class="st">' CNN predicted number = '</span> <span class="op">+</span> <span class="bu">str</span>(pred.argmax()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1/1 [==============================] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1/1 [==============================] - 0s 33ms/step</code></pre>
+<pre><code>1/1 [==============================] - 0s 48ms/step</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code> For image_index = 59 CNN predicted number = 5</code></pre>
@@ -448,20 +458,20 @@ Number of images in x_test 10000</code></pre>
 <section id="write-a-number-in-6-different-ways-on-a-paper-and-transfer-the-picture-into-the-same-directory-that-your-jupyter-notebook-is" class="level2">
 <h2 class="anchored" data-anchor-id="write-a-number-in-6-different-ways-on-a-paper-and-transfer-the-picture-into-the-same-directory-that-your-jupyter-notebook-is">1. Write a number in 6 different ways on a paper and transfer the picture into the same directory that your Jupyter Notebook is</h2>
 <div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>cwd <span class="op">=</span> os.getcwd()</span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'current working directory is = '</span> <span class="op">+</span> cwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>cwd <span class="op">=</span> os.getcwd()</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'current working directory is = '</span> <span class="op">+</span> cwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>current working directory is = /home/connor/GDrive/Software/cnrrobertson.github.io/other/mlseminar/fall_2022/workshop4_cnn</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="vs">r'test_images/original_image.jpeg'</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>test_image_original <span class="op">=</span> cv2.imread(<span class="bu">file</span>, cv2.IMREAD_GRAYSCALE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="vs">r'test_images/original_image.jpeg'</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>test_image_original <span class="op">=</span> cv2.imread(<span class="bu">file</span>, cv2.IMREAD_GRAYSCALE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(test_image_original, cmap <span class="op">=</span> <span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f19d8303910&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(test_image_original, cmap <span class="op">=</span> <span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fe3c6c6c3a0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="workshop4_cnn_files/figure-html/cell-15-output-2.png" width="580" height="392"></p>
@@ -471,17 +481,17 @@ Number of images in x_test 10000</code></pre>
 <section id="take-a-picture-of-each-of-them-individually-you-can-have-only-one-picture-and-then-crop-it-into-6-different-pieces" class="level2">
 <h2 class="anchored" data-anchor-id="take-a-picture-of-each-of-them-individually-you-can-have-only-one-picture-and-then-crop-it-into-6-different-pieces">2. Take a picture of each of them individually – you can have only one picture and then crop it into 6 different pieces</h2>
 <div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row_number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2</span>):</span>
-<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> col_number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">3</span>):</span>
-<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="vs">r'test_images/copy_'</span> <span class="op">+</span> <span class="bu">str</span>(counter) <span class="op">+</span><span class="st">'.jpeg'</span></span>
-<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>        copy_image <span class="op">=</span> cv2.imread(<span class="bu">file</span>, cv2.IMREAD_GRAYSCALE)</span>
-<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a>        axs[row_number, col_number].imshow(copy_image, cmap <span class="op">=</span> <span class="st">'gray'</span>)</span>
-<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a>        counter <span class="op">=</span> counter <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row_number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2</span>):</span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> col_number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">3</span>):</span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">file</span> <span class="op">=</span> <span class="vs">r'test_images/copy_'</span> <span class="op">+</span> <span class="bu">str</span>(counter) <span class="op">+</span><span class="st">'.jpeg'</span></span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>        copy_image <span class="op">=</span> cv2.imread(<span class="bu">file</span>, cv2.IMREAD_GRAYSCALE)</span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>        axs[row_number, col_number].imshow(copy_image, cmap <span class="op">=</span> <span class="st">'gray'</span>)</span>
+<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>        counter <span class="op">=</span> counter <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="workshop4_cnn_files/figure-html/cell-16-output-1.png" width="569" height="416"></p>
 </div>
@@ -490,32 +500,32 @@ Number of images in x_test 10000</code></pre>
 <section id="change-the-format-of-the-picture-into-a-readable-form-for-your-cnn-model" class="level2">
 <h2 class="anchored" data-anchor-id="change-the-format-of-the-picture-into-a-readable-form-for-your-cnn-model">4. Change the format of the picture into a readable form for your CNN model</h2>
 <div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="vs">r'test_images/copy_5.jpeg'</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>copy_1 <span class="op">=</span> cv2.imread(<span class="bu">file</span>, cv2.IMREAD_GRAYSCALE)</span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>plt.imshow(copy_1, cmap <span class="op">=</span> <span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="42">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f19e7109910&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="vs">r'test_images/copy_5.jpeg'</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>copy_1 <span class="op">=</span> cv2.imread(<span class="bu">file</span>, cv2.IMREAD_GRAYSCALE)</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>plt.imshow(copy_1, cmap <span class="op">=</span> <span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fe3b851ff40&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="workshop4_cnn_files/figure-html/cell-17-output-2.png" width="281" height="415"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># copy_1_resized = cv2.resize(copy_1, (28, 28), interpolation = cv2.INTER_LINEAR)</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>copy_1_resized <span class="op">=</span> cv2.resize(copy_1, (<span class="dv">28</span>, <span class="dv">28</span>))</span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>copy_1_resized <span class="op">=</span> cv2.bitwise_not(copy_1_resized)</span>
-<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>plt.imshow(copy_1_resized, cmap <span class="op">=</span> <span class="st">'Greys'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f19d8139070&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># copy_1_resized = cv2.resize(copy_1, (28, 28), interpolation = cv2.INTER_LINEAR)</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>copy_1_resized <span class="op">=</span> cv2.resize(copy_1, (<span class="dv">28</span>, <span class="dv">28</span>))</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>copy_1_resized <span class="op">=</span> cv2.bitwise_not(copy_1_resized)</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>plt.imshow(copy_1_resized, cmap <span class="op">=</span> <span class="st">'Greys'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fe3b8495430&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="workshop4_cnn_files/figure-html/cell-18-output-2.png" width="415" height="411"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> model.predict(copy_1_resized.reshape(<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>, <span class="dv">1</span>))</span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'CNN predicted number = '</span> <span class="op">+</span> <span class="bu">str</span>(pred.argmax()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> model.predict(copy_1_resized.reshape(<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>, <span class="dv">1</span>))</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'CNN predicted number = '</span> <span class="op">+</span> <span class="bu">str</span>(pred.argmax()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1/1 [==============================] - ETA: 0s</code></pre>
 </div>
