@@ -25,6 +25,10 @@ Its goal is to expose the participants to topics in machine learning and optimiz
     - [Jupyter notebook](fall_2022/workshop3_discovery/workshop3_discovery.ipynb)
     - [Video data](fall_2022/workshop3_discovery/youtube_video.mp4)
 - 10/20/22: **Convolutional neural networks** - Soheil Saghafi
+    - [Presentation](fall_2022/workshop4_cnn/workshop4_cnn.pptx)
+    - [Document (with code)](fall_2022/workshop4_cnn/workshop4_cnn.qmd)
+    - [Jupyter Notebook](fall_2022/workshop4_cnn/workshop4_cnn.ipynb)
+    - [Image data](fall_2022/workshop4_cnn/test_images.zip)
 - 11/3/22: **Recurrent neural networks** - Austin Juhl
 - 12/1/22: **Reinforcement learning** - Sepideh Nikookar
 

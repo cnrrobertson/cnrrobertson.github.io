@@ -1,0 +1,165 @@
+---
+jupyter: python3
+---
+
+# Machine Learning Workshop -- Convolutional Neural Network (CNN)
+
+## Installing and loading some needed packages
+
+```{python}
+# Needed package for plotting
+import matplotlib.pyplot as plt
+%matplotlib inline 
+
+# Needed package for getting the current working directory
+import os
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+# Needed package for builing the convolutional neural network
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Conv2D, Dropout, Flatten, MaxPooling2D
+from tensorflow.keras.utils import plot_model
+
+# Needed package for computer vision problems
+import cv2
+
+```
+
+## Loading the MNIST data from keras library and split that into train and test dataset
+
+```{python}
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
+image_index = 0
+print('The number for index = ' + str(image_index) + ' is ' + str(y_train[image_index])) 
+```
+
+```{python}
+plt.imshow(x_train[image_index], cmap='Greys')
+```
+
+```{python}
+x_train.shape
+```
+
+```{python}
+x_train[image_index].shape
+```
+
+## Normalize data and put them into the correct format
+
+```{python}
+x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
+x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
+input_shape = (28, 28, 1)
+# Making sure that the values are float so that we can get decimal points after division
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+
+x_train /= 255
+x_test /= 255
+print('x_train shape:', x_train.shape)
+print('Number of images in x_train', x_train.shape[0])
+print('Number of images in x_test', x_test.shape[0])
+```
+
+## Convolutional Neural Network (CNN) structure
+
+```{python}
+model = Sequential()
+model.add(Conv2D(32, kernel_size=(3,3), input_shape=input_shape))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(32, kernel_size=(3,3), input_shape=input_shape))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten()) 
+model.add(Dense(256, activation=tf.nn.relu))
+model.add(Dropout(0.2))
+model.add(Dense(10,activation=tf.nn.softmax))
+```
+
+```{python}
+#| scrolled: true
+model.summary()
+```
+
+## Training the CNN
+
+```{python}
+#| output: false
+model.compile(optimizer='adam', 
+              loss='sparse_categorical_crossentropy', 
+              metrics=['accuracy'])
+model.fit(x=x_train,y=y_train, epochs=5)
+```
+
+```{python}
+#| scrolled: true
+model.evaluate(x_test, y_test)
+```
+
+```{python}
+image_index = 59
+plt.imshow(x_test[image_index].reshape(28, 28),cmap='Greys')
+pred = model.predict(x_test[image_index].reshape(1, 28, 28, 1))
+print(' For image_index = ' + str(image_index) + ' CNN predicted number = ' + str(pred.argmax()))
+```
+
+# In this part we are going to take a picture of your own handwriting and pass it into the CNN model, for doing that we need to do the following steps:
+
+## 1. Write a number in 6 different ways on a paper and transfer the picture into the same directory that your Jupyter Notebook is
+
+```{python}
+cwd = os.getcwd()
+print('current working directory is = ' + cwd)
+```
+
+```{python}
+file = r'test_images/original_image.jpeg'
+test_image_original = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
+```
+
+```{python}
+plt.imshow(test_image_original, cmap = 'gray')
+```
+
+## 2. Take a picture of each of them individually -- you can have only one picture and then crop it into 6 different pieces
+
+```{python}
+fig, axs = plt.subplots(2, 3)
+
+
+counter = 1
+for row_number in range(0, 2):
+    for col_number in range(0,3):
+        
+        file = r'test_images/copy_' + str(counter) +'.jpeg'
+        copy_image = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
+        axs[row_number, col_number].imshow(copy_image, cmap = 'gray')
+        counter = counter + 1
+        
+
+    
+```
+
+## 4. Change the format of the picture into a readable form for your CNN model
+
+```{python}
+file = r'test_images/copy_5.jpeg'
+copy_1 = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
+plt.imshow(copy_1, cmap = 'gray')
+```
+
+```{python}
+# copy_1_resized = cv2.resize(copy_1, (28, 28), interpolation = cv2.INTER_LINEAR)
+copy_1_resized = cv2.resize(copy_1, (28, 28))
+copy_1_resized = cv2.bitwise_not(copy_1_resized)
+
+plt.imshow(copy_1_resized, cmap = 'Greys')
+```
+
+```{python}
+pred = model.predict(copy_1_resized.reshape(1, 28, 28, 1))
+print('CNN predicted number = ' + str(pred.argmax()))
+```
+
+
