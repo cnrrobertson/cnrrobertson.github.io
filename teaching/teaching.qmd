@@ -7,6 +7,5 @@ They are organized by class.
 
 ## Classes
 
-- [Math 110 - Precalculus](math110/math110.qmd)
 - [Math 111 - Calculus 1](math111/math111.qmd)
 - [Math 340 - Applied Numerical Methods](math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.qmd)

@@ -48,8 +48,6 @@ website:
       collapse-level: 1
       contents:
         - teaching/teaching.qmd
-        - text: "Math 110 - Precalculus"
-          href: teaching/math110/math110.qmd
         - text: "Math 111 - Calculus I"
           href: teaching/math111/math111.qmd
         - section: "Math 340 - Applied Numerical Methods"
