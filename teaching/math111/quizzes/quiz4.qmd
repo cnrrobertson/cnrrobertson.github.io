@@ -1,0 +1,48 @@
+---
+title: Quiz 4 - Chain rule and implicit differentiation
+---
+
+## Problem 1
+### Question
+Find the derivative $\frac{dy}{dx}$ for:
+
+**a)** $y = \sqrt{x^2 + \sec^2(x)}$
+
+**b)** $y = \log_5(\csc(x))$
+
+**c)** $y = \tan^2(\sin(3x))$
+
+### Solution
+
+**a)**
+$$
+\begin{align}
+y &= \sqrt{x^2 + \sec^2(x)} = \left(x^2 + \sec^2(x)\right)^{1/2} \\
+\frac{dy}{dx} &= \frac{1}{2}\left(x^2 + \sec^2(x)\right)^{-1/2} \times \frac{d}{dx}\left(x^2 + \sec^2(x)\right) \\
+&= \frac{1}{2}\left(x^2 + \sec^2(x)\right)^{-1/2} \times \left(2x + 2\sec(x)\times \frac{d}{dx} \sec(x)\right) \\
+&= \frac{1}{2}\left(x^2 + \sec^2(x)\right)^{-1/2} \times \left(2x + 2\sec^2(x)\tan(x)\right) \\
+\Aboxed{\frac{dy}{dx}&= \frac{x + \sec^2(x)\tan(x)}{\sqrt{x^2 + \sec^2(x)}}}
+\end{align}
+$$
+
+**b)**
+$$
+\begin{align}
+y &= \log_5(\csc(x)) \\
+\frac{dy}{dx} &= \frac{1}{\csc(x)\ln(5)} \times \frac{d}{dx} \csc(x) \\
+&= \frac{1}{\csc(x)\ln(5)} \times -\cot(x)\csc(x) \\
+\Aboxed{\frac{dy}{dx} &= -\frac{\cot(x)}{\ln(5)}}
+\end{align}
+$$
+
+**c)**
+$$
+\begin{align}
+y &= \tan^2(\sin(3x)) \\
+\frac{dy}{dx} &= 2\tan(\sin(3x)) \times \frac{d}{dx} \tan(\sin(3x)) \\
+&= 2\tan(\sin(3x)) \times \sec^2(\sin(3x)) \times \frac{d}{dx} \sin(3x) \\
+&= 2\tan(\sin(3x)) \times \sec^2(\sin(3x)) \times \cos(3x) \times \frac{d}{dx} 3x \\
+&= 2\tan(\sin(3x)) \times \sec^2(\sin(3x)) \times \cos(3x) \times 3 \\
+\Aboxed{\frac{dy}{dx} &= 6\tan(\sin(3x))\sec^2(\sin(3x))\cos(3x)}
+\end{align}
+$$

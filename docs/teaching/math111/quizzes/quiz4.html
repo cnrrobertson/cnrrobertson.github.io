@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Connor Robertson - Math 111 - Calculus I</title>
+<title>Connor Robertson - Quiz 4 - Chain rule and implicit differentiation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -64,17 +64,17 @@ ul.task-list li input[type="checkbox"] {
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Connor Robertson</span>
     </a>
   </div>
@@ -84,23 +84,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../assets/CV_Connor_Robertson_9_22.pdf">CV</a>
+    <a class="nav-link" href="../../../assets/CV_Connor_Robertson_9_22.pdf">CV</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../teaching/teaching.html" aria-current="page">Teaching</a>
+    <a class="nav-link" href="../../../teaching/teaching.html">Teaching</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research/research.html">Research</a>
+    <a class="nav-link" href="../../../research/research.html">Research</a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
         <li>
-    <a class="dropdown-item" href="../../other/fun/fun.html">
+    <a class="dropdown-item" href="../../../other/fun/fun.html">
  <span class="dropdown-text">Just for Fun</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../other/mlseminar/mlseminar.html">
+    <a class="dropdown-item" href="../../../other/mlseminar/mlseminar.html">
  <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
   </li>  
     </ul>
@@ -113,64 +113,20 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Math 111 - Calculus I</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../teaching/teaching.html" class="sidebar-item-text sidebar-link">Teaching</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../teaching/math110/math110.html" class="sidebar-item-text sidebar-link">Math 110 - Precalculus</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../teaching/math111/math111.html" class="sidebar-item-text sidebar-link active">Math 111 - Calculus I</a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Math 340 - Applied Numerical Methods</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html" class="sidebar-item-text sidebar-link">Lab 1 - Brief Introduction to Matlab</a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quiz-solutions" id="toc-quiz-solutions" class="nav-link active" data-scroll-target="#quiz-solutions">Quiz Solutions</a></li>
-  <li><a href="#a-couple-of-notes" id="toc-a-couple-of-notes" class="nav-link" data-scroll-target="#a-couple-of-notes">A Couple of Notes</a>
+  <li><a href="#problem-1" id="toc-problem-1" class="nav-link active" data-scroll-target="#problem-1">Problem 1</a>
   <ul class="collapse">
-  <li><a href="#limits-and-continuity" id="toc-limits-and-continuity" class="nav-link" data-scroll-target="#limits-and-continuity">Limits and Continuity</a></li>
+  <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">Question</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -180,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Math 111 - Calculus I</h1>
+<h1 class="title">Quiz 4 - Chain rule and implicit differentiation</h1>
 </div>
 
 
@@ -194,46 +150,46 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This section contains some resources for the Fall 2022 Math 111 Section 23 at NJIT. Hopefully, the notes, problems, and supplementary plots/videos/animations can help deepen understanding or act as a reference for review.</p>
-<section id="quiz-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="quiz-solutions">Quiz Solutions</h2>
-<ul>
-<li><a href="../../teaching/math111/quizzes/quiz1.html">Quiz 1</a></li>
-<li><a href="../../teaching/math111/quizzes/quiz2.html">Quiz 2</a></li>
-<li><a href="../../teaching/math111/quizzes/quiz3.html">Quiz 3</a></li>
-<li><a href="../../teaching/math111/quizzes/quiz4.html">Quiz 4</a></li>
-</ul>
+<section id="problem-1" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1">Problem 1</h2>
+<section id="question" class="level3">
+<h3 class="anchored" data-anchor-id="question">Question</h3>
+<p>Find the derivative <span class="math inline">\(\frac{dy}{dx}\)</span> for:</p>
+<p><strong>a)</strong> <span class="math inline">\(y = \sqrt{x^2 + \sec^2(x)}\)</span></p>
+<p><strong>b)</strong> <span class="math inline">\(y = \log_5(\csc(x))\)</span></p>
+<p><strong>c)</strong> <span class="math inline">\(y = \tan^2(\sin(3x))\)</span></p>
 </section>
-<section id="a-couple-of-notes" class="level2">
-<h2 class="anchored" data-anchor-id="a-couple-of-notes">A Couple of Notes</h2>
-<section id="limits-and-continuity" class="level3">
-<h3 class="anchored" data-anchor-id="limits-and-continuity">Limits and Continuity</h3>
-<p><strong>Motivation:</strong> People were interested in the speed and direction of planets at any moment in time. So, they wanted to know if they could calculate that by measuring the path of the planets. We can use a concept called “limits” to find this speed and direction.</p>
-<ul>
-<li>Calculus relates the rate of changes of things. i.e.&nbsp;how quickly does water empty out of a barrel is a ratio of the rate of change of the water relative to the rate of change of time.</li>
-</ul>
-<section id="average-and-instantaneous-rates-of-change" class="level4">
-<h4 class="anchored" data-anchor-id="average-and-instantaneous-rates-of-change">Average and Instantaneous Rates of Change</h4>
-<ul>
-<li><p><strong>Average speed</strong>: Divide the distance traveled by the time elapsed</p></li>
-<li><p><strong>Instantaneous speed</strong>: The average speed over an infinitely small amount of time</p></li>
-<li><p><strong>Secant line</strong>: A line connecting two points on a curve</p></li>
-<li><p>As the two points of a secant line get closer and closer, the slope of the secant approaches the instantaneous velocity</p></li>
-<li><p><strong>Tangent line</strong>: A line that only touches one point on a line</p></li>
-<li><p>The slope of a curve at a point <span class="math inline">\(x\)</span> is the slope of the tangent line that passes through only <span class="math inline">\(x\)</span></p></li>
-<li><p>For a curve that represents a quantity (y-axis) over time (x-axis), the slope of the tangent line at a point <span class="math inline">\(t\)</span> in time is the instantaneous velocity (or rate of change of time) at <span class="math inline">\(t\)</span></p></li>
-<li><p>Formula for secant line / average velocity from time <span class="math inline">\(t_1\)</span> to <span class="math inline">\(t_2\)</span> where function <span class="math inline">\(f(t)\)</span> is the position at time <span class="math inline">\(t\)</span> and <span class="math inline">\(\Delta\)</span> represents “change in …”: <span class="math display">\[
-\boxed{\frac{\Delta f}{\Delta t}} = \frac{f(t_2) - f(t_1)}{t_2 - t_1} = \frac{f(t+h) - f(t)}{t+h - t} = \boxed{\frac{f(t+h) - f(t)}{h}}
-\]</span></p></li>
-</ul>
-</section>
-<section id="helpful-animation" class="level4">
-<h4 class="anchored" data-anchor-id="helpful-animation">Helpful animation</h4>
-<p>Animation of <strong>Figure 2.6</strong> from the book.</p>
-<p><img src="animations/section2_1.gif" class="img-fluid"></p>
+<section id="solution" class="level3">
+<h3 class="anchored" data-anchor-id="solution">Solution</h3>
+<p><strong>a)</strong> <span class="math display">\[
+\begin{align}
+y &amp;= \sqrt{x^2 + \sec^2(x)} = \left(x^2 + \sec^2(x)\right)^{1/2} \\
+\frac{dy}{dx} &amp;= \frac{1}{2}\left(x^2 + \sec^2(x)\right)^{-1/2} \times \frac{d}{dx}\left(x^2 + \sec^2(x)\right) \\
+&amp;= \frac{1}{2}\left(x^2 + \sec^2(x)\right)^{-1/2} \times \left(2x + 2\sec(x)\times \frac{d}{dx} \sec(x)\right) \\
+&amp;= \frac{1}{2}\left(x^2 + \sec^2(x)\right)^{-1/2} \times \left(2x + 2\sec^2(x)\tan(x)\right) \\
+\Aboxed{\frac{dy}{dx}&amp;= \frac{x + \sec^2(x)\tan(x)}{\sqrt{x^2 + \sec^2(x)}}}
+\end{align}
+\]</span></p>
+<p><strong>b)</strong> <span class="math display">\[
+\begin{align}
+y &amp;= \log_5(\csc(x)) \\
+\frac{dy}{dx} &amp;= \frac{1}{\csc(x)\ln(5)} \times \frac{d}{dx} \csc(x) \\
+&amp;= \frac{1}{\csc(x)\ln(5)} \times -\cot(x)\csc(x) \\
+\Aboxed{\frac{dy}{dx} &amp;= -\frac{\cot(x)}{\ln(5)}}
+\end{align}
+\]</span></p>
+<p><strong>c)</strong> <span class="math display">\[
+\begin{align}
+y &amp;= \tan^2(\sin(3x)) \\
+\frac{dy}{dx} &amp;= 2\tan(\sin(3x)) \times \frac{d}{dx} \tan(\sin(3x)) \\
+&amp;= 2\tan(\sin(3x)) \times \sec^2(\sin(3x)) \times \frac{d}{dx} \sin(3x) \\
+&amp;= 2\tan(\sin(3x)) \times \sec^2(\sin(3x)) \times \cos(3x) \times \frac{d}{dx} 3x \\
+&amp;= 2\tan(\sin(3x)) \times \sec^2(\sin(3x)) \times \cos(3x) \times 3 \\
+\Aboxed{\frac{dy}{dx} &amp;= 6\tan(\sin(3x))\sec^2(\sin(3x))\cos(3x)}
+\end{align}
+\]</span></p>
 
 
-</section>
 </section>
 </section>
 

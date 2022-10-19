@@ -9,8 +9,9 @@ Hopefully, the notes, problems, and supplementary plots/videos/animations can he
 - [Quiz 1](quizzes/quiz1.qmd)
 - [Quiz 2](quizzes/quiz2.qmd)
 - [Quiz 3](quizzes/quiz3.qmd)
+- [Quiz 4](quizzes/quiz4.qmd)
 
-## Notes
+## A Couple of Notes
 
 ### Limits and Continuity
 **Motivation:** People were interested in the speed and direction of planets at any moment in time.
@@ -40,4 +41,3 @@ Animation of **Figure 2.6** from the book.
 
 ![](animations/section2_1.gif)
 
-### Problems
