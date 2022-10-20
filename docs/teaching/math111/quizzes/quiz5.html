@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Connor Robertson - Quiz 4 - Chain rule and implicit differentiation</title>
+<title>Connor Robertson - Quiz 5 - More chain rule and differentiation of trigonometric functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Quiz 4 - Chain rule and implicit differentiation</h1>
+      <h1 class="quarto-secondary-nav-title">Quiz 5 - More chain rule and differentiation of trigonometric functions</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -158,12 +158,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../teaching/math111/quizzes/quiz4.html" class="sidebar-item-text sidebar-link active">Quiz 5 - More chain rule and differentiation of trigonometric functions</a>
+  <a href="../../../teaching/math111/quizzes/quiz4.html" class="sidebar-item-text sidebar-link">Quiz 5 - More chain rule and differentiation of trigonometric functions</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../teaching/math111/quizzes/quiz5.html" class="sidebar-item-text sidebar-link">Quiz 5 - More chain rule and differentiation of trigonometric functions</a>
+  <a href="../../../teaching/math111/quizzes/quiz5.html" class="sidebar-item-text sidebar-link active">Quiz 5 - More chain rule and differentiation of trigonometric functions</a>
   </div>
 </li>
       </ul>
@@ -197,6 +197,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">Question</a></li>
   <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
   </ul></li>
+  <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem 2</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question</a></li>
+  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a></li>
+  </ul></li>
+  <li><a href="#problem-3" id="toc-problem-3" class="nav-link" data-scroll-target="#problem-3">Problem 3</a>
+  <ul class="collapse">
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question</a></li>
+  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -205,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Quiz 4 - Chain rule and implicit differentiation</h1>
+<h1 class="title d-none d-lg-block">Quiz 5 - More chain rule and differentiation of trigonometric functions</h1>
 </div>
 
 
@@ -223,38 +233,58 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="problem-1">Problem 1</h2>
 <section id="question" class="level3">
 <h3 class="anchored" data-anchor-id="question">Question</h3>
-<p>Find the derivative <span class="math inline">\(\frac{dy}{dx}\)</span> for:</p>
-<p><strong>a)</strong> <span class="math inline">\(y = \sqrt{x^2 + \sec^2(x)}\)</span></p>
-<p><strong>b)</strong> <span class="math inline">\(y = \log_5(\csc(x))\)</span></p>
-<p><strong>c)</strong> <span class="math inline">\(y = \tan^2(\sin(3x))\)</span></p>
+<p>Differentiate <span class="math inline">\(y = \sqrt{x}^x\)</span>.</p>
 </section>
 <section id="solution" class="level3">
 <h3 class="anchored" data-anchor-id="solution">Solution</h3>
-<p><strong>a)</strong> <span class="math display">\[
+<p><span class="math display">\[
 \begin{align}
-y &amp;= \sqrt{x^2 + \sec^2(x)} = \left(x^2 + \sec^2(x)\right)^{1/2} \\
-\frac{dy}{dx} &amp;= \frac{1}{2}\left(x^2 + \sec^2(x)\right)^{-1/2} \times \frac{d}{dx}\left(x^2 + \sec^2(x)\right) \\
-&amp;= \frac{1}{2}\left(x^2 + \sec^2(x)\right)^{-1/2} \times \left(2x + 2\sec(x)\times \frac{d}{dx} \sec(x)\right) \\
-&amp;= \frac{1}{2}\left(x^2 + \sec^2(x)\right)^{-1/2} \times \left(2x + 2\sec^2(x)\tan(x)\right) \\
-\Aboxed{\frac{dy}{dx}&amp;= \frac{x + \sec^2(x)\tan(x)}{\sqrt{x^2 + \sec^2(x)}}}
+y &amp;= \sqrt{x}^x \\
+\ln(y) &amp;= \ln(\sqrt{x}^x) \\
+\frac{d}{dx}\ln(y) &amp;= \frac{d}{dx}\ln(\sqrt{x}^x) \\
+\frac{y'}{y} &amp;= \frac{d}{dx}\left(x\ln(\sqrt{x})\right) \\
+y' &amp;= y\left(\ln(\sqrt{x}) + \frac{x}{\sqrt{x}}\frac{d}{dx}\sqrt{x}\right) \\
+&amp;= \sqrt{x}^x\left(\ln(\sqrt{x}) + \frac{x}{\sqrt{x}}\left(\frac{1}{2\sqrt{x}}\right)\right) \\
+&amp;= \sqrt{x}^x\left(\frac{1}{2}\ln(x) + \frac{1}{2}\right) \\
+\Aboxed{y' &amp;= \frac{1}{2}\sqrt{x}^x\left(\ln(x) + 1\right)}
 \end{align}
 \]</span></p>
-<p><strong>b)</strong> <span class="math display">\[
+</section>
+</section>
+<section id="problem-2" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2">Problem 2</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question</h3>
+<p>Differentiate <span class="math inline">\(y = 10^{x + \cos(x)}\)</span>.</p>
+</section>
+<section id="solution-1" class="level3">
+<h3 class="anchored" data-anchor-id="solution-1">Solution</h3>
+<p><span class="math display">\[
 \begin{align}
-y &amp;= \log_5(\csc(x)) \\
-\frac{dy}{dx} &amp;= \frac{1}{\csc(x)\ln(5)} \times \frac{d}{dx} \csc(x) \\
-&amp;= \frac{1}{\csc(x)\ln(5)} \times -\cot(x)\csc(x) \\
-\Aboxed{\frac{dy}{dx} &amp;= -\frac{\cot(x)}{\ln(5)}}
+y &amp;= 10^{x + \cos(x)} \\
+\ln(y) &amp;= (x + \cos(x))\ln(10) \\
+\frac{d}{dx}\ln(y) &amp;= \ln(10)\frac{d}{dx}(x + \cos(x)) \\
+\frac{y'}{y} &amp;= \ln(10)(1 - \sin(x)) \\
+y' &amp;= y\ln(10)(1 - \sin(x)) \\
+\Aboxed{y' &amp;= 10^{x+\cos(x)}\ln(10)(1 - \sin(x))}
 \end{align}
 \]</span></p>
-<p><strong>c)</strong> <span class="math display">\[
+</section>
+</section>
+<section id="problem-3" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3">Problem 3</h2>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question</h3>
+<p>Differentiate <span class="math inline">\(y = \frac{\ln(x)}{x^e + e^e}\)</span>.</p>
+</section>
+<section id="solution-2" class="level3">
+<h3 class="anchored" data-anchor-id="solution-2">Solution</h3>
+<p><span class="math display">\[
 \begin{align}
-y &amp;= \tan^2(\sin(3x)) \\
-\frac{dy}{dx} &amp;= 2\tan(\sin(3x)) \times \frac{d}{dx} \tan(\sin(3x)) \\
-&amp;= 2\tan(\sin(3x)) \times \sec^2(\sin(3x)) \times \frac{d}{dx} \sin(3x) \\
-&amp;= 2\tan(\sin(3x)) \times \sec^2(\sin(3x)) \times \cos(3x) \times \frac{d}{dx} 3x \\
-&amp;= 2\tan(\sin(3x)) \times \sec^2(\sin(3x)) \times \cos(3x) \times 3 \\
-\Aboxed{\frac{dy}{dx} &amp;= 6\tan(\sin(3x))\sec^2(\sin(3x))\cos(3x)}
+y &amp;= \frac{\ln(x)}{x^e + e^e} \\
+y' &amp;= \frac{\frac{1}{x}(x^e + e^e) - \ln(x)(ex^{e-1})}{(x^e+e^e)^2}\\
+&amp;= \frac{\frac{1}{x}(x^e + e^e) - \ln(x)(ex^{e-1})}{(x^e+e^e)^2}\\
+\Aboxed{y' &amp;= \frac{x^e + e^e - \ln(x)(ex^e)}{x(x^e+e^e)^2}}
 \end{align}
 \]</span></p>
 

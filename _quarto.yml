@@ -48,8 +48,14 @@ website:
       collapse-level: 1
       contents:
         - teaching/teaching.qmd
-        - text: "Math 111 - Calculus I"
+        - section: "Math 111 - Calculus I"
           href: teaching/math111/math111.qmd
+          contents:
+            - teaching/math111/quizzes/quiz1.qmd
+            - teaching/math111/quizzes/quiz2.qmd
+            - teaching/math111/quizzes/quiz3.qmd
+            - teaching/math111/quizzes/quiz4.qmd
+            - teaching/math111/quizzes/quiz5.qmd
         - section: "Math 340 - Applied Numerical Methods"
           contents:
             - teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.qmd

@@ -10,6 +10,7 @@ Hopefully, the notes, problems, and supplementary plots/videos/animations can he
 - [Quiz 2](quizzes/quiz2.qmd)
 - [Quiz 3](quizzes/quiz3.qmd)
 - [Quiz 4](quizzes/quiz4.qmd)
+- [Quiz 5](quizzes/quiz5.qmd)
 
 ## A Couple of Notes
 
