@@ -18,7 +18,7 @@ Its goal is to expose the participants to topics in machine learning and optimiz
 - 10/6/22: **Neural networks - structure, building, and training** - Jake Brusca
     - [Presentation](fall_2022/workshop2_nn/workshop2_nn.pdf)
     - [Document (with code)](fall_2022/workshop2_nn/workshop2_nn.qmd)
-    - [Jupyter Notebook](fall_2022/workshop2_nn/workshop2_nn.ipynb)
+    - [Jupyter notebook](fall_2022/workshop2_nn/workshop2_nn.ipynb)
     - [Google Colab notebook](https://colab.research.google.com/drive/1c7aMC1141f1myYAh06nGsL03SMJLrG6M?usp=sharing)
 - 10/13/22: **Data-driven model discovery** - Connor Robertson
     - [Document (with code)](fall_2022/workshop3_discovery/workshop3_discovery.qmd)
@@ -27,9 +27,11 @@ Its goal is to expose the participants to topics in machine learning and optimiz
 - 10/20/22: **Convolutional neural networks** - Soheil Saghafi
     - [Presentation](fall_2022/workshop4_cnn/workshop4_cnn.pdf)
     - [Document (with code)](fall_2022/workshop4_cnn/workshop4_cnn.qmd)
-    - [Jupyter Notebook](fall_2022/workshop4_cnn/workshop4_cnn.ipynb)
+    - [Jupyter notebook](fall_2022/workshop4_cnn/workshop4_cnn.ipynb)
     - [Image data](fall_2022/workshop4_cnn/test_images.zip)
 - 11/3/22: **Recurrent neural networks** - Austin Juhl
+    - [Presentation](fall_2022/workshop5_rnn/workshop5_rnn.pdf)
+    - [Code repository](https://github.com/judahsemi/Dino-Name-Generator)
 - 12/1/22: **Reinforcement learning** - Sepideh Nikookar
 
 ### Presentations
