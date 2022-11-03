@@ -19,7 +19,7 @@ But I'm generally interested in the intersections between machine learning and d
 <!-- I am also fascinated by the topics of public infrastructure and agriculture, although they are quite unrelated to my current work. -->
 <!-- Honestly, I'm interested in most topics once I get chatting, so please reach out! -->
 
-On this site you can find my [CV](assets/CV_Connor_Robertson_5_22.pdf), my [LinkedIn](https://www.linkedin.com/in/connor-robertson-773ba8b1/) and [Github](https://github.com/cnrrobertson) profiles, and some other little tidbits for [teaching](teaching/teaching.html), [research](research/research.html), [seminars](other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd), and [general exploration](other/fun/fun.qmd).
+On this site you can find my [CV](cv.qmd), my [LinkedIn](https://www.linkedin.com/in/connor-robertson-773ba8b1/) and [Github](https://github.com/cnrrobertson) profiles, and some other little tidbits for [teaching](teaching/teaching.html), [research](research/research.html), [seminars](other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd), and [general exploration](other/fun/fun.qmd).
 
 <!-- ## Education -->
 <!---->

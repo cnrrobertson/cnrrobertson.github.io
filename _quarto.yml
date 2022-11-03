@@ -18,7 +18,7 @@ website:
   navbar:
     left:
       - text: "CV"
-        href: assets/CV_Connor_Robertson_10_22.pdf
+        href: cv.qmd
       - text: "Teaching"
         file: teaching/teaching.qmd
       - text: "Research"
