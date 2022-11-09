@@ -312,7 +312,7 @@
     "href": "teaching/math111/math111.html#quiz-solutions",
     "title": "Math 111 - Calculus I",
     "section": "Quiz Solutions",
-    "text": "Quiz Solutions\n\nQuiz 1\nQuiz 2\nQuiz 3\nQuiz 4\nQuiz 5"
+    "text": "Quiz Solutions\n\nQuiz 1\nQuiz 2\nQuiz 3\nQuiz 4\nQuiz 5\nQuiz 6"
   },
   {
     "objectID": "teaching/math111/math111.html#a-couple-of-notes",
@@ -397,5 +397,12 @@
     "title": "Connor Robertson",
     "section": "",
     "text": "If you are not redirected, click here."
+  },
+  {
+    "objectID": "teaching/math111/quizzes/quiz6.html",
+    "href": "teaching/math111/quizzes/quiz6.html",
+    "title": "Quiz 6 - More chain rule and differentiation of trigonometric functions",
+    "section": "",
+    "text": "Differentiate \\(y = \\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x)\\).\n\n\n\n\\[\n\\begin{align}\ny &= \\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x) \\\\\n\\frac{d}{dx}y &= \\frac{d}{dx}\\left(\\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x)\\right) \\\\\n&= \\frac{1}{\\sqrt{1-e^{-2x}}}\\frac{d}{dx}e^{-x} + \\frac{1}{e^{2x}\\sqrt{1-e^{-2x}}}\\frac{d}{dx}e^x \\\\\n&= -\\frac{e^{-x}}{\\sqrt{1-e^{-2x}}} + \\frac{e^x}{e^{2x}\\sqrt{1-e^{-2x}}} \\\\\n&= -\\frac{1}{e^x\\sqrt{1-e^{-2x}}} + \\frac{1}{e^{x}\\sqrt{1-e^{-2x}}} \\\\\n\\Aboxed{\\frac{d}{dx}y&= 0}\n\\end{align}\n\\]"
   }
 ]
