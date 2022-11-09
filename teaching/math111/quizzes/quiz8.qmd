@@ -1,0 +1,48 @@
+---
+title: Quiz 8 - Curve sketching
+---
+
+## Problem 1
+### Question
+Given the function $y = 3x^4 - 4x^3$,
+
+#### a)
+Where is it increasing or decreasing?
+
+#### b)
+Where is it concave up or down?
+
+#### c)
+What are the local minima and maxima?
+
+#### d)
+Sketch the graph
+
+### Solution
+
+#### a)
+#### b)
+#### c)
+#### d)
+
+## Problem 2
+### Question
+Given the function $y = 2 + 3x^2 - x^3$,
+
+#### a)
+Where is it increasing or decreasing?
+
+#### b)
+Where is it concave up or down?
+
+#### c)
+What are the local minima and maxima?
+
+#### d)
+Sketch the graph
+
+### Solution
+$$
+\begin{align}
+\end{align}
+$$

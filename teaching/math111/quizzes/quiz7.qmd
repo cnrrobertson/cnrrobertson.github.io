@@ -1,0 +1,50 @@
+---
+title: Quiz 7 - First derivative test and linearization
+---
+
+## Problem 1
+### Question
+Find the absolute maximum and minimum for the function $y = 6\sqrt{x}-2x^{2/3}$ on the interval $0\leq x \leq 4$.
+
+### Solution
+First, we find the critical points on the interval:
+$$
+\begin{align}
+y' = 0 &=3(x)^{-1/2} - \frac{4}{3}x^{-1/3} \\
+\frac{4}{3}x^{-1/3} &= 3(x)^{-1/2} \\
+4 &= 9(x)^{-1/2 + 1/3} \\
+\frac{4}{9} &= (x)^{-1/6} \\
+(x)^{1/6} &= \frac{9}{4} \\
+x &= \left(\frac{9}{4}\right)^6
+\end{align}
+$$
+This is obviously outside our interval.
+So, we check the endpoints:
+$$
+\begin{align}
+y(0) &= 0 \\
+y(4) &= 12 - 4\sqrt[3]{2} \\
+\end{align}
+$$
+Thus, our minimum is $\boxed{x=0}$ and maximum is $\boxed{x=4}$.
+
+## Problem 2
+### Question
+Find the linearization of $f(x) = e^{2x}$ about the point $a=1$ the use that to approximate $f(2)$.
+
+### Solution
+The linearization form presented in the book is: $f(x) \approx f(a) + f'(a)(x-a)$:
+$$
+\begin{align}
+f(x) &\approx f(a) + f'(a)(x-a) \\
+&= f(1) + f'(1)(x-1) \\
+\Aboxed{f(x) &\approx e^2 + 2e^2(x-1)}
+\end{align}
+$$
+
+Using this, we have:
+$$
+f(2) \approx e^2 + 2e^2 = \boxed{3e^2}
+$$
+
+

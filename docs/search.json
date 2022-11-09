@@ -404,5 +404,33 @@
     "title": "Quiz 6 - More chain rule and differentiation of trigonometric functions",
     "section": "",
     "text": "Differentiate \\(y = \\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x)\\).\n\n\n\n\\[\n\\begin{align}\ny &= \\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x) \\\\\n\\frac{d}{dx}y &= \\frac{d}{dx}\\left(\\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x)\\right) \\\\\n&= \\frac{1}{\\sqrt{1-e^{-2x}}}\\frac{d}{dx}e^{-x} + \\frac{1}{e^{2x}\\sqrt{1-e^{-2x}}}\\frac{d}{dx}e^x \\\\\n&= -\\frac{e^{-x}}{\\sqrt{1-e^{-2x}}} + \\frac{e^x}{e^{2x}\\sqrt{1-e^{-2x}}} \\\\\n&= -\\frac{1}{e^x\\sqrt{1-e^{-2x}}} + \\frac{1}{e^{x}\\sqrt{1-e^{-2x}}} \\\\\n\\Aboxed{\\frac{d}{dx}y&= 0}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "teaching/math111/quizzes/quiz7.html",
+    "href": "teaching/math111/quizzes/quiz7.html",
+    "title": "Quiz 7 - First derivative test and linearization",
+    "section": "",
+    "text": "Find the absolute maximum and minimum for the function \\(y = 6\\sqrt{x}-2x^{2/3}\\) on the interval \\(0\\leq x \\leq 4\\).\n\n\n\nFirst, we find the critical points on the interval: \\[\n\\begin{align}\ny' = 0 &=3(x)^{-1/2} - \\frac{4}{3}x^{-1/3} \\\\\n\\frac{4}{3}x^{-1/3} &= 3(x)^{-1/2} \\\\\n4 &= 9(x)^{-1/2 + 1/3} \\\\\n\\frac{4}{9} &= (x)^{-1/6} \\\\\n(x)^{1/6} &= \\frac{9}{4} \\\\\nx &= \\left(\\frac{9}{4}\\right)^6\n\\end{align}\n\\] This is obviously outside our interval. So, we check the endpoints: \\[\n\\begin{align}\ny(0) &= 0 \\\\\ny(4) &= 12 - 4\\sqrt[3]{2} \\\\\n\\end{align}\n\\] Thus, our minimum is \\(\\boxed{x=0}\\) and maximum is \\(\\boxed{x=4}\\)."
+  },
+  {
+    "objectID": "teaching/math111/quizzes/quiz7.html#problem-2",
+    "href": "teaching/math111/quizzes/quiz7.html#problem-2",
+    "title": "Quiz 7 - First derivative test and linearization",
+    "section": "Problem 2",
+    "text": "Problem 2\n\nQuestion\nFind the linearization of \\(f(x) = e^{2x}\\) about the point \\(a=1\\) the use that to approximate \\(f(2)\\).\n\n\nSolution\nThe linearization form presented in the book is: \\(f(x) \\approx f(a) + f'(a)(x-a)\\): \\[\n\\begin{align}\nf(x) &\\approx f(a) + f'(a)(x-a) \\\\\n&= f(1) + f'(1)(x-1) \\\\\n\\Aboxed{f(x) &\\approx e^2 + 2e^2(x-1)}\n\\end{align}\n\\]\nUsing this, we have: \\[\nf(2) \\approx e^2 + 2e^2 = \\boxed{3e^2}\n\\]"
+  },
+  {
+    "objectID": "teaching/math111/quizzes/quiz8.html",
+    "href": "teaching/math111/quizzes/quiz8.html",
+    "title": "Quiz 8 - Curve sketching",
+    "section": "",
+    "text": "Given the function \\(y = 3x^4 - 4x^3\\),\n\n\nWhere is it increasing or decreasing?\n\n\n\nWhere is it concave up or down?\n\n\n\nWhat are the local minima and maxima?\n\n\n\nSketch the graph"
+  },
+  {
+    "objectID": "teaching/math111/quizzes/quiz8.html#problem-2",
+    "href": "teaching/math111/quizzes/quiz8.html#problem-2",
+    "title": "Quiz 8 - Curve sketching",
+    "section": "Problem 2",
+    "text": "Problem 2\n\nQuestion\nGiven the function \\(y = 2 + 3x^2 - x^3\\),\n\na)\nWhere is it increasing or decreasing?\n\n\nb)\nWhere is it concave up or down?\n\n\nc)\nWhat are the local minima and maxima?\n\n\nd)\nSketch the graph\n\n\n\nSolution\n\\[\n\\begin{align}\n\\end{align}\n\\]"
   }
 ]
