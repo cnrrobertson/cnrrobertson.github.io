@@ -1,0 +1,22 @@
+---
+title: Quiz 6 - More chain rule and differentiation of trigonometric functions
+---
+
+## Problem 1
+### Question
+Differentiate $y = \sqrt{x}^x$.
+
+### Solution
+$$
+\begin{align}
+y &= \sqrt{x}^x \\
+\ln(y) &= \ln(\sqrt{x}^x) \\
+\frac{d}{dx}\ln(y) &= \frac{d}{dx}\ln(\sqrt{x}^x) \\
+\frac{y'}{y} &= \frac{d}{dx}\left(x\ln(\sqrt{x})\right) \\
+y' &= y\left(\ln(\sqrt{x}) + \frac{x}{\sqrt{x}}\frac{d}{dx}\sqrt{x}\right) \\
+&= \sqrt{x}^x\left(\ln(\sqrt{x}) + \frac{x}{\sqrt{x}}\left(\frac{1}{2\sqrt{x}}\right)\right) \\
+&= \sqrt{x}^x\left(\frac{1}{2}\ln(x) + \frac{1}{2}\right) \\
+\Aboxed{y' &= \frac{1}{2}\sqrt{x}^x\left(\ln(x) + 1\right)}
+\end{align}
+$$
+
