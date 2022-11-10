@@ -35,7 +35,7 @@ Its goal is to expose the participants to topics in machine learning and optimiz
 - 12/1/22: **Reinforcement learning** - Sepideh Nikookar
 
 ### Presentations
-- 11/10/22: **Recurrent neural networks for beat prediction** - Prianka Bose
+- 11/10/22: [Recurrent neural networks for beat prediction](fall_2022/mlo_talk_Bose.pdf) - Prianka Bose
 - 12/8/22: **Generative adversarial networks** - Soheil Saghafi
 
 ---
