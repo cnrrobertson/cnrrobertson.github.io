@@ -21,9 +21,42 @@ Sketch the graph
 ### Solution
 
 #### a)
+To find where it is increasing or decreasing, we can look at the sign of the derivative (the sign of the slope):
+$$
+\begin{align}
+y &= 3x^4 - 4x^3 \\
+y' &= 12x^3 - 12x^2 \\
+&= 12x^2(x - 1)
+\end{align}
+$$
+This has critical points at $x=0,1$.
+Since $x^2$ is always positive, we can find our intervals by considering the sign of $(x-1)$ in the regions $(-\infty,0),(0,1),(1,\infty)$.
+Our intervals are then:
+- Increasing: $(1,\infty)$
+- Decreasing: $(-\infty,0),(0,1)$
+
 #### b)
+To find where it is concave up or down, we can look at the sign of the second derivative:
+$$
+\begin{align}
+y' &= 12x^3 - 12x^2 \\
+y'' &= 36x^2 - 24x \\
+&= 12x(3x - 2)
+\end{align}
+$$
+This has inflection points at $x=0,2/3$.
+Our intervals are then:
+- Concave down: $(0,2/3)$
+- Concave up: $(-\infty,0),(2/3,\infty)$
+
 #### c)
+Given the results in part a, we know that:
+- Local minima: $x=1$
+- Local maxima: None
+
 #### d)
+
+![](plots/quiz8_1d.png)
 
 ## Problem 2
 ### Question
@@ -42,7 +75,40 @@ What are the local minima and maxima?
 Sketch the graph
 
 ### Solution
+
+#### a)
+To find where it is increasing or decreasing, we can look at the sign of the derivative (the sign of the slope):
 $$
 \begin{align}
+y &= 2 + 3x^2 - x^3\\
+y' &= 6x - 3x^2\\
+&= 3x(2 - x)\\
 \end{align}
 $$
+This has critical points at $x=0,2$.
+Our intervals are then:
+- Increasing: $(0,2)$
+- Decreasing: $(-\infty,0),(2,\infty)$
+
+#### b)
+To find where it is concave up or down, we can look at the sign of the second derivative:
+$$
+\begin{align}
+y' &= 6x - 3x^2\\
+y'' &= 6 - 6x \\
+&= 6(1 - x)
+\end{align}
+$$
+This has an inflection point at $x=1$.
+Our intervals are then:
+- Concave down: $(1,\infty)$
+- Concave up: $(-\infty,1)$
+
+#### c)
+Given the results in part a, we know that:
+- Local minima: $x=0$
+- Local maxima: $x=2$
+
+#### d)
+
+![](plots/quiz8_2d.png)

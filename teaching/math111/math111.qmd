@@ -12,6 +12,8 @@ Hopefully, the notes, problems, and supplementary plots/videos/animations can he
 - [Quiz 4](quizzes/quiz4.qmd)
 - [Quiz 5](quizzes/quiz5.qmd)
 - [Quiz 6](quizzes/quiz6.qmd)
+- [Quiz 7](quizzes/quiz7.qmd)
+- [Quiz 8](quizzes/quiz8.qmd)
 
 ## A Couple of Notes
 

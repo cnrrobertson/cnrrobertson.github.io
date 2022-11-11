@@ -56,6 +56,9 @@ website:
             - teaching/math111/quizzes/quiz3.qmd
             - teaching/math111/quizzes/quiz4.qmd
             - teaching/math111/quizzes/quiz5.qmd
+            - teaching/math111/quizzes/quiz6.qmd
+            - teaching/math111/quizzes/quiz7.qmd
+            - teaching/math111/quizzes/quiz8.qmd
         - section: "Math 340 - Applied Numerical Methods"
           contents:
             - teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.qmd
