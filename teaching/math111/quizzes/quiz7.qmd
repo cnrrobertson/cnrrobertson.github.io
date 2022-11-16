@@ -38,7 +38,8 @@ $$
 \begin{align}
 f(x) &\approx f(a) + f'(a)(x-a) \\
 &= f(1) + f'(1)(x-1) \\
-\Aboxed{f(x) &\approx e^2 + 2e^2(x-1)}
+f(x) &\approx e^2 + 2e^2(x-1) \\
+\Aboxed{&= 2e^2x - e^2 }\\
 \end{align}
 $$
 
