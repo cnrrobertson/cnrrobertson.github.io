@@ -6,14 +6,15 @@ This section contains some resources for the Fall 2022 Math 111 Section 23 at NJ
 Hopefully, the notes, problems, and supplementary plots/videos/animations can help deepen understanding or act as a reference for review.
 
 ## Quiz Solutions
-- [Quiz 1](quizzes/quiz1.qmd)
-- [Quiz 2](quizzes/quiz2.qmd)
-- [Quiz 3](quizzes/quiz3.qmd)
-- [Quiz 4](quizzes/quiz4.qmd)
-- [Quiz 5](quizzes/quiz5.qmd)
-- [Quiz 6](quizzes/quiz6.qmd)
-- [Quiz 7](quizzes/quiz7.qmd)
-- [Quiz 8](quizzes/quiz8.qmd)
+- [Quiz 1: Limits and rate of change](quizzes/quiz1.qmd)
+- [Quiz 2: Continuity](quizzes/quiz2.qmd)
+- [Quiz 3: Definition of a derivative](quizzes/quiz3.qmd)
+- [Quiz 4: Chain rule and implicit differentiation](quizzes/quiz4.qmd)
+- [Quiz 5: More chain rule and differentiation of trigonometric functions](quizzes/quiz5.qmd)
+- [Quiz 6: Even more chain rule and differentiation of trigonometric functions](quizzes/quiz6.qmd)
+- [Quiz 7: First derivative test and linearization](quizzes/quiz7.qmd)
+- [Quiz 8: Curve sketching](quizzes/quiz8.qmd)
+- [Quiz 9: Newton's method and antiderivatives](quizzes/quiz9.qmd)
 
 ## A Couple of Notes
 
