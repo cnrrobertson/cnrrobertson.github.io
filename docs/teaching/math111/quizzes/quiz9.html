@@ -254,23 +254,20 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="problem-1">Problem 1</h2>
 <section id="question" class="level3">
 <h3 class="anchored" data-anchor-id="question">Question</h3>
-<p>State Newton’s method formula to find the roots of a function $ f(x) = 0 $ then use Newton’s method to obtain an approximation of $ y = (x)$ and $ y = -1 - x $. Use $ x_0 = 0 $ for the initial guess. Find $ x_1 $.</p>
+<p>State Newton’s method formula to find the roots of a function <span class="math inline">\(f(x) = 0\)</span> then use Newton’s method to obtain an approximation for the intersection of <span class="math inline">\(y = \tan(x)\)</span> and <span class="math inline">\(y = -1 - x\)</span>. Use <span class="math inline">\(x_0 = 0\)</span> for the initial guess. Find <span class="math inline">\(x_1\)</span>.</p>
 </section>
 <section id="solution" class="level3">
 <h3 class="anchored" data-anchor-id="solution">Solution</h3>
 <p>Newton’s method can be written as: <span class="math display">\[
     x_{n-1} = x_n - \frac{f(x_n)}{f'(x_n)}
-\]</span> Using this for the given functions we have: <span class="math display">\[
+\]</span> Using this for the intersection we have: <span class="math display">\[
+    f(x) = \tan(x) + 1 + x
+\]</span> so, <span class="math display">\[
 \begin{align*}
     x_1 &amp;= x_0 - \frac{f(x_0)}{f'(x_0)} \\
-    &amp;= 0 - \frac{\tan(0)}{\sec^2(0)} \\
-    \Aboxed{x_1 &amp;= 0}
-\end{align*}
-\]</span> and <span class="math display">\[
-\begin{align*}
-    x_1 &amp;= x_0 - \frac{f(x_0)}{f'(x_0)} \\
-    &amp;= 0 - \frac{-1 - 0}{-1} \\
-    \Aboxed{x_1 &amp;= -1}
+    &amp;= 0 - \frac{\tan(0) + 1 + 0}{\sec^2(0) + 1} \\
+    &amp;= - \frac{0 + 1}{1 + 1} \\
+    \Aboxed{x_1 &amp;= -\frac{1}{2}}
 \end{align*}
 \]</span></p>
 </section>

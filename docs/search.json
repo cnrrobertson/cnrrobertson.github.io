@@ -445,7 +445,7 @@
     "href": "teaching/math111/quizzes/quiz9.html",
     "title": "Quiz 9 - Newton’s method and antiderivatives",
     "section": "",
-    "text": "State Newton’s method formula to find the roots of a function $ f(x) = 0 $ then use Newton’s method to obtain an approximation of $ y = (x)$ and $ y = -1 - x $. Use $ x_0 = 0 $ for the initial guess. Find $ x_1 $.\n\n\n\nNewton’s method can be written as: \\[\n    x_{n-1} = x_n - \\frac{f(x_n)}{f'(x_n)}\n\\] Using this for the given functions we have: \\[\n\\begin{align*}\n    x_1 &= x_0 - \\frac{f(x_0)}{f'(x_0)} \\\\\n    &= 0 - \\frac{\\tan(0)}{\\sec^2(0)} \\\\\n    \\Aboxed{x_1 &= 0}\n\\end{align*}\n\\] and \\[\n\\begin{align*}\n    x_1 &= x_0 - \\frac{f(x_0)}{f'(x_0)} \\\\\n    &= 0 - \\frac{-1 - 0}{-1} \\\\\n    \\Aboxed{x_1 &= -1}\n\\end{align*}\n\\]"
+    "text": "State Newton’s method formula to find the roots of a function \\(f(x) = 0\\) then use Newton’s method to obtain an approximation for the intersection of \\(y = \\tan(x)\\) and \\(y = -1 - x\\). Use \\(x_0 = 0\\) for the initial guess. Find \\(x_1\\).\n\n\n\nNewton’s method can be written as: \\[\n    x_{n-1} = x_n - \\frac{f(x_n)}{f'(x_n)}\n\\] Using this for the intersection we have: \\[\n    f(x) = \\tan(x) + 1 + x\n\\] so, \\[\n\\begin{align*}\n    x_1 &= x_0 - \\frac{f(x_0)}{f'(x_0)} \\\\\n    &= 0 - \\frac{\\tan(0) + 1 + 0}{\\sec^2(0) + 1} \\\\\n    &= - \\frac{0 + 1}{1 + 1} \\\\\n    \\Aboxed{x_1 &= -\\frac{1}{2}}\n\\end{align*}\n\\]"
   },
   {
     "objectID": "teaching/math111/quizzes/quiz9.html#problem-2",
