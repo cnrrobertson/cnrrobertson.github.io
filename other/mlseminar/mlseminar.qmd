@@ -33,6 +33,11 @@ Its goal is to expose the participants to topics in machine learning and optimiz
     - [Presentation](fall_2022/workshop5_rnn/workshop5_rnn.pdf)
     - [Code repository](https://github.com/judahsemi/Dino-Name-Generator)
 - 12/1/22: **Reinforcement learning** - Sepideh Nikookar
+    - [Presentation (pdf)](fall_2022/workshop6_reinforcement/workshop6_reinforcement.pdf)
+    - [Presentation (pptx)](fall_2022/workshop6_reinforcement/workshop6_reinforcement.pptx)
+    - [Document (with code)](fall_2022/workshop6_reinforcement/workshop6_reinforcement.qmd)
+    - [Jupyter notebook](fall_2022/workshop6_reinforcement/workshop6_reinforcement.ipynb)
+    - [Data (gifs)](fall_2022/workshop6_reinforcement/data.tar.gz)
 
 ### Presentations
 - 11/10/22: [Recurrent neural networks for beat prediction](fall_2022/mlo_talk_Bose.pdf) - Prianka Bose

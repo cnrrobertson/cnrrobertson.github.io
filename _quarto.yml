@@ -92,9 +92,15 @@ website:
             - text: "Workshop 1: Python set up, basics, gradient descent, automatic differentiation"
               href: other/mlseminar/fall_2022/workshop1_intro/workshop1_intro.qmd
             - text: "Workshop 2: Neural networks - structure, building, and training"
-              href: other/mlseminar/fall_2022/workshop2_nn/workshop2_nn.qmd
+              href: other/mlseminar/fall_2022/workshop2_nn/workshop2_nn.pdf
             - text: "Workshop 3: Data-driven discovery via Sparse Identification of Nonlinear Dynamics"
               href: other/mlseminar/fall_2022/workshop3_discovery/workshop3_discovery.qmd
+            - text: "Workshop 4: Convolutional neural networks"
+              href: other/mlseminar/fall_2022/workshop4_cnn/workshop4_cnn.pdf
+            - text: "Workshop 5: Recurrent neural networks"
+              href: other/mlseminar/fall_2022/workshop5_rnn/workshop5_rnn.pdf
+            - text: "Workshop 6: Reinforcement learning"
+              href: other/mlseminar/fall_2022/workshop6_reinforcement/workshop6_reinforcement.pdf
 
 # --------------------------------------------------------------------------
 # Theme
