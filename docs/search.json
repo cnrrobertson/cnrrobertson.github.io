@@ -312,7 +312,7 @@
     "href": "teaching/math111/math111.html#quiz-solutions",
     "title": "Math 111 - Calculus I",
     "section": "Quiz Solutions",
-    "text": "Quiz Solutions\n\nQuiz 1: Limits and rate of change\nQuiz 2: Continuity\nQuiz 3: Definition of a derivative\nQuiz 4: Chain rule and implicit differentiation\nQuiz 5: More chain rule and differentiation of trigonometric functions\nQuiz 6: Even more chain rule and differentiation of trigonometric functions\nQuiz 7: First derivative test and linearization\nQuiz 8: Curve sketching\nQuiz 9: Newton’s method and antiderivatives"
+    "text": "Quiz Solutions\n\nQuiz 1: Limits and rate of change\nQuiz 2: Continuity\nQuiz 3: Definition of a derivative\nQuiz 4: Chain rule and implicit differentiation\nQuiz 5: More chain rule and differentiation of trigonometric functions\nQuiz 6: Even more chain rule and differentiation of trigonometric functions\nQuiz 7: First derivative test and linearization\nQuiz 8: Curve sketching\nQuiz 9: Newton’s method and antiderivatives\nQuiz 10: Integration"
   },
   {
     "objectID": "teaching/math111/math111.html#a-couple-of-notes",
@@ -453,5 +453,19 @@
     "title": "Quiz 9 - Newton’s method and antiderivatives",
     "section": "Problem 2",
     "text": "Problem 2\n\nQuestion\nFind the antiderivatives of the following:\n\na)\n\\[\n    f(x) = 4x^2 + 3\n\\]\n\n\nb)\n\\[\n    f(x) = \\frac{2}{3x^4} + x^2\n\\]\n\n\nb)\n\\[\n    f(x) = 6 + \\frac{4}{3}x\n\\]\n\n\n\nSolution\n\na)\n\\[\n\\begin{align*}\n    f(x) &= 4x^2 + 3 \\\\\n    \\Aboxed{F(x) &= \\frac{4}{3}x^3 + 3x}\n\\end{align*}\n\\]\n\n\nb)\n\\[\n\\begin{align*}\n    f(x) &= \\frac{2}{3x^4} + x^2 \\\\\n    \\Aboxed{F(x) &= -\\frac{2}{9x^3} + \\frac{1}{3}x^3}\n\\end{align*}\n\\]\n\n\nc)\n\\[\n\\begin{align*}\n    f(x) &= 6 + \\frac{4}{3}x \\\\\n    \\Aboxed{F(x) &= 6x + \\frac{2}{3}x^2}\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "teaching/math111/quizzes/quiz10.html",
+    "href": "teaching/math111/quizzes/quiz10.html",
+    "title": "Quiz 10 - Integration",
+    "section": "",
+    "text": "\\[\n    \\int_1^2\\left(\\cos\\left(\\frac{\\pi x}{4}\\right) + \\frac{4}{x}\\right) dx\n\\]\n\n\n\n\\[\n\\begin{align*}\n    \\int_1^2\\left(\\cos\\left(\\frac{\\pi x}{4}\\right) + \\frac{4}{x}\\right) dx &= \\int_1^2\\cos\\left(\\frac{\\pi x}{4}\\right)dx + \\int_1^2\\frac{4}{x} dx \\\\\n    u &= \\frac{\\pi x}{4} \\\\\n    du &= \\frac{\\pi}{4}dx \\\\\n    \\int_1^2\\left(\\cos\\left(\\frac{\\pi x}{4}\\right) + \\frac{4}{x}\\right) dx &= \\frac{4}{\\pi}\\int_\\frac{\\pi}{4}^\\frac{\\pi}{2}\\cos\\left(u\\right)du + \\int_1^2\\frac{4}{x} dx \\\\\n    &= \\frac{4}{\\pi}\\Big[\\sin(u)\\Big]_\\frac{\\pi}{4}^\\frac{\\pi}{2} + \\Big[4\\ln(x)\\Big]_1^2\\\\\n    &= \\frac{4}{\\pi}\\Big[\\sin(\\pi/2) - \\sin(\\pi/4)\\Big] + 4\\Big[\\ln(2) -\\ln(1)\\Big]\\\\\n    \\Aboxed{&= \\frac{4}{\\pi}- \\frac{4}{\\pi}\\sin\\left(\\frac{\\pi}{4}\\right) + 4\\ln(2)} \\\\\n    \\Aboxed{&= \\frac{4}{\\pi}- \\frac{4\\sqrt{2}}{2\\pi} + 4\\ln(2)} \\\\\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "teaching/math111/quizzes/quiz10.html#problem-2",
+    "href": "teaching/math111/quizzes/quiz10.html#problem-2",
+    "title": "Quiz 10 - Integration",
+    "section": "Problem 2",
+    "text": "Problem 2\n\nQuestion\n\\[\n    \\int \\frac{1 + x^2}{3\\sqrt{x}} dx\n\\]\n\n\nSolution\n\\[\n\\begin{align*}\n    \\int \\frac{1 + x^2}{\\sqrt[3]{x}} dx &= \\int \\frac{1}{\\sqrt[3]{x}}dx + \\int \\frac{x^2}{\\sqrt[3]{x}}dx \\\\\n    &= \\int \\frac{1}{\\sqrt[3]{x}}dx + \\int x^{5/3}dx \\\\\n    \\Aboxed{&= \\frac{3}{2}x^{2/3} + \\frac{3}{8}x^{8/3} + C}\n\\end{align*}\n\\]"
   }
 ]

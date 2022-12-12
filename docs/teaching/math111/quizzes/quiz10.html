@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Connor Robertson, Miguel Fuentes-Cabrera (ORNL)">
 
-<title>Connor Robertson - Predicting bacterial growth in experimental images via recurrent neural networks</title>
+<title>Connor Robertson - Quiz 10 - Integration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,47 +20,28 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,8 +62,9 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -93,7 +74,7 @@ div.csl-indent {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Connor Robertson</span>
     </a>
   </div>
@@ -103,15 +84,15 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../cv.html">
+    <a class="nav-link" href="../../../cv.html">
  <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/teaching.html">
+    <a class="nav-link active" href="../../../teaching/teaching.html" aria-current="page">
  <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../research/research.html" aria-current="page">
+    <a class="nav-link" href="../../../research/research.html">
  <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -120,11 +101,11 @@ div.csl-indent {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
         <li>
-    <a class="dropdown-item" href="../other/fun/fun.html">
+    <a class="dropdown-item" href="../../../other/fun/fun.html">
  <span class="dropdown-text">Just for Fun</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../other/mlseminar/mlseminar.html">
+    <a class="dropdown-item" href="../../../other/mlseminar/mlseminar.html">
  <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
   </li>  
     </ul>
@@ -139,7 +120,7 @@ div.csl-indent {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Predicting bacterial growth in experimental images via recurrent neural networks</h1>
+      <h1 class="quarto-secondary-nav-title">Quiz 10 - Integration</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -152,9 +133,14 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/teaching.html" class="sidebar-item-text sidebar-link">Teaching</a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../research/research.html" class="sidebar-item-text sidebar-link">Research</a>
+            <a href="../../../teaching/math111/math111.html" class="sidebar-item-text sidebar-link">Math 111 - Calculus I</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -162,12 +148,67 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../research/active_nematics.html" class="sidebar-item-text sidebar-link">Data-driven modeling of active nematics</a>
+  <a href="../../../teaching/math111/quizzes/quiz1.html" class="sidebar-item-text sidebar-link">Quiz 1 - Limits and rate of change</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../research/bacteria.html" class="sidebar-item-text sidebar-link active">Prediction of bacterial growth via recurrent neural network</a>
+  <a href="../../../teaching/math111/quizzes/quiz2.html" class="sidebar-item-text sidebar-link">Quiz 2 - Continuity</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz3.html" class="sidebar-item-text sidebar-link">Quiz 3 - Definition of a derivative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz4.html" class="sidebar-item-text sidebar-link">Quiz 4 - Chain rule and implicit differentiation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz5.html" class="sidebar-item-text sidebar-link">Quiz 5 - More chain rule and differentiation of trigonometric functions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz6.html" class="sidebar-item-text sidebar-link">Quiz 6 - More chain rule and differentiation of trigonometric functions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz7.html" class="sidebar-item-text sidebar-link">Quiz 7 - First derivative test and linearization</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz8.html" class="sidebar-item-text sidebar-link">Quiz 8 - Curve sketching</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz9.html" class="sidebar-item-text sidebar-link">Quiz 9 - Newton’s method and antiderivatives</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz10.html" class="sidebar-item-text sidebar-link active">Quiz 10 - Integration</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Math 340 - Applied Numerical Methods</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html" class="sidebar-item-text sidebar-link">Lab 1 - Brief Introduction to Matlab</a>
   </div>
 </li>
       </ul>
@@ -177,26 +218,35 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problem-1" id="toc-problem-1" class="nav-link active" data-scroll-target="#problem-1">Problem 1</a>
+  <ul class="collapse">
+  <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">Question</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  </ul></li>
+  <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem 2</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question</a></li>
+  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Predicting bacterial growth in experimental images via recurrent neural networks</h1>
+<h1 class="title d-none d-lg-block">Quiz 10 - Integration</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Connor Robertson, <a href="https://www.ornl.gov/staff-profile/miguel-fuentes-cabrera">Miguel Fuentes-Cabrera (ORNL)</a> </p>
-          </div>
-  </div>
     
   
     
@@ -205,30 +255,53 @@ div.csl-indent {
 
 </header>
 
-<p>Over the last several decades, advances in genetic sequencing and identification have massively expanded the catalog of bacterial species and strains. This in turn has exposed the myriad of ways that communities of bacteria contribute to the health and proper function of the natural world. However, these communities are often made up of a variety of species and strains whose interactions are incredibly complex. Researchers have thus looked for new experimental and analytical tools to capture and model this complexity or to forecast its outcome. Recently, deep learning methods developed for fields as diverse as weather prediction or self-driving cars have presented a new angle with which to approach this analysis.</p>
-<p>This project focused on predicting the growth of a heterogeneous culture of bacterial strains via experimental images of their interactions and a spatiotemporal convolutional recurrent neural network called <a href="https://github.com/thuml/predrnn-pytorch">PredRNN</a><span class="citation" data-cites="9749915">&nbsp;[<a href="#ref-9749915" role="doc-biblioref">1</a>]</span>. Specifically, the network was trained on sequences of images from microwell arrays which show the growth of two mutant strains of <em>Pseudomonas aeruginosa</em> in a single well (one which can kill the other)<span class="citation" data-cites="timm2017assembly">&nbsp;[<a href="#ref-timm2017assembly" role="doc-biblioref">2</a>]</span>. A sample of one of these sequences can be seen below. The network then outputs a predicted sequence of subsequent images, which we compared with the true images via popular image metrics such as Learned Perceptual Image Patch Similarity (LPIPS) as well as with biological metrics such as the number and size of colonies of each strain. The results of this work can be found in this <a href="http://export.arxiv.org/abs/2205.05810v1">preprint</a><span class="citation" data-cites="robertson2022performing">&nbsp;[<a href="#ref-robertson2022performing" role="doc-biblioref">3</a>]</span>.</p>
-<div style="text-align: center;">
-<p><img src="resources/show_well.jpg" style="width:100.0%;height:100.0%"></p>
-</div>
-<p>This same technique was also applied to accelerate the results of an agent based model of the same system which can be found in this <a href="https://www.biorxiv.org/content/10.1101/2021.10.11.463942v1">preprint</a><span class="citation" data-cites="Sakkos2021.10.11.463942">&nbsp;[<a href="#ref-Sakkos2021.10.11.463942" role="doc-biblioref">4</a>]</span>.</p>
+<section id="problem-1" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1">Problem 1</h2>
+<section id="question" class="level3">
+<h3 class="anchored" data-anchor-id="question">Question</h3>
+<p><span class="math display">\[
+    \int_1^2\left(\cos\left(\frac{\pi x}{4}\right) + \frac{4}{x}\right) dx
+\]</span></p>
+</section>
+<section id="solution" class="level3">
+<h3 class="anchored" data-anchor-id="solution">Solution</h3>
+<p><span class="math display">\[
+\begin{align*}
+    \int_1^2\left(\cos\left(\frac{\pi x}{4}\right) + \frac{4}{x}\right) dx &amp;= \int_1^2\cos\left(\frac{\pi x}{4}\right)dx + \int_1^2\frac{4}{x} dx \\
+    u &amp;= \frac{\pi x}{4} \\
+    du &amp;= \frac{\pi}{4}dx \\
+    \int_1^2\left(\cos\left(\frac{\pi x}{4}\right) + \frac{4}{x}\right) dx &amp;= \frac{4}{\pi}\int_\frac{\pi}{4}^\frac{\pi}{2}\cos\left(u\right)du + \int_1^2\frac{4}{x} dx \\
+    &amp;= \frac{4}{\pi}\Big[\sin(u)\Big]_\frac{\pi}{4}^\frac{\pi}{2} + \Big[4\ln(x)\Big]_1^2\\
+    &amp;= \frac{4}{\pi}\Big[\sin(\pi/2) - \sin(\pi/4)\Big] + 4\Big[\ln(2) -\ln(1)\Big]\\
+    \Aboxed{&amp;= \frac{4}{\pi}- \frac{4}{\pi}\sin\left(\frac{\pi}{4}\right) + 4\ln(2)} \\
+    \Aboxed{&amp;= \frac{4}{\pi}- \frac{4\sqrt{2}}{2\pi} + 4\ln(2)} \\
+\end{align*}
+\]</span></p>
+</section>
+</section>
+<section id="problem-2" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2">Problem 2</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question</h3>
+<p><span class="math display">\[
+    \int \frac{1 + x^2}{3\sqrt{x}} dx
+\]</span></p>
+</section>
+<section id="solution-1" class="level3">
+<h3 class="anchored" data-anchor-id="solution-1">Solution</h3>
+<p><span class="math display">\[
+\begin{align*}
+    \int \frac{1 + x^2}{\sqrt[3]{x}} dx &amp;= \int \frac{1}{\sqrt[3]{x}}dx + \int \frac{x^2}{\sqrt[3]{x}}dx \\
+    &amp;= \int \frac{1}{\sqrt[3]{x}}dx + \int x^{5/3}dx \\
+    \Aboxed{&amp;= \frac{3}{2}x^{2/3} + \frac{3}{8}x^{8/3} + C}
+\end{align*}
+\]</span></p>
 
 
+</section>
+</section>
 
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-9749915" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Y. Wang, H. Wu, J. Zhang, Z. Gao, J. Wang, P. Yu, and M. Long, <em><a href="https://doi.org/10.1109/TPAMI.2022.3165153">PredRNN: A Recurrent Neural Network for Spatiotemporal Predictive Learning</a></em>, IEEE Transactions on Pattern Analysis and Machine Intelligence 1 (2022).</div>
-</div>
-<div id="ref-timm2017assembly" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">A. C. Timm, M. C. Halsted, J. L. Wilmoth, and S. T. Retterer, <em>Assembly and Tracking of Microbial Community Development Within a Microwell Array Platform</em>, JoVE (Journal of Visualized Experiments) e55701 (2017).</div>
-</div>
-<div id="ref-robertson2022performing" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">C. Robertson, J. L. Wilmoth, S. Retterer, and M. Fuentes-Cabrera, <em><a href="https://arxiv.org/abs/2205.05810">Performing Video Frame Prediction of Microbial Growth with a Recurrent Neural Network</a></em>, (2022).</div>
-</div>
-<div id="ref-Sakkos2021.10.11.463942" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">J. Sakkos et al., <em><a href="https://doi.org/10.1101/2021.10.11.463942">Investigating the Growth of an Engineered Strain of Cyanobacteria with an Agent-Based Model and a Recurrent Neural Network</a></em>, bioRxiv (2021).</div>
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

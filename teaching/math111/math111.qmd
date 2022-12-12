@@ -15,6 +15,7 @@ Hopefully, the notes, problems, and supplementary plots/videos/animations can he
 - [Quiz 7: First derivative test and linearization](quizzes/quiz7.qmd)
 - [Quiz 8: Curve sketching](quizzes/quiz8.qmd)
 - [Quiz 9: Newton's method and antiderivatives](quizzes/quiz9.qmd)
+- [Quiz 10: Integration](quizzes/quiz10.qmd)
 
 ## A Couple of Notes
 

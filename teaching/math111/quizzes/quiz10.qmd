@@ -1,0 +1,40 @@
+---
+title: Quiz 10 - Integration
+---
+
+## Problem 1
+### Question
+$$
+    \int_1^2\left(\cos\left(\frac{\pi x}{4}\right) + \frac{4}{x}\right) dx
+$$
+
+### Solution
+$$
+\begin{align*}
+    \int_1^2\left(\cos\left(\frac{\pi x}{4}\right) + \frac{4}{x}\right) dx &= \int_1^2\cos\left(\frac{\pi x}{4}\right)dx + \int_1^2\frac{4}{x} dx \\
+    u &= \frac{\pi x}{4} \\
+    du &= \frac{\pi}{4}dx \\
+    \int_1^2\left(\cos\left(\frac{\pi x}{4}\right) + \frac{4}{x}\right) dx &= \frac{4}{\pi}\int_\frac{\pi}{4}^\frac{\pi}{2}\cos\left(u\right)du + \int_1^2\frac{4}{x} dx \\
+    &= \frac{4}{\pi}\Big[\sin(u)\Big]_\frac{\pi}{4}^\frac{\pi}{2} + \Big[4\ln(x)\Big]_1^2\\
+    &= \frac{4}{\pi}\Big[\sin(\pi/2) - \sin(\pi/4)\Big] + 4\Big[\ln(2) -\ln(1)\Big]\\
+    \Aboxed{&= \frac{4}{\pi}- \frac{4}{\pi}\sin\left(\frac{\pi}{4}\right) + 4\ln(2)} \\
+    \Aboxed{&= \frac{4}{\pi}- \frac{4\sqrt{2}}{2\pi} + 4\ln(2)} \\
+\end{align*}
+$$
+
+
+## Problem 2
+### Question
+$$
+    \int \frac{1 + x^2}{3\sqrt{x}} dx
+$$
+
+### Solution
+$$
+\begin{align*}
+    \int \frac{1 + x^2}{\sqrt[3]{x}} dx &= \int \frac{1}{\sqrt[3]{x}}dx + \int \frac{x^2}{\sqrt[3]{x}}dx \\
+    &= \int \frac{1}{\sqrt[3]{x}}dx + \int x^{5/3}dx \\
+    \Aboxed{&= \frac{3}{2}x^{2/3} + \frac{3}{8}x^{8/3} + C}
+\end{align*}
+$$
+
