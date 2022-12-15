@@ -41,7 +41,6 @@ At each step, the function prints the step number and the current approximate ro
 
 ### Matlab function
 ```{matlab}
-%| output: false
 %%file MyBisectionMethod.m
 function [c, N] = MyBisectionMethod(f, a, b, tol)
     N = 0;

@@ -65,6 +65,7 @@ website:
           contents:
             - teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.qmd
             - teaching/math340/Lab2_bisection/Lab2_bisection.qmd
+            - teaching/math340/Lab3_fixed_point/Lab3_fixed_points.qmd
     - title: "Research"
       style: "floating"
       collapse-level: 1

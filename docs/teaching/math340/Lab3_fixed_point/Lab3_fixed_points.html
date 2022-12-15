@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Connor Robertson">
+
+<title>Connor Robertson - Lab 3 - Fixed point methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Connor Robertson</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../cv.html">
+ <span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../teaching/teaching.html" aria-current="page">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research/research.html">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Other</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
+        <li>
+    <a class="dropdown-item" href="../../../other/fun/fun.html">
+ <span class="dropdown-text">Just for Fun</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../other/mlseminar/mlseminar.html">
+ <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Lab 3 - Fixed point methods</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/teaching.html" class="sidebar-item-text sidebar-link">Teaching</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../teaching/math111/math111.html" class="sidebar-item-text sidebar-link">Math 111 - Calculus I</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz1.html" class="sidebar-item-text sidebar-link">Quiz 1 - Limits and rate of change</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz2.html" class="sidebar-item-text sidebar-link">Quiz 2 - Continuity</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz3.html" class="sidebar-item-text sidebar-link">Quiz 3 - Definition of a derivative</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz4.html" class="sidebar-item-text sidebar-link">Quiz 4 - Chain rule and implicit differentiation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz5.html" class="sidebar-item-text sidebar-link">Quiz 5 - More chain rule and differentiation of trigonometric functions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz6.html" class="sidebar-item-text sidebar-link">Quiz 6 - More chain rule and differentiation of trigonometric functions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz7.html" class="sidebar-item-text sidebar-link">Quiz 7 - First derivative test and linearization</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz8.html" class="sidebar-item-text sidebar-link">Quiz 8 - Curve sketching</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz9.html" class="sidebar-item-text sidebar-link">Quiz 9 - Newton’s method and antiderivatives</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math111/quizzes/quiz10.html" class="sidebar-item-text sidebar-link">Quiz 10 - Integration</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Math 340 - Applied Numerical Methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html" class="sidebar-item-text sidebar-link">Lab 1 - Brief Introduction to Matlab</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math340/Lab2_bisection/Lab2_bisection.html" class="sidebar-item-text sidebar-link">Lab 2 - Bisection Method</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html" class="sidebar-item-text sidebar-link active">Lab 3 - Fixed point methods</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#newtons-method" id="toc-newtons-method" class="nav-link" data-scroll-target="#newtons-method">Newton’s Method</a>
+  <ul class="collapse">
+  <li><a href="#convergence" id="toc-convergence" class="nav-link" data-scroll-target="#convergence">Convergence</a></li>
+  </ul></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
+  <ul class="collapse">
+  <li><a href="#newtons-method-1" id="toc-newtons-method-1" class="nav-link" data-scroll-target="#newtons-method-1">Newton’s method</a></li>
+  <li><a href="#stability-of-fixed-points" id="toc-stability-of-fixed-points" class="nav-link" data-scroll-target="#stability-of-fixed-points">Stability of fixed points</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Lab 3 - Fixed point methods</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Connor Robertson </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Our goal is to find the fixed point of a function <span class="math inline">\(g(x)\)</span>, that is, the value <span class="math inline">\(x^*\)</span> such that <span class="math inline">\(x^*= g(x^*)\)</span> (if it exists). If <span class="math inline">\(|g'(x^{*})|&lt;1\)</span>, we can find the fixed point by iteration if we start sufficiently close to <span class="math inline">\(x^*\)</span>.</p>
+<p>For the example problem <span class="math inline">\(g(x) = \cos{(x)}\)</span>, we can begin with an initial guess <span class="math inline">\(x_1=0.5\)</span> and find the next point, <span class="math inline">\(x_2\)</span>, by applying <span class="math inline">\(g\)</span>: <span class="math inline">\(x_2=g(x_1)\)</span>. We repeat this process <span class="math inline">\(n\)</span> times to find <span class="math inline">\(x_{n+1}=g(x_n)\)</span>. This can be summarized in the following table:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">n</th>
+<th style="text-align: center;">$ x_n$</th>
+<th style="text-align: center;">$x_{n+1}=(x_n) $</th>
+<th style="text-align: center;">$ E_n=</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.5000</td>
+<td style="text-align: center;">0.8775</td>
+<td style="text-align: center;">0.3775</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.8775</td>
+<td style="text-align: center;">0.6390</td>
+<td style="text-align: center;">0.2385</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.6390</td>
+<td style="text-align: center;">0.8026</td>
+<td style="text-align: center;">0.1636</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.8026</td>
+<td style="text-align: center;">0.6947</td>
+<td style="text-align: center;">0.1079</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.6947</td>
+<td style="text-align: center;">0.7681</td>
+<td style="text-align: center;">0.0734</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.7681</td>
+<td style="text-align: center;">0.7191</td>
+<td style="text-align: center;">0.0490</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.7191</td>
+<td style="text-align: center;">0.7523</td>
+<td style="text-align: center;">0.0331</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.7523</td>
+<td style="text-align: center;">0.7300</td>
+<td style="text-align: center;">0.0222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.7300</td>
+<td style="text-align: center;">0.7451</td>
+<td style="text-align: center;">0.0150</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.7451</td>
+<td style="text-align: center;">0.7350</td>
+<td style="text-align: center;">0.0101</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">0.7350</td>
+<td style="text-align: center;">0.7418</td>
+<td style="text-align: center;">0.0068</td>
+</tr>
+</tbody>
+</table>
+<p>This table shows an iteration <span class="math inline">\(n\)</span>, the <span class="math inline">\(x\)</span> value <span class="math inline">\(x_n\)</span>, the result of the iteration <span class="math inline">\(x_{n+1} = \cos(x_n)\)</span>, and the difference between the current step and the next <span class="math inline">\(E_n = |x_n - x_{n+1}|\)</span>. Note that the difference in <span class="math inline">\(x_i\)</span> between each step gets smaller and smaller as we iterate. This shows that we are indeed approaching a fixed point. In this case, if we continue we will eventually converge to the fixed point <span class="math inline">\(x^*\approx0.739085133\)</span>.</p>
+<p>This process is only guaranteed to converge if <span class="math inline">\(|g'(x^*)|&lt;1\)</span>. In this case, <span class="math inline">\(g(x)\)</span> is “contracting” around <span class="math inline">\(x^*\)</span>. To see this contraction visually, we can consider the following image:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/img1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="images/gen_im1.py">Code for the image</a></figcaption><p></p>
+</figure>
+</div>
+<p>In this image, the dashed line represents the line <span class="math inline">\(y=x\)</span>, so the arrows go from <span class="math inline">\((x_1, g(x_1))\to (x_2, x_2) \to (x_2, g(x_2)) \to \ldots (x_4, g(x_4)\)</span>.</p>
+<p>In practice, we do not know when we have arrived at the fixed point <span class="math inline">\(x^*\)</span>, so we instead stop by looking at the difference between iterations: <span class="math inline">\(E_n = |x_{n+1} - x_n|\)</span>. When this difference becomes sufficiently small, we can assume that we have the best answer that the fixed point method can give us.</p>
+<p>Below is a program that performs fixed point iteration for a given function <span class="math inline">\(g(x)\)</span>. The convergence criterion for the program will be given by the error condition which can be written as: <span class="math display">\[
+\begin{align*}
+    E_n={|x_{n+1} - x_n|} &lt;\text{ tol}
+\end{align*}
+\]</span> where tol is a given tolerance.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Although <span class="math inline">\(|g'(x^*)|&lt;1\)</span> guarantees that the method will converge , in practice we usually do not know the interval. Thus, if your initial guess for <span class="math inline">\(x^*\)</span> is not sufficiently close to the actual value of <span class="math inline">\(x^*\)</span> the method may not converge. Informed initial guesses and trial and error are common techniques for overcoming this shortcoming.</p>
+</div>
+</div>
+</section>
+<section id="newtons-method" class="level2">
+<h2 class="anchored" data-anchor-id="newtons-method">Newton’s Method</h2>
+<p>Newton’s method is a fixed point iteration that converges to the root of a function <span class="math inline">\(f(x)\)</span>. It uses the iteration function: <span class="math display">\[
+\begin{align*}
+    g(x) = x - \frac{f(x)}{f'(x)}
+.\end{align*}
+\]</span> Analyzing this function, we can see that the fixed point <span class="math inline">\(x^*\)</span> for <span class="math inline">\(g(x)\)</span> is also the root of <span class="math inline">\(f(x)\)</span>: <span class="math display">\[
+\begin{align*}
+    g(x^*) &amp;= x^{*} \\
+    x^* - \frac{f(x^*)}{f'(x^*)}&amp;= x^* \\
+    - \frac{f(x^*)}{f'(x^*)} &amp;= 0 \\
+    f(x^*) &amp;= 0
+\end{align*}
+\]</span> as long as <span class="math inline">\(f'(x^*) \neq 0\)</span>.</p>
+<section id="convergence" class="level3">
+<h3 class="anchored" data-anchor-id="convergence">Convergence</h3>
+<p>This method was published in 1685 but is still one of the state-of-the-art methods for root finding because it “converges” so quickly. The idea of convergence is key to numerical methods and refers to the rate at which the error decreases as you perform more iterations. The easiest way to illustrate convergence is to consider the Taylor series of our fixed point iteration centered at <span class="math inline">\(x^*\)</span>: <span class="math display">\[
+\begin{align*}
+    g(x_{n}) &amp;= g(x^*) + g'(c)(x_{n}-x^*)
+\end{align*}
+\]</span> for some <span class="math inline">\(c \in (x^*, x_{n})\)</span>. We can then substitute <span class="math inline">\(g(x_{n}) = x_{n+1}\)</span> and rearrange to get: <span class="math display">\[
+\begin{align*}
+    g(x_{n}) &amp;= g(x^*) + g'(c)(x_{n}-x^*) \\
+    x_{n+1} &amp;= x^* + g'(c)(x_{n} - x^*) \\
+    \frac{x_{n+1} - x^*}{x_{n}-x^*} &amp;= g'(c)\\
+    \frac{|x_{n+1} - x^*|}{|x_{n}-x^*|} &amp;= |g'(c)| &lt; 1\\
+\end{align*}
+\]</span> as long as <span class="math inline">\(c\)</span> is close enough to <span class="math inline">\(x^*\)</span>. Thus, we know that <span class="math inline">\(|x_n - x^*|\)</span> is larger than <span class="math inline">\(|x_{n+1} - x^*|\)</span> which means we are getting closer and closer to the fixed point with each iteration. We also know that the error at step <span class="math inline">\(n+1\)</span> over the error at step <span class="math inline">\(n\)</span> is some constant <span class="math inline">\(g'(c)\)</span>. If <span class="math inline">\(g'(c) \neq 0\)</span> and <span class="math inline">\(g'(c) &lt; 1\)</span>, then this is called “first-order” convergence. This means, for example, if our error at step <span class="math inline">\(n\)</span> is <span class="math inline">\(\frac{1}{2}\)</span> and our constant is <span class="math inline">\(1\)</span>, our error will be reduced by <span class="math inline">\(\frac{1}{2}\)</span> after 1 step.</p>
+<p>However, if our fixed point iteration has the property that <span class="math inline">\(g'(x^*) = 0\)</span>, then we have to take a higher-order Taylor series: <span class="math display">\[
+\begin{align*}
+    g(x_{n}) &amp;= g(x^*) + g'(x^*)(x_{n}-x^*) +\frac{1}{2} g"(c)(x_{n}-x^*)^2 \\
+    x_{n+1} &amp;= x^* + \frac{1}{2} g"(c)(x_{n}-x^*)^2 \\
+    \frac{x_{n+1} - x^*}{(x_n - x^*)^2} &amp;= \frac{1}{2} g"(c) \\
+    \frac{|x_{n+1} - x^*|}{|x_n - x^*|^2} &amp;= \frac{1}{2} |g"(c)| = C
+.\end{align*}
+\]</span> Now, the error at step <span class="math inline">\(n+1\)</span> over the SQUARE of the error at the previous step is equal to a constant. This is called “second-order” convergence. This means, for example, if our error at step <span class="math inline">\(n\)</span> is <span class="math inline">\(\frac{1}{2}\)</span> and the constant is <span class="math inline">\(1\)</span>, then our error will be reduced by <span class="math inline">\(\frac{1}{2}^{2} = \frac{1}{4}\)</span> after 1 step. Thus, it will take far fewer iterations to converge on the true answer. Newton’s method is a “second-order” method.</p>
+<p>One way to test this convergence is by assuming we are near the fixed point and considering: <span class="math display">\[
+\begin{align*}
+    E_n = |x_{n} - x_{n-1}|
+\end{align*}
+\]</span> then we can write the convergence definition approximately as: <span class="math display">\[
+\begin{align*}
+    C = \frac{|x_{n+1} - x^*|}{|x_n - x^*|^d} &amp;\approx \frac{|x_{n+1} - x_n|}{|x_n - x_{n-1}|^d} \\
+    &amp;= \frac{E_n}{(E_{n-1})^d}
+\end{align*}
+\]</span> where <span class="math inline">\(C\)</span> is some constant and <span class="math inline">\(d\)</span> is our order of convergence. This approximation really only makes sense when <span class="math inline">\(x_n\)</span> and <span class="math inline">\(x_{n-1}\)</span> are close to <span class="math inline">\(x^*\)</span>. However, we can check this version numerically by computing the error <span class="math inline">\(E_n\)</span> of our method and then trying <span class="math inline">\(\frac{E_n}{E_{n-1}^d}\)</span> with different values of <span class="math inline">\(d\)</span> to see which one is roughly constant.</p>
+</section>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<p>The following is a Matlab function that takes in a contraction function <span class="math inline">\(g\)</span>, a starting value <span class="math inline">\(x_1\)</span>, and an error tolerance . It outputs an array that contains all your iteration values: <span class="math inline">\(x = [x_1, x_2, x_3, \ldots, x_N]\)</span>. The convergence criteria for the function is the error: <span class="math inline">\(|x_{n+1} - x_n| &lt; \text{tol}\)</span>.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">%%file MyFixedPoint.m</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> [<span class="va">xs</span>] <span class="op">=</span> <span class="va">MyFixedPoint</span>(<span class="va">g</span><span class="op">,</span> <span class="va">x1</span><span class="op">,</span> <span class="va">tol</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">xs</span> <span class="op">=</span> [<span class="va">x1</span>]<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">err</span> <span class="op">=</span> <span class="va">Inf</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">while</span> <span class="va">err</span> <span class="op">&gt;</span> <span class="va">tol</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">xs</span> <span class="op">=</span> [<span class="va">xs</span> <span class="va">g</span>(<span class="va">xs</span>(<span class="kw">end</span>))]<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">err</span> <span class="op">=</span> <span class="va">abs</span>(<span class="va">xs</span>(<span class="kw">end</span>) <span class="op">-</span> <span class="va">xs</span>(<span class="kw">end</span><span class="op">-</span><span class="fl">1</span>))<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Testing this function on <span class="math inline">\(g(x) = \sin(x-5)\)</span> with starting point <span class="math inline">\(x_1 = 1\)</span> and a tolerance of <span class="math inline">\(10^{-7}\)</span> is close to <span class="math inline">\(0.847\)</span>:</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">g</span> <span class="op">=</span> <span class="op">@</span>(<span class="va">x</span>) <span class="va">sin</span>(<span class="va">x</span> <span class="op">-</span> <span class="fl">5</span>)<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">p1</span> <span class="op">=</span> <span class="va">MyFixedPoint</span>(<span class="va">g</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">1e-7</span>)<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">p1</span>(<span class="kw">end</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ans =
+
+    0.8474
+</code></pre>
+</div>
+</div>
+<section id="newtons-method-1" class="level3">
+<h3 class="anchored" data-anchor-id="newtons-method-1">Newton’s method</h3>
+<p>Consider finding the root of the function <span class="math inline">\(f(x) = x - \cos(x) - 1\)</span>. To find the root of this function with Newton’s method, we need to reformulate it as a fixed point problem in which the fixed point is the root. This can be easily done by considering: <span class="math display">\[
+\begin{align*}
+    f'(x) &amp;= 1 + sin(x) \\
+    g(x) &amp;= x - \frac{f(x)}{f'(x)} \\
+    &amp;= x - \frac{x - \cos(x) -1 }{1 + \sin(x)}
+\end{align*}
+\]</span> To approximate the root of the function with an initial guess of <span class="math inline">\(x_1 = 2.5\)</span> and a tolerance of <span class="math inline">\(10^{-10}\)</span>:</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">g</span> <span class="op">=</span> <span class="op">@</span>(<span class="va">x</span>) <span class="va">x</span> <span class="op">-</span> ((<span class="va">x</span> <span class="op">-</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">cos</span>(<span class="va">x</span>))<span class="op">/</span> (<span class="fl">1</span> <span class="op">+</span> <span class="va">sin</span>(<span class="va">x</span>)))<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>[<span class="va">xVec</span>] <span class="op">=</span> <span class="va">MyFixedPoint</span>(<span class="op">@</span>(<span class="va">x</span>)<span class="va">g</span>(<span class="va">x</span>)<span class="op">,</span> <span class="fl">2.5</span><span class="op">,</span> <span class="fl">1e-10</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">errorVec</span> <span class="op">=</span> [<span class="fl">0</span> <span class="va">abs</span>(<span class="va">xVec</span>(<span class="fl">2</span><span class="op">:</span><span class="kw">end</span>) <span class="op">-</span> <span class="va">xVec</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span><span class="op">-</span><span class="fl">1</span>))]<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="va">nVec</span><span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">1</span><span class="op">:</span><span class="va">length</span>(<span class="va">xVec</span>)<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="va">p2_table</span> <span class="op">=</span> <span class="va">table</span>(<span class="va">transpose</span>(<span class="va">nVec</span>)<span class="op">,</span> <span class="va">transpose</span>(<span class="va">xVec</span>)<span class="op">,</span> <span class="va">transpose</span>(<span class="va">errorVec</span>))<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">p2_table</span>.<span class="va">Properties</span>.<span class="va">VariableNames</span><span class="op">=</span>[<span class="st">"n"</span><span class="op">,</span> <span class="st">"x_n"</span><span class="op">,</span> <span class="st">"E_n"</span>]<span class="op">;</span> <span class="va">disp</span>(<span class="va">p2_table</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    n     x_n         E_n    </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    _    ______    __________
+</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    1       2.5             0</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    2    1.0604        1.4396
+    3     1.289       0.22862</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    4    1.2834     0.0055993</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    5    1.2834    2.2394e-06
+    6    1.2834    3.6282e-13</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code></code></pre>
+</div>
+</div>
+<p>If we make a table with the ratios <span class="math inline">\(\frac{E_n}{E_{n-1}}\)</span>, <span class="math inline">\(\frac{E_n}{(E_{n-1})^2}\)</span>, and <span class="math inline">\(\frac{E_n}{(E_{n-1})^3}\)</span> the preivous results, we can examine an approximate convergence rate for the method:</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="va">errorVec</span> <span class="op">=</span> [<span class="fl">0</span> <span class="va">abs</span>(<span class="va">xVec</span>(<span class="fl">2</span><span class="op">:</span><span class="kw">end</span>) <span class="op">-</span> <span class="va">xVec</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span><span class="op">-</span><span class="fl">1</span>))]<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="va">ratio1</span> <span class="op">=</span> <span class="va">errorVec</span>(<span class="fl">2</span><span class="op">:</span><span class="kw">end</span>) <span class="op">./</span> <span class="va">errorVec</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span><span class="op">-</span><span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="va">ratio2</span> <span class="op">=</span> <span class="va">errorVec</span>(<span class="fl">2</span><span class="op">:</span><span class="kw">end</span>) <span class="op">./</span> (<span class="va">errorVec</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span><span class="op">-</span><span class="fl">1</span>) <span class="op">.^</span><span class="fl">2</span>)<span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="va">ratio3</span> <span class="op">=</span> <span class="va">errorVec</span>(<span class="fl">2</span><span class="op">:</span><span class="kw">end</span>) <span class="op">./</span> (<span class="va">errorVec</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span><span class="op">-</span><span class="fl">1</span>) <span class="op">.^</span><span class="fl">3</span>)<span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="va">p2_table</span> <span class="op">=</span> <span class="va">table</span>(<span class="va">ratio1</span><span class="op">',</span> <span class="va">ratio2</span><span class="op">',</span> <span class="va">ratio3</span><span class="op">'</span>)<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="va">p2_table</span>.<span class="va">Properties</span>.<span class="va">VariableNames</span><span class="op">=</span>[<span class="st">"E_n / E_n-1"</span><span class="op">,</span> <span class="st">"E_n / E_n-1^2"</span><span class="op">,</span> <span class="st">"E_n / E_n-1^3"</span>]<span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="va">disp</span>(<span class="va">p2_table</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    E_n / E_n-1    E_n / E_n-1^2    E_n / E_n-1^3</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    ___________    _____________    _____________
+</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Inf            Inf              Inf   </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       0.15881        0.11032          0.07663   
+      0.024492        0.10713          0.46859   </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    0.00039994       0.071426           12.756   </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    1.6202e-07        0.07235            32308   </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code></code></pre>
+</div>
+</div>
+<p>In this, we can see that the second column (which represents a roughly quadratic convergence) is roughly constant, demonstrating that this ratio is holding true. On the other hand, the first column decays to 0, showing that the errors</p>
+</section>
+<section id="stability-of-fixed-points" class="level3">
+<h3 class="anchored" data-anchor-id="stability-of-fixed-points">Stability of fixed points</h3>
+<p>Consider the function <span class="math inline">\(g(x) = 1.8x - x^2\)</span> which has fixed points <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=0.8\)</span>. If we use an initial guess <span class="math inline">\(x_1 = 0.1\)</span> and tolerance <span class="math inline">\(10^{-5}\)</span>:</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="va">g</span> <span class="op">=</span> <span class="op">@</span>(<span class="va">x</span>) <span class="fl">1.8</span><span class="op">*</span><span class="va">x</span> <span class="op">-</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="va">p3</span> <span class="op">=</span> <span class="va">MyFixedPoint</span>(<span class="va">g</span><span class="op">,</span> <span class="fl">.1</span><span class="op">,</span> <span class="fl">1e-5</span>)<span class="op">;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="va">disp</span>(<span class="va">p3</span>(<span class="kw">end</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    0.8000
+</code></pre>
+</div>
+</div>
+<p>We approach the fixed point <span class="math inline">\(x=0.8\)</span> because it is a stable (attracting) fixed point. On the other hand, if we start at <span class="math inline">\(x_1 = -0.1\)</span>:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="va">g</span> <span class="op">=</span> <span class="op">@</span>(<span class="va">x</span>) <span class="fl">1.8</span><span class="op">*</span><span class="va">x</span> <span class="op">-</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="va">p3</span> <span class="op">=</span> <span class="va">MyFixedPoint</span>(<span class="va">g</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.1</span><span class="op">,</span> <span class="fl">1e-5</span>)<span class="op">;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="va">disp</span>([<span class="ss">'Final answer: '</span><span class="op">,</span> <span class="va">num2str</span>(<span class="va">p3</span>(<span class="kw">end</span>))])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Final answer: -Inf</code></pre>
+</div>
+</div>
+<p>We are no longer in the basin of attraction of <span class="math inline">\(x=0.8\)</span> and so our iteration is expelled from the unstable fixed point <span class="math inline">\(x=0\)</span>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/connor-robertson-773ba8b1/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cnrrobertson">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">Connor Robertson, Copyright 2022</div>
+  </div>
+</footer>
+
+
+
+</body></html>
