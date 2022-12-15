@@ -64,6 +64,7 @@ website:
         - section: "Math 340 - Applied Numerical Methods"
           contents:
             - teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.qmd
+            - teaching/math340/Lab2_bisection/Lab2_bisection.qmd
     - title: "Research"
       style: "floating"
       collapse-level: 1

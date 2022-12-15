@@ -8,7 +8,7 @@
 
 <meta name="author" content="Connor Robertson">
 
-<title>Connor Robertson - Lab 1 - Brief Introduction to Matlab</title>
+<title>Connor Robertson - Lab 2 - Bisection Method</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -184,7 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Lab 1 - Brief Introduction to Matlab</h1>
+      <h1 class="quarto-secondary-nav-title">Lab 2 - Bisection Method</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -272,12 +272,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html" class="sidebar-item-text sidebar-link active">Lab 1 - Brief Introduction to Matlab</a>
+  <a href="../../../teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html" class="sidebar-item-text sidebar-link">Lab 1 - Brief Introduction to Matlab</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../teaching/math340/Lab2_bisection/Lab2_bisection.html" class="sidebar-item-text sidebar-link">Lab 2 - Bisection Method</a>
+  <a href="../../../teaching/math340/Lab2_bisection/Lab2_bisection.html" class="sidebar-item-text sidebar-link active">Lab 2 - Bisection Method</a>
   </div>
 </li>
       </ul>
@@ -291,18 +291,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#example-1-arrays" id="toc-example-1-arrays" class="nav-link active" data-scroll-target="#example-1-arrays">Example 1: Arrays</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
   <ul class="collapse">
-  <li><a href="#creating-arrays" id="toc-creating-arrays" class="nav-link" data-scroll-target="#creating-arrays">Creating arrays</a></li>
-  <li><a href="#array-operations" id="toc-array-operations" class="nav-link" data-scroll-target="#array-operations">Array operations</a></li>
-  <li><a href="#standard-array-forms" id="toc-standard-array-forms" class="nav-link" data-scroll-target="#standard-array-forms">Standard array forms</a></li>
-  <li><a href="#array-manipulation" id="toc-array-manipulation" class="nav-link" data-scroll-target="#array-manipulation">Array manipulation</a></li>
+  <li><a href="#matlab-function" id="toc-matlab-function" class="nav-link" data-scroll-target="#matlab-function">Matlab function</a></li>
+  <li><a href="#find-root-of-simple-function" id="toc-find-root-of-simple-function" class="nav-link" data-scroll-target="#find-root-of-simple-function">Find root of simple function</a></li>
+  <li><a href="#find-root-of-discontinuous-function" id="toc-find-root-of-discontinuous-function" class="nav-link" data-scroll-target="#find-root-of-discontinuous-function">Find root of discontinuous function</a></li>
   </ul></li>
-  <li><a href="#example-2-common-operations" id="toc-example-2-common-operations" class="nav-link" data-scroll-target="#example-2-common-operations">Example 2: Common operations</a></li>
-  <li><a href="#example-3-plotting-in-matlab" id="toc-example-3-plotting-in-matlab" class="nav-link" data-scroll-target="#example-3-plotting-in-matlab">Example 3: Plotting in Matlab</a></li>
-  <li><a href="#example-4-control-flow" id="toc-example-4-control-flow" class="nav-link" data-scroll-target="#example-4-control-flow">Example 4: Control flow</a></li>
-  <li><a href="#example-5-a-simple-numerical-method-taylor-series" id="toc-example-5-a-simple-numerical-method-taylor-series" class="nav-link" data-scroll-target="#example-5-a-simple-numerical-method-taylor-series">Example 5: A simple numerical method (Taylor series)</a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
   </ul>
 </nav>
     </div>
@@ -311,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Lab 1 - Brief Introduction to Matlab</h1>
+<h1 class="title d-none d-lg-block">Lab 2 - Bisection Method</h1>
 </div>
 
 
@@ -332,164 +327,203 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="example-1-arrays" class="level2">
-<h2 class="anchored" data-anchor-id="example-1-arrays">Example 1: Arrays</h2>
-<p>Here are a few basic calculations and constructions that you will need to use throughout the course for building arrays of numbers. Take note of these constructions as they will be useful for the entire course.</p>
-<section id="creating-arrays" class="level3">
-<h3 class="anchored" data-anchor-id="creating-arrays">Creating arrays</h3>
-<p>A row vector, <code>X=(0 1 2 3)</code> is commonly written in three ways:</p>
-<p><strong>1. Using brackets:</strong></p>
-<pre class="{matlab}"><code>X=[0 1 2 3]</code></pre>
-<p>If <code>;</code> is included at the end of the line, the output will be supressed. The command will still be executed, but nothing will be printed.</p>
-<pre class="{matlab}"><code>X=[0 1 2 3];</code></pre>
-<p><strong>2. Using the <code>linspace</code> function:</strong></p>
-<pre class="{matlab}"><code>X=linspace(0, 3, 4)</code></pre>
-<p>This gives <code>4</code> equally spaced points between and including <code>0</code> and <code>3</code> as shown above. <code>linspace</code> is a function included in the Matlab standard library i.e.&nbsp;it is always available.</p>
-<p><strong>3. In the form <code>a:step:b</code>:</strong></p>
-<pre class="{matlab}"><code>X=0:1:3</code></pre>
-<p>This will give all points between and including <code>0</code> to <code>3</code> with step size <code>1</code> between each point. It can also be written as <code>X=0:3</code> which uses the default step size <code>1</code>.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The bisection method is a numerical method for finding the root of a continuous function <span class="math inline">\(f(x)\)</span> that lies between two points <span class="math inline">\(a,b\)</span> where <span class="math inline">\(f(a)f(b)&lt;0\)</span>. This means that <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span> are of opposite sign, and thus there must be a root between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. An example of a function like this is shown in <a href="#fig-setting">Figure&nbsp;1</a>.</p>
+<div id="fig-setting" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/img1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Example of continuous function between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> where <span class="math inline">\(f(a)f(b) &lt; 0\)</span> and thus a root lies between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</figcaption><p></p>
+</figure>
+</div>
+<p>The concept that underpins the bisection method is that as long as <span class="math inline">\(f(a)f(b)&lt;0\)</span>, there is guaranteed to be a root between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Since the initial interval <span class="math inline">\((a,b)\)</span> is given, the method can iteratively make smaller and smaller intervals whose endpoints satisfy the condition <span class="math inline">\(f(a)f(b)&lt;0\)</span>. Specifically, the method halves the interval at each step which is what gives it the name “bisection” method. The details of the method can be most easily summarized in the following “pseudocode” algorithm.</p>
+<p>Given the initial interval <span class="math inline">\([a,b]\)</span>, the function <span class="math inline">\(f\)</span> where <span class="math inline">\(f(a)f(b) &lt; 0\)</span>, and an ending tolerance, <span class="math inline">\(tol\)</span> (the size of the final interval), we compute:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">% While half the interval is bigger than the given accuracy tolerance</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">while</span> (<span class="va">b</span><span class="op">-</span><span class="va">a</span>)<span class="op">/</span><span class="fl">2</span> <span class="op">&gt;</span> <span class="va">tol</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">% c = the midpoint of a and b</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">% If f(c) = 0, stop                  -- this would be lucky (c=root)!</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">% If f(a)f(c) &lt; 0, then b=c          -- the root is between a and c</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">% Else, a=c                          -- the root is between c and b</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">% The final c is an approximate root</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that this formula does not depend on what the function <span class="math inline">\(f\)</span> is. This is a nice property of the bisection method since it allows you to write one piece of code that can be used for any function. Other methods you will see later in this class use information about the function <span class="math inline">\(f\)</span> (such as the derivative) to get faster convergence. However, these methods are also usually do not work for all functions <span class="math inline">\(f\)</span>. This is a classic tradeoff in numerical methods (between the generality and speed of the method).</p>
 </section>
-<section id="array-operations" class="level3">
-<h3 class="anchored" data-anchor-id="array-operations">Array operations</h3>
-<p>Once we have these arrays, we can apply an operation to each element in the array. For example, to compute <span class="math inline">\(Y = [e^0, e^2, e^2, e^3]\)</span>, we use the Matlab standard library function <code>exp</code> for exponential:</p>
-<pre class="{matlab}"><code>Y=exp(X)</code></pre>
-<p>Or to apply <code>sin</code> to each element of the array:</p>
-<pre class="{matlab}"><code>S=sin(X)</code></pre>
-<p>Or to make an array <code>Q</code> with the square root to each element of the array <code>X</code>:</p>
-<pre class="{matlab}"><code>Q=sqrt(X)</code></pre>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<p>Here I’ll write a bisection method function that takes in <span class="math inline">\(f\)</span>, <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(tol\)</span> and outputs the approximate root <span class="math inline">\(c\)</span> and the number of steps taken, <span class="math inline">\(N\)</span>. At each step, the function prints the step number and the current approximate root (the midpoint of the current interval).</p>
+<section id="matlab-function" class="level3">
+<h3 class="anchored" data-anchor-id="matlab-function">Matlab function</h3>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">%%file MyBisectionMethod.m</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> [<span class="va">c</span><span class="op">,</span> <span class="va">N</span>] <span class="op">=</span> <span class="va">MyBisectionMethod</span>(<span class="va">f</span><span class="op">,</span> <span class="va">a</span><span class="op">,</span> <span class="va">b</span><span class="op">,</span> <span class="va">tol</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">N</span> <span class="op">=</span> <span class="fl">0</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">while</span> (<span class="va">b</span><span class="op">-</span><span class="va">a</span>)<span class="op">/</span><span class="fl">2</span> <span class="op">&gt;</span> <span class="va">tol</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">c</span> <span class="op">=</span> (<span class="va">a</span> <span class="op">+</span> <span class="va">b</span>) <span class="op">/</span> <span class="fl">2</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="va">f</span>(<span class="va">c</span>) <span class="op">==</span> <span class="fl">0</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">elseif</span> <span class="va">f</span>(<span class="va">a</span>)<span class="op">*</span><span class="va">f</span>(<span class="va">c</span>) <span class="op">&lt;</span> <span class="fl">0</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            <span class="va">b</span> <span class="op">=</span> <span class="va">c</span><span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="kw">else</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="va">a</span> <span class="op">=</span> <span class="va">c</span><span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">end</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">N</span> <span class="op">=</span> <span class="va">N</span> <span class="op">+</span> <span class="fl">1</span><span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">disp</span>([<span class="ss">'At step '</span> <span class="va">num2str</span>(<span class="va">N</span>) <span class="ss">' approximation is '</span> <span class="va">num2str</span>((<span class="va">a</span><span class="op">+</span><span class="va">b</span>)<span class="op">/</span><span class="fl">2</span>)])</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="standard-array-forms" class="level3">
-<h3 class="anchored" data-anchor-id="standard-array-forms">Standard array forms</h3>
-<p>To create a <span class="math inline">\(2\times2\)</span> identity matrix:</p>
-<pre class="{matlab}"><code>Id=[1 0; 0 1]</code></pre>
-<p>Note that the <code>;</code> in the array definition marks the end of a row. There is also a Matlab standard library function <code>eye</code> that can be used as:</p>
-<pre class="{matlab}"><code>Id2=eye(2)</code></pre>
-<p>A <span class="math inline">\(4\times 4\)</span> identity matrix is then:</p>
-<pre class="{matlab}"><code>Id4=eye(4)</code></pre>
-<p>To make a length 4 column vector (4 rows, 1 column) of all zeros, we can use the standard library <code>zeros</code> function:</p>
-<pre class="{matlab}"><code>z = zeros(4,1)</code></pre>
-<p>This can be extended to a <span class="math inline">\(4\times4\)</span> matrix of all zeros:</p>
-<pre class="{matlab}"><code>Z=zeros(4,4)</code></pre>
-<p>Or a <span class="math inline">\(3\times3\)</span> matrix of all ones:</p>
-<pre class="{matlab}"><code>W=ones(3,3)</code></pre>
+<section id="find-root-of-simple-function" class="level3">
+<h3 class="anchored" data-anchor-id="find-root-of-simple-function">Find root of simple function</h3>
+<p>Now, using this bisection method code on the function <span class="math inline">\(f(x)=x^2-7\)</span> to find the root <span class="math inline">\(\sqrt{7}\)</span> with interval <span class="math inline">\([-1,3]\)</span> and a tolerance of <span class="math inline">\(10^{-5}\)</span>:</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">b</span> <span class="op">=</span> <span class="fl">3</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">tol</span> <span class="op">=</span> <span class="fl">1e-5</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="va">f</span> <span class="op">=</span> <span class="op">@</span>(<span class="va">x</span>) <span class="va">x</span><span class="op">.^</span><span class="fl">2</span> <span class="op">-</span> <span class="fl">7</span><span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>[<span class="va">root</span><span class="op">,</span><span class="va">steps</span>] <span class="op">=</span> <span class="va">MyBisectionMethod</span>(<span class="va">f</span><span class="op">,</span> <span class="va">a</span><span class="op">,</span> <span class="va">b</span><span class="op">,</span> <span class="va">tol</span>)<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="va">true</span> <span class="op">=</span> <span class="va">sqrt</span>(<span class="fl">7</span>)<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="va">answer</span> <span class="op">=</span> [<span class="ss">'The true root is '</span> <span class="va">num2str</span>(<span class="va">true</span>) <span class="ss">' while our approximation is '</span> <span class="va">num2str</span>(<span class="va">root</span>)]<span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="va">disp</span>(<span class="va">answer</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 1 approximation is 2</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 2 approximation is 2.5</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 3 approximation is 2.75</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 4 approximation is 2.625</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 5 approximation is 2.6875</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 6 approximation is 2.6562</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 7 approximation is 2.6406</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 8 approximation is 2.6484</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 9 approximation is 2.6445</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 10 approximation is 2.6465</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 11 approximation is 2.6455</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 12 approximation is 2.646</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 13 approximation is 2.6458</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 14 approximation is 2.6456</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 15 approximation is 2.6457</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 16 approximation is 2.6457</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 17 approximation is 2.6457</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 18 approximation is 2.6457</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The true root is 2.6458 while our approximation is 2.6457</code></pre>
+</div>
+</div>
+<p>Theoretically, this should take <span class="math display">\[
+\begin{align*}
+N=-1 + \log_2\frac{b-a}{\mathrm{Tol}}
+\end{align*}
+\]</span> steps on the interval <span class="math inline">\((a,b)\)</span> with tolerance <span class="math inline">\(Tol\)</span>:</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="va">theoryN</span><span class="op">=</span><span class="va">log2</span>((<span class="va">b</span><span class="op">-</span><span class="va">a</span>)<span class="op">/</span><span class="va">tol</span>) <span class="op">-</span> <span class="fl">1</span><span class="op">;</span>    <span class="co">% the value of N as predicted by the formula from class</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="va">answer</span> <span class="op">=</span> [<span class="ss">'We took '</span> <span class="va">num2str</span>(<span class="va">steps</span>) <span class="ss">' steps while the theory predicts we should take '</span> <span class="va">num2str</span>(<span class="va">theoryN</span>) <span class="ss">' steps'</span>]<span class="op">;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="va">disp</span>(<span class="va">answer</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>We took 18 steps while the theory predicts we should take 17.6096 steps</code></pre>
+</div>
+</div>
 </section>
-<section id="array-manipulation" class="level3">
-<h3 class="anchored" data-anchor-id="array-manipulation">Array manipulation</h3>
-<p>If we wanted to compute the matrix-vector product of <code>Id4</code> with our previous row vector <code>X</code>, we would first need to transpose <code>X</code> into a column vector. This can be done with either the standard library <code>transpose</code> function or the operator <code>'</code>:</p>
-<pre class="{matlab}"><code>Y=Id4 * X'</code></pre>
-<p>or</p>
-<pre class="{matlab}"><code>Y=Id4 * transpose(X)</code></pre>
-<p>Failing to transpose will give an error:</p>
-<pre class="{matlab}"><code>Id4 * X</code></pre>
+<section id="find-root-of-discontinuous-function" class="level3">
+<h3 class="anchored" data-anchor-id="find-root-of-discontinuous-function">Find root of discontinuous function</h3>
+<p>The method does have some drawbacks in the context of discontinuities. For example, consider the function: <span class="math display">\[
+\begin{align*}
+f(x) = \frac{|x-3|}{x^3 - 3 x^2 + x -3}
+.\end{align*}
+\]</span> on the interval <span class="math inline">\([1, 5]\)</span> which plotted looks like:</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="va">fFun</span> <span class="op">=</span> <span class="op">@</span>(<span class="va">x</span>) <span class="va">abs</span>(<span class="va">x</span><span class="op">-</span><span class="fl">3</span>) <span class="op">./</span> (<span class="va">x</span><span class="op">.^</span><span class="fl">3</span> <span class="op">-</span> <span class="fl">3</span><span class="op">.*</span><span class="va">x</span><span class="op">.^</span><span class="fl">2</span> <span class="op">+</span> <span class="va">x</span> <span class="op">-</span> <span class="fl">3</span>)<span class="op">;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="va">X</span> <span class="op">=</span> <span class="va">linspace</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">5</span><span class="op">,</span><span class="fl">1000</span>)<span class="op">;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="va">Y</span> <span class="op">=</span> <span class="va">fFun</span>(<span class="va">X</span>)<span class="op">;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="va">plot</span>(<span class="va">X</span><span class="op">,</span><span class="va">Y</span><span class="op">,</span><span class="ss">'-r'</span><span class="op">,</span><span class="ss">'LineWidth'</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span>   <span class="co">% plot the function</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="va">xlabel</span>(<span class="ss">'x'</span>)<span class="op">;</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="va">ylabel</span>(<span class="ss">'f(x)'</span>)<span class="op">;</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="va">title</span>(<span class="ss">'Plot of $f(x)=\frac{|x-3|}{x^3-3x^2+x-3}$'</span><span class="op">,</span><span class="ss">'interpreter'</span><span class="op">,</span><span class="ss">'latex'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab2_bisection_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Applying the bisection code on this interval with a tolerance of <span class="math inline">\(10^{-4}\)</span> gives:</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">c3</span><span class="op">,</span><span class="va">N3</span>] <span class="op">=</span> <span class="va">MyBisectionMethod</span>(<span class="va">fFun</span><span class="op">,</span><span class="fl">1</span><span class="op">,</span><span class="fl">4</span><span class="op">,</span><span class="fl">1e-4</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 1 approximation is 3.25</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 2 approximation is 2.875</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 3 approximation is 3.0625
+At step 4 approximation is 2.9688</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 5 approximation is 3.0156</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 6 approximation is 2.9922</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 7 approximation is 3.0039</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 8 approximation is 2.998</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 9 approximation is 3.001</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 10 approximation is 2.9995</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 11 approximation is 3.0002</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 12 approximation is 2.9999</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 13 approximation is 3.0001</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>At step 14 approximation is 3</code></pre>
+</div>
+</div>
+<p>Although the function returned a answer, since the function is discontinuous, the answer does not represent a root.</p>
+
+
 </section>
-</section>
-<section id="example-2-common-operations" class="level2">
-<h2 class="anchored" data-anchor-id="example-2-common-operations">Example 2: Common operations</h2>
-<p>In Matlab, the <code>*</code> operator means “dot product” when working with matrices and vectors. If we instead wish to apply a multiplication operation to each element of an array, we preface the operation with a dot, i.e.&nbsp;<code>.*</code>. This elementwise operator syntax with an additional period extends to division and exponents as <code>./</code> and <code>.^</code> respectively. Observe the difference between the products <code>A*B</code> and <code>A.*B</code> in the following examples:</p>
-<pre class="{matlab}"><code>A=[1 0; 0 1]
-B=[0 1; 1 0]
-x = [1 ; 0]</code></pre>
-<p>The dot product is <code>A*B</code>:</p>
-<pre class="{matlab}"><code>A*B
-A * x</code></pre>
-<p>The elementwise product is <code>A.*B</code>:</p>
-<pre class="{matlab}"><code>A.*B</code></pre>
-<p>This product is the product of each element of <code>A</code> with each corresponding element of <code>B</code>.</p>
-</section>
-<section id="example-3-plotting-in-matlab" class="level2">
-<h2 class="anchored" data-anchor-id="example-3-plotting-in-matlab">Example 3: Plotting in Matlab</h2>
-<p>To plot a line in Matlab, you will need to pass in arrays of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> positions to the standard library <code>plot</code> function. These positions will be used as <span class="math inline">\((x,y)\)</span> coordinates through which the line will pass. In this example we will define our function using an inline (or anonymous) function. More complicated functions can be found at the bottom of this page.</p>
-<p>First, create the function we would like to plot:</p>
-<pre class="{matlab}"><code>f=@(x) x.^3;</code></pre>
-<p>This is now a function variable <code>f</code> to which we can pass in a value <code>x</code> and it will compute <span class="math inline">\(x^3\)</span>. We use <code>.^</code> so that we can pass an array <code>x</code> into the function. We can now create a set of 1000 equally spaced <code>x</code> values between -2 and 2:</p>
-<pre class="{matlab}"><code>X =linspace(-2, 2, 1000);</code></pre>
-<p>and cube each of them using our function <code>f</code> to get an array of 1000 <code>y</code> points:</p>
-<pre class="{matlab}"><code>Y=f(X);</code></pre>
-<p>We can now pass <code>X</code> and <code>Y</code> as our <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> positions to the <code>plot</code> function to get a line that passes through each <span class="math inline">\((x,y)\)</span> in order.</p>
-<pre class="{matlab}"><code>plot(X,Y)</code></pre>
-<p>There are several additional parameters we can pass into the <code>plot</code> function to change the line style and color of the lines. Judgement should be used to determine which plot options to use to make your results of your work clear.</p>
-<p>We can now create a new <code>figure</code> (a new plotting area with no lines on it) and plot our points with several additional decorations:</p>
-<pre class="{matlab}"><code>figure()
-plot(X,Y,'r','LineWidth',1); % 'r' =&gt; red line
-
-hold on
-plot(X,X);
-
-grid on
-
-axis([-1 1 -2 2]);
-
-xlabel('x','fontsize',14); 
-ylabel('f(x)','fontsize',14);
-
-title('Plot example',...
-    'fontsize',14);
-
-legend('x^3', 'x');</code></pre>
-<p>The <code>'LineWidth'</code> marks that the width will be changed and 1 is the selected line width. The <code>hold on</code> command will keep the current <code>figure</code> for all new plots and plotting commands until a new figure is created with <code>figure()</code> or the hold is removed with <code>hold off</code>. This allows more lines to be added to the current figure. <code>grid on</code> turns on grid lines for the figure and <code>axis</code> is a function to determine the limits of the x and y axes. <code>xlabel</code> and <code>ylabel</code> are functions for labeling the figure axes and <code>title</code> is a function to give the figure a title. Note that the <code>...</code> tells Matlab that the function inputs are continued on the next line. The <code>legend</code> function allows for annotating the plots in the figure in the order they were plotted.</p>
-</section>
-<section id="example-4-control-flow" class="level2">
-<h2 class="anchored" data-anchor-id="example-4-control-flow">Example 4: Control flow</h2>
-<p>One standard programming construct is that of a “for loop.” The following simple example shows how to implement a for loop to add the numbers between 1 and N. We will find the sum of the first 50 numbers</p>
-<pre class="{matlab}"><code>N=50;
-
-% Initialize the sum variable as 0. We are going to add to this
-sumN = 0;
-for i=1:N
-    
-    % In each iteration we will add the new number i to our sum
-    sumN = sumN+i;
-end</code></pre>
-<p><code>disp</code> is the matlab function for “displaying” or printing a value or array. <code>num2str</code> is the matlab function to convert a number to a “string” which is a datatype meant for sequences of letters. This is especially useful for printing by combining different strings as shown below:</p>
-<pre class="{matlab}"><code>result = ['The sum of the first ' num2str(N) ' numbers is ' num2str(sumN)];
-disp(result)</code></pre>
-<p>This algorithm is also packaged as a Matlab function <code>SumN</code> at the bottom of this file. In this course, all algorithms will be written as a function so they can be easily reused. However, all functions in Matlab scripts must be placed at the end of the file, so scroll down to see the function <code>SumN</code>.</p>
-<pre class="{matlab}"><code>total=SumN(N);
-result2 = ['The Sum is still ', num2str(total)];
-disp(result2)</code></pre>
-</section>
-<section id="example-5-a-simple-numerical-method-taylor-series" class="level2">
-<h2 class="anchored" data-anchor-id="example-5-a-simple-numerical-method-taylor-series">Example 5: A simple numerical method (Taylor series)</h2>
-<p>As an application of the examples above, the following shows how to approximate the <span class="math inline">\(\sin\)</span> function at a point <span class="math inline">\(x\)</span>using the Taylor series of <span class="math inline">\(\sin\)</span> (centered at 0). This makes use of for loops as demonstrated above.</p>
-<p>If we consider <span class="math inline">\(x=1\)</span> and use the first <span class="math inline">\(N=20\)</span> terms in the Taylor series, we initialize our variables:</p>
-<pre class="{matlab}"><code>x = 1;
-N = 20;</code></pre>
-<p>We then initialize a variable <code>my_sin1</code> in which we will store the result and use the for loop to add each term evaluated at <span class="math inline">\(x=1\)</span> to the variable:</p>
-<pre class="{matlab}"><code>my_sin1 = 0;
-for n=0:N
-    new_term = (-1)^n * (x^(2*n+1)) / factorial(2*n + 1);
-    my_sin1 = my_sin1 + new_term;
-end</code></pre>
-<p>We can compare our approximation with Matlab’s approximation of <span class="math inline">\(\sin(1)\)</span> by comparing it with the standard library function <code>sin</code>:</p>
-<pre class="{matlab}"><code>disp("My answer:")
-disp(my_sin1)
-disp("Matlab's answer:")
-disp(sin(1))</code></pre>
-<p>A function that takes as inputs <code>x</code> and <code>N</code> and computes the taylor series approximation of <span class="math inline">\(\sin\)</span> as we just have for <code>x=1,N=20</code> can be seen at the bottom of this file under the name <code>my_sin</code>. We can verify that it gives the same result:</p>
-<pre class="{matlab}"><code>disp(my_sin(1, 20))</code></pre>
-</section>
-<section id="functions" class="level2">
-<h2 class="anchored" data-anchor-id="functions">Functions</h2>
-<div class="sourceCode" id="cb32"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> [<span class="va">output</span>] <span class="op">=</span> <span class="va">SumN</span>(<span class="va">input</span>)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">% The names "input" and "output" are chosen to make it clear how this</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">% function works. The names don't matter as long as they are consistent.</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">N</span><span class="op">=</span><span class="va">input</span><span class="op">;</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">sum</span><span class="op">=</span><span class="fl">0</span><span class="op">;</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">i</span><span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="va">N</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">% In each iteration we will add the new number to our sum</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">sum</span><span class="op">=</span><span class="va">sum</span><span class="op">+</span><span class="va">i</span><span class="op">;</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="va">output</span><span class="op">=</span><span class="va">sum</span><span class="op">;</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> [<span class="va">answer</span>] <span class="op">=</span> <span class="va">my_sin</span>(<span class="va">x</span><span class="op">,</span> <span class="va">N</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">answer</span> <span class="op">=</span> <span class="fl">0</span><span class="op">;</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">n</span><span class="op">=</span><span class="fl">0</span><span class="op">:</span><span class="va">N</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">new_term</span> <span class="op">=</span> (<span class="op">-</span><span class="fl">1</span>)<span class="op">^</span><span class="va">n</span> <span class="op">*</span> (<span class="va">x</span><span class="op">^</span>(<span class="fl">2</span><span class="op">*</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>)) <span class="op">/</span> <span class="va">factorial</span>(<span class="fl">2</span><span class="op">*</span><span class="va">n</span> <span class="op">+</span> <span class="fl">1</span>)<span class="op">;</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">answer</span> <span class="op">=</span> <span class="va">answer</span> <span class="op">+</span> <span class="va">new_term</span><span class="op">;</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
 </section>
 
 </main> <!-- /main -->
