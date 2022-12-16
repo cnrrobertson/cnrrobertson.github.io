@@ -1,0 +1,306 @@
+---
+title: Lab 4 - Secant method
+author: Connor Robertson
+---
+
+## Secant method
+
+There is an alternative to Newton's method that does not require a closed form for $f'(x)$ called "Secant method."
+Although the method is presented from the context of Newton's method, it actually predates it by thousands of years.
+In order to understand it as it relates to Newton's method, we can consider the definition of the derivative $f'(x)$:
+$$
+\begin{align*}
+	f'(x) = \lim_{\delta \to 0} \frac{f(x) - f(x-\delta)}{\delta}
+.\end{align*}
+$$
+We can rewrite this as:
+$$
+\begin{align*}
+	f'(x) = \lim_{\delta \to 0} \frac{f(x) - f(x-\delta)}{x - (x - \delta)}
+.\end{align*}
+$$
+Taking a fixed small number $\delta$ and plugging in some value $x_n$ where $x_n - \delta \approx x_{n-1}$ to get:
+$$
+\begin{align*}
+	f'(x_n) \approx \frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}
+.\end{align*}
+$$
+This is called the "secant line" at $x_n$.
+If we now plug in this derivative approximation to Newton's method, we get:
+$$
+\begin{align*}
+	g(x_n, x_{n-1}) = x_n - f(x_n) \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
+\end{align*}
+$$
+which is the secant method without an explicit form for $f'(x)$!
+Although this has simplified our procedure, there are also some drawbacks in convergence.
+
+### Pseudocode
+Given two initial points $x1$ and $x2$, the fixed point function $g$ (that takes in variables for $x_n$ and $x_{n-1}$), an ending tolerance $tol$, and a max number of steps $Nmax$, we compute:
+
+```matlab
+i = 2;            % Counter variable
+xs = [x1, x2];    % Array for storing results
+while abs(xs(i)-xs(i-1)) > tol && i < Nmax
+    % Append  g(xs(i),xs(i-1)) to xs
+    % Add 1 to i
+end
+```
+
+### Convergence
+Firstly, because the secant method can be viewed as an approximation of Newton's method, it is sensitive to the starting value $x_1$ like Newton's method.
+Specifically, if the slope of the function $f(x)$ is near $0$, the approximate derivative can give strange results.
+Additionally, if you start with an $x_1$ that is too far away from your fixed point/root $x^{*}$, the method will not converge.
+
+Using a similar analysis as we would use with Newton's method (namely Taylor's series and mean value theorem), we ultimately get a convergence expression of
+$$
+\begin{align*}
+	C = \frac{|x_{n + 1} - x^{*}|}{|x_n - x^{*}|^{\frac{1 + \sqrt{5} }{2}}}
+\end{align*}
+$$
+which represents convergence of order $\frac{1 + \sqrt{5}}{2}$.
+Although this is slower than Newton's method, it is still faster than linear (order 1) and is thus faster than a method like bisection method.
+
+## Regula Falsi
+The secant method addresses the requirement for a closed form derivative $f'(x)$ to be used in Newton's method, it does not solve the sensitivity to the initial starting point.
+
+The "regula falsi" method can be viewed as a further extension of the secant method which is guaranteed to converge to the true root $x^{*}$ by "bracketing" the root like the bisection method (i.e. always considering an interval $[a,b]$ for which $f(a)f(b) < 0$).
+To do so, it adjusts the bisection method midpoint selection using a secant line:
+$$
+\begin{align*}
+	f'(b) \approx \frac{f(b) - f(a)}{b - a}
+.\end{align*}
+$$
+This line is then applied to finding a "pseudo-midpoint" $c$ that is between $a$ and $b$:
+$$
+\begin{align*}
+	c &= b - \frac{f(b)}{f'(b)} \\
+	&\approx b - f(b) \frac{b - a}{f(b) - f(a)}
+.\end{align*}
+$$
+After computing the "midpoint" $c$, we can check $f(a)f(c) < 0$ and adjust the interval $[a,b]$ accordingly.
+
+### Pseudocode
+Given the initial interval $[a,b]$, the function $f$, and an ending tolerance $tol$ (the size of the final interval), we compute:
+```matlab
+% Create a function g that computes the midpoint using regula falsi formula
+g = @(a,b) ...
+% While half the interval is bigger than the given accuracy tolerance
+c = g(a,b)
+while |f(c)| > tol
+    % c = g(a,b)
+    % If f(c) = 0, stop                  -- this would be lucky (c=root)!
+    % If f(a)f(c) < 0, then b=c          -- the root is between a and c
+    % Else, a=c                          -- the root is between c and b
+end
+% The final c is an approximate root
+```
+Note that this is almost identical to the bisection method with an adjusted calculation of $c$!
+
+### Convergence
+The general concept of the regula falsi method is to use the secant line to identify a point much closer to the root than the bisection method could, while still bracketing the root and guaranteeing convergence.
+In that sense, it should share a similar convergence rate as the bisection method along with guaranteed convergence.
+
+However, unlike the bisection method, the regula falsi method does not have a guaranteed amount that it will shrink the interval $[a,b]$ at each step due to this new "pseudo-midpoint" selection.
+Thus, it can on occasion converge slower than the bisection method!
+This demonstrates the challenging trade-offs associated with numerical methods: improved convergence, computational cost, or speed may result in instability, lack of convergence, or more assumptions and vice versa.
+
+## Comparison of root finding methods
+As we have explored in the previous sections, there are various pros and cons associated with each of the root finding methods we have discussed.
+These can be roughly summarized in the following table:
+
+| Method | Pros | Cons |
+| :-----: | :-----: | :-----: |
+| Bisection | Guaranteed to converge | Slow linear convergence |
+| Newton's | Fast quadratic convergence | Need to know $f'$, may not converge |
+| Secant | Good superlinear convergence | May not converge |
+| Regula falsi | Usually superlinear convergence, guaranteed to converge | Can have very slow convergence |
+
+To further illustrate these differences, consider the following plots and table showing the results of these methods on the function $f(x) = (x-3)^3\sin(x) + 3.5$ on the interval $[1,3]$ using a tolerance of $10^{-5}$:
+
+| $n$ | $x_n$ | $f(x_n)$ | $x_n$  | $f(x_n)$  | $x_n$  | $f(x_n)$  | $x_n$  | $f(x_n)$  |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| 0 | 2.00| 2.59| 2.00| 2.59| 1.00| -3.23| 1.96| 2.4 |
+| 1 | 1.50| 0.13| 1.18| -2.10| 2.00| 2.59| 1.54| 0.4 |
+| 2 | 1.25| -1.58| 1.48| 0.01| 1.55| 4.83| 1.48| 0.0 |
+| 3 | 1.37| -0.71| 1.47| 0.00| 1.45| -0.17| 1.48| 0.0 |
+| 4 | 1.43| -0.28| | | 1.48| 0.004| | |
+| 5 | 1.46| -0.07| | | 1.47| 0.00| | |
+| 6 | 1.48| 0.03| | | | | | |
+| 7 | 1.47| -0.02| | | | | | |
+
+: Iteration results for: Bisection ($a=1,b=3$), Newton's ($x_1=2$), Secant ($x_1=1,x_2=2$), Regula Falsi ($a=1,b=3$)
+
+It can be immediately recognized that Newton's method converged to a very accurate solution most rapidly followed closely by Regula falsi then Secant and finally Bisection.
+It is impressive that Regula falsi was so quick but this is not always the case.
+In addition, we needed more information for Newton's method and for Regula falsi.
+
+To get a sense for how these results can change, consider $f(x) = 2x^{3} - 4x^{2} + 3x$ on the interval $[-1,2]$ using a tolerance of $1\times 10^{-2}$:
+
+| $n$  | $x_n$  | $f(x_n)$  | $x_n$   | $f(x_n)$   | $x_n$   | $f(x_n)$   | $x_n$   | $f(x_n)$ |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| 0 | 0.50 | 0.75 | -1.00 | -9.00 | -1.00 | -9.00 | 0.80 | 0.86 |
+| 1 | -0.25 | -1.03 | -0.47 | -2.50 | -0.50 | -2.75 | 0.64 | 0.80 |
+| 2 | 0.13 | 0.32 | -0.16 | -0.59 | -0.28 | -1.19 | 0.50 | 0.75 |
+| 3 | -0.06 | -0.20 | -0.02 | -0.08 | -0.11 | -0.38 | 0.39 | 0.68  |
+| 4 | 0.03 | 0.09 | -0.00 | -0.00 | -0.03 | -0.09 | 0.29 | 0.58 |
+| 5 | -0.02 | -0.05 |  |  | -0.00 | -0.01 | 0.21 | 0.47 |
+| 6 | 0.01 | 0.02 |  |  | -0.00 | -0.00 | 0.15 | 0.37 |
+| 7 | -0.00 | -0.01 |  |  |  |  | 0.10 | 0.27 |
+| 8 | 0.00 | 0.01 |  |  |  |  | 0.07 | 0.20 |
+
+: Iteration results for: Bisection ($a=-1,b=2$), Newton's ($x_1=-1$), Secant ($x_1=-1,x_2=0.5$), Regula Falsi ($a=-1,b=2$)
+
+In this example, the regula falsi method suffers from a small secant line and shrinks the interval by only about $\frac{1}{3}$ at each step making it much slower than the bisection method.
+Although this example was selected specifically to demonstrate this behavior (and it's not a very common behavior), it is something to be aware of when selecting your root finding method.
+
+## Examples
+
+The following is a Matlab function that takes in a function handle `f`, initial points `x1` and `x2`, a tolerance `tol`, and a max number of possible iterations `Nmax`.
+This function performs the secant method iteration until $|f(x_n)| < \text{tol}$ and return all iterations $x_n$ as an array `xs`:
+
+```{matlab}
+%| output: false
+%%file MySecantMethod.m
+function [xs] = MySecantMethod(f, x1, x2, tol, Nmax)
+    g = @(x1,x2) x2 - f(x2) * ((x2 - x1) / (f(x2) - f(x1)));
+    xs = [x1,x2];
+    err = Inf;
+    while err > tol
+        xs = [xs g(xs(end-1), xs(end))];
+        err = abs(f(xs(end)));
+        if length(xs) > Nmax
+            return;
+        end
+    end
+end
+```
+
+Considering a function $f(x) = (x-3)^3\sin(x) + 3.5$:
+
+```{matlab}
+f = @(x) (x - 3).^3 .* sin(x) + 3.5;
+xdom = linspace(0, 4, 100);
+y = f(xdom);
+figure()
+plot(xdom, y);
+hold on; grid on
+xlabel("x", 'Interpreter','latex'); ylabel("f(x)", 'Interpreter','latex');
+legend("$(x-3)^3 \sin(x) + 3.5$", 'interpreter','latex')
+hold off
+```
+
+Applying this function to find an approximate root for the above function with initial points $x_1 = 1$ and $x_2=2$, a tolerance $10^{-5}$, and max number of iterations `Nmax=20`:
+
+```{matlab}
+xs = MySecantMethod(f, 1, 2, 1e-5, 20);
+disp(xs)
+```
+
+Repeating this procedure using starting points $x_1 = 1$ and $x_2 = 3$:
+
+```{matlab}
+xs = MySecantMethod(f, 1, 3, 1e-5, 20);
+disp(xs)
+```
+Note that the results change very significantly between the two different initial conditions.
+In fact, they seem to no longer converge in the second case.
+This demonstrates the sensitivity of the secant method to the two initial guess points.
+
+### Regula falsi
+The following is a Matlab function that takes in a function handle `f`, interval lower bound `a`, interval upper bound `b`, and a tolerance `tol`.
+This function performs the regula falsi iteration until $|f(x_n)| < \text{tol}$ and return all iterations $x_n$ as an array `xs`:
+
+```{matlab}
+%| output: false
+%%file MyRegulaFalsi.m
+function [xs] = MyRegulaFalsi(f, a, b, tol)
+    N = 0;
+    xs = [];
+    c = b - f(b) * ((b - a) / (f(b) - f(a)));
+    while abs(f(c)) > tol
+        c = b - f(b) * ((b - a) / (f(b) - f(a)));
+        xs(N+1) = c;
+        if f(c) == 0
+            return
+        elseif f(a)*f(c) < 0
+            b = c;
+        else
+            a = c;
+        end
+        N = N + 1;
+    end
+end
+```
+
+Applying the regula falsi function to find an approximate root for $f(x) = (x-3)^3\sin(x) + 3.5$ with interval $[1,3]$ and a tolerance $10^{-5}$:
+
+```{matlab}
+xs = MyRegulaFalsi(f, 1, 3, 1e-5);
+disp(xs)
+```
+
+### Finding a quantile of a probability distributions
+A very common computation in statistics is to find a "quantile" of a probability distribution.
+For example, say we have a normal distribution of the heights of people in the class given by the cumulative density function (CDF):
+$$
+\begin{align*}
+    C(x) = \frac{1}{2}\left(1 + \text{erf}\left(\frac{x - \mu}{\sigma \sqrt{2}}\right)\right)
+\end{align*}
+$$
+where $C(x)$ is the probability that someone in the class is shorter than height $x$ (ft) given the class has average height $\mu$ (ft) and standard deviation $\sigma$ (erf is the error function which is also called \mcode{erf} in Matlab).
+
+The 95% "quantile" of this CDF is the height $x$ for which 95% of the class is shorter (i.e. the $x^*$ such that $C(x^*) = 0.95$ given $\mu$ and $\sigma$).
+This computation is actually a root finding problem!
+All we need to do is find the root of the function:
+$$
+\begin{align*}
+    f(x) = 0.95 - C(x)
+.\end{align*}
+$$
+The derivative of this function can be written as:
+$$
+\begin{align*}
+    f'(x) = - P(x)
+\end{align*}
+$$
+where $P$ is the probability density function (PDF) of the normal distribution:
+$$
+\begin{align*}
+    P(x) = \frac{1}{\sigma \sqrt{2\pi} }e^{-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^{2}}
+.\end{align*}
+$$
+
+The following is a plot of the CDF for $x$ on the interval $[3, 8]$ given $\mu = 5.5$ and $\sigma = 0.35$.
+
+```{matlab}
+m = 5.5;
+s = 0.35;
+C = @(x) (1/2) .* (1 + erf((x - m) ./ (sqrt(2)*s)));
+P = @(x) (1 ./ (s*sqrt(2*pi))) * exp( (-1/2) .* ((x - m) ./ s) .^ 2);
+nquant = @(x) 0.95 - C(x);
+
+xdom = linspace(3, 8);
+% plot(xdom, P(xdom))
+figure()
+plot(xdom, C(xdom))
+hold on
+xlabel("x", 'Interpreter','latex');
+ylabel("C(X)", 'Interpreter','latex');
+grid on
+hold off
+```
+
+To Find the $95\%$ quantile of this CDF:
+
+- Using Secant method with starting points `x1=4.5` and `x2=6`, tolerance $10^{-5}$, and `Nmax=10`:
+```{matlab}
+xs3 = MySecantMethod(nquant, 4.5, 6, 1e-5, 10);
+disp(xs3);
+```
+- Using regula falsi with interval $[4, 7]$ and tolerance $10^{-5}$:
+```{matlab}
+xs4 = MyRegulaFalsi(nquant, 4, 7, 1e-5);
+disp(xs4);
+```
+
