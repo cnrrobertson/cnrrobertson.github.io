@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -206,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Workshop 2: Neural networks - structure, building, and trainig</h1>
+<h1 class="title">Workshop 2: Neural networks - structure, building, and training</h1>
 </div>
 
 
@@ -229,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="setup" class="level1">
 <h1>Setup</h1>
-<p>Information on setting up a Python envirornment and package management can be found in the <a href="https://cnrrobertson.github.io/other/mlseminar/fall_2022/workshop1_intro/workshop1_intro.html">first workshop.</a></p>
+<p>Information on setting up a Python environment and package management can be found in the <a href="https://cnrrobertson.github.io/other/mlseminar/fall_2022/workshop1_intro/workshop1_intro.html">first workshop.</a></p>
 <p>In Terminal:</p>
 <pre><code>mamba activate workshop 
 mamba install numpy py-pde tensorflow matplotlib</code></pre>
@@ -243,7 +243,7 @@ mamba install numpy py-pde tensorflow matplotlib</code></pre>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>2022-10-06 13:45:52.099388: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+<pre><code>2023-02-06 11:15:56.111810: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.</code></pre>
 </div>
 </div>
@@ -286,20 +286,20 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <pre><code>1/4 [======&gt;.......................] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>4/4 [==============================] - 0s 2ms/step</code></pre>
+<pre><code>4/4 [==============================] - 0s 803us/step</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 1/13 [=&gt;............................] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>13/13 [==============================] - 0s 1ms/step</code></pre>
+<pre><code>13/13 [==============================] - 0s 463us/step</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_77088/2768104420.py:23: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
+<pre><code>/tmp/ipykernel_215010/2768104420.py:23: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
   plt.subplot(1,3,1)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="workshop2_nn_files/figure-html/cell-3-output-6.png" width="962" height="341"></p>
+<p><img src="workshop2_nn_files/figure-html/cell-3-output-6.png" width="962" height="337"></p>
 </div>
 </div>
 </section>
@@ -313,7 +313,7 @@ u(x,0) = u_0(x)
 \\
 u(x,t) = u(x+L,t)
 \end{cases}\]</span>
-<p>The true solution to this PDE is given by <span class="math inline">\(u(x,t) = u_0(\text{mod}(x-t,1))\)</span>, which can be found using the method of characteristics on the free domain and then truncating to a periodic domain. Though we have access to the true solution, we will generate our training data using a prepackaged numerical PDE solver (py-pde). We will use a Gaussian as our initial data <span class="math inline">\(u_0(x) = e^{-100(x-.3)^2}\)</span> and solve on the domain <span class="math inline">\([0,1]\)</span>.</p>
+<p>The true solution to this PDE is given by <span class="math inline">\(u(x,t) = u_0(\text{mod}(x-t,1))\)</span>, which can be found using the method of characteristics on the free domain and then truncating to a periodic domain. Though we have access to the true solution, we will generate our training data using a prepackaged numerical PDE solver <code>py-pde</code>. We will use a Gaussian as our initial data <span class="math inline">\(u_0(x) = e^{-100(x-.3)^2}\)</span> and solve on the domain <span class="math inline">\([0,1]\)</span>.</p>
 <p>Note that this isn’t an attempt to solve the PDE using NNs, rather we are just using the PDE data as a specific set of training data.</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pde</span>
@@ -344,7 +344,7 @@ u(x,t) = u(x+L,t)
 </section>
 <section id="data-processing" class="level1">
 <h1>Data Processing</h1>
-<p>Arugably the most important part of training a machine learning algorithm is the data. Most prepackaged algorithms expect data to be formatted in a specific way, usually as an array where each column represents different features and each row represents the samples. As it stands, we have our target <span class="math inline">\(h(x,t)\)</span> data represented as a matrix, and have our <span class="math inline">\(x,t\)</span> each represented as single arrays. We need create an array of each pair of <span class="math inline">\(x,t\)</span> data points, and map the <span class="math inline">\(h(x,t)\)</span> to array of the corresponding values.</p>
+<p>Arguably the most important part of training a machine learning algorithm is the data. Most prepackaged algorithms expect data to be formatted in a specific way, usually as an array where each column represents different features and each row represents the samples. As it stands, we have our target <span class="math inline">\(h(x,t)\)</span> data represented as a matrix, and have our <span class="math inline">\(x,t\)</span> each represented as single arrays. We need create an array of each pair of <span class="math inline">\(x,t\)</span> data points, and map the <span class="math inline">\(h(x,t)\)</span> to array of the corresponding values.</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create training data</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(xmin,xmax,nx)</span>
@@ -358,7 +358,7 @@ u(x,t) = u(x+L,t)
 </section>
 <section id="building-a-network" class="level1">
 <h1>Building a Network</h1>
-<p>We’ll use the Keras package to build our Neural Networks. Keras is an API for building Neural Networks built on tensforslow. We can intitialize the network using the Sequential() class, then add layers .add() method for our model. We will use Dense layers, which means that each node takes inputs from all of the other nodes in the previous layer. We can specify the initial input shape in the first layer, and each size and activation function for each layer.</p>
+<p>We’ll use the Keras package to build our Neural Networks. Keras is an API for building Neural Networks built on <code>tensorflow</code>. We can initialize the network using the Sequential() class, then add layers .add() method for our model. We will use Dense layers, which means that each node takes inputs from all of the other nodes in the previous layer. We can specify the initial input shape in the first layer, and each size and activation function for each layer.</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build model</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Sequential()</span>
@@ -381,134 +381,98 @@ u(x,t) = u(x+L,t)
 <span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> plt.imshow(yPred,aspect <span class="op">=</span> <span class="st">'auto'</span>)</span>
 <span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  1/319 [..............................] - ETA: 20s</code></pre>
+<pre><code>  1/319 [..............................] - ETA: 10s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 37/319 [==&gt;...........................] - ETA: 0s </code></pre>
+<pre><code> 99/319 [========&gt;.....................] - ETA: 0s </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 73/319 [=====&gt;........................] - ETA: 0s</code></pre>
+<pre><code>200/319 [=================&gt;............] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>114/319 [=========&gt;....................] - ETA: 0s</code></pre>
+<pre><code>301/319 [===========================&gt;..] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>154/319 [=============&gt;................] - ETA: 0s</code></pre>
+<pre><code>319/319 [==============================] - 0s 513us/step</code></pre>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>201/319 [=================&gt;............] - ETA: 0s</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>245/319 [======================&gt;.......] - ETA: 0s</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>295/319 [==========================&gt;...] - ETA: 0s</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>319/319 [==============================] - 0s 1ms/step</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7fdddfa6c7c0&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7f8c0cf78a60&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="workshop2_nn_files/figure-html/cell-6-output-11.png" width="931" height="341"></p>
+<p><img src="workshop2_nn_files/figure-html/cell-6-output-7.png" width="931" height="341"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create subset of training data</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>t_stop<span class="op">=</span> <span class="fl">.5</span><span class="op">/</span>tmax</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>t_split <span class="op">=</span> nx<span class="op">*</span><span class="bu">int</span>(t_stop<span class="op">*</span>nt)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>XT_Train <span class="op">=</span> XT[<span class="dv">0</span>:t_split,:]</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>y_Train <span class="op">=</span> y[<span class="dv">0</span>:t_split]</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit new model</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>model.fit(XT_Train,y_Train,epochs<span class="op">=</span><span class="dv">1000</span>, batch_size<span class="op">=</span><span class="dv">200</span>, verbose <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">12</span>,<span class="dv">4</span>))</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> plt.imshow(y_Train.reshape(<span class="bu">int</span>(t_stop<span class="op">*</span>nt),nx))</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>yPred <span class="op">=</span> np.array(model.predict(XT)).reshape(nx,nt)</span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> plt.imshow(yPred)</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create subset of training data</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>t_stop<span class="op">=</span> <span class="fl">.5</span><span class="op">/</span>tmax</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>t_split <span class="op">=</span> nx<span class="op">*</span><span class="bu">int</span>(t_stop<span class="op">*</span>nt)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>XT_Train <span class="op">=</span> XT[<span class="dv">0</span>:t_split,:]</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>y_Train <span class="op">=</span> y[<span class="dv">0</span>:t_split]</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit new model</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>model.fit(XT_Train,y_Train,epochs<span class="op">=</span><span class="dv">1000</span>, batch_size<span class="op">=</span><span class="dv">200</span>, verbose <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">12</span>,<span class="dv">4</span>))</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> plt.imshow(y_Train.reshape(<span class="bu">int</span>(t_stop<span class="op">*</span>nt),nx))</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>yPred <span class="op">=</span> np.array(model.predict(XT)).reshape(nx,nt)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> plt.imshow(yPred)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  1/319 [..............................] - ETA: 9s</code></pre>
+<pre><code>  1/319 [..............................] - ETA: 4s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 35/319 [==&gt;...........................] - ETA: 0s</code></pre>
+<pre><code> 97/319 [========&gt;.....................] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 67/319 [=====&gt;........................] - ETA: 0s</code></pre>
+<pre><code>196/319 [=================&gt;............] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>106/319 [========&gt;.....................] - ETA: 0s</code></pre>
+<pre><code>297/319 [==========================&gt;...] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>149/319 [=============&gt;................] - ETA: 0s</code></pre>
+<pre><code>319/319 [==============================] - 0s 509us/step</code></pre>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>189/319 [================&gt;.............] - ETA: 0s</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>227/319 [====================&gt;.........] - ETA: 0s</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>265/319 [=======================&gt;......] - ETA: 0s</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>309/319 [============================&gt;.] - ETA: 0s</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>319/319 [==============================] - 0s 1ms/step</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7fdddfe53160&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7f8c0cd42130&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="workshop2_nn_files/figure-html/cell-7-output-12.png" width="923" height="341"></p>
+<p><img src="workshop2_nn_files/figure-html/cell-7-output-7.png" width="934" height="341"></p>
 </div>
 </div>
 </section>
 <section id="hyper-parameters" class="level1">
 <h1>Hyper Parameters</h1>
-<p>One of the many challenges you face when working with Neural Networks is the wide range of hyper parameters you need to choose in order to build the network. Some of the more obvious ones are the number of layers, the depth of each layer, and the activation function you use. It’s clear that these can have dramatic effects on the resulting neural network, but even smaller changes can too. In this example, we double the number of epochs that the network is trained on. This tends to result in a lower quality prediction, likely from overfitting to specific training data. There are ways to better chose hyper parameters and mitigate things like over fitting, but that is beyond the scope of this workshop.</p>
+<p>One of the many challenges you face when working with Neural Networks is the wide range of hyper-parameters you need to choose in order to build the network. Some of the more obvious ones are the number of layers, the depth of each layer, and the activation function you use. It’s clear that these can have dramatic effects on the resulting neural network, but even smaller changes can too. In this example, we double the number of epochs that the network is trained on. This tends to result in a lower quality prediction, likely from overfitting to specific training data. There are ways to better chose hyper-parameters and mitigate things like over fitting, but that is beyond the scope of this workshop.</p>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>model.fit(XT_Train,y_Train,epochs<span class="op">=</span><span class="dv">2000</span>, batch_size<span class="op">=</span><span class="dv">200</span>, verbose <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>yPred <span class="op">=</span> np.array(model.predict(XT)).reshape(nx,nt)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> plt.imshow(yPred)</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>model.fit(XT_Train,y_Train,epochs<span class="op">=</span><span class="dv">2000</span>, batch_size<span class="op">=</span><span class="dv">200</span>, verbose <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>yPred <span class="op">=</span> np.array(model.predict(XT)).reshape(nx,nt)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> plt.imshow(yPred)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  1/319 [..............................] - ETA: 6s</code></pre>
+<pre><code>  1/319 [..............................] - ETA: 4s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 46/319 [===&gt;..........................] - ETA: 0s</code></pre>
+<pre><code>105/319 [========&gt;.....................] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 89/319 [=======&gt;......................] - ETA: 0s</code></pre>
+<pre><code>197/319 [=================&gt;............] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>136/319 [===========&gt;..................] - ETA: 0s</code></pre>
+<pre><code>290/319 [==========================&gt;...] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>181/319 [================&gt;.............] - ETA: 0s</code></pre>
+<pre><code>319/319 [==============================] - 0s 528us/step</code></pre>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>231/319 [====================&gt;.........] - ETA: 0s</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>280/319 [=========================&gt;....] - ETA: 0s</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>319/319 [==============================] - 0s 1ms/step</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7fdddfe180d0&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7f8c0ccb8760&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="workshop2_nn_files/figure-html/cell-8-output-10.png" width="499" height="414"></p>
+<p><img src="workshop2_nn_files/figure-html/cell-8-output-7.png" width="510" height="416"></p>
 </div>
 </div>
 

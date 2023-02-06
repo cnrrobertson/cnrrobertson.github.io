@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -234,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Needed package for computer vision problems</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>2022-10-18 14:16:48.058716: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+<pre><code>2023-02-06 11:21:34.952123: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.</code></pre>
 </div>
 </div>
@@ -252,7 +252,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(x_train[image_index], cmap<span class="op">=</span><span class="st">'Greys'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7fe3cf11db20&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f5f219e3130&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="workshop4_cnn_files/figure-html/cell-4-output-2.png" width="415" height="411"></p>
@@ -306,7 +306,7 @@ Number of images in x_test 10000</code></pre>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>model.add(Dropout(<span class="fl">0.2</span>))</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>model.add(Dense(<span class="dv">10</span>,activation<span class="op">=</span>tf.nn.softmax))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>2022-10-18 14:16:49.743398: E tensorflow/stream_executor/cuda/cuda_driver.cc:265] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected</code></pre>
+<pre><code>2023-02-06 11:21:36.765905: E tensorflow/stream_executor/cuda/cuda_driver.cc:265] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="8">
@@ -405,37 +405,37 @@ Number of images in x_test 10000</code></pre>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>model.evaluate(x_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  1/313 [..............................] - ETA: 25s - loss: 4.0738e-04 - accuracy: 1.0000</code></pre>
+<pre><code>  1/313 [..............................] - ETA: 28s - loss: 0.0717 - accuracy: 0.9688</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 34/313 [==&gt;...........................] - ETA: 0s - loss: 0.0621 - accuracy: 0.9835     </code></pre>
+<pre><code> 31/313 [=&gt;............................] - ETA: 0s - loss: 0.0495 - accuracy: 0.9859 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 67/313 [=====&gt;........................] - ETA: 0s - loss: 0.0693 - accuracy: 0.9799</code></pre>
+<pre><code> 66/313 [=====&gt;........................] - ETA: 0s - loss: 0.0592 - accuracy: 0.9830</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>102/313 [========&gt;.....................] - ETA: 0s - loss: 0.0678 - accuracy: 0.9813</code></pre>
+<pre><code>101/313 [========&gt;.....................] - ETA: 0s - loss: 0.0638 - accuracy: 0.9827</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>138/313 [============&gt;.................] - ETA: 0s - loss: 0.0743 - accuracy: 0.9798</code></pre>
+<pre><code>139/313 [============&gt;.................] - ETA: 0s - loss: 0.0653 - accuracy: 0.9831</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>175/313 [===============&gt;..............] - ETA: 0s - loss: 0.0649 - accuracy: 0.9818</code></pre>
+<pre><code>178/313 [================&gt;.............] - ETA: 0s - loss: 0.0577 - accuracy: 0.9847</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>212/313 [===================&gt;..........] - ETA: 0s - loss: 0.0602 - accuracy: 0.9833</code></pre>
+<pre><code>217/313 [===================&gt;..........] - ETA: 0s - loss: 0.0534 - accuracy: 0.9856</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>246/313 [======================&gt;.......] - ETA: 0s - loss: 0.0527 - accuracy: 0.9854</code></pre>
+<pre><code>257/313 [=======================&gt;......] - ETA: 0s - loss: 0.0462 - accuracy: 0.9874</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>284/313 [==========================&gt;...] - ETA: 0s - loss: 0.0472 - accuracy: 0.9870</code></pre>
+<pre><code>298/313 [===========================&gt;..] - ETA: 0s - loss: 0.0411 - accuracy: 0.9886</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>313/313 [==============================] - 1s 1ms/step - loss: 0.0452 - accuracy: 0.9876</code></pre>
+<pre><code>313/313 [==============================] - 1s 1ms/step - loss: 0.0406 - accuracy: 0.9889</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>[0.04519505798816681, 0.9876000285148621]</code></pre>
+<pre><code>[0.04061735048890114, 0.9889000058174133]</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="11">
@@ -476,7 +476,7 @@ Number of images in x_test 10000</code></pre>
 <div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(test_image_original, cmap <span class="op">=</span> <span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7fe3c6c6c3a0&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f5f08167910&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="workshop4_cnn_files/figure-html/cell-15-output-2.png" width="580" height="392"></p>
@@ -509,7 +509,7 @@ Number of images in x_test 10000</code></pre>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>copy_1 <span class="op">=</span> cv2.imread(<span class="bu">file</span>, cv2.IMREAD_GRAYSCALE)</span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>plt.imshow(copy_1, cmap <span class="op">=</span> <span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7fe3b851ff40&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f5f001c2100&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="workshop4_cnn_files/figure-html/cell-17-output-2.png" width="281" height="415"></p>
@@ -522,7 +522,7 @@ Number of images in x_test 10000</code></pre>
 <span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>plt.imshow(copy_1_resized, cmap <span class="op">=</span> <span class="st">'Greys'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7fe3b8495430&gt;</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f5f00198b50&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="workshop4_cnn_files/figure-html/cell-18-output-2.png" width="415" height="411"></p>
@@ -535,10 +535,10 @@ Number of images in x_test 10000</code></pre>
 <pre><code>1/1 [==============================] - ETA: 0s</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1/1 [==============================] - 0s 34ms/step</code></pre>
+<pre><code>1/1 [==============================] - 0s 33ms/step</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>CNN predicted number = 3</code></pre>
+<pre><code>CNN predicted number = 2</code></pre>
 </div>
 </div>
 

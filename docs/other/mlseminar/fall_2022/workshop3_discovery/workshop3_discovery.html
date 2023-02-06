@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -479,7 +479,7 @@ h_t(x,t) = h_x(x,t)
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"8400d55acccf48d6966a21b60138f78a","version_major":2,"version_minor":0}
+{"model_id":"026e1da955724f31b6258ea93ff878d6","version_major":2,"version_minor":0}
 </script>
 </div>
 </div>
@@ -681,28 +681,28 @@ Note
 <pre><code>Training loss step 0: 1.0898101329803467</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 100: 0.16434670984745026</code></pre>
+<pre><code>Training loss step 100: 0.16434669494628906</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Training loss step 200: 0.09155044704675674</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 300: 0.01834406703710556</code></pre>
+<pre><code>Training loss step 300: 0.01834404096007347</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 400: 0.0012183982180431485</code></pre>
+<pre><code>Training loss step 400: 0.0012183969374746084</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 500: 0.00044023292139172554</code></pre>
+<pre><code>Training loss step 500: 0.0004402332124300301</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 600: 0.00026629428612068295</code></pre>
+<pre><code>Training loss step 600: 0.000266294606262818</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 700: 0.00018376149819232523</code></pre>
+<pre><code>Training loss step 700: 0.00018376208026893437</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 800: 0.00013974880857858807</code></pre>
+<pre><code>Training loss step 800: 0.00013974899775348604</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Training loss step 900: 0.00011441211245255545</code></pre>
@@ -757,8 +757,8 @@ Note
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a derivative with respect to the first input (x) at point (x_i,t_j)</span></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>x_i <span class="op">=</span> <span class="fl">0.3</span><span class="op">;</span> t_j <span class="op">=</span> <span class="fl">0.3</span></span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>jax.grad(model_for_diff,<span class="dv">0</span>)(x_i,t_j)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="250">
-<pre><code>DeviceArray(0.01142649, dtype=float32, weak_type=True)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>DeviceArray(0.01142633, dtype=float32, weak_type=True)</code></pre>
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -826,7 +826,7 @@ Note
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>term_matrix <span class="op">=</span> pd.DataFrame(term_values,index<span class="op">=</span>pd.MultiIndex.from_arrays(np.<span class="bu">round</span>(np.array(xt_points),<span class="dv">2</span>).T, names<span class="op">=</span>(<span class="st">"x"</span>,<span class="st">"t"</span>)))</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>term_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="254">
+<div class="cell-output cell-output-display" data-execution_count="16">
 
 <div>
 
@@ -889,100 +889,100 @@ Note
       <th>-1.71</th>
       <td>1.0</td>
       <td>-0.585482</td>
-      <td>0.032624</td>
-      <td>0.299084</td>
-      <td>3.230795</td>
-      <td>30.858774</td>
+      <td>0.032621</td>
+      <td>0.299091</td>
+      <td>3.230638</td>
+      <td>30.858641</td>
       <td>0.342789</td>
-      <td>-0.019101</td>
-      <td>-0.175108</td>
-      <td>-1.891572</td>
+      <td>-0.019099</td>
+      <td>-0.175112</td>
+      <td>-1.891480</td>
       <td>...</td>
-      <td>85.180908</td>
-      <td>10.086037</td>
-      <td>96.336273</td>
-      <td>920.151062</td>
-      <td>8.788777e+03</td>
-      <td>108.952553</td>
-      <td>1040.654907</td>
-      <td>9.939764e+03</td>
-      <td>9.493916e+04</td>
-      <td>9.068066e+05</td>
+      <td>85.184204</td>
+      <td>10.084811</td>
+      <td>96.328819</td>
+      <td>920.120422</td>
+      <td>8.788872e+03</td>
+      <td>108.931458</td>
+      <td>1040.499268</td>
+      <td>9.938715e+03</td>
+      <td>9.493333e+04</td>
+      <td>9.067909e+05</td>
     </tr>
     <tr>
       <th>-1.68</th>
       <th>-1.71</th>
       <td>1.0</td>
       <td>-0.584148</td>
-      <td>0.045154</td>
-      <td>0.431638</td>
-      <td>4.487691</td>
-      <td>42.300426</td>
+      <td>0.045153</td>
+      <td>0.431625</td>
+      <td>4.487586</td>
+      <td>42.299286</td>
       <td>0.341229</td>
-      <td>-0.026377</td>
-      <td>-0.252140</td>
-      <td>-2.621474</td>
+      <td>-0.026376</td>
+      <td>-0.252133</td>
+      <td>-2.621416</td>
       <td>...</td>
-      <td>333.371216</td>
-      <td>39.011093</td>
-      <td>367.713806</td>
-      <td>3466.025391</td>
-      <td>3.267033e+04</td>
-      <td>405.594208</td>
-      <td>3823.081543</td>
-      <td>3.603590e+04</td>
-      <td>3.396700e+05</td>
-      <td>3.201688e+06</td>
+      <td>333.333466</td>
+      <td>39.007198</td>
+      <td>367.675781</td>
+      <td>3465.654785</td>
+      <td>3.266672e+04</td>
+      <td>405.556274</td>
+      <td>3822.710205</td>
+      <td>3.603227e+04</td>
+      <td>3.396346e+05</td>
+      <td>3.201342e+06</td>
     </tr>
     <tr>
       <th>-1.65</th>
       <th>-1.71</th>
       <td>1.0</td>
       <td>-0.582291</td>
-      <td>0.063117</td>
-      <td>0.615363</td>
-      <td>6.208451</td>
-      <td>57.811291</td>
-      <td>0.339062</td>
+      <td>0.063118</td>
+      <td>0.615352</td>
+      <td>6.208448</td>
+      <td>57.810596</td>
+      <td>0.339063</td>
       <td>-0.036753</td>
-      <td>-0.358320</td>
-      <td>-3.615123</td>
+      <td>-0.358314</td>
+      <td>-3.615125</td>
       <td>...</td>
-      <td>1265.576294</td>
-      <td>147.258820</td>
-      <td>1371.231323</td>
-      <td>12768.506836</td>
-      <td>1.188966e+05</td>
-      <td>1485.706909</td>
-      <td>13834.469727</td>
-      <td>1.288226e+05</td>
-      <td>1.199558e+06</td>
-      <td>1.116994e+07</td>
+      <td>1265.501343</td>
+      <td>147.256027</td>
+      <td>1371.189453</td>
+      <td>12767.969727</td>
+      <td>1.188902e+05</td>
+      <td>1485.703979</td>
+      <td>13834.283203</td>
+      <td>1.288193e+05</td>
+      <td>1.199514e+06</td>
+      <td>1.116940e+07</td>
     </tr>
     <tr>
       <th>-1.61</th>
       <th>-1.71</th>
       <td>1.0</td>
       <td>-0.579688</td>
-      <td>0.088592</td>
-      <td>0.868977</td>
-      <td>8.553091</td>
-      <td>78.522736</td>
+      <td>0.088593</td>
+      <td>0.868975</td>
+      <td>8.553134</td>
+      <td>78.522270</td>
       <td>0.336039</td>
       <td>-0.051356</td>
-      <td>-0.503736</td>
-      <td>-4.958127</td>
+      <td>-0.503735</td>
+      <td>-4.958152</td>
       <td>...</td>
-      <td>4655.944824</td>
-      <td>543.723083</td>
-      <td>4991.718750</td>
-      <td>45827.109375</td>
-      <td>4.207215e+05</td>
-      <td>5351.707520</td>
-      <td>49132.027344</td>
-      <td>4.510628e+05</td>
-      <td>4.141040e+06</td>
-      <td>3.801734e+07</td>
+      <td>4655.866211</td>
+      <td>543.729858</td>
+      <td>4991.726074</td>
+      <td>45826.671875</td>
+      <td>4.207130e+05</td>
+      <td>5351.814941</td>
+      <td>49132.476562</td>
+      <td>4.510620e+05</td>
+      <td>4.140987e+06</td>
+      <td>3.801644e+07</td>
     </tr>
     <tr>
       <th>-1.58</th>
@@ -990,24 +990,24 @@ Note
       <td>1.0</td>
       <td>-0.576034</td>
       <td>0.124417</td>
-      <td>1.217481</td>
-      <td>11.722495</td>
-      <td>105.593773</td>
+      <td>1.217474</td>
+      <td>11.722404</td>
+      <td>105.592400</td>
       <td>0.331815</td>
       <td>-0.071668</td>
-      <td>-0.701310</td>
-      <td>-6.752550</td>
+      <td>-0.701306</td>
+      <td>-6.752501</td>
       <td>...</td>
-      <td>16527.279297</td>
-      <td>1961.203003</td>
-      <td>17666.103516</td>
-      <td>159132.562500</td>
-      <td>1.433433e+06</td>
-      <td>18883.400391</td>
-      <td>170097.718750</td>
-      <td>1.532204e+06</td>
-      <td>1.380178e+07</td>
-      <td>1.243235e+08</td>
+      <td>16526.652344</td>
+      <td>1961.145264</td>
+      <td>17665.492188</td>
+      <td>159126.218750</td>
+      <td>1.433368e+06</td>
+      <td>18882.812500</td>
+      <td>170091.531250</td>
+      <td>1.532141e+06</td>
+      <td>1.380113e+07</td>
+      <td>1.243170e+08</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1039,100 +1039,100 @@ Note
       <th>1.71</th>
       <td>1.0</td>
       <td>-0.593596</td>
-      <td>-0.031916</td>
-      <td>0.124317</td>
-      <td>0.865784</td>
-      <td>5.410497</td>
-      <td>0.352357</td>
-      <td>0.018945</td>
-      <td>-0.073794</td>
-      <td>-0.513926</td>
+      <td>-0.031917</td>
+      <td>0.124309</td>
+      <td>0.865729</td>
+      <td>5.409935</td>
+      <td>0.352356</td>
+      <td>0.018946</td>
+      <td>-0.073790</td>
+      <td>-0.513894</td>
       <td>...</td>
-      <td>0.452417</td>
-      <td>0.080679</td>
-      <td>0.504183</td>
-      <td>3.150766</td>
-      <td>1.968991e+01</td>
-      <td>0.561873</td>
-      <td>3.511281</td>
-      <td>2.194287e+01</td>
-      <td>1.371264e+02</td>
-      <td>8.569366e+02</td>
+      <td>0.452263</td>
+      <td>0.080658</td>
+      <td>0.504034</td>
+      <td>3.149705</td>
+      <td>1.968248e+01</td>
+      <td>0.561731</td>
+      <td>3.510254</td>
+      <td>2.193554e+01</td>
+      <td>1.370750e+02</td>
+      <td>8.565805e+02</td>
     </tr>
     <tr>
       <th>1.61</th>
       <th>1.71</th>
       <td>1.0</td>
-      <td>-0.594622</td>
-      <td>-0.027050</td>
-      <td>0.157993</td>
-      <td>1.092908</td>
-      <td>7.853273</td>
-      <td>0.353575</td>
-      <td>0.016084</td>
-      <td>-0.093946</td>
-      <td>-0.649867</td>
+      <td>-0.594621</td>
+      <td>-0.027048</td>
+      <td>0.158013</td>
+      <td>1.093115</td>
+      <td>7.855449</td>
+      <td>0.353574</td>
+      <td>0.016083</td>
+      <td>-0.093958</td>
+      <td>-0.649989</td>
       <td>...</td>
-      <td>1.539486</td>
-      <td>0.206247</td>
-      <td>1.482023</td>
-      <td>10.649325</td>
-      <td>7.652252e+01</td>
-      <td>1.426704</td>
-      <td>10.251823</td>
-      <td>7.366621e+01</td>
-      <td>5.293410e+02</td>
-      <td>3.803669e+03</td>
+      <td>1.540738</td>
+      <td>0.206391</td>
+      <td>1.483188</td>
+      <td>10.658629</td>
+      <td>7.659605e+01</td>
+      <td>1.427789</td>
+      <td>10.260510</td>
+      <td>7.373505e+01</td>
+      <td>5.298819e+02</td>
+      <td>3.807887e+03</td>
     </tr>
     <tr>
       <th>1.65</th>
       <th>1.71</th>
       <td>1.0</td>
-      <td>-0.595456</td>
+      <td>-0.595455</td>
       <td>-0.020860</td>
-      <td>0.201213</td>
-      <td>1.422060</td>
-      <td>11.352819</td>
+      <td>0.201215</td>
+      <td>1.422090</td>
+      <td>11.353171</td>
       <td>0.354567</td>
       <td>0.012421</td>
       <td>-0.119814</td>
-      <td>-0.846774</td>
+      <td>-0.846791</td>
       <td>...</td>
-      <td>5.218203</td>
-      <td>0.578643</td>
-      <td>4.619516</td>
-      <td>36.879261</td>
-      <td>2.944204e+02</td>
-      <td>4.089518</td>
-      <td>32.648094</td>
-      <td>2.606415e+02</td>
-      <td>2.080795e+03</td>
-      <td>1.661173e+04</td>
+      <td>5.218610</td>
+      <td>0.578684</td>
+      <td>4.619892</td>
+      <td>36.882626</td>
+      <td>2.944502e+02</td>
+      <td>4.089862</td>
+      <td>32.651169</td>
+      <td>2.606686e+02</td>
+      <td>2.081032e+03</td>
+      <td>1.661379e+04</td>
     </tr>
     <tr>
       <th>1.68</th>
       <th>1.71</th>
       <td>1.0</td>
-      <td>-0.596046</td>
-      <td>-0.012949</td>
-      <td>0.258202</td>
-      <td>1.896693</td>
-      <td>16.339481</td>
+      <td>-0.596047</td>
+      <td>-0.012948</td>
+      <td>0.258214</td>
+      <td>1.896819</td>
+      <td>16.340858</td>
       <td>0.355271</td>
       <td>0.007718</td>
-      <td>-0.153901</td>
-      <td>-1.130517</td>
+      <td>-0.153907</td>
+      <td>-1.130592</td>
       <td>...</td>
-      <td>17.799061</td>
-      <td>1.761778</td>
-      <td>15.177228</td>
-      <td>130.747604</td>
-      <td>1.126354e+03</td>
-      <td>12.941596</td>
-      <td>111.488258</td>
-      <td>9.604404e+02</td>
-      <td>8.273929e+03</td>
-      <td>7.127759e+04</td>
+      <td>17.803600</td>
+      <td>1.762207</td>
+      <td>15.181189</td>
+      <td>130.784027</td>
+      <td>1.126688e+03</td>
+      <td>12.945052</td>
+      <td>111.519989</td>
+      <td>9.607307e+02</td>
+      <td>8.276573e+03</td>
+      <td>7.130162e+04</td>
     </tr>
     <tr>
       <th>1.71</th>
@@ -1140,24 +1140,24 @@ Note
       <td>1.0</td>
       <td>-0.596326</td>
       <td>-0.002742</td>
-      <td>0.335011</td>
-      <td>2.578223</td>
-      <td>23.413252</td>
+      <td>0.335006</td>
+      <td>2.578177</td>
+      <td>23.412802</td>
       <td>0.355605</td>
       <td>0.001635</td>
-      <td>-0.199776</td>
-      <td>-1.537462</td>
+      <td>-0.199773</td>
+      <td>-1.537435</td>
       <td>...</td>
-      <td>61.523586</td>
-      <td>5.741437</td>
-      <td>52.138901</td>
-      <td>473.481598</td>
-      <td>4.299761e+03</td>
-      <td>44.185734</td>
-      <td>401.257629</td>
-      <td>3.643884e+03</td>
-      <td>3.309068e+04</td>
-      <td>3.005017e+05</td>
+      <td>61.519466</td>
+      <td>5.741048</td>
+      <td>52.135292</td>
+      <td>473.448181</td>
+      <td>4.299452e+03</td>
+      <td>44.182579</td>
+      <td>401.228424</td>
+      <td>3.643614e+03</td>
+      <td>3.308818e+04</td>
+      <td>3.004786e+05</td>
     </tr>
   </tbody>
 </table>
@@ -1186,9 +1186,9 @@ Note
 <span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ols_results</span>
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>compute_ols_results(term_matrix, h_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9982899874867719</code></pre>
+<pre><code>R^2: 0.9987072399768019</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="255">
+<div class="cell-output cell-output-display" data-execution_count="17">
 
 <div>
 
@@ -1222,27 +1222,27 @@ Note
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.003291</td>
-      <td>-0.001123</td>
-      <td>0.010196</td>
-      <td>-0.010514</td>
-      <td>0.017121</td>
-      <td>0.000644</td>
-      <td>0.000319</td>
-      <td>0.00216</td>
-      <td>-0.002166</td>
-      <td>-0.003493</td>
+      <td>7.305386e-07</td>
+      <td>-0.000263</td>
+      <td>0.007865</td>
+      <td>0.00078</td>
+      <td>0.020306</td>
+      <td>0.000558</td>
+      <td>-0.000865</td>
+      <td>0.001602</td>
+      <td>0.003387</td>
+      <td>-0.003978</td>
       <td>...</td>
-      <td>-2.442078e-10</td>
-      <td>1.701862e-09</td>
-      <td>7.807828e-10</td>
-      <td>-3.123881e-12</td>
-      <td>4.619499e-13</td>
-      <td>8.305367e-11</td>
-      <td>4.131124e-12</td>
-      <td>1.370824e-12</td>
-      <td>2.732623e-15</td>
-      <td>1.113909e-15</td>
+      <td>1.934960e-10</td>
+      <td>-9.703247e-10</td>
+      <td>-5.762052e-10</td>
+      <td>2.650240e-11</td>
+      <td>1.596587e-13</td>
+      <td>7.131852e-11</td>
+      <td>-6.073799e-12</td>
+      <td>-4.703859e-13</td>
+      <td>2.591677e-14</td>
+      <td>-1.654493e-16</td>
     </tr>
   </tbody>
 </table>
@@ -1270,7 +1270,7 @@ Note
 <pre><code>/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:648: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.736e+03, tolerance: 1.101e+01
   model = cd_fast.enet_coordinate_descent(</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="256">
+<div class="cell-output cell-output-display" data-execution_count="18">
 
 <div>
 
@@ -1309,22 +1309,22 @@ Note
       <td>0.000006</td>
       <td>-0.000016</td>
       <td>0.000005</td>
-      <td>-9.063679e-08</td>
+      <td>-9.063636e-08</td>
       <td>0.000033</td>
       <td>-0.000011</td>
       <td>-0.000004</td>
       <td>-0.000003</td>
       <td>...</td>
-      <td>2.762206e-11</td>
-      <td>7.854020e-10</td>
-      <td>-2.607649e-10</td>
-      <td>4.844760e-12</td>
-      <td>-2.047027e-13</td>
-      <td>-2.796414e-11</td>
-      <td>7.585174e-12</td>
-      <td>-3.492139e-13</td>
-      <td>1.942518e-14</td>
-      <td>-4.624874e-16</td>
+      <td>2.762180e-11</td>
+      <td>7.853975e-10</td>
+      <td>-2.607652e-10</td>
+      <td>4.844794e-12</td>
+      <td>-2.047032e-13</td>
+      <td>-2.796429e-11</td>
+      <td>7.585219e-12</td>
+      <td>-3.492170e-13</td>
+      <td>1.942534e-14</td>
+      <td>-4.624859e-16</td>
     </tr>
   </tbody>
 </table>
@@ -1345,20 +1345,20 @@ Note
 <span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>        )</span>
 <span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>        display(temp_results)</span>
 <span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>compute_lasso_path_results(term_matrix,h_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 6479.129684776085, tolerance: 11.011602711575614
-  model = cd_fast.enet_coordinate_descent_gram(
-/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 4239.993919608305, tolerance: 11.011602711575614
-  model = cd_fast.enet_coordinate_descent_gram(
-/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 3002.895267125694, tolerance: 11.011602711575614
-  model = cd_fast.enet_coordinate_descent_gram(
-/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 1179.9755031335178, tolerance: 11.011602711575614
-  model = cd_fast.enet_coordinate_descent_gram(
-/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 654.8430901348651, tolerance: 11.011602711575614
-  model = cd_fast.enet_coordinate_descent_gram(</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>lambda = 1000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 6479.129693739391, tolerance: 11.011605073535403
+  model = cd_fast.enet_coordinate_descent_gram(
+/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 4239.991695254213, tolerance: 11.011605073535403
+  model = cd_fast.enet_coordinate_descent_gram(
+/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 3002.8945381092335, tolerance: 11.011605073535403
+  model = cd_fast.enet_coordinate_descent_gram(
+/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 1179.975834201264, tolerance: 11.011605073535403
+  model = cd_fast.enet_coordinate_descent_gram(
+/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 654.8432797880382, tolerance: 11.011605073535403
+  model = cd_fast.enet_coordinate_descent_gram(</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -1395,26 +1395,26 @@ Note
     <tr>
       <th>Coefficients</th>
       <td>0.000004</td>
-      <td>-1.358433e-07</td>
+      <td>-1.358431e-07</td>
       <td>-0.000003</td>
-      <td>1.734871e-07</td>
+      <td>1.734877e-07</td>
       <td>-0.000024</td>
       <td>-0.000018</td>
       <td>0.000018</td>
-      <td>1.798392e-07</td>
-      <td>2.194954e-08</td>
+      <td>1.798373e-07</td>
+      <td>2.194965e-08</td>
       <td>0.00002</td>
       <td>...</td>
-      <td>1.756186e-12</td>
-      <td>5.409151e-09</td>
-      <td>-4.538996e-10</td>
-      <td>-1.582507e-11</td>
-      <td>-5.175566e-13</td>
-      <td>-1.599983e-10</td>
-      <td>1.446234e-11</td>
-      <td>-1.393064e-12</td>
-      <td>5.006079e-15</td>
-      <td>-1.081721e-15</td>
+      <td>1.755277e-12</td>
+      <td>5.409176e-09</td>
+      <td>-4.538993e-10</td>
+      <td>-1.582512e-11</td>
+      <td>-5.175585e-13</td>
+      <td>-1.599987e-10</td>
+      <td>1.446256e-11</td>
+      <td>-1.393073e-12</td>
+      <td>5.006291e-15</td>
+      <td>-1.081716e-15</td>
     </tr>
   </tbody>
 </table>
@@ -1460,25 +1460,25 @@ Note
       <th>Coefficients</th>
       <td>-0.000006</td>
       <td>0.000006</td>
-      <td>-7.521125e-08</td>
+      <td>-7.521095e-08</td>
       <td>-0.00002</td>
       <td>-0.000005</td>
-      <td>1.823139e-07</td>
+      <td>1.823142e-07</td>
       <td>-0.000026</td>
       <td>0.000536</td>
       <td>0.000015</td>
       <td>-0.000011</td>
       <td>...</td>
-      <td>-2.414092e-11</td>
-      <td>5.320438e-09</td>
-      <td>-4.616132e-10</td>
-      <td>-1.611746e-11</td>
-      <td>-6.934042e-13</td>
-      <td>-1.620875e-10</td>
-      <td>1.653041e-11</td>
-      <td>-8.339666e-13</td>
-      <td>-2.720528e-15</td>
-      <td>-1.134805e-15</td>
+      <td>-2.414194e-11</td>
+      <td>5.320476e-09</td>
+      <td>-4.616117e-10</td>
+      <td>-1.611757e-11</td>
+      <td>-6.934056e-13</td>
+      <td>-1.620881e-10</td>
+      <td>1.653062e-11</td>
+      <td>-8.339717e-13</td>
+      <td>-2.720482e-15</td>
+      <td>-1.134801e-15</td>
     </tr>
   </tbody>
 </table>
@@ -1524,25 +1524,25 @@ Note
       <th>Coefficients</th>
       <td>-0.000002</td>
       <td>0.000008</td>
-      <td>-8.488352e-08</td>
+      <td>-8.488413e-08</td>
       <td>-0.000036</td>
       <td>-0.000005</td>
-      <td>2.101201e-07</td>
+      <td>2.101204e-07</td>
       <td>-0.000021</td>
       <td>0.000994</td>
       <td>0.000005</td>
       <td>-0.000006</td>
       <td>...</td>
-      <td>-4.268550e-11</td>
-      <td>5.269479e-09</td>
-      <td>-4.910509e-10</td>
-      <td>-1.314512e-11</td>
-      <td>-7.742979e-13</td>
-      <td>-1.331645e-10</td>
-      <td>2.042814e-11</td>
-      <td>-5.987451e-13</td>
-      <td>2.408353e-15</td>
-      <td>-1.135248e-15</td>
+      <td>-4.268632e-11</td>
+      <td>5.269517e-09</td>
+      <td>-4.910490e-10</td>
+      <td>-1.314523e-11</td>
+      <td>-7.742993e-13</td>
+      <td>-1.331652e-10</td>
+      <td>2.042833e-11</td>
+      <td>-5.987478e-13</td>
+      <td>2.408342e-15</td>
+      <td>-1.135245e-15</td>
     </tr>
   </tbody>
 </table>
@@ -1590,22 +1590,22 @@ Note
       <td>0.000022</td>
       <td>-0.00003</td>
       <td>0.000009</td>
-      <td>-3.621404e-08</td>
+      <td>-3.621464e-08</td>
       <td>-0.000142</td>
       <td>0.000003</td>
       <td>-0.000044</td>
       <td>-0.000006</td>
-      <td>2.333753e-07</td>
+      <td>2.333756e-07</td>
       <td>...</td>
-      <td>-5.158142e-11</td>
-      <td>5.223207e-09</td>
-      <td>-5.293262e-10</td>
-      <td>-6.898387e-12</td>
-      <td>-7.832643e-13</td>
-      <td>-9.675523e-11</td>
-      <td>2.194763e-11</td>
-      <td>-3.257953e-13</td>
-      <td>9.419456e-15</td>
+      <td>-5.158209e-11</td>
+      <td>5.223241e-09</td>
+      <td>-5.293248e-10</td>
+      <td>-6.898464e-12</td>
+      <td>-7.832659e-13</td>
+      <td>-9.675606e-11</td>
+      <td>2.194779e-11</td>
+      <td>-3.257965e-13</td>
+      <td>9.419454e-15</td>
       <td>-1.060554e-15</td>
     </tr>
   </tbody>
@@ -1658,19 +1658,19 @@ Note
       <td>0.000032</td>
       <td>-0.000033</td>
       <td>0.000008</td>
-      <td>-1.995555e-08</td>
+      <td>-1.995623e-08</td>
       <td>-0.000084</td>
       <td>...</td>
-      <td>-6.687737e-11</td>
-      <td>4.931543e-09</td>
-      <td>-4.735362e-10</td>
-      <td>-7.393856e-12</td>
-      <td>-6.988533e-13</td>
-      <td>-7.077761e-11</td>
-      <td>1.972168e-11</td>
-      <td>-3.251701e-14</td>
-      <td>7.291442e-15</td>
-      <td>-8.182989e-16</td>
+      <td>-6.687787e-11</td>
+      <td>4.931579e-09</td>
+      <td>-4.735351e-10</td>
+      <td>-7.393932e-12</td>
+      <td>-6.988554e-13</td>
+      <td>-7.077843e-11</td>
+      <td>1.972181e-11</td>
+      <td>-3.251633e-14</td>
+      <td>7.291433e-15</td>
+      <td>-8.183021e-16</td>
     </tr>
   </tbody>
 </table>
@@ -1708,7 +1708,7 @@ Note
 <span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a>forward_r2_select(term_matrix, h_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9999009926990204</code></pre>
+<pre><code>R^2: 0.9999009929293052</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -1731,7 +1731,7 @@ Note
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9999137791391229</code></pre>
+<pre><code>R^2: 0.9999137793593055</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -1756,7 +1756,7 @@ Note
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9999166090137175</code></pre>
+<pre><code>R^2: 0.9999166091843339</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -1783,7 +1783,7 @@ Note
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9999179600640669</code></pre>
+<pre><code>R^2: 0.9999179601805686</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -1805,7 +1805,7 @@ Note
       <td>1.001286</td>
       <td>-0.003129</td>
       <td>0.000001</td>
-      <td>1.281138e-08</td>
+      <td>1.281114e-08</td>
     </tr>
   </tbody>
 </table>
@@ -1891,78 +1891,78 @@ Note
 <span id="cb50-47"><a href="#cb50-47" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 0
-Training loss: 1.144004464149475
-Validation loss: 1.01979660987854
+Training loss: 1.096426248550415
+Validation loss: 1.0614256858825684
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 100
-Training loss: 0.2510860562324524
-Validation loss: 0.24596765637397766
+Training loss: 0.24856211245059967
+Validation loss: 0.2242167741060257
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 200
-Training loss: 0.15993238985538483
-Validation loss: 0.1527174413204193
+Training loss: 0.1528051644563675
+Validation loss: 0.13052992522716522
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 300
-Training loss: 0.11942551285028458
-Validation loss: 0.1161203384399414
+Training loss: 0.11249998211860657
+Validation loss: 0.09524193406105042
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 400
-Training loss: 0.05994514748454094
-Validation loss: 0.06195114552974701
+Training loss: 0.06492499262094498
+Validation loss: 0.05927733704447746
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 500
-Training loss: 0.04363465681672096
-Validation loss: 0.04668991640210152
+Training loss: 0.0453445240855217
+Validation loss: 0.043655507266521454
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 600
-Training loss: 0.040037043392658234
-Validation loss: 0.042801398783922195
+Training loss: 0.041188061237335205
+Validation loss: 0.04045151174068451
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 700
-Training loss: 0.040146779268980026
-Validation loss: 0.042471904307603836
+Training loss: 0.04039134457707405
+Validation loss: 0.04004029184579849
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 800
-Training loss: 0.04032427817583084
-Validation loss: 0.04244818538427353
+Training loss: 0.04142721742391586
+Validation loss: 0.041196469217538834
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 900
-Training loss: 0.039380643516778946
-Validation loss: 0.041496243327856064
+Training loss: 0.041981782764196396
+Validation loss: 0.041676320135593414
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 1000
-Training loss: 0.03925921022891998
-Validation loss: 0.04148998484015465
+Training loss: 0.041559334844350815
+Validation loss: 0.04100088030099869
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 1100
-Training loss: 0.04000569134950638
-Validation loss: 0.042704202234745026
+Training loss: 0.039972953498363495
+Validation loss: 0.03931911289691925
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Test loss after training: 0.03959168866276741</code></pre>
+<pre><code>Test loss after training: 0.03955989331007004</code></pre>
 </div>
 </div>
 <p>The resulting fit can be seen in the following video:</p>
@@ -1999,7 +1999,7 @@ Validation loss: 0.042704202234745026
 <span id="cb64-26"><a href="#cb64-26" aria-hidden="true" tabindex="-1"></a>term_matrix <span class="op">=</span> pd.DataFrame(term_values,index<span class="op">=</span>pd.MultiIndex.from_arrays(np.<span class="bu">round</span>(np.array(xt_points),<span class="dv">2</span>).T, names<span class="op">=</span>(<span class="st">"x"</span>,<span class="st">"t"</span>)))</span>
 <span id="cb64-27"><a href="#cb64-27" aria-hidden="true" tabindex="-1"></a>forward_r2_select(term_matrix, h_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9983865021765934</code></pre>
+<pre><code>R^2: 0.9993203642386503</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2015,14 +2015,14 @@ Validation loss: 0.042704202234745026
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>0.999449</td>
+      <td>0.995716</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9984874802784794</code></pre>
+<pre><code>R^2: 0.9993922570879483</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2033,21 +2033,21 @@ Validation loss: 0.042704202234745026
     <tr>
       <th></th>
       <th>h_x(x, t)</th>
-      <th>h_xxx(x, t)**3</th>
+      <th>h(x, t)*h_x(x, t)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>1.006194</td>
-      <td>1.954267e-09</td>
+      <td>1.008756</td>
+      <td>-0.010986</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9985314607402614</code></pre>
+<pre><code>R^2: 0.9993989412117996</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2058,23 +2058,23 @@ Validation loss: 0.042704202234745026
     <tr>
       <th></th>
       <th>h_x(x, t)</th>
-      <th>h_xxx(x, t)**3</th>
-      <th>h_x(x, t)**2*h_xxxx(x, t)**2</th>
+      <th>h(x, t)*h_x(x, t)</th>
+      <th>h_x(x, t)**2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>1.007312</td>
-      <td>1.972251e-09</td>
-      <td>-5.414004e-11</td>
+      <td>1.008356</td>
+      <td>-0.010895</td>
+      <td>0.000432</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.998539837060987</code></pre>
+<pre><code>R^2: 0.9994035211848762</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2085,18 +2085,18 @@ Validation loss: 0.042704202234745026
     <tr>
       <th></th>
       <th>h_x(x, t)</th>
-      <th>h_x(x, t)**3</th>
-      <th>h_xxx(x, t)**3</th>
-      <th>h_x(x, t)**2*h_xxxx(x, t)**2</th>
+      <th>h_xxx(x, t)</th>
+      <th>h(x, t)*h_x(x, t)</th>
+      <th>h_x(x, t)**2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>1.014444</td>
-      <td>-0.000186</td>
-      <td>1.638917e-09</td>
-      <td>-4.988270e-11</td>
+      <td>1.008077</td>
+      <td>0.000086</td>
+      <td>-0.008805</td>
+      <td>0.000495</td>
     </tr>
   </tbody>
 </table>
@@ -2293,78 +2293,78 @@ Validation loss: 0.042704202234745026
 <span id="cb75-54"><a href="#cb75-54" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 0
-Training loss: 1.0461026430130005
-Validation loss: 1.1078636646270752
+Training loss: 1.048029899597168
+Validation loss: 1.084288477897644
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 100
-Training loss: 0.019222810864448547
-Validation loss: 0.020138416439294815
+Training loss: 0.019095050171017647
+Validation loss: 0.018683746457099915
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 200
-Training loss: 0.015582811087369919
-Validation loss: 0.016700129956007004
+Training loss: 0.01550883986055851
+Validation loss: 0.01508625689893961
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 300
-Training loss: 0.01490006223320961
-Validation loss: 0.015923861414194107
+Training loss: 0.015007833018898964
+Validation loss: 0.014961878769099712
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 400
-Training loss: 0.014932448044419289
-Validation loss: 0.01587551273405552
+Training loss: 0.014233827590942383
+Validation loss: 0.013819326646625996
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 500
-Training loss: 0.014114796184003353
-Validation loss: 0.01500153448432684
+Training loss: 0.013691544532775879
+Validation loss: 0.013394343666732311
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 600
-Training loss: 0.01351952739059925
-Validation loss: 0.01461494155228138
+Training loss: 0.013891058973968029
+Validation loss: 0.014142909087240696
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 700
-Training loss: 0.01352175697684288
-Validation loss: 0.014626342803239822
+Training loss: 0.013472299091517925
+Validation loss: 0.01331472396850586
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 800
-Training loss: 0.012838657945394516
-Validation loss: 0.013886799104511738
+Training loss: 0.013176359236240387
+Validation loss: 0.013051674701273441
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 900
-Training loss: 0.012310030870139599
-Validation loss: 0.013370105996727943
+Training loss: 0.01349588856101036
+Validation loss: 0.013870802707970142
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 1000
-Training loss: 0.012038346379995346
-Validation loss: 0.01310480572283268
+Training loss: 0.01288254652172327
+Validation loss: 0.012871635146439075
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 1100
-Training loss: 0.011337725445628166
-Validation loss: 0.012411274015903473
+Training loss: 0.01262914389371872
+Validation loss: 0.012560416013002396
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Test loss after training: 0.010088494047522545</code></pre>
+<pre><code>Test loss after training: 0.01305135153234005</code></pre>
 </div>
 </div>
 <p><img src="ext_h_compare.gif" class="img-fluid"></p>
@@ -2397,7 +2397,7 @@ Validation loss: 0.012411274015903473
 <span id="cb89-26"><a href="#cb89-26" aria-hidden="true" tabindex="-1"></a>term_matrix <span class="op">=</span> pd.DataFrame(term_values,index<span class="op">=</span>pd.MultiIndex.from_arrays(np.<span class="bu">round</span>(np.array(xt_ext),<span class="dv">2</span>).T, names<span class="op">=</span>(<span class="st">"x"</span>,<span class="st">"t"</span>)))</span>
 <span id="cb89-27"><a href="#cb89-27" aria-hidden="true" tabindex="-1"></a>forward_r2_select(term_matrix, h_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9840890772168756</code></pre>
+<pre><code>R^2: 0.9904072946412229</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2413,14 +2413,39 @@ Validation loss: 0.012411274015903473
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.960403</td>
+      <td>-0.966266</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9843441895692854</code></pre>
+<pre><code>R^2: 0.9904397777920828</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>h_x(x, t)</th>
+      <th>h_x(x, t)*h_xx(x, t)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Coefficients</th>
+      <td>-0.96636</td>
+      <td>-0.000248</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R^2: 0.990663670137724</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2432,20 +2457,22 @@ Validation loss: 0.012411274015903473
       <th></th>
       <th>h_x(x, t)</th>
       <th>h(x, t)*h_x(x, t)</th>
+      <th>h_x(x, t)*h_xx(x, t)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.934937</td>
-      <td>-0.019499</td>
+      <td>-0.929208</td>
+      <td>-0.028443</td>
+      <td>-0.001005</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9856124272907933</code></pre>
+<pre><code>R^2: 0.9910591172160474</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2457,44 +2484,17 @@ Validation loss: 0.012411274015903473
       <th></th>
       <th>h_x(x, t)</th>
       <th>h(x, t)*h_x(x, t)</th>
-      <th>h(x, t)**2*h_x(x, t)</th>
+      <th>h_x(x, t)*h_xx(x, t)</th>
+      <th>h(x, t)*h_x(x, t)*h_xx(x, t)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.898256</td>
-      <td>-0.137659</td>
-      <td>0.050806</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9872553049177294</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>h_x(x, t)</th>
-      <th>h(x, t)*h_x(x, t)</th>
-      <th>h(x, t)**2*h_x(x, t)</th>
-      <th>h(x, t)**3*h_x(x, t)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Coefficients</th>
-      <td>-0.915401</td>
-      <td>-0.28248</td>
-      <td>0.264671</td>
-      <td>-0.065045</td>
+      <td>-0.87648</td>
+      <td>-0.049882</td>
+      <td>-0.005243</td>
+      <td>0.00193</td>
     </tr>
   </tbody>
 </table>
@@ -2579,25 +2579,25 @@ Validation loss: 0.012411274015903473
 <pre><code>Training loss step 200: 0.0008465293794870377</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 300: 0.0007735079852864146</code></pre>
+<pre><code>Training loss step 300: 0.0007735078688710928</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 400: 0.0006919145816937089</code></pre>
+<pre><code>Training loss step 400: 0.0006919147563166916</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 500: 0.0006207431433722377</code></pre>
+<pre><code>Training loss step 500: 0.0006207432597875595</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 600: 0.0005757116596214473</code></pre>
+<pre><code>Training loss step 600: 0.0005757116014137864</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 700: 0.0005529412301257253</code></pre>
+<pre><code>Training loss step 700: 0.0005529412883333862</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Training loss step 800: 0.0005375402979552746</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 900: 0.0005216023419052362</code></pre>
+<pre><code>Training loss step 900: 0.0005216024001128972</code></pre>
 </div>
 </div>
 <p><img src="nonorm_h_compare.gif" class="img-fluid"></p>
@@ -2633,7 +2633,7 @@ Validation loss: 0.012411274015903473
 </div>
 </div></section></div></main> <!-- /main -->
 <script type="application/vnd.jupyter.widget-state+json">
-{"state":{"0a7666deef224dd199dea54dd06ece69":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"0a9d4e17279f48b5af2c99f8acdb0766":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"0acc5228a25b43648248920aea93e010":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_5ae73fb10a224e05bab24589798ffb9c","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_18a419568d824615a586daf7d4a689e8","tabbable":null,"tooltip":null,"value":100}},"0d4ca50a45fd4dcc8c3d3fd9071bab38":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"0d81fd374047437fa9cbe52ab24264ad":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_e81c693beb5d468ba0dfc64cf88f7096","placeholder":"​","style":"IPY_MODEL_630359b832f64c7eb7d6f028eef8ea02","tabbable":null,"tooltip":null,"value":"100%"}},"11c3a7fb986844e39897063a627f0279":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"14104548f62747b88b199be005b318d5":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_11c3a7fb986844e39897063a627f0279","placeholder":"​","style":"IPY_MODEL_7d0687c75b3f4d8dabfc1c1ea316d5cb","tabbable":null,"tooltip":null,"value":" 100/100 [00:03&lt;00:00, 35.17it/s]"}},"15ac13ee96f644b4980938f5cb8a5b91":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"18a419568d824615a586daf7d4a689e8":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"1ac58b060698434fbc8cba5b760e303d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_f915b62110d7404981ad952a4ee31946","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_dda7932c534448c9b8eb73812b7dc449","tabbable":null,"tooltip":null,"value":100}},"1fb59cb4a585499388e73394f844f327":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"286ca8e96f1c48858d6cc09cc23f6761":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2adc1f6e5ae145d49141aa7e628a3ab0":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2b4b0e275e904f378479a531c9dbf061":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_4c9c66ee6c2941e69feef5f967bc47e2","IPY_MODEL_4dbd412ec491444483a016f0be33a8aa","IPY_MODEL_14104548f62747b88b199be005b318d5"],"layout":"IPY_MODEL_b7ac2444ac5e47ba994868fccce52671","tabbable":null,"tooltip":null}},"2efbf0e198d34c498ae1808880b5cee8":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2f1e3d560733499d95bb4c9f1ca55691":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2f5ad7bd20e245f290d046ec95c73c96":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_5ae742a077804277aa207f0b3751feb3","placeholder":"​","style":"IPY_MODEL_7ff7df9a5dcb4387b37d5ad79a591d82","tabbable":null,"tooltip":null,"value":" 100/100 [00:03&lt;00:00, 34.81it/s]"}},"343a0dd4fbb64b68a620bafab5f824c6":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"37995d2c13884eb5bafd9d610622c459":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_2efbf0e198d34c498ae1808880b5cee8","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_0a9d4e17279f48b5af2c99f8acdb0766","tabbable":null,"tooltip":null,"value":100}},"37fe0f1990034abc9ee0c0a408547091":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"3bb36196ff0b4e4d9b7b5417366f4a01":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_37fe0f1990034abc9ee0c0a408547091","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_c47ea431fb384179a1756616a7a06669","tabbable":null,"tooltip":null,"value":100}},"3bc5b414b7bd4a7b9375ad3dcdc79e0d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_fd761ba3d7014d4887bf931e99501101","placeholder":"​","style":"IPY_MODEL_43fc0f90e7a64716b8e8c93da7a3c7a1","tabbable":null,"tooltip":null,"value":" 100/100 [00:03&lt;00:00, 33.46it/s]"}},"3ecb9438d19f48a8b945b3b5c52cffb0":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"3ed76e31bfa1451989c2452d0ee6093e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_53eaa86432e24c8896e1f071c148aa2d","IPY_MODEL_1ac58b060698434fbc8cba5b760e303d","IPY_MODEL_db83c3b6c50b4892bb32b22de5cbeed2"],"layout":"IPY_MODEL_343a0dd4fbb64b68a620bafab5f824c6","tabbable":null,"tooltip":null}},"43c814450ba249429588606e0536e31d":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"43fc0f90e7a64716b8e8c93da7a3c7a1":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"489f040633b945a1a2a6c127e3d82c36":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_97eff05c5bd342f48970397643f38697","placeholder":"​","style":"IPY_MODEL_f2b9d19a759144cc882eaa982dd1f7a1","tabbable":null,"tooltip":null,"value":" 100/100 [00:02&lt;00:00, 41.45it/s]"}},"4c9c66ee6c2941e69feef5f967bc47e2":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_97f894fc6e364601b8d8f3d0a81f8eb6","placeholder":"​","style":"IPY_MODEL_9f6d296a58e24cc385370f00086da31b","tabbable":null,"tooltip":null,"value":"100%"}},"4d53697da74a417286d1c59630b8f69c":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"4dbd412ec491444483a016f0be33a8aa":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_84eff4b4bbfb46feb7dec7ee80705cbc","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_c0bfd02eebef4cbfaf131d9f9d9e07a9","tabbable":null,"tooltip":null,"value":100}},"53eaa86432e24c8896e1f071c148aa2d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_e112fdde95d7469fb17f9116495f362d","placeholder":"​","style":"IPY_MODEL_0d4ca50a45fd4dcc8c3d3fd9071bab38","tabbable":null,"tooltip":null,"value":"100%"}},"5ae73fb10a224e05bab24589798ffb9c":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"5ae742a077804277aa207f0b3751feb3":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"5f0327f60f964bf3ad96bc16c0a63d0f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_1fb59cb4a585499388e73394f844f327","placeholder":"​","style":"IPY_MODEL_f1c22da291794036b832a02562433d6d","tabbable":null,"tooltip":null,"value":"100%"}},"61c9c3319b574a878fd2f16818251f5b":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"630359b832f64c7eb7d6f028eef8ea02":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"6821afb00c27467d82aa20f2cb84e263":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"698a785227254f9caafe1c11e5cf5d54":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_0d81fd374047437fa9cbe52ab24264ad","IPY_MODEL_0acc5228a25b43648248920aea93e010","IPY_MODEL_3bc5b414b7bd4a7b9375ad3dcdc79e0d"],"layout":"IPY_MODEL_a6278024f57046e99aca530661ef0f55","tabbable":null,"tooltip":null}},"6ac50852eeaa462a967f837aec94c083":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"6b43cb010dfc4c5b936ba659beb51875":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"716283bac1ba481f8a09351d4086da48":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"75d84066f35e4b98985c3dfee044f925":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"78c29d386cb0436faed7a3e7e3e26af3":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"7d0687c75b3f4d8dabfc1c1ea316d5cb":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"7ddbd80f506243df83684be2336da4f9":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_0a7666deef224dd199dea54dd06ece69","placeholder":"​","style":"IPY_MODEL_f157396ffc604698ac85bedec31b0513","tabbable":null,"tooltip":null,"value":"100%"}},"7ed9ac79e2694d2fbb9e659529ed6b00":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_9987f8f6786c40b181b15171dc8667ad","placeholder":"​","style":"IPY_MODEL_8e5aceae2960461e9a5f4782df363a0a","tabbable":null,"tooltip":null,"value":" 100/100 [00:02&lt;00:00, 43.22it/s]"}},"7f16259bdc014e6aacca6cffe8598cea":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_78c29d386cb0436faed7a3e7e3e26af3","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_3ecb9438d19f48a8b945b3b5c52cffb0","tabbable":null,"tooltip":null,"value":100}},"7ff7df9a5dcb4387b37d5ad79a591d82":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"8222ce17329448afb4129e3b7d6110fd":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_94baa32aa35049d5b3945970f73b6482","placeholder":"​","style":"IPY_MODEL_15ac13ee96f644b4980938f5cb8a5b91","tabbable":null,"tooltip":null,"value":"100%"}},"83f5c13d76c94e3281c7dcbda310fb2d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_2f1e3d560733499d95bb4c9f1ca55691","placeholder":"​","style":"IPY_MODEL_acab45b09d374459a752d8b8c50e7cb6","tabbable":null,"tooltip":null,"value":" 100/100 [00:02&lt;00:00, 36.13it/s]"}},"8400d55acccf48d6966a21b60138f78a":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_b2f6f6e04bf64d7f877a51d08bc2e5c0","IPY_MODEL_d53e90691e8e4aa28d3bcbe4f72c52f4","IPY_MODEL_7ed9ac79e2694d2fbb9e659529ed6b00"],"layout":"IPY_MODEL_d287125aac8c429e8d314e26f30f8b8e","tabbable":null,"tooltip":null}},"84eff4b4bbfb46feb7dec7ee80705cbc":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"87aafe934b5e42c5a7515e346aa4f4f7":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"8818916afae246138409db6e86f8ba8f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"8e5aceae2960461e9a5f4782df363a0a":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"94baa32aa35049d5b3945970f73b6482":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"95bd10433f694aa5a0a75b7f6b39f087":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_6821afb00c27467d82aa20f2cb84e263","placeholder":"​","style":"IPY_MODEL_716283bac1ba481f8a09351d4086da48","tabbable":null,"tooltip":null,"value":" 100/100 [00:02&lt;00:00, 40.13it/s]"}},"97ec10f1fd6245c68e60408b74bc8d55":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_2adc1f6e5ae145d49141aa7e628a3ab0","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_6ac50852eeaa462a967f837aec94c083","tabbable":null,"tooltip":null,"value":100}},"97eff05c5bd342f48970397643f38697":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"97f894fc6e364601b8d8f3d0a81f8eb6":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"9987f8f6786c40b181b15171dc8667ad":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"9a01b3fd1ef74f5ba84ac7e303ca3c1f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"9f6d296a58e24cc385370f00086da31b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"a6278024f57046e99aca530661ef0f55":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"a7cafb2bf6c44bb890e22b0021ee1ad1":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"a848e8871105462199e21d131ec76c0f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_5f0327f60f964bf3ad96bc16c0a63d0f","IPY_MODEL_3bb36196ff0b4e4d9b7b5417366f4a01","IPY_MODEL_489f040633b945a1a2a6c127e3d82c36"],"layout":"IPY_MODEL_286ca8e96f1c48858d6cc09cc23f6761","tabbable":null,"tooltip":null}},"acab45b09d374459a752d8b8c50e7cb6":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"b2f6f6e04bf64d7f877a51d08bc2e5c0":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_6b43cb010dfc4c5b936ba659beb51875","placeholder":"​","style":"IPY_MODEL_4d53697da74a417286d1c59630b8f69c","tabbable":null,"tooltip":null,"value":"100%"}},"b7ac2444ac5e47ba994868fccce52671":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"c0bfd02eebef4cbfaf131d9f9d9e07a9":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"c47ea431fb384179a1756616a7a06669":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"c830c3c9cea3479d834b3f5bd6603aa8":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_8222ce17329448afb4129e3b7d6110fd","IPY_MODEL_37995d2c13884eb5bafd9d610622c459","IPY_MODEL_95bd10433f694aa5a0a75b7f6b39f087"],"layout":"IPY_MODEL_d99472a65d184539a23b22c652f50003","tabbable":null,"tooltip":null}},"c8dc4ac0fdd5476f864e37a2db558d14":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_61c9c3319b574a878fd2f16818251f5b","placeholder":"​","style":"IPY_MODEL_f719497beba24857b70a082f59d61c01","tabbable":null,"tooltip":null,"value":"100%"}},"d287125aac8c429e8d314e26f30f8b8e":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"d53e90691e8e4aa28d3bcbe4f72c52f4":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_a7cafb2bf6c44bb890e22b0021ee1ad1","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_8818916afae246138409db6e86f8ba8f","tabbable":null,"tooltip":null,"value":100}},"d99472a65d184539a23b22c652f50003":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"db83c3b6c50b4892bb32b22de5cbeed2":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_87aafe934b5e42c5a7515e346aa4f4f7","placeholder":"​","style":"IPY_MODEL_9a01b3fd1ef74f5ba84ac7e303ca3c1f","tabbable":null,"tooltip":null,"value":" 100/100 [00:02&lt;00:00, 38.53it/s]"}},"dda7932c534448c9b8eb73812b7dc449":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"e112fdde95d7469fb17f9116495f362d":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"e81c693beb5d468ba0dfc64cf88f7096":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"f0a607cebf6b4999be1eb13dfa2ef2d0":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_7ddbd80f506243df83684be2336da4f9","IPY_MODEL_7f16259bdc014e6aacca6cffe8598cea","IPY_MODEL_2f5ad7bd20e245f290d046ec95c73c96"],"layout":"IPY_MODEL_75d84066f35e4b98985c3dfee044f925","tabbable":null,"tooltip":null}},"f157396ffc604698ac85bedec31b0513":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"f1c22da291794036b832a02562433d6d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"f2b9d19a759144cc882eaa982dd1f7a1":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"f719497beba24857b70a082f59d61c01":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"f915b62110d7404981ad952a4ee31946":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"fb28d54b059b42a0a62ff101d97eb3b5":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_c8dc4ac0fdd5476f864e37a2db558d14","IPY_MODEL_97ec10f1fd6245c68e60408b74bc8d55","IPY_MODEL_83f5c13d76c94e3281c7dcbda310fb2d"],"layout":"IPY_MODEL_43c814450ba249429588606e0536e31d","tabbable":null,"tooltip":null}},"fd761ba3d7014d4887bf931e99501101":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}}},"version_major":2,"version_minor":0}
+{"state":{"026e1da955724f31b6258ea93ff878d6":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_7fd866996e8c4ca497de363cd07bc88a","IPY_MODEL_c26d9692ebd34b7981112cf058a27ca4","IPY_MODEL_6a221cfccbda40fd9ba20a144d7b307e"],"layout":"IPY_MODEL_d40ebda1665b4d50a07ba9cc1ef6c8c0","tabbable":null,"tooltip":null}},"2e85e2dc36f5411e8d5f16191148f914":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"69b3e0d75b2e445da87ce1438dacc10d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"6a221cfccbda40fd9ba20a144d7b307e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_b4ff327e237949b9a9d07d0963df7dc4","placeholder":"​","style":"IPY_MODEL_69b3e0d75b2e445da87ce1438dacc10d","tabbable":null,"tooltip":null,"value":" 100/100 [00:01&lt;00:00, 72.60it/s]"}},"7065117b0a5d41dca6aa31c80749cb7f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"7fd866996e8c4ca497de363cd07bc88a":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_2e85e2dc36f5411e8d5f16191148f914","placeholder":"​","style":"IPY_MODEL_aa5c556126fb4d1c8c08dd9a05dacb78","tabbable":null,"tooltip":null,"value":"100%"}},"9cf843f89f6f4b57979a33e1edfe1856":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"aa5c556126fb4d1c8c08dd9a05dacb78":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"b4ff327e237949b9a9d07d0963df7dc4":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"c26d9692ebd34b7981112cf058a27ca4":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_9cf843f89f6f4b57979a33e1edfe1856","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_7065117b0a5d41dca6aa31c80749cb7f","tabbable":null,"tooltip":null,"value":100}},"d40ebda1665b4d50a07ba9cc1ef6c8c0":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}}},"version_major":2,"version_minor":0}
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
