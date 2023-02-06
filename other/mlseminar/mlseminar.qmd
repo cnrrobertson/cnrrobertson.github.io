@@ -8,10 +8,22 @@ Its goal is to expose the participants to topics in machine learning and optimiz
 1. Facilitating hands-on workshops and group discussions to explore and gain experience
 2. Inviting speakers to introduce machine learning and optimization concepts (both established and under development)
 
-
-## Fall 2022
+## Spring 2023
 
 ### Workshops
+- 2/16/23: **Transformer neural networks (DALLE, ChatGPT, etc.)** - David Mazowiecki
+- 3/16/23: **Inverse problems for acoustics** - Diego Rios
+
+### Presentations
+- 2/9/23: **Generative adversarial networks** - Soheil Saghafi
+- 2/23/23: **A deep learning approach to infer connectivity and neuronal dynamics from spike trains** - Rodrigo Pena (NJIT)
+
+---
+## Past Presentations
+
+### Fall 2022
+
+#### Workshops
 - 9/15/22: **Python set up, machine learning basics, gradient descent, and automatic differentiation** - Connor Robertson
     - [Document (with code)](fall_2022/workshop1_intro/workshop1_intro.qmd)
     - [Jupyter notebook](fall_2022/workshop1_intro/workshop1_intro.ipynb)
@@ -32,20 +44,13 @@ Its goal is to expose the participants to topics in machine learning and optimiz
 - 11/3/22: **Recurrent neural networks** - Austin Juhl
     - [Presentation](fall_2022/workshop5_rnn/workshop5_rnn.pdf)
     - [Code repository](https://github.com/judahsemi/Dino-Name-Generator)
+- 11/10/22: [Recurrent neural networks for beat prediction](fall_2022/mlo_talk_Bose.pdf) - Prianka Bose
 - 12/1/22: **Reinforcement learning** - Sepideh Nikookar
     - [Presentation (pdf)](fall_2022/workshop6_reinforcement/workshop6_reinforcement.pdf)
     - [Presentation (pptx)](fall_2022/workshop6_reinforcement/workshop6_reinforcement.pptx)
     - [Document (with code)](fall_2022/workshop6_reinforcement/workshop6_reinforcement.qmd)
     - [Jupyter notebook](fall_2022/workshop6_reinforcement/workshop6_reinforcement.ipynb)
     - [Data (gifs)](fall_2022/workshop6_reinforcement/data.tar.gz)
-
-### Presentations
-- 11/10/22: [Recurrent neural networks for beat prediction](fall_2022/mlo_talk_Bose.pdf) - Prianka Bose
-- 12/8/22: **Generative adversarial networks** - Soheil Saghafi
-
----
-## Past Presentations
-
 
 ### Spring 2022
 - [Wasserstein GANs Work Because They Fail](spring_2022/O_MT_1_Turnquist.pdf) - Axel Turnquist
