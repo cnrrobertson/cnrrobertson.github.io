@@ -12,10 +12,10 @@ Its goal is to expose the participants to topics in machine learning and optimiz
 
 ### Workshops
 - 2/16/23: **Transformer neural networks (DALLE, ChatGPT, etc.)** - David Mazowiecki
-- 3/16/23: **Inverse problems for acoustics** - Diego Rios
+- 3/16/23: **Inverse problem*s for acoustics** - Diego Rios
 
 ### Presentations
-- 2/9/23: **Generative adversarial networks** - Soheil Saghafi
+- 2/9/23: [Generative adversarial networks](spring_2023/soheil_gans_2_9_23.pdf) - Soheil Saghafi
 - 2/23/23: **A deep learning approach to infer connectivity and neuronal dynamics from spike trains** - Rodrigo Pena (NJIT)
 
 ---

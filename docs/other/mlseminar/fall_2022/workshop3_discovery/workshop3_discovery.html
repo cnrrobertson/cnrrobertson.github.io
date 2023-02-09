@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -154,7 +154,7 @@ div.csl-indent {
 <link rel="stylesheet" href="../../../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -205,64 +205,10 @@ div.csl-indent {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Workshop 3: Data-driven discovery via Sparse Identification of Nonlinear Dynamics (SINDy) with neural network approximation and differentiation</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../../../other/mlseminar/mlseminar.html" class="sidebar-item-text sidebar-link">Machine Learning and Optimization Seminar</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../other/mlseminar/fall_2022/workshop1_intro/workshop1_intro.html" class="sidebar-item-text sidebar-link">Workshop 1: Python set up, basics, gradient descent, automatic differentiation</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../other/mlseminar/fall_2022/workshop2_nn/workshop2_nn.pdf" class="sidebar-item-text sidebar-link">Workshop 2: Neural networks - structure, building, and training</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../other/mlseminar/fall_2022/workshop3_discovery/workshop3_discovery.html" class="sidebar-item-text sidebar-link active">Workshop 3: Data-driven discovery via Sparse Identification of Nonlinear Dynamics</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../other/mlseminar/fall_2022/workshop4_cnn/workshop4_cnn.pdf" class="sidebar-item-text sidebar-link">Workshop 4: Convolutional neural networks</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../other/mlseminar/fall_2022/workshop5_rnn/workshop5_rnn.pdf" class="sidebar-item-text sidebar-link">Workshop 5: Recurrent neural networks</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../other/mlseminar/fall_2022/workshop6_reinforcement/workshop6_reinforcement.pdf" class="sidebar-item-text sidebar-link">Workshop 6: Reinforcement learning</a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -304,7 +250,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Workshop 3: Data-driven discovery via Sparse Identification of Nonlinear Dynamics (SINDy) with neural network approximation and differentiation</h1>
+<h1 class="title">Workshop 3: Data-driven discovery via Sparse Identification of Nonlinear Dynamics (SINDy) with neural network approximation and differentiation</h1>
 </div>
 
 
@@ -479,7 +425,7 @@ h_t(x,t) = h_x(x,t)
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"026e1da955724f31b6258ea93ff878d6","version_major":2,"version_minor":0}
+{"model_id":"3e77e6251de14f88ae079ff97faa1374","version_major":2,"version_minor":0}
 </script>
 </div>
 </div>
@@ -678,34 +624,34 @@ Note
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        train_loss <span class="op">=</span> mse(params1,all_xt,all_h)</span>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Training loss step </span><span class="sc">{}</span><span class="st">: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(i,train_loss))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 0: 1.0898101329803467</code></pre>
+<pre><code>Training loss step 0: 1.089915156364441</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 100: 0.16434669494628906</code></pre>
+<pre><code>Training loss step 100: 0.16426406800746918</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 200: 0.09155044704675674</code></pre>
+<pre><code>Training loss step 200: 0.09340785443782806</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 300: 0.01834404096007347</code></pre>
+<pre><code>Training loss step 300: 0.01907801441848278</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 400: 0.0012183969374746084</code></pre>
+<pre><code>Training loss step 400: 0.0014767495449632406</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 500: 0.0004402332124300301</code></pre>
+<pre><code>Training loss step 500: 0.000554197293240577</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 600: 0.000266294606262818</code></pre>
+<pre><code>Training loss step 600: 0.00032399679184891284</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 700: 0.00018376208026893437</code></pre>
+<pre><code>Training loss step 700: 0.00021209089027252048</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 800: 0.00013974899775348604</code></pre>
+<pre><code>Training loss step 800: 0.0001550953311379999</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 900: 0.00011441211245255545</code></pre>
+<pre><code>Training loss step 900: 0.0001249150518560782</code></pre>
 </div>
 </div>
 <p>As you can tell, this procedure is somewhat more manual than other libraries such as <code>keras</code> but keep you closer to the details, allowing for more flexibility in implementation.</p>
@@ -758,7 +704,7 @@ Note
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>x_i <span class="op">=</span> <span class="fl">0.3</span><span class="op">;</span> t_j <span class="op">=</span> <span class="fl">0.3</span></span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>jax.grad(model_for_diff,<span class="dv">0</span>)(x_i,t_j)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>DeviceArray(0.01142633, dtype=float32, weak_type=True)</code></pre>
+<pre><code>Array(0.02786821, dtype=float32, weak_type=True)</code></pre>
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -888,126 +834,126 @@ Note
       <th>-1.71</th>
       <th>-1.71</th>
       <td>1.0</td>
-      <td>-0.585482</td>
-      <td>0.032621</td>
-      <td>0.299091</td>
-      <td>3.230638</td>
-      <td>30.858641</td>
-      <td>0.342789</td>
-      <td>-0.019099</td>
-      <td>-0.175112</td>
-      <td>-1.891480</td>
+      <td>-0.586198</td>
+      <td>0.034345</td>
+      <td>0.328429</td>
+      <td>3.294152</td>
+      <td>31.305639</td>
+      <td>0.343628</td>
+      <td>-0.020133</td>
+      <td>-0.192524</td>
+      <td>-1.931026</td>
       <td>...</td>
-      <td>85.184204</td>
-      <td>10.084811</td>
-      <td>96.328819</td>
-      <td>920.120422</td>
-      <td>8.788872e+03</td>
-      <td>108.931458</td>
-      <td>1040.499268</td>
-      <td>9.938715e+03</td>
-      <td>9.493333e+04</td>
-      <td>9.067909e+05</td>
+      <td>105.712776</td>
+      <td>11.740110</td>
+      <td>111.570938</td>
+      <td>1060.302979</td>
+      <td>1.007648e+04</td>
+      <td>117.753731</td>
+      <td>1119.060547</td>
+      <td>1.063488e+04</td>
+      <td>1.010675e+05</td>
+      <td>9.604844e+05</td>
     </tr>
     <tr>
       <th>-1.68</th>
       <th>-1.71</th>
       <td>1.0</td>
-      <td>-0.584148</td>
-      <td>0.045153</td>
-      <td>0.431625</td>
-      <td>4.487586</td>
-      <td>42.299286</td>
-      <td>0.341229</td>
-      <td>-0.026376</td>
-      <td>-0.252133</td>
-      <td>-2.621416</td>
+      <td>-0.584787</td>
+      <td>0.047935</td>
+      <td>0.463436</td>
+      <td>4.565125</td>
+      <td>42.639248</td>
+      <td>0.341976</td>
+      <td>-0.028032</td>
+      <td>-0.271011</td>
+      <td>-2.669625</td>
       <td>...</td>
-      <td>333.333466</td>
-      <td>39.007198</td>
-      <td>367.675781</td>
-      <td>3465.654785</td>
-      <td>3.266672e+04</td>
-      <td>405.556274</td>
-      <td>3822.710205</td>
-      <td>3.603227e+04</td>
-      <td>3.396346e+05</td>
-      <td>3.201342e+06</td>
+      <td>390.480194</td>
+      <td>44.090813</td>
+      <td>411.817627</td>
+      <td>3846.464600</td>
+      <td>3.592680e+04</td>
+      <td>434.321045</td>
+      <td>4056.651611</td>
+      <td>3.788999e+04</td>
+      <td>3.539006e+05</td>
+      <td>3.305508e+06</td>
     </tr>
     <tr>
       <th>-1.65</th>
       <th>-1.71</th>
       <td>1.0</td>
-      <td>-0.582291</td>
-      <td>0.063118</td>
-      <td>0.615352</td>
-      <td>6.208448</td>
-      <td>57.810596</td>
-      <td>0.339063</td>
-      <td>-0.036753</td>
-      <td>-0.358314</td>
-      <td>-3.615125</td>
+      <td>-0.582814</td>
+      <td>0.067048</td>
+      <td>0.650005</td>
+      <td>6.293957</td>
+      <td>57.914425</td>
+      <td>0.339672</td>
+      <td>-0.039077</td>
+      <td>-0.378832</td>
+      <td>-3.668204</td>
       <td>...</td>
-      <td>1265.501343</td>
-      <td>147.256027</td>
-      <td>1371.189453</td>
-      <td>12767.969727</td>
-      <td>1.188902e+05</td>
-      <td>1485.703979</td>
-      <td>13834.283203</td>
-      <td>1.288193e+05</td>
-      <td>1.199514e+06</td>
-      <td>1.116940e+07</td>
+      <td>1417.120361</td>
+      <td>162.064529</td>
+      <td>1491.251587</td>
+      <td>13721.887695</td>
+      <td>1.262632e+05</td>
+      <td>1569.260986</td>
+      <td>14439.698242</td>
+      <td>1.328682e+05</td>
+      <td>1.222599e+06</td>
+      <td>1.124986e+07</td>
     </tr>
     <tr>
       <th>-1.61</th>
       <th>-1.71</th>
       <td>1.0</td>
-      <td>-0.579688</td>
-      <td>0.088593</td>
-      <td>0.868975</td>
-      <td>8.553134</td>
-      <td>78.522270</td>
-      <td>0.336039</td>
-      <td>-0.051356</td>
-      <td>-0.503735</td>
-      <td>-4.958152</td>
+      <td>-0.580054</td>
+      <td>0.093777</td>
+      <td>0.906569</td>
+      <td>8.635473</td>
+      <td>78.191200</td>
+      <td>0.336462</td>
+      <td>-0.054395</td>
+      <td>-0.525858</td>
+      <td>-5.009038</td>
       <td>...</td>
-      <td>4655.866211</td>
-      <td>543.729858</td>
-      <td>4991.726074</td>
-      <td>45826.671875</td>
-      <td>4.207130e+05</td>
-      <td>5351.814941</td>
-      <td>49132.476562</td>
-      <td>4.510620e+05</td>
-      <td>4.140987e+06</td>
-      <td>3.801644e+07</td>
+      <td>5024.779785</td>
+      <td>583.793213</td>
+      <td>5286.043945</td>
+      <td>47863.289062</td>
+      <td>4.333854e+05</td>
+      <td>5560.893066</td>
+      <td>50351.949219</td>
+      <td>4.559194e+05</td>
+      <td>4.128191e+06</td>
+      <td>3.737933e+07</td>
     </tr>
     <tr>
       <th>-1.58</th>
       <th>-1.71</th>
       <td>1.0</td>
-      <td>-0.576034</td>
-      <td>0.124417</td>
-      <td>1.217474</td>
-      <td>11.722404</td>
-      <td>105.592400</td>
-      <td>0.331815</td>
-      <td>-0.071668</td>
-      <td>-0.701306</td>
-      <td>-6.752501</td>
+      <td>-0.576197</td>
+      <td>0.130949</td>
+      <td>1.257589</td>
+      <td>11.781665</td>
+      <td>104.532784</td>
+      <td>0.332003</td>
+      <td>-0.075453</td>
+      <td>-0.724619</td>
+      <td>-6.788559</td>
       <td>...</td>
-      <td>16526.652344</td>
-      <td>1961.145264</td>
-      <td>17665.492188</td>
-      <td>159126.218750</td>
-      <td>1.433368e+06</td>
-      <td>18882.812500</td>
-      <td>170091.531250</td>
-      <td>1.532141e+06</td>
-      <td>1.380113e+07</td>
-      <td>1.243170e+08</td>
+      <td>17281.535156</td>
+      <td>2056.641846</td>
+      <td>18247.546875</td>
+      <td>161901.296875</td>
+      <td>1.436469e+06</td>
+      <td>19267.558594</td>
+      <td>170951.343750</td>
+      <td>1.516765e+06</td>
+      <td>1.345749e+07</td>
+      <td>1.194016e+08</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1038,126 +984,126 @@ Note
       <th>1.58</th>
       <th>1.71</th>
       <td>1.0</td>
-      <td>-0.593596</td>
-      <td>-0.031917</td>
-      <td>0.124309</td>
-      <td>0.865729</td>
-      <td>5.409935</td>
-      <td>0.352356</td>
-      <td>0.018946</td>
-      <td>-0.073790</td>
-      <td>-0.513894</td>
+      <td>-0.595861</td>
+      <td>-0.032445</td>
+      <td>0.094316</td>
+      <td>0.828272</td>
+      <td>6.051974</td>
+      <td>0.355050</td>
+      <td>0.019333</td>
+      <td>-0.056199</td>
+      <td>-0.493535</td>
       <td>...</td>
-      <td>0.452263</td>
-      <td>0.080658</td>
-      <td>0.504034</td>
-      <td>3.149705</td>
-      <td>1.968248e+01</td>
-      <td>0.561731</td>
-      <td>3.510254</td>
-      <td>2.193554e+01</td>
-      <td>1.370750e+02</td>
-      <td>8.565805e+02</td>
+      <td>0.325811</td>
+      <td>0.053593</td>
+      <td>0.391587</td>
+      <td>2.861229</td>
+      <td>2.090628e+01</td>
+      <td>0.470643</td>
+      <td>3.438868</td>
+      <td>2.512695e+01</td>
+      <td>1.835964e+02</td>
+      <td>1.341493e+03</td>
     </tr>
     <tr>
       <th>1.61</th>
       <th>1.71</th>
       <td>1.0</td>
-      <td>-0.594621</td>
-      <td>-0.027048</td>
-      <td>0.158013</td>
-      <td>1.093115</td>
-      <td>7.855449</td>
-      <td>0.353574</td>
-      <td>0.016083</td>
-      <td>-0.093958</td>
-      <td>-0.649989</td>
+      <td>-0.596922</td>
+      <td>-0.028636</td>
+      <td>0.127099</td>
+      <td>1.080399</td>
+      <td>8.665757</td>
+      <td>0.356316</td>
+      <td>0.017094</td>
+      <td>-0.075868</td>
+      <td>-0.644914</td>
       <td>...</td>
-      <td>1.540738</td>
-      <td>0.206391</td>
-      <td>1.483188</td>
-      <td>10.658629</td>
-      <td>7.659605e+01</td>
-      <td>1.427789</td>
-      <td>10.260510</td>
-      <td>7.373505e+01</td>
-      <td>5.298819e+02</td>
-      <td>3.807887e+03</td>
+      <td>1.213107</td>
+      <td>0.160286</td>
+      <td>1.285635</td>
+      <td>10.311934</td>
+      <td>8.271088e+01</td>
+      <td>1.362498</td>
+      <td>10.928448</td>
+      <td>8.765587e+01</td>
+      <td>7.030781e+02</td>
+      <td>5.639311e+03</td>
     </tr>
     <tr>
       <th>1.65</th>
       <th>1.71</th>
       <td>1.0</td>
-      <td>-0.595455</td>
-      <td>-0.020860</td>
-      <td>0.201215</td>
-      <td>1.422090</td>
-      <td>11.353171</td>
-      <td>0.354567</td>
-      <td>0.012421</td>
-      <td>-0.119814</td>
-      <td>-0.846791</td>
+      <td>-0.597831</td>
+      <td>-0.023519</td>
+      <td>0.170407</td>
+      <td>1.441151</td>
+      <td>12.374259</td>
+      <td>0.357401</td>
+      <td>0.014061</td>
+      <td>-0.101875</td>
+      <td>-0.861564</td>
       <td>...</td>
-      <td>5.218610</td>
-      <td>0.578684</td>
-      <td>4.619892</td>
-      <td>36.882626</td>
-      <td>2.944502e+02</td>
-      <td>4.089862</td>
-      <td>32.651169</td>
-      <td>2.606686e+02</td>
-      <td>2.081032e+03</td>
-      <td>1.661379e+04</td>
+      <td>4.446455</td>
+      <td>0.510054</td>
+      <td>4.379515</td>
+      <td>37.604141</td>
+      <td>3.228831e+02</td>
+      <td>4.313581</td>
+      <td>37.038013</td>
+      <td>3.180222e+02</td>
+      <td>2.730656e+03</td>
+      <td>2.344643e+04</td>
     </tr>
     <tr>
       <th>1.68</th>
       <th>1.71</th>
       <td>1.0</td>
-      <td>-0.596047</td>
-      <td>-0.012948</td>
-      <td>0.258214</td>
-      <td>1.896819</td>
-      <td>16.340858</td>
-      <td>0.355271</td>
-      <td>0.007718</td>
-      <td>-0.153907</td>
-      <td>-1.130592</td>
+      <td>-0.598532</td>
+      <td>-0.016657</td>
+      <td>0.228717</td>
+      <td>1.955418</td>
+      <td>17.616632</td>
+      <td>0.358240</td>
+      <td>0.009970</td>
+      <td>-0.136894</td>
+      <td>-1.170380</td>
       <td>...</td>
-      <td>17.803600</td>
-      <td>1.762207</td>
-      <td>15.181189</td>
-      <td>130.784027</td>
-      <td>1.126688e+03</td>
-      <td>12.945052</td>
-      <td>111.519989</td>
-      <td>9.607307e+02</td>
-      <td>8.276573e+03</td>
-      <td>7.130162e+04</td>
+      <td>16.234627</td>
+      <td>1.710083</td>
+      <td>15.406376</td>
+      <td>138.798172</td>
+      <td>1.250452e+03</td>
+      <td>14.620379</td>
+      <td>131.717010</td>
+      <td>1.186657e+03</td>
+      <td>1.069075e+04</td>
+      <td>9.631448e+04</td>
     </tr>
     <tr>
       <th>1.71</th>
       <th>1.71</th>
       <td>1.0</td>
-      <td>-0.596326</td>
-      <td>-0.002742</td>
-      <td>0.335006</td>
-      <td>2.578177</td>
-      <td>23.412802</td>
-      <td>0.355605</td>
-      <td>0.001635</td>
-      <td>-0.199773</td>
-      <td>-1.537435</td>
+      <td>-0.598957</td>
+      <td>-0.007424</td>
+      <td>0.308405</td>
+      <td>2.686601</td>
+      <td>25.003866</td>
+      <td>0.358750</td>
+      <td>0.004447</td>
+      <td>-0.184721</td>
+      <td>-1.609159</td>
       <td>...</td>
-      <td>61.519466</td>
-      <td>5.741048</td>
-      <td>52.135292</td>
-      <td>473.448181</td>
-      <td>4.299452e+03</td>
-      <td>44.182579</td>
-      <td>401.228424</td>
-      <td>3.643614e+03</td>
-      <td>3.308818e+04</td>
-      <td>3.004786e+05</td>
+      <td>59.464287</td>
+      <td>5.980401</td>
+      <td>55.658863</td>
+      <td>518.010254</td>
+      <td>4.821059e+03</td>
+      <td>52.096973</td>
+      <td>484.860199</td>
+      <td>4.512535e+03</td>
+      <td>4.199762e+04</td>
+      <td>3.908667e+05</td>
     </tr>
   </tbody>
 </table>
@@ -1186,7 +1132,7 @@ Note
 <span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ols_results</span>
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>compute_ols_results(term_matrix, h_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9987072399768019</code></pre>
+<pre><code>R^2: 0.9996492734907563</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 
@@ -1222,27 +1168,27 @@ Note
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>7.305386e-07</td>
-      <td>-0.000263</td>
-      <td>0.007865</td>
-      <td>0.00078</td>
-      <td>0.020306</td>
-      <td>0.000558</td>
-      <td>-0.000865</td>
-      <td>0.001602</td>
-      <td>0.003387</td>
-      <td>-0.003978</td>
+      <td>-0.006074</td>
+      <td>-0.000767</td>
+      <td>0.012011</td>
+      <td>-0.019441</td>
+      <td>0.020865</td>
+      <td>-0.001556</td>
+      <td>0.001374</td>
+      <td>-0.001566</td>
+      <td>-0.003335</td>
+      <td>-0.005921</td>
       <td>...</td>
-      <td>1.934960e-10</td>
-      <td>-9.703247e-10</td>
-      <td>-5.762052e-10</td>
-      <td>2.650240e-11</td>
-      <td>1.596587e-13</td>
-      <td>7.131852e-11</td>
-      <td>-6.073799e-12</td>
-      <td>-4.703859e-13</td>
-      <td>2.591677e-14</td>
-      <td>-1.654493e-16</td>
+      <td>-6.012885e-10</td>
+      <td>1.292627e-09</td>
+      <td>-3.423755e-11</td>
+      <td>1.410440e-11</td>
+      <td>-2.050787e-12</td>
+      <td>1.208457e-10</td>
+      <td>-2.007819e-12</td>
+      <td>8.242712e-14</td>
+      <td>1.095998e-14</td>
+      <td>-1.987343e-15</td>
     </tr>
   </tbody>
 </table>
@@ -1267,7 +1213,7 @@ Note
 <span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> lasso_results</span>
 <span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>compute_lasso_results(term_matrix,h_t,<span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:648: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.736e+03, tolerance: 1.101e+01
+<pre><code>/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:648: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.776e+03, tolerance: 1.101e+01
   model = cd_fast.enet_coordinate_descent(</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="18">
@@ -1304,31 +1250,31 @@ Note
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.000019</td>
-      <td>0.000042</td>
+      <td>-0.000042</td>
+      <td>0.000011</td>
       <td>0.000006</td>
-      <td>-0.000016</td>
-      <td>0.000005</td>
-      <td>-9.063636e-08</td>
-      <td>0.000033</td>
-      <td>-0.000011</td>
-      <td>-0.000004</td>
+      <td>-0.000013</td>
+      <td>0.000006</td>
+      <td>-9.324149e-08</td>
+      <td>0.000018</td>
+      <td>-0.00001</td>
+      <td>-0.000006</td>
       <td>-0.000003</td>
       <td>...</td>
-      <td>2.762180e-11</td>
-      <td>7.853975e-10</td>
-      <td>-2.607652e-10</td>
-      <td>4.844794e-12</td>
-      <td>-2.047032e-13</td>
-      <td>-2.796429e-11</td>
-      <td>7.585219e-12</td>
-      <td>-3.492170e-13</td>
-      <td>1.942534e-14</td>
-      <td>-4.624859e-16</td>
+      <td>3.263501e-12</td>
+      <td>4.454580e-10</td>
+      <td>-3.401866e-10</td>
+      <td>7.938618e-12</td>
+      <td>-2.294608e-13</td>
+      <td>-1.175425e-11</td>
+      <td>1.186419e-11</td>
+      <td>-5.447040e-13</td>
+      <td>3.270449e-14</td>
+      <td>-2.627133e-16</td>
     </tr>
   </tbody>
 </table>
-<p>1 rows × 86 columns</p>
+<p>1 rows × 85 columns</p>
 </div>
 </div>
 </div>
@@ -1349,15 +1295,15 @@ Note
 <pre><code>lambda = 1000</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 6479.129693739391, tolerance: 11.011605073535403
+<pre><code>/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 6980.483780579942, tolerance: 11.006989386931043
   model = cd_fast.enet_coordinate_descent_gram(
-/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 4239.991695254213, tolerance: 11.011605073535403
+/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 4524.135133175237, tolerance: 11.006989386931043
   model = cd_fast.enet_coordinate_descent_gram(
-/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 3002.8945381092335, tolerance: 11.011605073535403
+/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 3107.4025479351976, tolerance: 11.006989386931043
   model = cd_fast.enet_coordinate_descent_gram(
-/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 1179.975834201264, tolerance: 11.011605073535403
+/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 1188.0183171689562, tolerance: 11.006989386931043
   model = cd_fast.enet_coordinate_descent_gram(
-/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 654.8432797880382, tolerance: 11.011605073535403
+/home/connor/mambaforge/envs/website/lib/python3.9/site-packages/sklearn/linear_model/_coordinate_descent.py:634: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Duality gap: 697.3581390562916, tolerance: 11.006989386931043
   model = cd_fast.enet_coordinate_descent_gram(</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -1370,6 +1316,7 @@ Note
       <th></th>
       <th>h_xxx(x, t)*h_xxxx(x, t)</th>
       <th>h_xxxx(x, t)**2</th>
+      <th>h(x, t)*h_xx(x, t)*h_xxxx(x, t)</th>
       <th>h(x, t)*h_xxx(x, t)*h_xxxx(x, t)</th>
       <th>h(x, t)*h_xxxx(x, t)**2</th>
       <th>h_x(x, t)**2*h_xxxx(x, t)</th>
@@ -1377,7 +1324,6 @@ Note
       <th>h_x(x, t)*h_xxx(x, t)**2</th>
       <th>h_x(x, t)*h_xxx(x, t)*h_xxxx(x, t)</th>
       <th>h_x(x, t)*h_xxxx(x, t)**2</th>
-      <th>h_xx(x, t)**2*h_xxx(x, t)</th>
       <th>...</th>
       <th>h_xx(x, t)**2*h_xxxx(x, t)**2</th>
       <th>h_xx(x, t)*h_xxx(x, t)**3</th>
@@ -1394,27 +1340,27 @@ Note
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>0.000004</td>
-      <td>-1.358431e-07</td>
-      <td>-0.000003</td>
-      <td>1.734877e-07</td>
+      <td>0.000009</td>
+      <td>-1.087579e-07</td>
+      <td>-0.000001</td>
+      <td>-0.000005</td>
+      <td>2.171248e-07</td>
       <td>-0.000024</td>
-      <td>-0.000018</td>
+      <td>-0.000019</td>
       <td>0.000018</td>
-      <td>1.798373e-07</td>
-      <td>2.194965e-08</td>
-      <td>0.00002</td>
+      <td>-2.755649e-07</td>
+      <td>3.451722e-08</td>
       <td>...</td>
-      <td>1.755277e-12</td>
-      <td>5.409176e-09</td>
-      <td>-4.538993e-10</td>
-      <td>-1.582512e-11</td>
-      <td>-5.175585e-13</td>
-      <td>-1.599987e-10</td>
-      <td>1.446256e-11</td>
-      <td>-1.393073e-12</td>
-      <td>5.006291e-15</td>
-      <td>-1.081716e-15</td>
+      <td>-8.895495e-11</td>
+      <td>6.462359e-09</td>
+      <td>-6.202690e-10</td>
+      <td>-1.216947e-11</td>
+      <td>-6.853476e-13</td>
+      <td>-1.306299e-10</td>
+      <td>3.176435e-11</td>
+      <td>-1.961896e-12</td>
+      <td>3.128785e-14</td>
+      <td>-1.361317e-16</td>
     </tr>
   </tbody>
 </table>
@@ -1432,7 +1378,6 @@ Note
   <thead>
     <tr>
       <th></th>
-      <th>h_xx(x, t)*h_xxxx(x, t)</th>
       <th>h_xxx(x, t)*h_xxxx(x, t)</th>
       <th>h_xxxx(x, t)**2</th>
       <th>h(x, t)*h_xxx(x, t)**2</th>
@@ -1442,6 +1387,7 @@ Note
       <th>h_x(x, t)*h_xx(x, t)**2</th>
       <th>h_x(x, t)*h_xx(x, t)*h_xxx(x, t)</th>
       <th>h_x(x, t)*h_xx(x, t)*h_xxxx(x, t)</th>
+      <th>h_x(x, t)*h_xxx(x, t)**2</th>
       <th>...</th>
       <th>h_xx(x, t)**2*h_xxxx(x, t)**2</th>
       <th>h_xx(x, t)*h_xxx(x, t)**3</th>
@@ -1458,27 +1404,27 @@ Note
   <tbody>
     <tr>
       <th>Coefficients</th>
+      <td>0.000011</td>
+      <td>-1.387047e-07</td>
+      <td>-0.000025</td>
       <td>-0.000006</td>
-      <td>0.000006</td>
-      <td>-7.521095e-08</td>
-      <td>-0.00002</td>
-      <td>-0.000005</td>
-      <td>1.823142e-07</td>
-      <td>-0.000026</td>
-      <td>0.000536</td>
-      <td>0.000015</td>
+      <td>2.198013e-07</td>
+      <td>-0.000021</td>
+      <td>0.000665</td>
+      <td>0.000017</td>
       <td>-0.000011</td>
+      <td>0.000016</td>
       <td>...</td>
-      <td>-2.414194e-11</td>
-      <td>5.320476e-09</td>
-      <td>-4.616117e-10</td>
-      <td>-1.611757e-11</td>
-      <td>-6.934056e-13</td>
-      <td>-1.620881e-10</td>
-      <td>1.653062e-11</td>
-      <td>-8.339717e-13</td>
-      <td>-2.720482e-15</td>
-      <td>-1.134801e-15</td>
+      <td>-1.070690e-10</td>
+      <td>7.987405e-09</td>
+      <td>-6.214230e-10</td>
+      <td>-1.383315e-11</td>
+      <td>-9.970465e-13</td>
+      <td>-7.850788e-11</td>
+      <td>4.038726e-11</td>
+      <td>-1.214295e-12</td>
+      <td>2.695820e-14</td>
+      <td>-1.176027e-15</td>
     </tr>
   </tbody>
 </table>
@@ -1496,7 +1442,6 @@ Note
   <thead>
     <tr>
       <th></th>
-      <th>h_xxx(x, t)**2</th>
       <th>h_xxx(x, t)*h_xxxx(x, t)</th>
       <th>h_xxxx(x, t)**2</th>
       <th>h(x, t)*h_xxx(x, t)**2</th>
@@ -1506,6 +1451,7 @@ Note
       <th>h_x(x, t)*h_xx(x, t)**2</th>
       <th>h_x(x, t)*h_xx(x, t)*h_xxx(x, t)</th>
       <th>h_x(x, t)*h_xx(x, t)*h_xxxx(x, t)</th>
+      <th>h_x(x, t)*h_xxx(x, t)**2</th>
       <th>...</th>
       <th>h_xx(x, t)**2*h_xxxx(x, t)**2</th>
       <th>h_xx(x, t)*h_xxx(x, t)**3</th>
@@ -1522,31 +1468,31 @@ Note
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.000002</td>
-      <td>0.000008</td>
-      <td>-8.488413e-08</td>
-      <td>-0.000036</td>
+      <td>0.000013</td>
+      <td>-2.292844e-07</td>
+      <td>-0.000043</td>
       <td>-0.000005</td>
-      <td>2.101204e-07</td>
-      <td>-0.000021</td>
-      <td>0.000994</td>
-      <td>0.000005</td>
+      <td>2.366792e-07</td>
+      <td>-0.000014</td>
+      <td>0.001129</td>
+      <td>0.000014</td>
       <td>-0.000006</td>
+      <td>0.000011</td>
       <td>...</td>
-      <td>-4.268632e-11</td>
-      <td>5.269517e-09</td>
-      <td>-4.910490e-10</td>
-      <td>-1.314523e-11</td>
-      <td>-7.742993e-13</td>
-      <td>-1.331652e-10</td>
-      <td>2.042833e-11</td>
-      <td>-5.987478e-13</td>
-      <td>2.408342e-15</td>
-      <td>-1.135245e-15</td>
+      <td>-1.032142e-10</td>
+      <td>8.410341e-09</td>
+      <td>-6.058633e-10</td>
+      <td>-1.360524e-11</td>
+      <td>-1.086436e-12</td>
+      <td>-3.424014e-11</td>
+      <td>4.570394e-11</td>
+      <td>-6.688498e-13</td>
+      <td>2.538924e-14</td>
+      <td>-1.630228e-15</td>
     </tr>
   </tbody>
 </table>
-<p>1 rows × 74 columns</p>
+<p>1 rows × 73 columns</p>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
@@ -1565,11 +1511,11 @@ Note
       <th>h_xxx(x, t)**2</th>
       <th>h_xxx(x, t)*h_xxxx(x, t)</th>
       <th>h_xxxx(x, t)**2</th>
+      <th>h(x, t)*h_x(x, t)*h_xxxx(x, t)</th>
       <th>h(x, t)*h_xx(x, t)*h_xxx(x, t)</th>
       <th>h(x, t)*h_xx(x, t)*h_xxxx(x, t)</th>
       <th>h(x, t)*h_xxx(x, t)**2</th>
       <th>h(x, t)*h_xxx(x, t)*h_xxxx(x, t)</th>
-      <th>h(x, t)*h_xxxx(x, t)**2</th>
       <th>...</th>
       <th>h_xx(x, t)**2*h_xxxx(x, t)**2</th>
       <th>h_xx(x, t)*h_xxx(x, t)**3</th>
@@ -1586,31 +1532,31 @@ Note
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.000078</td>
-      <td>0.000022</td>
-      <td>-0.00003</td>
-      <td>0.000009</td>
-      <td>-3.621464e-08</td>
-      <td>-0.000142</td>
-      <td>0.000003</td>
-      <td>-0.000044</td>
-      <td>-0.000006</td>
-      <td>2.333756e-07</td>
+      <td>-0.000067</td>
+      <td>0.000025</td>
+      <td>-0.000013</td>
+      <td>0.000012</td>
+      <td>-1.936250e-07</td>
+      <td>-0.000017</td>
+      <td>-0.000174</td>
+      <td>0.000006</td>
+      <td>-0.000052</td>
+      <td>-0.000005</td>
       <td>...</td>
-      <td>-5.158209e-11</td>
-      <td>5.223241e-09</td>
-      <td>-5.293248e-10</td>
-      <td>-6.898464e-12</td>
-      <td>-7.832659e-13</td>
-      <td>-9.675606e-11</td>
-      <td>2.194779e-11</td>
-      <td>-3.257965e-13</td>
-      <td>9.419454e-15</td>
-      <td>-1.060554e-15</td>
+      <td>-1.046131e-10</td>
+      <td>7.854440e-09</td>
+      <td>-5.748668e-10</td>
+      <td>-1.008073e-11</td>
+      <td>-1.033930e-12</td>
+      <td>-1.095605e-11</td>
+      <td>4.469762e-11</td>
+      <td>-1.600585e-13</td>
+      <td>2.423573e-14</td>
+      <td>-1.629860e-15</td>
     </tr>
   </tbody>
 </table>
-<p>1 rows × 87 columns</p>
+<p>1 rows × 88 columns</p>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
@@ -1624,8 +1570,6 @@ Note
   <thead>
     <tr>
       <th></th>
-      <th>h(x, t)*h_xxxx(x, t)</th>
-      <th>h_x(x, t)*h_xxx(x, t)</th>
       <th>h_x(x, t)*h_xxxx(x, t)</th>
       <th>h_xx(x, t)**2</th>
       <th>h_xx(x, t)*h_xxx(x, t)</th>
@@ -1634,6 +1578,8 @@ Note
       <th>h_xxx(x, t)*h_xxxx(x, t)</th>
       <th>h_xxxx(x, t)**2</th>
       <th>h(x, t)**2*h_xxxx(x, t)</th>
+      <th>h(x, t)*h_x(x, t)*h_xxxx(x, t)</th>
+      <th>h(x, t)*h_xx(x, t)*h_xxx(x, t)</th>
       <th>...</th>
       <th>h_xx(x, t)**2*h_xxxx(x, t)**2</th>
       <th>h_xx(x, t)*h_xxx(x, t)**3</th>
@@ -1650,31 +1596,31 @@ Note
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.000016</td>
-      <td>0.000541</td>
-      <td>-0.00018</td>
-      <td>-0.000066</td>
-      <td>0.000133</td>
-      <td>0.000032</td>
-      <td>-0.000033</td>
-      <td>0.000008</td>
-      <td>-1.995623e-08</td>
-      <td>-0.000084</td>
+      <td>-0.00013</td>
+      <td>-0.000047</td>
+      <td>0.000031</td>
+      <td>0.000036</td>
+      <td>-0.00001</td>
+      <td>0.00001</td>
+      <td>-1.567570e-07</td>
+      <td>-0.000049</td>
+      <td>-0.000029</td>
+      <td>-0.00042</td>
       <td>...</td>
-      <td>-6.687787e-11</td>
-      <td>4.931579e-09</td>
-      <td>-4.735351e-10</td>
-      <td>-7.393932e-12</td>
-      <td>-6.988554e-13</td>
-      <td>-7.077843e-11</td>
-      <td>1.972181e-11</td>
-      <td>-3.251633e-14</td>
-      <td>7.291433e-15</td>
-      <td>-8.183021e-16</td>
+      <td>-1.108456e-10</td>
+      <td>6.983191e-09</td>
+      <td>-4.148959e-10</td>
+      <td>-1.275555e-11</td>
+      <td>-8.681877e-13</td>
+      <td>-4.061798e-12</td>
+      <td>3.953281e-11</td>
+      <td>3.713025e-13</td>
+      <td>1.342052e-14</td>
+      <td>-1.264346e-15</td>
     </tr>
   </tbody>
 </table>
-<p>1 rows × 97 columns</p>
+<p>1 rows × 95 columns</p>
 </div>
 </div>
 </div>
@@ -1708,7 +1654,7 @@ Note
 <span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a>forward_r2_select(term_matrix, h_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9999009929293052</code></pre>
+<pre><code>R^2: 0.9998860862791236</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -1724,39 +1670,14 @@ Note
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>0.9948</td>
+      <td>0.994806</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9999137793593055</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>h_x(x, t)</th>
-      <th>h(x, t)*h_x(x, t)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Coefficients</th>
-      <td>1.000245</td>
-      <td>-0.004588</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9999166091843339</code></pre>
+<pre><code>R^2: 0.999894405563566</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -1768,22 +1689,20 @@ Note
       <th></th>
       <th>h_x(x, t)</th>
       <th>h(x, t)*h_x(x, t)</th>
-      <th>h_x(x, t)**2*h_xxx(x, t)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>1.000994</td>
-      <td>-0.003494</td>
-      <td>0.000001</td>
+      <td>0.999196</td>
+      <td>-0.003702</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9999179601805686</code></pre>
+<pre><code>R^2: 0.9998959178372478</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -1796,16 +1715,43 @@ Note
       <th>h_x(x, t)</th>
       <th>h(x, t)*h_x(x, t)</th>
       <th>h_x(x, t)**2*h_xxx(x, t)</th>
-      <th>h_x(x, t)*h_xx(x, t)*h_xxxx(x, t)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>1.001286</td>
-      <td>-0.003129</td>
-      <td>0.000001</td>
-      <td>1.281114e-08</td>
+      <td>0.999783</td>
+      <td>-0.002925</td>
+      <td>9.549915e-07</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R^2: 0.999896315291591</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>h_x(x, t)</th>
+      <th>h(x, t)*h_x(x, t)</th>
+      <th>h_x(x, t)**2*h_xxx(x, t)</th>
+      <th>h_xxxx(x, t)**3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Coefficients</th>
+      <td>0.999799</td>
+      <td>-0.002916</td>
+      <td>9.808213e-07</td>
+      <td>2.122813e-14</td>
     </tr>
   </tbody>
 </table>
@@ -1891,78 +1837,78 @@ Note
 <span id="cb50-47"><a href="#cb50-47" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 0
-Training loss: 1.096426248550415
-Validation loss: 1.0614256858825684
+Training loss: 1.1194767951965332
+Validation loss: 1.043696641921997
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 100
-Training loss: 0.24856211245059967
-Validation loss: 0.2242167741060257
+Training loss: 0.22590158879756927
+Validation loss: 0.19925758242607117
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 200
-Training loss: 0.1528051644563675
-Validation loss: 0.13052992522716522
+Training loss: 0.14673128724098206
+Validation loss: 0.1274770051240921
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 300
-Training loss: 0.11249998211860657
-Validation loss: 0.09524193406105042
+Training loss: 0.10574697703123093
+Validation loss: 0.09467066079378128
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 400
-Training loss: 0.06492499262094498
-Validation loss: 0.05927733704447746
+Training loss: 0.05468495935201645
+Validation loss: 0.05466819927096367
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 500
-Training loss: 0.0453445240855217
-Validation loss: 0.043655507266521454
+Training loss: 0.04047770798206329
+Validation loss: 0.04308726266026497
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 600
-Training loss: 0.041188061237335205
-Validation loss: 0.04045151174068451
+Training loss: 0.03938451409339905
+Validation loss: 0.041798561811447144
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 700
-Training loss: 0.04039134457707405
-Validation loss: 0.04004029184579849
+Training loss: 0.03867882117629051
+Validation loss: 0.04132625088095665
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 800
-Training loss: 0.04142721742391586
-Validation loss: 0.041196469217538834
+Training loss: 0.03799604997038841
+Validation loss: 0.04131803661584854
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 900
-Training loss: 0.041981782764196396
-Validation loss: 0.041676320135593414
+Training loss: 0.03866703808307648
+Validation loss: 0.04225515201687813
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 1000
-Training loss: 0.041559334844350815
-Validation loss: 0.04100088030099869
+Training loss: 0.03910544142127037
+Validation loss: 0.042456675320863724
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 1100
-Training loss: 0.039972953498363495
-Validation loss: 0.03931911289691925
+Training loss: 0.03844697028398514
+Validation loss: 0.041578296571969986
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Test loss after training: 0.03955989331007004</code></pre>
+<pre><code>Test loss after training: 0.04242194816470146</code></pre>
 </div>
 </div>
 <p>The resulting fit can be seen in the following video:</p>
@@ -1999,7 +1945,7 @@ Validation loss: 0.03931911289691925
 <span id="cb64-26"><a href="#cb64-26" aria-hidden="true" tabindex="-1"></a>term_matrix <span class="op">=</span> pd.DataFrame(term_values,index<span class="op">=</span>pd.MultiIndex.from_arrays(np.<span class="bu">round</span>(np.array(xt_points),<span class="dv">2</span>).T, names<span class="op">=</span>(<span class="st">"x"</span>,<span class="st">"t"</span>)))</span>
 <span id="cb64-27"><a href="#cb64-27" aria-hidden="true" tabindex="-1"></a>forward_r2_select(term_matrix, h_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9993203642386503</code></pre>
+<pre><code>R^2: 0.9993392969264941</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2015,14 +1961,14 @@ Validation loss: 0.03931911289691925
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>0.995716</td>
+      <td>1.00325</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9993922570879483</code></pre>
+<pre><code>R^2: 0.9993709329288317</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2033,21 +1979,21 @@ Validation loss: 0.03931911289691925
     <tr>
       <th></th>
       <th>h_x(x, t)</th>
-      <th>h(x, t)*h_x(x, t)</th>
+      <th>h_x(x, t)**3</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>1.008756</td>
-      <td>-0.010986</td>
+      <td>1.016946</td>
+      <td>-0.000292</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9993989412117996</code></pre>
+<pre><code>R^2: 0.9993861617630267</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2058,23 +2004,23 @@ Validation loss: 0.03931911289691925
     <tr>
       <th></th>
       <th>h_x(x, t)</th>
-      <th>h(x, t)*h_x(x, t)</th>
-      <th>h_x(x, t)**2</th>
+      <th>h_x(x, t)**3</th>
+      <th>h_x(x, t)**2*h_xx(x, t)*h_xxxx(x, t)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>1.008356</td>
-      <td>-0.010895</td>
-      <td>0.000432</td>
+      <td>1.016697</td>
+      <td>-0.000271</td>
+      <td>4.722656e-09</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9994035211848762</code></pre>
+<pre><code>R^2: 0.9993905190748357</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2085,18 +2031,18 @@ Validation loss: 0.03931911289691925
     <tr>
       <th></th>
       <th>h_x(x, t)</th>
-      <th>h_xxx(x, t)</th>
-      <th>h(x, t)*h_x(x, t)</th>
-      <th>h_x(x, t)**2</th>
+      <th>h_x(x, t)**3</th>
+      <th>h_x(x, t)**2*h_xx(x, t)*h_xxxx(x, t)</th>
+      <th>h_x(x, t)*h_xxx(x, t)**3</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>1.008077</td>
-      <td>0.000086</td>
-      <td>-0.008805</td>
-      <td>0.000495</td>
+      <td>1.015508</td>
+      <td>-0.000238</td>
+      <td>4.224284e-09</td>
+      <td>2.301604e-11</td>
     </tr>
   </tbody>
 </table>
@@ -2293,78 +2239,78 @@ Validation loss: 0.03931911289691925
 <span id="cb75-54"><a href="#cb75-54" aria-hidden="true" tabindex="-1"></a>plt.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 0
-Training loss: 1.048029899597168
-Validation loss: 1.084288477897644
+Training loss: 1.0632187128067017
+Validation loss: 1.0558362007141113
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 100
-Training loss: 0.019095050171017647
-Validation loss: 0.018683746457099915
+Training loss: 0.01851588860154152
+Validation loss: 0.01940101385116577
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 200
-Training loss: 0.01550883986055851
-Validation loss: 0.01508625689893961
+Training loss: 0.015976857393980026
+Validation loss: 0.017220333218574524
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 300
-Training loss: 0.015007833018898964
-Validation loss: 0.014961878769099712
+Training loss: 0.015184471383690834
+Validation loss: 0.016331158578395844
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 400
-Training loss: 0.014233827590942383
-Validation loss: 0.013819326646625996
+Training loss: 0.014823026955127716
+Validation loss: 0.01588410511612892
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 500
-Training loss: 0.013691544532775879
-Validation loss: 0.013394343666732311
+Training loss: 0.014342446811497211
+Validation loss: 0.01569431461393833
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 600
-Training loss: 0.013891058973968029
-Validation loss: 0.014142909087240696
+Training loss: 0.014041073620319366
+Validation loss: 0.015180219896137714
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 700
-Training loss: 0.013472299091517925
-Validation loss: 0.01331472396850586
+Training loss: 0.013626143336296082
+Validation loss: 0.014746339060366154
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 800
-Training loss: 0.013176359236240387
-Validation loss: 0.013051674701273441
+Training loss: 0.01330993790179491
+Validation loss: 0.014668610878288746
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 900
-Training loss: 0.01349588856101036
-Validation loss: 0.013870802707970142
+Training loss: 0.012597917579114437
+Validation loss: 0.013677381910383701
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 1000
-Training loss: 0.01288254652172327
-Validation loss: 0.012871635146439075
+Training loss: 0.012168439105153084
+Validation loss: 0.013257894665002823
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Step 1100
-Training loss: 0.01262914389371872
-Validation loss: 0.012560416013002396
+Training loss: 0.0117816012352705
+Validation loss: 0.01303891185671091
 </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Test loss after training: 0.01305135153234005</code></pre>
+<pre><code>Test loss after training: 0.011483825743198395</code></pre>
 </div>
 </div>
 <p><img src="ext_h_compare.gif" class="img-fluid"></p>
@@ -2397,7 +2343,7 @@ Validation loss: 0.012560416013002396
 <span id="cb89-26"><a href="#cb89-26" aria-hidden="true" tabindex="-1"></a>term_matrix <span class="op">=</span> pd.DataFrame(term_values,index<span class="op">=</span>pd.MultiIndex.from_arrays(np.<span class="bu">round</span>(np.array(xt_ext),<span class="dv">2</span>).T, names<span class="op">=</span>(<span class="st">"x"</span>,<span class="st">"t"</span>)))</span>
 <span id="cb89-27"><a href="#cb89-27" aria-hidden="true" tabindex="-1"></a>forward_r2_select(term_matrix, h_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9904072946412229</code></pre>
+<pre><code>R^2: 0.9875224240171934</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2413,14 +2359,14 @@ Validation loss: 0.012560416013002396
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.966266</td>
+      <td>-0.961985</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9904397777920828</code></pre>
+<pre><code>R^2: 0.9876171572214733</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2431,21 +2377,21 @@ Validation loss: 0.012560416013002396
     <tr>
       <th></th>
       <th>h_x(x, t)</th>
-      <th>h_x(x, t)*h_xx(x, t)</th>
+      <th>h_xxx(x, t)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.96636</td>
-      <td>-0.000248</td>
+      <td>-0.969633</td>
+      <td>-0.000262</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.990663670137724</code></pre>
+<pre><code>R^2: 0.9889580646300185</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2456,23 +2402,23 @@ Validation loss: 0.012560416013002396
     <tr>
       <th></th>
       <th>h_x(x, t)</th>
-      <th>h(x, t)*h_x(x, t)</th>
-      <th>h_x(x, t)*h_xx(x, t)</th>
+      <th>h_xxx(x, t)</th>
+      <th>h(x, t)*h_xxx(x, t)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.929208</td>
-      <td>-0.028443</td>
-      <td>-0.001005</td>
+      <td>-0.965043</td>
+      <td>-0.003069</td>
+      <td>0.001432</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R^2: 0.9910591172160474</code></pre>
+<pre><code>R^2: 0.9914867668193532</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 
@@ -2483,18 +2429,18 @@ Validation loss: 0.012560416013002396
     <tr>
       <th></th>
       <th>h_x(x, t)</th>
-      <th>h(x, t)*h_x(x, t)</th>
-      <th>h_x(x, t)*h_xx(x, t)</th>
-      <th>h(x, t)*h_x(x, t)*h_xx(x, t)</th>
+      <th>h_xxx(x, t)</th>
+      <th>h(x, t)*h_xxx(x, t)</th>
+      <th>h(x, t)**2*h_xxx(x, t)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Coefficients</th>
-      <td>-0.87648</td>
-      <td>-0.049882</td>
-      <td>-0.005243</td>
-      <td>0.00193</td>
+      <td>-0.93966</td>
+      <td>-0.006127</td>
+      <td>0.007397</td>
+      <td>-0.001986</td>
     </tr>
   </tbody>
 </table>
@@ -2573,31 +2519,31 @@ Validation loss: 0.012560416013002396
 <pre><code>Training loss step 0: 0.3563382923603058</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 100: 0.0009187604882754385</code></pre>
+<pre><code>Training loss step 100: 0.0009187606628984213</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 200: 0.0008465293794870377</code></pre>
+<pre><code>Training loss step 200: 0.0008465295541100204</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 300: 0.0007735078688710928</code></pre>
+<pre><code>Training loss step 300: 0.0007735079852864146</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Training loss step 400: 0.0006919147563166916</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 500: 0.0006207432597875595</code></pre>
+<pre><code>Training loss step 500: 0.0006207430851645768</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 600: 0.0005757116014137864</code></pre>
+<pre><code>Training loss step 600: 0.0005757115432061255</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 700: 0.0005529412883333862</code></pre>
+<pre><code>Training loss step 700: 0.0005529409390874207</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 800: 0.0005375402979552746</code></pre>
+<pre><code>Training loss step 800: 0.0005375399487093091</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Training loss step 900: 0.0005216024001128972</code></pre>
+<pre><code>Training loss step 900: 0.0005216019926592708</code></pre>
 </div>
 </div>
 <p><img src="nonorm_h_compare.gif" class="img-fluid"></p>
@@ -2633,7 +2579,7 @@ Validation loss: 0.012560416013002396
 </div>
 </div></section></div></main> <!-- /main -->
 <script type="application/vnd.jupyter.widget-state+json">
-{"state":{"026e1da955724f31b6258ea93ff878d6":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_7fd866996e8c4ca497de363cd07bc88a","IPY_MODEL_c26d9692ebd34b7981112cf058a27ca4","IPY_MODEL_6a221cfccbda40fd9ba20a144d7b307e"],"layout":"IPY_MODEL_d40ebda1665b4d50a07ba9cc1ef6c8c0","tabbable":null,"tooltip":null}},"2e85e2dc36f5411e8d5f16191148f914":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"69b3e0d75b2e445da87ce1438dacc10d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"6a221cfccbda40fd9ba20a144d7b307e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_b4ff327e237949b9a9d07d0963df7dc4","placeholder":"​","style":"IPY_MODEL_69b3e0d75b2e445da87ce1438dacc10d","tabbable":null,"tooltip":null,"value":" 100/100 [00:01&lt;00:00, 72.60it/s]"}},"7065117b0a5d41dca6aa31c80749cb7f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"7fd866996e8c4ca497de363cd07bc88a":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_2e85e2dc36f5411e8d5f16191148f914","placeholder":"​","style":"IPY_MODEL_aa5c556126fb4d1c8c08dd9a05dacb78","tabbable":null,"tooltip":null,"value":"100%"}},"9cf843f89f6f4b57979a33e1edfe1856":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"aa5c556126fb4d1c8c08dd9a05dacb78":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"b4ff327e237949b9a9d07d0963df7dc4":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"c26d9692ebd34b7981112cf058a27ca4":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_9cf843f89f6f4b57979a33e1edfe1856","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_7065117b0a5d41dca6aa31c80749cb7f","tabbable":null,"tooltip":null,"value":100}},"d40ebda1665b4d50a07ba9cc1ef6c8c0":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}}},"version_major":2,"version_minor":0}
+{"state":{"35ab0299d92942f8b7647fea7dffd31c":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"3e77e6251de14f88ae079ff97faa1374":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_52603a1427e64ffd803cfb8caa21f7a1","IPY_MODEL_551ee821d9a74291b458fa2bdfdff37e","IPY_MODEL_45b267bdc08742c79e1fe82442ae9e75"],"layout":"IPY_MODEL_35ab0299d92942f8b7647fea7dffd31c","tabbable":null,"tooltip":null}},"45b267bdc08742c79e1fe82442ae9e75":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_d27d4fe5d5ca4c3e9eab0ad1976349b8","placeholder":"​","style":"IPY_MODEL_f40e91fe62fb4f20b3387d2667d29a5b","tabbable":null,"tooltip":null,"value":" 100/100 [00:01&lt;00:00, 99.40it/s]"}},"52603a1427e64ffd803cfb8caa21f7a1":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_cb3e0a9d18ab4589a6d34f4f4b251354","placeholder":"​","style":"IPY_MODEL_a113c266b7894b6490f0a79498369679","tabbable":null,"tooltip":null,"value":"100%"}},"551ee821d9a74291b458fa2bdfdff37e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_e85cfa353de749d8a137528986f62ee0","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_b744af0d113046fbb8756ca4618b2385","tabbable":null,"tooltip":null,"value":100}},"a113c266b7894b6490f0a79498369679":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"b744af0d113046fbb8756ca4618b2385":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"cb3e0a9d18ab4589a6d34f4f4b251354":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"d27d4fe5d5ca4c3e9eab0ad1976349b8":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"e85cfa353de749d8a137528986f62ee0":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"f40e91fe62fb4f20b3387d2667d29a5b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}}},"version_major":2,"version_minor":0}
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
