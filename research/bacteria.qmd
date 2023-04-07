@@ -15,7 +15,7 @@ This project focused on predicting the growth of a heterogeneous culture of bact
 Specifically, the network was trained on sequences of images from microwell arrays which show the growth of two mutant strains of _Pseudomonas aeruginosa_ in a single well (one which can kill the other)[@timm2017assembly].
 A sample of one of these sequences can be seen below.
 The network then outputs a predicted sequence of subsequent images, which we compared with the true images via popular image metrics such as Learned Perceptual Image Patch Similarity (LPIPS) as well as with biological metrics such as the number and size of colonies of each strain.
-The results of this work can be found in this [preprint](http://export.arxiv.org/abs/2205.05810v1)[@robertson2022performing].
+The results of this work can be found in this [article](https://www.frontiersin.org/articles/10.3389/fmicb.2022.1034586/full)[@robertson2022performing].
 
 <div style="text-align: center;">
 ![](resources/show_well.jpg){width="100%" height="100%"}
