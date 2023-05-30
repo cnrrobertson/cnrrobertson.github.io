@@ -5,7 +5,10 @@ bibliography: ../../workshops.bib
 author: Connor Robertson
 execute:
     daemon: 500
-    keep-ipynb: true
+#     keep-ipynb: true
+format:
+    html: default
+    ipynb: default
 ---
 
 ## Overview

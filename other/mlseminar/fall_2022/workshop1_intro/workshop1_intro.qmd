@@ -3,8 +3,11 @@ title: "Workshop 1: Python set up, machine learning basics, gradient descent, an
 csl: ../../american-physics-society.csl
 bibliography: ../../workshops.bib
 author: Connor Robertson
-execute:
-    keep-ipynb: true
+# execute:
+#     keep-ipynb: true
+format:
+    html: default
+    ipynb: default
 jupyter: python3
 ---
 

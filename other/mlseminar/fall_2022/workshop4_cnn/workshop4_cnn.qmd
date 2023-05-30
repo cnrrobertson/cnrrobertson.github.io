@@ -2,7 +2,10 @@
 jupyter: python3
 execute:
     daemon: 500
-    keep-ipynb: true
+#     keep-ipynb: true
+format: 
+    html: default
+    ipynb: default
 ---
 
 # Machine Learning Workshop -- Convolutional Neural Network (CNN)

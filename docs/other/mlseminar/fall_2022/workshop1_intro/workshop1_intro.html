@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,48 +48,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -102,8 +74,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -141,10 +112,12 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../../../styles.css">
@@ -161,43 +134,43 @@ div.csl-indent {
     <span class="navbar-title">Connor Robertson</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../cv.html">
+    <a class="nav-link" href="../../../../cv.html" rel="" target="">
  <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../teaching/teaching.html">
+    <a class="nav-link" href="../../../../teaching/teaching.html" rel="" target="">
  <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../research/research.html">
+    <a class="nav-link" href="../../../../research/research.html" rel="" target="">
  <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Other</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
         <li>
-    <a class="dropdown-item" href="../../../../other/fun/fun.html">
+    <a class="dropdown-item" href="../../../../other/fun/fun.html" rel="" target="">
  <span class="dropdown-text">Just for Fun</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../other/mlseminar/mlseminar.html">
+    <a class="dropdown-item" href="../../../../other/mlseminar/mlseminar.html" rel="" target="">
  <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -237,13 +210,9 @@ div.csl-indent {
   <li><a href="#automatic-differentiation" id="toc-automatic-differentiation" class="nav-link" data-scroll-target="#automatic-differentiation">Automatic differentiation</a></li>
   </ul></li>
   <li><a href="#further-exploration" id="toc-further-exploration" class="nav-link" data-scroll-target="#further-exploration">Further Exploration</a></li>
-  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
-  <ul class="collapse">
-  <li><a href="#python-resources-and-packages" id="toc-python-resources-and-packages" class="nav-link" data-scroll-target="#python-resources-and-packages">Python resources and packages</a></li>
-  <li><a href="#julia-as-an-alternative-to-python" id="toc-julia-as-an-alternative-to-python" class="nav-link" data-scroll-target="#julia-as-an-alternative-to-python">Julia as an alternative to Python</a></li>
-  </ul></li>
+  
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="workshop1_intro.ipynb" download="workshop1_intro.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -271,12 +240,12 @@ div.csl-indent {
 
 </header>
 
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Other formats
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -308,12 +277,12 @@ Other formats
 <p>To get started, we will give the basics of the Python programming language. Just kidding! That would take too long. We will instead guide you on how to install Python most conveniently, teach you how to get started learning about Python, and then point you to a curated library of much more high-quality instruction for using Python. A list of some such references as well as documentation for setup and important Python packages can be found in the Appendix <a href="#python-resources-and-packages">here</a>.</p>
 <section id="setting-up" class="level3">
 <h3 class="anchored" data-anchor-id="setting-up">Setting up</h3>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Tip
 </div>
 </div>
@@ -321,12 +290,12 @@ Tip
 <p>If you are looking for the easiest and most immediate way to get going with a Python Jupyter Notebook, check out the <a href="#google-colab">Google Colab</a> section.</p>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -387,12 +356,12 @@ workshop              *  /home/user/mambaforge/envs/workshop</code></pre>
 <p>Now that we have activated the <code>workshop</code> <code>conda</code> environment, let’s install some common machine learning packages in Python. It is as easy as writing:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> install numpy matplotlib pandas jupyter scipy scikit-learn scikit-image</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This command will search the <a href="https://conda-forge.org/#page-top">conda-forge</a> repository of packages and install the most up-to-date versions (the <code>forge</code> in <code>mambaforge</code>).</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Tip
 </div>
 </div>
@@ -491,12 +460,12 @@ p^* = \mathcal{O}(\mathcal{L},f,x;d)
 </section>
 <section id="a-first-machine-learning-problem" class="level2">
 <h2 class="anchored" data-anchor-id="a-first-machine-learning-problem">A first machine learning problem</h2>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -885,12 +854,12 @@ f \div g &amp;= [f(a) \div g(a)] + \epsilon\left[\frac{f'(a)\cdot g(a) + f(a)\cd
 \end{align*}
 \]</span> The derivatives are then represented by the <span class="math inline">\(\epsilon\)</span> terms in the above equalities.</p>
 <p>To implement this on a computer, you can create a new “Dual” number that performs additions, subtractions, multiplications, and divisions with the above operating rules (and can be extended for other functions: <span class="math inline">\(\sin,\cos,\exp\)</span>,etc).</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -979,11 +948,11 @@ Dual number derivative:  38</code></pre>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
 
 
 
-</div></section><section id="python-resources-and-packages" class="level3 appendix"><h2 class="quarto-appendix-heading">Python resources and packages</h2><div class="quarto-appendix-contents">
+</div></section><section id="python-resources-and-packages" class="level3 appendix"><h2 class="anchored quarto-appendix-heading">Python resources and packages</h2><div class="quarto-appendix-contents">
 
 <p><strong>Python help</strong></p>
 <ul>
@@ -1009,7 +978,7 @@ Dual number derivative:  38</code></pre>
 <li><a href="https://scikit-image.org"><code>scikit-image</code></a> - Image processing algorithms and tools</li>
 <li><a href="https://jupyter.org"><code>jupyter</code></a> - Interactive “notebook” style programming</li>
 </ul>
-</div></section><section id="julia-as-an-alternative-to-python" class="level3 appendix"><h2 class="quarto-appendix-heading">Julia as an alternative to Python</h2><div class="quarto-appendix-contents">
+</div></section><section id="julia-as-an-alternative-to-python" class="level3 appendix"><h2 class="anchored quarto-appendix-heading">Julia as an alternative to Python</h2><div class="quarto-appendix-contents">
 
 <p>Julia is a fairly new language that has been mainly proposed as an alternative to Python and Matlab, though it is general use. Its strength and its weakness is that it is “just-in-time” compiled (meaning your code is automatically analyzed and compiled just before it is run). A clever language design combined with just-in-time compilation makes Julia as clear to read and write as Python while being much faster. It can even approach the speed of C when written carefully. However, the just-in-time compilation and type system remove a chunk of the interactive convenience of Python and its young age also means that it does not have the volume of packages that Python does.</p>
 <p>Nonetheless, it is an elegant and high-performance language to use and has shown rapid growth recently. Concise, simple, and easy to read and contribute to packages have been quickly emerging and it already provides many useful tools. As a result, it is worth describing it’s installation process, environment management, and noteable packages.</p>
@@ -1017,11 +986,11 @@ Dual number derivative:  38</code></pre>
 
 
 
-</div></section><section id="installation" class="level4 appendix"><h2 class="quarto-appendix-heading">Installation</h2><div class="quarto-appendix-contents">
+</div></section><section id="installation" class="level4 appendix"><h2 class="anchored quarto-appendix-heading">Installation</h2><div class="quarto-appendix-contents">
 
 <p>The officially supported method of installation for Julia is now using the <code>juliaup</code> version manager. The <a href="https://github.com/JuliaLang/juliaup#windows">installer</a> can be downloaded from the Windows store on Windows or run on MacOS or Linux with:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://install.julialang.org <span class="kw">|</span> <span class="fu">sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></section><section id="environments-1" class="level4 appendix"><h2 class="quarto-appendix-heading">Environments</h2><div class="quarto-appendix-contents">
+</div></section><section id="environments-1" class="level4 appendix"><h2 class="anchored quarto-appendix-heading">Environments</h2><div class="quarto-appendix-contents">
 
 <p>Julia comes with a standard environment and package manager named <a href="https://pkgdocs.julialang.org/v1/"><code>Pkg</code></a>. Interestingly, the easiest way to use it is to run the Julia REPL (read-eval-print-loop), i.e.&nbsp;to run <code>julia</code> interactively. You can do so by typing <code>julia</code> into the terminal. You will then be presented with a terminal interface such as:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>   _       _ _(_)_     |  Documentation: https://docs.julialang.org</span>
@@ -1039,7 +1008,7 @@ Dual number derivative:  38</code></pre>
 <div class="sourceCode" id="cb39"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>(@v1.8) pkg&gt; activate --shared workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that the <code>--shared</code> flag will make a “global” environment that can be accessed from any directory. If we were to leave out this flag, <code>Pkg</code> would put a <code>Project.toml</code> and <code>Manifest.toml</code> file in the current directory that contain the name of the environment, its installed packages, and their dependencies. This can be useful to easily isolate and share environments. After running this command, our <code>Pkg</code> mode will have changed to represent the active environment:</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>(@workshop) pkg&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></section><section id="installing-packages-1" class="level4 appendix"><h2 class="quarto-appendix-heading">Installing packages</h2><div class="quarto-appendix-contents">
+</div></section><section id="installing-packages-1" class="level4 appendix"><h2 class="anchored quarto-appendix-heading">Installing packages</h2><div class="quarto-appendix-contents">
 
 <p>To install some packages in the active environment, write:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>(@workshop) pkg&gt; add Plots MLJ DataFrames Flux Pluto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1050,7 +1019,7 @@ Dual number derivative:  38</code></pre>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>julia&gt; y = sin.(x);</span>
 <span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>julia&gt; plot(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This should show a plot of a simple <span class="math inline">\(\sin\)</span> curve. Note that the precompilation of <code>Plots</code> took some time. However, this will not need to occur again until the package is updated. Also note that the call to <code>plot(x,y)</code> took some time. This is due to the just-in-time compilation. Now that the compilation has been done for inputs of the types of <code>x</code> and <code>y</code>, if you run <code>plot(x,y)</code> again, it should be almost instantaneous.</p>
-</div></section><section id="cleaning-up-1" class="level4 appendix"><h2 class="quarto-appendix-heading">Cleaning up</h2><div class="quarto-appendix-contents">
+</div></section><section id="cleaning-up-1" class="level4 appendix"><h2 class="anchored quarto-appendix-heading">Cleaning up</h2><div class="quarto-appendix-contents">
 
 <p>To deactivate the environment, enter the <code>Pkg</code> mode again by pressing <code>]</code> on an empty line, then enter:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>(@workshop) pkg&gt; activate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1076,26 +1045,26 @@ Dual number derivative:  38</code></pre>
 
 
 
-</div></section><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-murphy2012machine" class="csl-entry" role="doc-biblioentry">
+</div></section><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-murphy2012machine" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline">K. P. Murphy, <em>Machine Learning: A Probabilistic Perspective</em> (MIT press, 2012).</div>
 </div>
-<div id="ref-james2013introduction" class="csl-entry" role="doc-biblioentry">
+<div id="ref-james2013introduction" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[2] </div><div class="csl-right-inline">G. James, D. Witten, T. Hastie, and R. Tibshirani, <em>An Introduction to Statistical Learning</em>, Vol. 112 (Springer, 2013).</div>
 </div>
-<div id="ref-hastie2009elements" class="csl-entry" role="doc-biblioentry">
+<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[3] </div><div class="csl-right-inline">T. Hastie, R. Tibshirani, J. H. Friedman, and J. H. Friedman, <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>, Vol. 2 (Springer, 2009).</div>
 </div>
-<div id="ref-sebastian_ruder_2020" class="csl-entry" role="doc-biblioentry">
+<div id="ref-sebastian_ruder_2020" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[4] </div><div class="csl-right-inline">S. Ruder, <em><a href="https://ruder.io/optimizing-gradient-descent/index.html#momentum">An Overview of Gradient Descent Optimization Algorithms</a></em>, Sebastian Ruder (2020).</div>
 </div>
-<div id="ref-john_chen_2020" class="csl-entry" role="doc-biblioentry">
+<div id="ref-john_chen_2020" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[5] </div><div class="csl-right-inline">J. Chen, <em><a href="https://johnchenresearch.github.io/demon/">An Updated Overview of Recent Gradient Descent Algorithms</a></em>, John Chen (2020).</div>
 </div>
-<div id="ref-chris_rackauckas_2020" class="csl-entry" role="doc-biblioentry">
+<div id="ref-chris_rackauckas_2020" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[6] </div><div class="csl-right-inline">C. Rackauckas, <em><a href="https://book.sciml.ai/notes/08/">Forward-Mode Automatic Differentiation (AD) via High Dimensional Algebras</a></em>, Chris Rackauckas (2020).</div>
 </div>
-<div id="ref-mostafa_samir_2020" class="csl-entry" role="doc-biblioentry">
+<div id="ref-mostafa_samir_2020" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[7] </div><div class="csl-right-inline">M. Samir, <em><a href="https://mostafa-samir.github.io/auto-diff-pt1/">A Hands-on Introduction to Automatic Differentiation</a></em>, Mostafa Samir (2020).</div>
 </div>
 </div></section></div></main> <!-- /main -->
@@ -1241,9 +1210,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1308,6 +1291,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1366,6 +1435,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
 </ul>
     </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Connor Robertson, Copyright 2022</div>
   </div>
 </footer>
