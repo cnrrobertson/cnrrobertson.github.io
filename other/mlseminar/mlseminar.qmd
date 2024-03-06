@@ -27,20 +27,16 @@ Its goal is to expose the participants to topics in machine learning and optimiz
 #### Workshops
 - 9/15/22: **Python set up, machine learning basics, gradient descent, and automatic differentiation** - Connor Robertson
     - [Document (with code)](fall_2022/workshop1_intro/workshop1_intro.qmd)
-    - [Jupyter notebook](fall_2022/workshop1_intro/workshop1_intro.ipynb)
 - 10/6/22: **Neural networks - structure, building, and training** - Jake Brusca
     - [Presentation](fall_2022/workshop2_nn/workshop2_nn.pdf)
     - [Document (with code)](fall_2022/workshop2_nn/workshop2_nn.qmd)
-    - [Jupyter notebook](fall_2022/workshop2_nn/workshop2_nn.ipynb)
     - [Google Colab notebook](https://colab.research.google.com/drive/1c7aMC1141f1myYAh06nGsL03SMJLrG6M?usp=sharing)
 - 10/13/22: **Data-driven model discovery** - Connor Robertson
     - [Document (with code)](fall_2022/workshop3_discovery/workshop3_discovery.qmd)
-    - [Jupyter notebook](fall_2022/workshop3_discovery/workshop3_discovery.ipynb)
     - [Video data](fall_2022/workshop3_discovery/youtube_video.mp4)
 - 10/20/22: **Convolutional neural networks** - Soheil Saghafi
     - [Presentation](fall_2022/workshop4_cnn/workshop4_cnn.pdf)
     - [Document (with code)](fall_2022/workshop4_cnn/workshop4_cnn.qmd)
-    - [Jupyter notebook](fall_2022/workshop4_cnn/workshop4_cnn.ipynb)
     - [Image data](fall_2022/workshop4_cnn/test_images.zip)
 - 11/3/22: **Recurrent neural networks** - Austin Juhl
     - [Presentation](fall_2022/workshop5_rnn/workshop5_rnn.pdf)
@@ -50,7 +46,6 @@ Its goal is to expose the participants to topics in machine learning and optimiz
     - [Presentation (pdf)](fall_2022/workshop6_reinforcement/workshop6_reinforcement.pdf)
     - [Presentation (pptx)](fall_2022/workshop6_reinforcement/workshop6_reinforcement.pptx)
     - [Document (with code)](fall_2022/workshop6_reinforcement/workshop6_reinforcement.qmd)
-    - [Jupyter notebook](fall_2022/workshop6_reinforcement/workshop6_reinforcement.ipynb)
     - [Data (gifs)](fall_2022/workshop6_reinforcement/data.tar.gz)
 
 ### Spring 2022

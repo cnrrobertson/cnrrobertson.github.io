@@ -12,16 +12,16 @@ format:
 
  **Frozen Lake** is a simple environment composed of tiles, where the AI has to **move from an initial tile to a goal**.
 
-Tiles can be a safe frozen lake ✅, or a hole ❌ that gets you stuck forever. 
+Tiles can be a safe frozen lake ✅, or a hole ❌ that gets you stuck forever.
 
-The AI, or agent, has 4 possible actions: go **◀️ LEFT**, **🔽 DOWN**, **▶️ RIGHT**, or **🔼 UP**. 
+The AI, or agent, has 4 possible actions: go **◀️ LEFT**, **🔽 DOWN**, **▶️ RIGHT**, or **🔼 UP**.
 
 The agent must learn to avoid holes in order to reach the goal in a **minimal number of actions**.
 
-# Required Libraries 
+# Required Libraries
 
 ```{python}
-import gym
+import gymnasium as gym
 import random
 import numpy as np
 from IPython.display import Image
@@ -66,9 +66,9 @@ print("State space: ", env.observation_space.n)
 print("Action space: ", env.action_space.n)
 ```
 
-In Frozen Lake, there are **16 tiles**, which means our agent can be found in 16 different positions, called states. 
+In Frozen Lake, there are **16 tiles**, which means our agent can be found in 16 different positions, called states.
 
-For each state, there are **4 possible actions**: 
+For each state, there are **4 possible actions**:
 
 * ◀️ LEFT: **0**
 * 🔽 DOWN: **1**
@@ -119,20 +119,20 @@ epsilon = 1.0          # Amount of randomness in the action selection
 epsilon_decay = 0.001  # Fixed amount to decrease
 ```
 
-# Traning
+# Training
 
 ```{python}
 # List of outcomes to plot
 outcomes = []
 
 for _ in range(episodes):
-    
-    state = env.reset()
+
+    state,info = env.reset()
     done = False
 
     # By default, we consider our outcome to be a failure
     outcomes.append("Failure")
-    
+
     # Until the agent gets stuck in a hole or reaches the goal, keep training it
     while not done:
         # Generate a random number between 0 and 1
@@ -144,14 +144,14 @@ for _ in range(episodes):
         # Else, take the action with the highest value in the current state
         else:
             action = np.argmax(qtable[state])
-             
+
         # Implement this action and move the agent in the desired direction
-        new_state, reward, done, info = env.step(action)
+        new_state, reward, done, _, info = env.step(action)
 
         # Update Q(s,a)
         qtable[state, action] = qtable[state, action] + \
                                 alpha * (reward + gamma * np.max(qtable[new_state]) - qtable[state, action])
-        
+
         # Update our current state
         state = new_state
 
@@ -183,27 +183,27 @@ plt.bar(range(len(outcomes)), outcomes, color="navy", width=1.0)
 plt.show()
 ```
 
-# Evaluation 
+# Evaluation
 
 ```{python}
 episodes = 1
 nb_success = 0
 
 
-state = env.reset()
+state,info = env.reset()
 env.render()
 done = False
 
 # Until the agent gets stuck or reaches the goal, keep training it
 while not done:
-    
+
     # Choose the action with the highest value in the current state
     action = np.argmax(qtable[state])
 
     # Implement this action and move the agent in the desired direction
-    new_state, reward, done, info = env.step(action)
+    new_state, reward, done, _, info = env.step(action)
 
-    # Render the environment 
+    # Render the environment
     print()
     env.render()
 

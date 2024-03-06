@@ -1,7 +1,7 @@
 ---
 title: Heliocentrism vs Geocentrism
 author: Connor Robertson
-jupyter: julia-1.8
+jupyter: julia-1.10
 execute:
   daemon: true
 ---
@@ -95,7 +95,7 @@ end
 ```
 ![](gifs/heliocentric_geocentric1.gif)
 
-Nice! 
+Nice!
 We've got the two animations moving well.
 Note that since the animation was fairly straightforward and only required updating the scatter plot locations, we were able to use an `Observable` for time in `Makie`.
 This object allows us to create the initial scatter plots where the scatter locations are wrapped with the `@lift` macro with the interpolating `$time_i`.

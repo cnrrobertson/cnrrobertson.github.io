@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,11 +18,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -112,7 +83,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -121,8 +97,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -134,29 +112,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Connor Robertson</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../cv.html">
- <span class="menu-text">CV</span></a>
+    <a class="nav-link" href="../../cv.html"> 
+<span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../teaching/teaching.html">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../../teaching/teaching.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research/research.html">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../research/research.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -174,44 +153,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
   </li>
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Heliocentrism vs Geocentrism</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../other/fun/fun.html">Just for fun</a></li><li class="breadcrumb-item"><a href="../../other/fun/heliocentric_geocentric.html">Geocentrism</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../other/fun/fun.html" class="sidebar-item-text sidebar-link">Just for fun</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a href="../../other/fun/fun.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Just for fun</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../other/fun/polygon_angles.html" class="sidebar-item-text sidebar-link">Polygon angles</a>
+  <a href="../../other/fun/polygon_angles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Polygon angles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../other/fun/heliocentric_geocentric.html" class="sidebar-item-text sidebar-link active">Geocentrism</a>
+  <a href="../../other/fun/heliocentric_geocentric.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Geocentrism</span></a>
   </div>
 </li>
       </ul>
@@ -219,6 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -234,9 +218,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../other/fun/fun.html">Just for fun</a></li><li class="breadcrumb-item"><a href="../../other/fun/heliocentric_geocentric.html">Geocentrism</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Heliocentrism vs Geocentrism</h1>
+<h1 class="title">Heliocentrism vs Geocentrism</h1>
 </div>
 
 
@@ -255,7 +239,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
+
 </header>
+
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
@@ -265,12 +251,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="setting-up" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up">Setting up</h2>
 <p>In this animation, we’ll be rotating some circular shapes around the point representing either the sun or the Earth and tracing their paths as they progress. First, let’s plot the initial frame of the animation using a <code>Figure</code> with 2 <code>axes</code>:</p>
-<div class="cell" data-execution_count="1">
+<div id="99228082" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">activate</span>(<span class="st">"."</span>);</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CairoMakie;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="2">
+<div id="d3dd1efb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fu">Figure</span>(resolution<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>));</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>axes <span class="op">=</span> [<span class="fu">Axis</span>(f[<span class="fl">1</span>,<span class="fl">1</span>]);<span class="fu">Axis</span>(f[<span class="fl">1</span>,<span class="fl">2</span>])]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes ax.limits<span class="op">=</span>(<span class="op">-</span><span class="fl">22</span>,<span class="fl">22</span>,<span class="op">-</span><span class="fl">22</span>,<span class="fl">22</span>) <span class="cf">end</span></span>
@@ -284,7 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">remove_axis_decor!</span>.(axes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can now layout the different planets via a simple scatter plot in each <code>axis</code>. Of course, we cannot use the correct proportions or distances or the plot would be hard to understand. Instead, I’ll settle for simple size differences between the planets and the sun and a somewhat uniform distance between each.</p>
-<div class="cell" data-execution_count="3">
+<div id="e02ab192" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>num_bodies <span class="op">=</span> <span class="fl">9</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>body_locs1 <span class="op">=</span> [(<span class="fu">float</span>(i),<span class="fl">0.0</span>) for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">2</span><span class="op">:</span><span class="fl">2</span>(num_bodies<span class="op">-</span><span class="fl">1</span>)]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>body_locs2 <span class="op">=</span> [(<span class="fu">float</span>(i),<span class="fl">0.0</span>) for i <span class="kw">in</span> <span class="op">-</span><span class="fl">6</span><span class="op">:</span><span class="fl">2</span><span class="op">:</span><span class="fl">2</span>(num_bodies<span class="op">-</span><span class="fl">1</span>)<span class="op">-</span><span class="fl">6</span>]</span>
@@ -294,75 +280,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> <span class="fu">scatter!</span>(axes[<span class="fl">2</span>], body_locs2, markersize<span class="op">=</span>body_sizes, color<span class="op">=</span>body_colors)</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="heliocentric_geocentric_files/figure-html/cell-4-output-1.svg" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="heliocentric_geocentric_files/figure-html/cell-4-output-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>CairoMakie.Screen{IMAGE}</code></pre>
 </div>
 </div>
 </section>
 <section id="animation" class="level2">
 <h2 class="anchored" data-anchor-id="animation">Animation</h2>
 <p>Okay! Easy as that. Now, we can move on to animating the rotation of the bodies. Each planet will rotate at a different speed and will go until again lining up as they started.</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>body_speeds <span class="op">=</span> [<span class="fl">0.0</span>,<span class="fl">47.87</span>,<span class="fl">35.02</span>,<span class="fl">29.78</span>,<span class="fl">24.077</span>,<span class="fl">13.07</span>,<span class="fl">9.69</span>,<span class="fl">6.81</span>,<span class="fl">5.43</span>] <span class="op">./</span> <span class="fl">200</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sun_speed2 <span class="op">=</span> body_speeds[<span class="fl">4</span>]</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>orbit_radii1 <span class="op">=</span> [bl[<span class="fl">1</span>] for bl <span class="kw">in</span> body_locs1]</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>orbit_radii2 <span class="op">=</span> [bl[<span class="fl">1</span>] for bl <span class="kw">in</span> body_locs2]</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Use Observable to add time dependence to planet locations</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>time_i <span class="op">=</span> <span class="fu">Observable</span>(<span class="fl">0.0</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>body_xs1 <span class="op">=</span> <span class="pp">@lift</span>(orbit_radii1 <span class="op">.*</span> <span class="fu">cos</span>.(<span class="op">-</span><span class="fl">1</span> <span class="op">.*</span> body_speeds <span class="op">.*</span> <span class="op">$</span>time_i))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>body_ys1 <span class="op">=</span> <span class="pp">@lift</span>(orbit_radii1 <span class="op">.*</span> <span class="fu">sin</span>.(<span class="op">-</span><span class="fl">1</span> <span class="op">.*</span> body_speeds <span class="op">.*</span> <span class="op">$</span>time_i))</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>body_xs2 <span class="op">=</span> <span class="pp">@lift</span>(<span class="fu">vcat</span>(</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*cos</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i),</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*cos</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">+</span> orbit_radii1[<span class="fl">2</span>]<span class="fu">*cos</span>(<span class="op">-</span>body_speeds[<span class="fl">2</span>]<span class="op">*$</span>time_i),</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*cos</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">+</span> orbit_radii1[<span class="fl">3</span>]<span class="fu">*cos</span>(<span class="op">-</span>body_speeds[<span class="fl">3</span>]<span class="op">*$</span>time_i),</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.0</span>,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*cos</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">.+</span> orbit_radii1[<span class="fl">5</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.*</span> <span class="fu">cos</span>.(<span class="op">-</span><span class="fl">1</span> <span class="op">.*</span> body_speeds[<span class="fl">5</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.*</span> <span class="op">$</span>time_i)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>body_ys2 <span class="op">=</span> <span class="pp">@lift</span>(<span class="fu">vcat</span>(</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*sin</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i),</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*sin</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">+</span> orbit_radii1[<span class="fl">2</span>]<span class="fu">*sin</span>(<span class="op">-</span>body_speeds[<span class="fl">2</span>]<span class="op">*$</span>time_i),</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*sin</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">+</span> orbit_radii1[<span class="fl">3</span>]<span class="fu">*sin</span>(<span class="op">-</span>body_speeds[<span class="fl">3</span>]<span class="op">*$</span>time_i),</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.0</span>,</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*sin</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">.+</span> orbit_radii1[<span class="fl">5</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.*</span> <span class="fu">sin</span>.(<span class="op">-</span><span class="fl">1</span> <span class="op">.*</span> body_speeds[<span class="fl">5</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.*</span> <span class="op">$</span>time_i)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">empty!</span>(axes[<span class="fl">1</span>].scene.plots)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="fu">empty!</span>(axes[<span class="fl">2</span>].scene.plots)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> <span class="fu">scatter!</span>(axes[<span class="fl">1</span>], body_xs1, body_ys1, markersize<span class="op">=</span>body_sizes, color<span class="op">=</span>body_colors)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> <span class="fu">scatter!</span>(axes[<span class="fl">2</span>], body_xs2, body_ys2, markersize<span class="op">=</span>body_sizes, color<span class="op">=</span>body_colors)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Create GIF by iterating time</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> <span class="fl">300</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">record</span>(f, <span class="st">"gifs/heliocentric_geocentric1.gif"</span>, <span class="fl">1</span><span class="op">:</span>steps) <span class="cf">do</span> t</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    time_i[] <span class="op">=</span> t</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0fe7f588" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>body_speeds <span class="op">=</span> [<span class="fl">0.0</span>,<span class="fl">47.87</span>,<span class="fl">35.02</span>,<span class="fl">29.78</span>,<span class="fl">24.077</span>,<span class="fl">13.07</span>,<span class="fl">9.69</span>,<span class="fl">6.81</span>,<span class="fl">5.43</span>] <span class="op">./</span> <span class="fl">200</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sun_speed2 <span class="op">=</span> body_speeds[<span class="fl">4</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>orbit_radii1 <span class="op">=</span> [bl[<span class="fl">1</span>] for bl <span class="kw">in</span> body_locs1]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>orbit_radii2 <span class="op">=</span> [bl[<span class="fl">1</span>] for bl <span class="kw">in</span> body_locs2]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Use Observable to add time dependence to planet locations</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>time_i <span class="op">=</span> <span class="fu">Observable</span>(<span class="fl">0.0</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>body_xs1 <span class="op">=</span> <span class="pp">@lift</span>(orbit_radii1 <span class="op">.*</span> <span class="fu">cos</span>.(<span class="op">-</span><span class="fl">1</span> <span class="op">.*</span> body_speeds <span class="op">.*</span> <span class="op">$</span>time_i))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>body_ys1 <span class="op">=</span> <span class="pp">@lift</span>(orbit_radii1 <span class="op">.*</span> <span class="fu">sin</span>.(<span class="op">-</span><span class="fl">1</span> <span class="op">.*</span> body_speeds <span class="op">.*</span> <span class="op">$</span>time_i))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>body_xs2 <span class="op">=</span> <span class="pp">@lift</span>(<span class="fu">vcat</span>(</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*cos</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*cos</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">+</span> orbit_radii1[<span class="fl">2</span>]<span class="fu">*cos</span>(<span class="op">-</span>body_speeds[<span class="fl">2</span>]<span class="op">*$</span>time_i),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*cos</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">+</span> orbit_radii1[<span class="fl">3</span>]<span class="fu">*cos</span>(<span class="op">-</span>body_speeds[<span class="fl">3</span>]<span class="op">*$</span>time_i),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.0</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*cos</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">.+</span> orbit_radii1[<span class="fl">5</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.*</span> <span class="fu">cos</span>.(<span class="op">-</span><span class="fl">1</span> <span class="op">.*</span> body_speeds[<span class="fl">5</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.*</span> <span class="op">$</span>time_i)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>body_ys2 <span class="op">=</span> <span class="pp">@lift</span>(<span class="fu">vcat</span>(</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*sin</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*sin</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">+</span> orbit_radii1[<span class="fl">2</span>]<span class="fu">*sin</span>(<span class="op">-</span>body_speeds[<span class="fl">2</span>]<span class="op">*$</span>time_i),</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*sin</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">+</span> orbit_radii1[<span class="fl">3</span>]<span class="fu">*sin</span>(<span class="op">-</span>body_speeds[<span class="fl">3</span>]<span class="op">*$</span>time_i),</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.0</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    orbit_radii2[<span class="fl">1</span>]<span class="fu">*sin</span>(<span class="op">-</span>sun_speed2<span class="op">*$</span>time_i) <span class="op">.+</span> orbit_radii1[<span class="fl">5</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.*</span> <span class="fu">sin</span>.(<span class="op">-</span><span class="fl">1</span> <span class="op">.*</span> body_speeds[<span class="fl">5</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.*</span> <span class="op">$</span>time_i)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu">empty!</span>(axes[<span class="fl">1</span>].scene.plots)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">empty!</span>(axes[<span class="fl">2</span>].scene.plots)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> <span class="fu">scatter!</span>(axes[<span class="fl">1</span>], body_xs1, body_ys1, markersize<span class="op">=</span>body_sizes, color<span class="op">=</span>body_colors)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> <span class="fu">scatter!</span>(axes[<span class="fl">2</span>], body_xs2, body_ys2, markersize<span class="op">=</span>body_sizes, color<span class="op">=</span>body_colors)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Create GIF by iterating time</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> <span class="fl">300</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="fu">record</span>(f, <span class="st">"gifs/heliocentric_geocentric1.gif"</span>, <span class="fl">1</span><span class="op">:</span>steps) <span class="cf">do</span> t</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    time_i[] <span class="op">=</span> t</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="gifs/heliocentric_geocentric1.gif" class="img-fluid"></p>
 <p>Nice! We’ve got the two animations moving well. Note that since the animation was fairly straightforward and only required updating the scatter plot locations, we were able to use an <code>Observable</code> for time in <code>Makie</code>. This object allows us to create the initial scatter plots where the scatter locations are wrapped with the <code>@lift</code> macro with the interpolating <code>$time_i</code>. Now, when our <code>Observable</code>, <code>time_i</code> is updated, the scatter points and subsequently the scatter plots are updated. Using this nifty tool, our recording loop is very straightforward. However, using the <code>@lift</code> macro is not particularly intuitive and it took some trial and error to get the definition of the scatter points correctly wrapped in an <code>Observable</code>. Hence, the definitions of <code>body_xs2</code> and <code>body_ys2</code> are so messy..</p>
 <p>Our next step is to add the path tracing of the planets to each plot. Again, this is a fairly simple procedure that could be completed with an <code>Observable</code>.</p>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Line observables</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>line_locs1 <span class="op">=</span> [<span class="fu">Observable</span>([body_locs1[i]]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_bodies]</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>line_locs2 <span class="op">=</span> [<span class="fu">Observable</span>([body_locs2[i]]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_bodies]</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">empty!</span>(axes[<span class="fl">1</span>].scene.plots)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">empty!</span>(axes[<span class="fl">2</span>].scene.plots)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_bodies</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lines!</span>(axes[<span class="fl">1</span>], line_locs1[i], color<span class="op">=</span>body_colors[i])</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lines!</span>(axes[<span class="fl">2</span>], line_locs2[i], color<span class="op">=</span>body_colors[i])</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> <span class="fu">scatter!</span>(axes[<span class="fl">1</span>], body_xs1, body_ys1, markersize<span class="op">=</span>body_sizes, color<span class="op">=</span>body_colors)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> <span class="fu">scatter!</span>(axes[<span class="fl">2</span>], body_xs2, body_ys2, markersize<span class="op">=</span>body_sizes, color<span class="op">=</span>body_colors)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create GIF by iterating time</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> <span class="fl">300</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">record</span>(f, <span class="st">"gifs/heliocentric_geocentric.gif"</span>, <span class="fl">1</span><span class="op">:</span>steps) <span class="cf">do</span> t</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    time_i[] <span class="op">=</span> t</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_bodies</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        line_locs1[i][] <span class="op">=</span> <span class="fu">push!</span>(line_locs1[i][], (body_xs1[][i], body_ys1[][i]))</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        line_locs2[i][] <span class="op">=</span> <span class="fu">push!</span>(line_locs2[i][], (body_xs2[][i], body_ys2[][i]))</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8a47b098" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Line observables</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>line_locs1 <span class="op">=</span> [<span class="fu">Observable</span>([body_locs1[i]]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_bodies]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>line_locs2 <span class="op">=</span> [<span class="fu">Observable</span>([body_locs2[i]]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_bodies]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">empty!</span>(axes[<span class="fl">1</span>].scene.plots)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">empty!</span>(axes[<span class="fl">2</span>].scene.plots)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_bodies</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lines!</span>(axes[<span class="fl">1</span>], line_locs1[i], color<span class="op">=</span>body_colors[i])</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lines!</span>(axes[<span class="fl">2</span>], line_locs2[i], color<span class="op">=</span>body_colors[i])</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> <span class="fu">scatter!</span>(axes[<span class="fl">1</span>], body_xs1, body_ys1, markersize<span class="op">=</span>body_sizes, color<span class="op">=</span>body_colors)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> <span class="fu">scatter!</span>(axes[<span class="fl">2</span>], body_xs2, body_ys2, markersize<span class="op">=</span>body_sizes, color<span class="op">=</span>body_colors)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create GIF by iterating time</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> <span class="fl">300</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">record</span>(f, <span class="st">"gifs/heliocentric_geocentric.gif"</span>, <span class="fl">1</span><span class="op">:</span>steps) <span class="cf">do</span> t</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    time_i[] <span class="op">=</span> t</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_bodies</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        line_locs1[i][] <span class="op">=</span> <span class="fu">push!</span>(line_locs1[i][], (body_xs1[][i], body_ys1[][i]))</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        line_locs2[i][] <span class="op">=</span> <span class="fu">push!</span>(line_locs2[i][], (body_xs2[][i], body_ys2[][i]))</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="gifs/heliocentric_geocentric.gif" class="img-fluid"></p>
 <p>Alright! Our animation is now complete.</p>
@@ -412,6 +405,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -480,13 +500,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -513,9 +535,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -551,10 +587,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -564,8 +617,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -577,9 +639,245 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -638,9 +936,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
 </ul>
     </div>   
-    <div class="nav-footer-right">Connor Robertson, Copyright 2022</div>
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Connor Robertson, Copyright 2022</p>
+</div>
   </div>
 </footer>
+
 
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,6 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -102,7 +103,12 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -111,6 +117,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -124,6 +131,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../../../../styles.css">
 </head>
 
@@ -131,9 +165,9 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">Connor Robertson</span>
     </a>
@@ -145,37 +179,37 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../cv.html" rel="" target="">
- <span class="menu-text">CV</span></a>
+    <a class="nav-link" href="../../../../cv.html"> 
+<span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../teaching/teaching.html" rel="" target="">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../../../../teaching/teaching.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../research/research.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../../../research/research.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Other</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
         <li>
-    <a class="dropdown-item" href="../../../../other/fun/fun.html" rel="" target="">
+    <a class="dropdown-item" href="../../../../other/fun/fun.html">
  <span class="dropdown-text">Just for Fun</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../other/mlseminar/mlseminar.html" rel="" target="">
+    <a class="dropdown-item" href="../../../../other/mlseminar/mlseminar.html">
  <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -238,7 +272,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
@@ -293,7 +329,7 @@ u_t(x_N, t_M) \\
 </section>
 <section id="numerical-differentiation-of-the-terms" class="level3">
 <h3 class="anchored" data-anchor-id="numerical-differentiation-of-the-terms">Numerical differentiation of the terms</h3>
-<p>In order to actually compute the values in the linear system written in <a href="#eq-linear-system">Equation&nbsp;1</a>, we must compute numerical derivatives in both <span class="math inline">\(t\)</span> and in <span class="math inline">\(x\)</span>. This isn’t an issue if we have smooth, reliable data and can be quickly computed with finite differences.</p>
+<p>In order to actually compute the values in the linear system written in <a href="#eq-linear-system" class="quarto-xref">Equation&nbsp;1</a>, we must compute numerical derivatives in both <span class="math inline">\(t\)</span> and in <span class="math inline">\(x\)</span>. This isn’t an issue if we have smooth, reliable data and can be quickly computed with finite differences.</p>
 <p>However, the intent of this method is to use data samples <span class="math inline">\(u(x_i,t_j)\)</span> that are collected from the real world, implying that they will each be polluted with some level of noise. There have been several classical methods presented for dealing with numerical differentiation of noisy data that could be used, but generally the methods revolve around an approximate fitting of a differentiable function basis to the data. Notable among these are:</p>
 <ul>
 <li>Local polynomial regression (LOESS<span class="citation" data-cites="cleveland1988locally">&nbsp;[<a href="#ref-cleveland1988locally" role="doc-biblioref">3</a>]</span>, Savitsky-Golay filter<span class="citation" data-cites="press1990savitzky">&nbsp;[<a href="#ref-press1990savitzky" role="doc-biblioref">4</a>]</span>, etc.)</li>
@@ -308,11 +344,11 @@ F(x_i,t_j,\vec{c}) = \sum_l^L c_l \phi_l(x_i,t_j)
 \]</span> and <span class="math inline">\(\phi\)</span> represents our chosen basis function. Once computed, we can easily approximate derivatives of <span class="math inline">\(u\)</span> via: <span class="math display">\[
 u_x(x_i,t_j) \approx F_x(x_i,t_j,\vec{c}) = \sum_l^L c_l \frac{d}{dx}\phi_l(x_i,t_j)
 \]</span></p>
-<p>Each of these has the goal of smoothing the given data while simultaneously providing an exact derivative of the approximation. This is a similar idea as we have discussed with automatic differentiation of neural networks. In fact, you could consider fitting a neural network to be the same as fitting a randomly initialized nested basis of nonlinear functions (since they are dense according to the universal approximation theorem). We will explore this idea in the example problem in <a href="#sec-simulated">Section&nbsp;3</a>.</p>
+<p>Each of these has the goal of smoothing the given data while simultaneously providing an exact derivative of the approximation. This is a similar idea as we have discussed with automatic differentiation of neural networks. In fact, you could consider fitting a neural network to be the same as fitting a randomly initialized nested basis of nonlinear functions (since they are dense according to the universal approximation theorem). We will explore this idea in the example problem in <a href="#sec-simulated" class="quarto-xref">Section&nbsp;3</a>.</p>
 </section>
 <section id="sparse-regression" class="level3">
 <h3 class="anchored" data-anchor-id="sparse-regression">Sparse regression</h3>
-<p>Once the matrix in <a href="#eq-linear-system">Equation&nbsp;1</a> has been created using numerical differentiation, it remains to sift through the nonlinear terms to determine which, if any, contribute to the time evolution of our state variable of interest. It is usually reasonable to consider that not all the nonlinear terms should be included in the equation, so we would like to determine the most parsimonious (smallest) combination of them that will capture our desired qualitative and quantitative behavior in the system.</p>
+<p>Once the matrix in <a href="#eq-linear-system" class="quarto-xref">Equation&nbsp;1</a> has been created using numerical differentiation, it remains to sift through the nonlinear terms to determine which, if any, contribute to the time evolution of our state variable of interest. It is usually reasonable to consider that not all the nonlinear terms should be included in the equation, so we would like to determine the most parsimonious (smallest) combination of them that will capture our desired qualitative and quantitative behavior in the system.</p>
 <p>There are two main families of sparse regression methods:</p>
 <p><strong>Greedy methods</strong>: Iterative add/remove terms that best match the time derivative in some metric (<span class="math inline">\(R^2\)</span> coefficient of determination, Akaike Information Criteria (AIC), etc.).</p>
 <ul>
@@ -339,7 +375,7 @@ u_x(x_i,t_j) \approx F_x(x_i,t_j,\vec{c}) = \sum_l^L c_l \frac{d}{dx}\phi_l(x_i,
 <li>Compute the libary at sample points using noise robust numerical differentiation to compute both <span class="math inline">\(u_t(x_i,t_j)\)</span> and <span class="math inline">\(\mathcal{N}_k(u_{ij},x_i,t_j)\)</span></li>
 <li>Use sparse regression to determine a sparse vector <span class="math inline">\(\vec{\xi}\)</span> which closely approximates <span class="math inline">\(u_t(x_i,t_j) = \xi_1\mathcal{N}_1(u_{ij},x_i,t_j) + \ldots + \xi_K\mathcal{N}_K(u_{ij},x_i,t_j)\)</span></li>
 </ol>
-<p>To really explore this method, we will walk through this process using simulated traveling wave data in <a href="#sec-simulated">Section&nbsp;3</a> and using real extracted data in <a href="#sec-extracted">Section&nbsp;5</a>.</p>
+<p>To really explore this method, we will walk through this process using simulated traveling wave data in <a href="#sec-simulated" class="quarto-xref">Section&nbsp;3</a> and using real extracted data in <a href="#sec-extracted" class="quarto-xref">Section&nbsp;5</a>.</p>
 </section>
 </section>
 <section id="sec-simulated" class="level2">
@@ -362,7 +398,7 @@ Note
 h_t(x,t) = h_x(x,t)
 \]</span> with periodic boundaries and a Gaussian initial condition, we have the following measurement of state variable <span class="math inline">\(h\)</span> (height of the wave):</p>
 <div class="cell" data-execution_count="1">
-<details>
+<details class="code-fold">
 <summary>Generate simple wave data</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pde</span>
@@ -456,7 +492,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is far beyond what is necessary for this particular setting, but is a method that can generalize to data not on a uniform grid and in high dimension, which can be useful. The lack of requirement for a grid can also help with robustly fitting to noisy data by using a train-test methodology in <a href="#sec-noisy">Section&nbsp;4</a> which classical basis functions do not handle well. Using neural networks in this way as a combination with SINDy is explored more in<span class="citation" data-cites="xu2019dl">&nbsp;[<a href="#ref-xu2019dl" role="doc-biblioref">7</a>]</span>.</p>
+<p>This is far beyond what is necessary for this particular setting, but is a method that can generalize to data not on a uniform grid and in high dimension, which can be useful. The lack of requirement for a grid can also help with robustly fitting to noisy data by using a train-test methodology in <a href="#sec-noisy" class="quarto-xref">Section&nbsp;4</a> which classical basis functions do not handle well. Using neural networks in this way as a combination with SINDy is explored more in<span class="citation" data-cites="xu2019dl">&nbsp;[<a href="#ref-xu2019dl" role="doc-biblioref">7</a>]</span>.</p>
 </div>
 </div>
 <p>To begin, we will be using the Google developed <a href="https://flax.readthedocs.io/en/latest/"><code>flax</code></a> neural network framework which is built on their <a href="https://jax.readthedocs.io/en/latest/index.html"><code>jax</code></a> automatic differentiation library and the <a href="https://optax.readthedocs.io/en/latest/optax-101.html"><code>optax</code></a> optimization library. The reason for this will become clearer when we consider taking a fourth order derivative in <span class="math inline">\(x\)</span> of the network, a task which many other popular frameworks (<code>pytorch</code>, <code>keras</code>, <code>tensorflow</code>, etc.) cannot do (at least not nearly as concisely). However, the <code>jax</code> library is state-of-the-art for automatic differentiation and is used heavily for differentiable programming and neural network research today (see Appendix for more information).</p>
@@ -724,6 +760,7 @@ Note
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>term_matrix <span class="op">=</span> pd.DataFrame(term_values,index<span class="op">=</span>pd.MultiIndex.from_arrays(np.<span class="bu">round</span>(np.array(xt_points),<span class="dv">2</span>).T, names<span class="op">=</span>(<span class="st">"x"</span>,<span class="st">"t"</span>)))</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>term_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
+<div>
 <div>
 
 
@@ -1063,6 +1100,7 @@ Note
 </div>
 </div>
 </div>
+</div>
 <p>We then use another extremely popular machine learning Python package called <code>scikit-learn</code> to easily work with our regression models.</p>
 <section id="ordinary-least-squares" class="level4">
 <h4 class="anchored" data-anchor-id="ordinary-least-squares">Ordinary least squares</h4>
@@ -1087,6 +1125,7 @@ Note
 <pre><code>R^2: 0.9996492734907563</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="17">
+<div>
 <div>
 
 
@@ -1149,6 +1188,7 @@ Note
 </div>
 </div>
 </div>
+</div>
 <p>Although the <span class="math inline">\(R^2\)</span> value implies that we have successful explained the variance in <span class="math inline">\(h_t\)</span> by linearly combining our term library, it is unclear which of all the terms most contributes to the time evolution from their coefficients.</p>
 </section>
 <section id="lasso" class="level4">
@@ -1170,6 +1210,7 @@ Note
   model = cd_fast.enet_coordinate_descent(</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="18">
+<div>
 <div>
 
 
@@ -1232,6 +1273,7 @@ Note
 </div>
 </div>
 </div>
+</div>
 <p>Now this at least removed some of the terms, but it also removed the term we know is correct! It’s somewhat hard to interpret exactly what this means. A convenient analysis using the Lasso method is to perform a “lasso path” in which we steadily decrease the regularization <span class="math inline">\(\lambda\)</span> to add more and more terms and pay attention to the order with which they are added:</p>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_lasso_path_results(A,b):</span>
@@ -1265,6 +1307,7 @@ lambda = 2</code></pre>
   model = cd_fast.enet_coordinate_descent_gram(</code></pre>
 </div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1326,7 +1369,9 @@ lambda = 2</code></pre>
 <p>1 rows × 65 columns</p>
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1388,7 +1433,9 @@ lambda = 2</code></pre>
 <p>1 rows × 73 columns</p>
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1450,7 +1497,9 @@ lambda = 2</code></pre>
 <p>1 rows × 73 columns</p>
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1512,7 +1561,9 @@ lambda = 2</code></pre>
 <p>1 rows × 88 columns</p>
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1575,6 +1626,7 @@ lambda = 2</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>Again, although this gives us a sense of sparsity, it also doesn’t seem to capture the solution well.</p>
 </section>
 <section id="greedy-forward-selection" class="level4">
@@ -1612,6 +1664,7 @@ R^2: 0.999896315291591</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
+<div>
 
 
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
@@ -1631,7 +1684,9 @@ R^2: 0.999896315291591</code></pre>
 
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1654,7 +1709,9 @@ R^2: 0.999896315291591</code></pre>
 
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1679,7 +1736,9 @@ R^2: 0.999896315291591</code></pre>
 
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1707,13 +1766,14 @@ R^2: 0.999896315291591</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>This seems to easily pick up that the only term needed to completely resolve the time evolution is <span class="math inline">\(h_x(x,t)\)</span>!</p>
 </section>
 </section>
 </section>
 <section id="sec-noisy" class="level2">
 <h2 class="anchored" data-anchor-id="sec-noisy">Application to noisy simulated wave data</h2>
-<p>In a real system, we could not expect to immediately have data as smooth as that we used in <a href="#sec-simulated">Section&nbsp;3</a>. However, the procedure is unchanged. The only challenge will be fitting the neural network to our data. Let’s add some noise to the data:</p>
+<p>In a real system, we could not expect to immediately have data as smooth as that we used in <a href="#sec-simulated" class="quarto-xref">Section&nbsp;3</a>. However, the procedure is unchanged. The only challenge will be fitting the neural network to our data. Let’s add some noise to the data:</p>
 <div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x,t,noisy_h <span class="op">=</span> load_data(<span class="st">"simple_wave.npz"</span>,<span class="fl">.2</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>animation2 <span class="op">=</span> animate_data(x,t,[noisy_h], [<span class="st">"h noisy"</span>])</span>
@@ -1877,6 +1937,7 @@ R^2: 0.9993156257451148</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
+<div>
 
 
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
@@ -1896,7 +1957,9 @@ R^2: 0.9993156257451148</code></pre>
 
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1919,7 +1982,9 @@ R^2: 0.9993156257451148</code></pre>
 
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1944,7 +2009,9 @@ R^2: 0.9993156257451148</code></pre>
 
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -1969,6 +2036,7 @@ R^2: 0.9993156257451148</code></pre>
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
 </div>
@@ -1999,7 +2067,11 @@ R^2: 0.9993156257451148</code></pre>
 <span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>plt.imshow(raw_frames[<span class="dv">16</span>])</span>
 <span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="va">False</span>)<span class="op">;</span> plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="workshop3_discovery_files/figure-html/cell-26-output-1.png" width="614" height="72"></p>
+<div>
+<figure class="figure">
+<p><img src="workshop3_discovery_files/figure-html/cell-26-output-1.png" width="614" height="72" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We then need to remove the background and isolate the wave portion of the image, which is facilitated by the green color of the water in this video:</p>
@@ -2018,7 +2090,11 @@ R^2: 0.9993156257451148</code></pre>
 <span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>plt.imshow(frames[<span class="dv">16</span>],cmap<span class="op">=</span><span class="st">"gray"</span>)</span>
 <span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="va">False</span>)<span class="op">;</span> plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="workshop3_discovery_files/figure-html/cell-27-output-1.png" width="614" height="72"></p>
+<div>
+<figure class="figure">
+<p><img src="workshop3_discovery_files/figure-html/cell-27-output-1.png" width="614" height="72" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>By averaging these pixels across all vertical pixels in the image, we can get a rough wave outline:</p>
@@ -2041,7 +2117,11 @@ R^2: 0.9993156257451148</code></pre>
 <span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>line2 <span class="op">=</span> plt.plot([<span class="dv">0</span>,heights.shape[<span class="dv">1</span>]], [<span class="dv">31</span>,<span class="dv">31</span>], color<span class="op">=</span><span class="st">"orange"</span>, ls<span class="op">=</span><span class="st">"--"</span>)[<span class="dv">0</span>]</span>
 <span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="va">False</span>)<span class="op">;</span> plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="workshop3_discovery_files/figure-html/cell-28-output-1.png" width="614" height="70"></p>
+<div>
+<figure class="figure">
+<p><img src="workshop3_discovery_files/figure-html/cell-28-output-1.png" width="614" height="70" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Finally, we can note that the video is not quite level to the wave surface, so we can use a linear adjustment to align the water boundary heights at the middle of the video:</p>
@@ -2095,7 +2175,7 @@ R^2: 0.9993156257451148</code></pre>
 </section>
 <section id="using-our-experimental-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="using-our-experimental-dataset">Using our experimental dataset</h3>
-<p>Using the same methods as listed in <a href="#sec-noisy">Section&nbsp;4</a>, we can discover an equation for this particular dataset:</p>
+<p>Using the same methods as listed in <a href="#sec-noisy" class="quarto-xref">Section&nbsp;4</a>, we can discover an equation for this particular dataset:</p>
 <div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>x,t,ext_h <span class="op">=</span> load_data(<span class="st">"video_wave_heights.npz"</span>)</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Flip image wave to be more familiar</span></span>
@@ -2249,6 +2329,7 @@ R^2: 0.991064364883932</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
+<div>
 
 
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
@@ -2268,7 +2349,9 @@ R^2: 0.991064364883932</code></pre>
 
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -2291,7 +2374,9 @@ R^2: 0.991064364883932</code></pre>
 
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -2316,7 +2401,9 @@ R^2: 0.991064364883932</code></pre>
 
 </div>
 </div>
+</div>
 <div class="cell-output cell-output-display">
+<div>
 <div>
 
 
@@ -2344,6 +2431,7 @@ R^2: 0.991064364883932</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>Feel free to play with the parameters of each step to try to change/improve the results we have seen here.</p>
 </section>
 </section>
@@ -2359,7 +2447,7 @@ R^2: 0.991064364883932</code></pre>
 <p>If <code>jax</code> and <code>flax</code> have appeared too hands-on and complicated after this workshop, consider trying <a href="https://cgarciae.github.io/treex/"><code>treex</code></a> which aims to make using <code>jax</code> for neural networks simple and only need a few lines of code.</p>
 </div></section><section id="training-without-normalizing-the-data" class="level3 appendix"><h2 class="anchored quarto-appendix-heading">Training without normalizing the data</h2><div class="quarto-appendix-contents">
 
-<p>In the <a href="#sec-simulated">Section&nbsp;3</a> section, the <code>load_data</code> function performs a normalization of the simulated data from a range of <span class="math inline">\(h(x,t) \in [0,.1]\)</span> where <span class="math inline">\(x \in [0,1]\)</span> and <span class="math inline">\(t \in [0,1]\)</span> to a range of <span class="math inline">\(h(x,t) \in [-1,1]\)</span> with mean <span class="math inline">\(\bar{h}=0\)</span> and standard deviation 1 with <span class="math inline">\(x \in [-1.7,1.7]\)</span> and <span class="math inline">\(t \in [-1.7,1.7]\)</span>. Normalizing data like this is common in machine learning, but it is not always apparent why. Our case can give a strong demonstration as to the benefits of normalizing in this way.</p>
+<p>In the <a href="#sec-simulated" class="quarto-xref">Section&nbsp;3</a> section, the <code>load_data</code> function performs a normalization of the simulated data from a range of <span class="math inline">\(h(x,t) \in [0,.1]\)</span> where <span class="math inline">\(x \in [0,1]\)</span> and <span class="math inline">\(t \in [0,1]\)</span> to a range of <span class="math inline">\(h(x,t) \in [-1,1]\)</span> with mean <span class="math inline">\(\bar{h}=0\)</span> and standard deviation 1 with <span class="math inline">\(x \in [-1.7,1.7]\)</span> and <span class="math inline">\(t \in [-1.7,1.7]\)</span>. Normalizing data like this is common in machine learning, but it is not always apparent why. Our case can give a strong demonstration as to the benefits of normalizing in this way.</p>
 <p>Consider that our neural network uses only the <span class="math inline">\(\tanh\)</span> activation function. For those unfamiliar, this function has the form:</p>
 <div class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>tanh_dom <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">100</span>)</span>
@@ -2367,7 +2455,11 @@ R^2: 0.991064364883932</code></pre>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>plt.plot(tanh_dom, tanh_range, label<span class="op">=</span><span class="st">"$</span><span class="ch">\\</span><span class="st">tanh(x)$"</span>)</span>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$x$"</span>)<span class="op">;</span> plt.legend()<span class="op">;</span> plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="workshop3_discovery_files/figure-html/cell-34-output-1.png" width="590" height="429"></p>
+<div>
+<figure class="figure">
+<p><img src="workshop3_discovery_files/figure-html/cell-34-output-1.png" width="590" height="429" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Each layer of our neural network is connected via linear transformations of the form <span class="math inline">\(\vec{x}^T\mathbf{W} + \vec{b}\)</span>, thus we should be able to shift the data into the appropriate domain and range for the <span class="math inline">\(\tanh\)</span> function. However, in practice, optimizing our parameters to attain this is hard to find. To demonstrate, consider the training of the neural network on clean simulation data without normalization:</p>
@@ -2434,7 +2526,7 @@ Training loss step 900: 0.0005216019926592708</code></pre>
 
 
 
-</div></section><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+</div></section><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-brunton2016discovering" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline">S. L. Brunton, J. L. Proctor, and J. N. Kutz, <em>Discovering Governing Equations from Data by Sparse Identification of Nonlinear Dynamical Systems</em>, Proceedings of the National Academy of Sciences <strong>113</strong>, 3932 (2016).</div>
 </div>
@@ -2503,6 +2595,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -2569,13 +2688,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2654,10 +2775,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2667,8 +2805,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2680,7 +2827,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2724,6 +2994,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2749,6 +3020,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2830,9 +3127,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Connor Robertson, Copyright 2022</div>
+    <div class="nav-footer-right">
+<p>Connor Robertson, Copyright 2022</p>
+</div>
   </div>
 </footer>
+
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: The exterior angles of a polygon make a circle
 author: Connor Robertson
-jupyter: julia-1.8
+jupyter: julia-1.10
 execute:
   daemon: true
 ---
