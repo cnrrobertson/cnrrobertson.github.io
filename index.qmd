@@ -12,14 +12,17 @@ about:
         href: https://github.com/cnrrobertson
 ---
 
-I am a PhD student of Applied Mathematics at the New Jersey Institute of Technology.
-My current research is focused on data-driven model discovery for active nematic fluid systems.
-But I'm generally interested in the intersections between machine learning and data science with traditional approaches in computational science.
+I am a postdoctoral researcher at Sandia National Laboratories researching how to accelerate modeling and simulation by leveraging scientific machine learning tools.
+Specifically, I have been working to use these accelerations to calibrate expensive epidemiological models with real world observations.
+
+Previously, I was a PhD student of Applied Mathematics at the New Jersey Institute of Technology researching data-driven model discovery for active nematic fluid systems.
+
+I'm generally interested in the intersections between machine learning and data science with traditional computational science.
 
 <!-- I am also fascinated by the topics of public infrastructure and agriculture, although they are quite unrelated to my current work. -->
 <!-- Honestly, I'm interested in most topics once I get chatting, so please reach out! -->
 
-On this site you can find my [CV](cv.qmd), my [LinkedIn](https://www.linkedin.com/in/connor-robertson-773ba8b1/) and [Github](https://github.com/cnrrobertson) profiles, and some other little tidbits for [teaching](teaching/teaching.html), [research](research/research.html), [seminars](other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd), and [general exploration](other/fun/fun.qmd).
+On this site you can find my [CV](cv.qmd), my [LinkedIn](https://www.linkedin.com/in/connor-robertson-773ba8b1/) and [Github](https://github.com/cnrrobertson) profiles, and some other little tidbits for [research](research/research.html), [seminars](other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd), [teaching](other/teaching/teaching.html), and [general exploration](other/fun/fun.qmd).
 
 <!-- ## Education -->
 <!---->

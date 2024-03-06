@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Connor Robertson">
 
-<title>Connor Robertson</title>
+<title>Connor Robertson - Lab 2 - Bisection Method</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +21,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,18 +104,47 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">Connor Robertson</span>
     </a>
   </div>
@@ -91,11 +155,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../cv.html"> 
+    <a class="nav-link" href="../../../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research/research.html"> 
+    <a class="nav-link" href="../../../../research/research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -104,15 +168,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
         <li>
-    <a class="dropdown-item" href="../../other/fun/fun.html">
+    <a class="dropdown-item" href="../../../../other/fun/fun.html">
  <span class="dropdown-text">Just for Fun</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../other/mlseminar/mlseminar.html">
+    <a class="dropdown-item" href="../../../../other/mlseminar/mlseminar.html">
  <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../other/teaching/teaching.html">
+    <a class="dropdown-item" href="../../../../other/teaching/teaching.html">
  <span class="dropdown-text">NJIT Teaching</span></a>
   </li>  
     </ul>
@@ -124,23 +188,266 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html">Math 340 - Applied Numerical Methods</a></li><li class="breadcrumb-item"><a href="../../../../other/teaching/math340/Lab2_bisection/Lab2_bisection.html">Lab 2 - Bisection Method</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/teaching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teaching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../other/teaching/math111/math111.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Math 111 - Calculus I</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math111/quizzes/quiz1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quiz 1 - Limits and rate of change</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math111/quizzes/quiz2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quiz 2 - Continuity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math111/quizzes/quiz3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quiz 3 - Definition of a derivative</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math111/quizzes/quiz4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quiz 4 - Chain rule and implicit differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math111/quizzes/quiz5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quiz 5 - More chain rule and differentiation of trigonometric functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math111/quizzes/quiz6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quiz 6 - More chain rule and differentiation of trigonometric functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math111/quizzes/quiz7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quiz 7 - First derivative test and linearization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math111/quizzes/quiz8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quiz 8 - Curve sketching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math111/quizzes/quiz9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quiz 9 - Newton’s method and antiderivatives</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math111/quizzes/quiz10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quiz 10 - Integration</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Math 340 - Applied Numerical Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1 - Brief Introduction to Matlab</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math340/Lab2_bisection/Lab2_bisection.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 2 - Bisection Method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3 - Fixed point methods</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
+  <ul class="collapse">
+  <li><a href="#matlab-function" id="toc-matlab-function" class="nav-link" data-scroll-target="#matlab-function">Matlab function</a></li>
+  <li><a href="#find-root-of-simple-function" id="toc-find-root-of-simple-function" class="nav-link" data-scroll-target="#find-root-of-simple-function">Find root of simple function</a></li>
+  <li><a href="#find-root-of-discontinuous-function" id="toc-find-root-of-discontinuous-function" class="nav-link" data-scroll-target="#find-root-of-discontinuous-function">Find root of discontinuous function</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html">Math 340 - Applied Numerical Methods</a></li><li class="breadcrumb-item"><a href="../../../../other/teaching/math340/Lab2_bisection/Lab2_bisection.html">Lab 2 - Bisection Method</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lab 2 - Bisection Method</h1>
+</div>
 
 
 
-<meta http-equiv="refresh" content="0;URL=https://cnrrobertson.github.io/other/mlseminar/mlseminar.html">
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Connor Robertson </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The bisection method is a numerical method for finding the root of a continuous function <span class="math inline">\(f(x)\)</span> that lies between two points <span class="math inline">\(a,b\)</span> where <span class="math inline">\(f(a)f(b)&lt;0\)</span>. This means that <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span> are of opposite sign, and thus there must be a root between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. An example of a function like this is shown in <a href="#fig-setting" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<div id="fig-setting" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-setting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/img1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-setting-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Example of continuous function between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> where <span class="math inline">\(f(a)f(b) &lt; 0\)</span> and thus a root lies between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>The concept that underpins the bisection method is that as long as <span class="math inline">\(f(a)f(b)&lt;0\)</span>, there is guaranteed to be a root between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Since the initial interval <span class="math inline">\((a,b)\)</span> is given, the method can iteratively make smaller and smaller intervals whose endpoints satisfy the condition <span class="math inline">\(f(a)f(b)&lt;0\)</span>. Specifically, the method halves the interval at each step which is what gives it the name “bisection” method. The details of the method can be most easily summarized in the following “pseudocode” algorithm.</p>
+<p>Given the initial interval <span class="math inline">\([a,b]\)</span>, the function <span class="math inline">\(f\)</span> where <span class="math inline">\(f(a)f(b) &lt; 0\)</span>, and an ending tolerance, <span class="math inline">\(tol\)</span> (the size of the final interval), we compute:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">% While half the interval is bigger than the given accuracy tolerance</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">while</span> (<span class="va">b</span><span class="op">-</span><span class="va">a</span>)<span class="op">/</span><span class="fl">2</span> <span class="op">&gt;</span> <span class="va">tol</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">% c = the midpoint of a and b</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">% If f(c) = 0, stop                  -- this would be lucky (c=root)!</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">% If f(a)f(c) &lt; 0, then b=c          -- the root is between a and c</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">% Else, a=c                          -- the root is between c and b</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">% The final c is an approximate root</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that this formula does not depend on what the function <span class="math inline">\(f\)</span> is. This is a nice property of the bisection method since it allows you to write one piece of code that can be used for any function. Other methods you will see later in this class use information about the function <span class="math inline">\(f\)</span> (such as the derivative) to get faster convergence. However, these methods are also usually do not work for all functions <span class="math inline">\(f\)</span>. This is a classic tradeoff in numerical methods (between the generality and speed of the method).</p>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<p>Here I’ll write a bisection method function that takes in <span class="math inline">\(f\)</span>, <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(tol\)</span> and outputs the approximate root <span class="math inline">\(c\)</span> and the number of steps taken, <span class="math inline">\(N\)</span>. At each step, the function prints the step number and the current approximate root (the midpoint of the current interval).</p>
+<section id="matlab-function" class="level3">
+<h3 class="anchored" data-anchor-id="matlab-function">Matlab function</h3>
+<pre class="{matlab}"><code>%%file MyBisectionMethod.m
+function [c, N] = MyBisectionMethod(f, a, b, tol)
+    N = 0;
+    while (b-a)/2 &gt; tol
+        c = (a + b) / 2;
+        if f(c) == 0
+            return
+        elseif f(a)*f(c) &lt; 0
+            b = c;
+        else
+            a = c;
+        end
+        N = N + 1;
+        disp(['At step ' num2str(N) ' approximation is ' num2str((a+b)/2)])
+    end
+end</code></pre>
+</section>
+<section id="find-root-of-simple-function" class="level3">
+<h3 class="anchored" data-anchor-id="find-root-of-simple-function">Find root of simple function</h3>
+<p>Now, using this bisection method code on the function <span class="math inline">\(f(x)=x^2-7\)</span> to find the root <span class="math inline">\(\sqrt{7}\)</span> with interval <span class="math inline">\([-1,3]\)</span> and a tolerance of <span class="math inline">\(10^{-5}\)</span>:</p>
+<pre class="{matlab}"><code>a = -1;
+b = 3;
+tol = 1e-5;
+
+f = @(x) x.^2 - 7;
+[root,steps] = MyBisectionMethod(f, a, b, tol);
+true = sqrt(7);
+answer = ['The true root is ' num2str(true) ' while our approximation is ' num2str(root)];
+disp(answer)</code></pre>
+<p>Theoretically, this should take <span class="math display">\[
+\begin{align*}
+N=-1 + \log_2\frac{b-a}{\mathrm{Tol}}
+\end{align*}
+\]</span> steps on the interval <span class="math inline">\((a,b)\)</span> with tolerance <span class="math inline">\(Tol\)</span>:</p>
+<pre class="{matlab}"><code>theoryN=log2((b-a)/tol) - 1;    % the value of N as predicted by the formula from class
+answer = ['We took ' num2str(steps) ' steps while the theory predicts we should take ' num2str(theoryN) ' steps'];
+disp(answer)</code></pre>
+</section>
+<section id="find-root-of-discontinuous-function" class="level3">
+<h3 class="anchored" data-anchor-id="find-root-of-discontinuous-function">Find root of discontinuous function</h3>
+<p>The method does have some drawbacks in the context of discontinuities. For example, consider the function: <span class="math display">\[
+\begin{align*}
+f(x) = \frac{|x-3|}{x^3 - 3 x^2 + x -3}
+.\end{align*}
+\]</span> on the interval <span class="math inline">\([1, 5]\)</span> which plotted looks like:</p>
+<pre class="{matlab}"><code>fFun = @(x) abs(x-3) ./ (x.^3 - 3.*x.^2 + x - 3);
+X = linspace(1,5,1000);
+Y = fFun(X);
+plot(X,Y,'-r','LineWidth',1);   % plot the function
+xlabel('x');
+ylabel('f(x)');
+title('Plot of $f(x)=\frac{|x-3|}{x^3-3x^2+x-3}$','interpreter','latex');</code></pre>
+<p>Applying the bisection code on this interval with a tolerance of <span class="math inline">\(10^{-4}\)</span> gives:</p>
+<pre class="{matlab}"><code>[c3,N3] = MyBisectionMethod(fFun,1,4,1e-4);</code></pre>
+<p>Although the function returned a answer, since the function is discontinuous, the answer does not represent a root.</p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

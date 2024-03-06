@@ -273,14 +273,14 @@
     "href": "index.html",
     "title": "Connor Robertson",
     "section": "",
-    "text": "I am a PhD student of Applied Mathematics at the New Jersey Institute of Technology. My current research is focused on data-driven model discovery for active nematic fluid systems. But I’m generally interested in the intersections between machine learning and data science with traditional approaches in computational science.\n\n\nOn this site you can find my CV, my LinkedIn and Github profiles, and some other little tidbits for teaching, research, seminars, and general exploration."
+    "text": "I am a postdoctoral researcher at Sandia National Laboratories researching how to accelerate modeling and simulation by leveraging scientific machine learning tools. Specifically, I have been working to use these accelerations to calibrate expensive epidemiological models with real world observations.\nPreviously, I was a PhD student of Applied Mathematics at the New Jersey Institute of Technology researching data-driven model discovery for active nematic fluid systems.\nI’m generally interested in the intersections between machine learning and data science with traditional computational science.\n\n\nOn this site you can find my CV, my LinkedIn and Github profiles, and some other little tidbits for research, seminars, teaching, and general exploration."
   },
   {
     "objectID": "other/other.html",
     "href": "other/other.html",
     "title": "Other",
     "section": "",
-    "text": "This section is made up of various other resources related to my interests or activities. Some are for specific events like the Machine Learning and Optimization seminar at NJIT, some might be useful for other people, and some are just for fun."
+    "text": "This section is made up of various other resources related to my interests or previous activities. Some are for specific events like the Machine Learning and Optimization seminar at NJIT or classes, some might be useful for other people, and some are just for fun."
   },
   {
     "objectID": "other/mlseminar/fall_2022/workshop2_nn/workshop2_nn.html",
@@ -984,6 +984,567 @@
     "text": "Examples\nHere I’ll write a bisection method function that takes in \\(f\\), \\(a\\), \\(b\\) and \\(tol\\) and outputs the approximate root \\(c\\) and the number of steps taken, \\(N\\). At each step, the function prints the step number and the current approximate root (the midpoint of the current interval).\n\nMatlab function\n\n%%file MyBisectionMethod.m\nfunction [c, N] = MyBisectionMethod(f, a, b, tol)\n    N = 0;\n    while (b-a)/2 &gt; tol\n        c = (a + b) / 2;\n        if f(c) == 0\n            return\n        elseif f(a)*f(c) &lt; 0\n            b = c;\n        else\n            a = c;\n        end\n        N = N + 1;\n        disp(['At step ' num2str(N) ' approximation is ' num2str((a+b)/2)])\n    end\nend\n\nCreated file '/home/connor/GDrive/Software/cnrrobertson.github.io/teaching/math340/Lab2_bisection/MyBisectionMethod.m'.\n\n\n\n\nFind root of simple function\nNow, using this bisection method code on the function \\(f(x)=x^2-7\\) to find the root \\(\\sqrt{7}\\) with interval \\([-1,3]\\) and a tolerance of \\(10^{-5}\\):\n\na = -1;\nb = 3;\ntol = 1e-5;\n\nf = @(x) x.^2 - 7;\n[root,steps] = MyBisectionMethod(f, a, b, tol);\ntrue = sqrt(7);\nanswer = ['The true root is ' num2str(true) ' while our approximation is ' num2str(root)];\ndisp(answer)\n\nAt step 1 approximation is 2\n\n\nAt step 2 approximation is 2.5\n\n\nAt step 3 approximation is 2.75\n\n\nAt step 4 approximation is 2.625\n\n\nAt step 5 approximation is 2.6875\n\n\nAt step 6 approximation is 2.6562\n\n\nAt step 7 approximation is 2.6406\nAt step 8 approximation is 2.6484\n\n\nAt step 9 approximation is 2.6445\n\n\nAt step 10 approximation is 2.6465\n\n\nAt step 11 approximation is 2.6455\n\n\nAt step 12 approximation is 2.646\nAt step 13 approximation is 2.6458\n\n\nAt step 14 approximation is 2.6456\n\n\nAt step 15 approximation is 2.6457\n\n\nAt step 16 approximation is 2.6457\n\n\nAt step 17 approximation is 2.6457\n\n\nAt step 18 approximation is 2.6457\n\n\nThe true root is 2.6458 while our approximation is 2.6457\n\n\nTheoretically, this should take \\[\n\\begin{align*}\nN=-1 + \\log_2\\frac{b-a}{\\mathrm{Tol}}\n\\end{align*}\n\\] steps on the interval \\((a,b)\\) with tolerance \\(Tol\\):\n\ntheoryN=log2((b-a)/tol) - 1;    % the value of N as predicted by the formula from class\nanswer = ['We took ' num2str(steps) ' steps while the theory predicts we should take ' num2str(theoryN) ' steps'];\ndisp(answer)\n\nWe took 18 steps while the theory predicts we should take 17.6096 steps\n\n\n\n\nFind root of discontinuous function\nThe method does have some drawbacks in the context of discontinuities. For example, consider the function: \\[\n\\begin{align*}\nf(x) = \\frac{|x-3|}{x^3 - 3 x^2 + x -3}\n.\\end{align*}\n\\] on the interval \\([1, 5]\\) which plotted looks like:\n\nfFun = @(x) abs(x-3) ./ (x.^3 - 3.*x.^2 + x - 3);\nX = linspace(1,5,1000);\nY = fFun(X);\nplot(X,Y,'-r','LineWidth',1);   % plot the function\nxlabel('x');\nylabel('f(x)');\ntitle('Plot of $f(x)=\\frac{|x-3|}{x^3-3x^2+x-3}$','interpreter','latex');\n\n\n\n\n\n\n\n\nApplying the bisection code on this interval with a tolerance of \\(10^{-4}\\) gives:\n\n[c3,N3] = MyBisectionMethod(fFun,1,4,1e-4);\n\nAt step 1 approximation is 3.25\n\n\nAt step 2 approximation is 2.875\n\n\nAt step 3 approximation is 3.0625\n\n\nAt step 4 approximation is 2.9688\n\n\nAt step 5 approximation is 3.0156\n\n\nAt step 6 approximation is 2.9922\nAt step 7 approximation is 3.0039\n\n\nAt step 8 approximation is 2.998\n\n\nAt step 9 approximation is 3.001\n\n\nAt step 10 approximation is 2.9995\n\n\nAt step 11 approximation is 3.0002\n\n\nAt step 12 approximation is 2.9999\n\n\nAt step 13 approximation is 3.0001\n\n\nAt step 14 approximation is 3\n\n\nAlthough the function returned a answer, since the function is discontinuous, the answer does not represent a root.",
     "crumbs": [
       "Teaching",
+      "Math 340 - Applied Numerical Methods",
+      "Lab 2 - Bisection Method"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_Examples.html",
+    "href": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_Examples.html",
+    "title": "Lab 1 Examples",
+    "section": "",
+    "text": "Lab Instructor: Connor Robertson"
+  },
+  {
+    "objectID": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_Examples.html#example-1",
+    "href": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_Examples.html#example-1",
+    "title": "Lab 1 Examples",
+    "section": "Example 1",
+    "text": "Example 1\nHere are a few basic calculations and constructions that you will need to use throughout the course for building arrays of numbers. Take note of these constructions as they will be useful for the entire course\n\n% a row vector, X=(0 1 2 3) can be written three ways:\n\n% here it is written using brackets\nX = [0 1 2 3]\n\n\nX =\n\n     0     1     2     3\n\n\n\n\n% including ; at the end of the line will suppress the output (it will\n% still do the command but not print the variable:\nX = [0 1 2 3];\n\n% Here it is written in the form X=linspace(a,b,n) where\n% a is the first point, b is the last and n is the number\n% of equally spaced points\nX = linspace(0, 3, 4)\n\n\nX =\n\n     0     1     2     3\n\n\n\n\n% linspace is a function that Matlab includes by default (it is in the\n% Matlab standard library)\n\n% Here it is written in the form X=a:delta:b where\n% a is the first point, b is the last and delta is the \n% distance between each point\nX=0:1:3"
+  },
+  {
+    "objectID": "other/teaching/math340/Lab4_secant/Lab4_secant.html",
+    "href": "other/teaching/math340/Lab4_secant/Lab4_secant.html",
+    "title": "Lab 4 - Secant method",
+    "section": "",
+    "text": "There is an alternative to Newton’s method that does not require a closed form for \\(f'(x)\\) called “Secant method.” Although the method is presented from the context of Newton’s method, it actually predates it by thousands of years. In order to understand it as it relates to Newton’s method, we can consider the definition of the derivative \\(f'(x)\\): \\[\n\\begin{align*}\n    f'(x) = \\lim_{\\delta \\to 0} \\frac{f(x) - f(x-\\delta)}{\\delta}\n.\\end{align*}\n\\] We can rewrite this as: \\[\n\\begin{align*}\n    f'(x) = \\lim_{\\delta \\to 0} \\frac{f(x) - f(x-\\delta)}{x - (x - \\delta)}\n.\\end{align*}\n\\] Taking a fixed small number \\(\\delta\\) and plugging in some value \\(x_n\\) where \\(x_n - \\delta \\approx x_{n-1}\\) to get: \\[\n\\begin{align*}\n    f'(x_n) \\approx \\frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}\n.\\end{align*}\n\\] This is called the “secant line” at \\(x_n\\). If we now plug in this derivative approximation to Newton’s method, we get: \\[\n\\begin{align*}\n    g(x_n, x_{n-1}) = x_n - f(x_n) \\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}\n\\end{align*}\n\\] which is the secant method without an explicit form for \\(f'(x)\\)! Although this has simplified our procedure, there are also some drawbacks in convergence.\n\n\nGiven two initial points \\(x1\\) and \\(x2\\), the fixed point function \\(g\\) (that takes in variables for \\(x_n\\) and \\(x_{n-1}\\)), an ending tolerance \\(tol\\), and a max number of steps \\(Nmax\\), we compute:\ni = 2;            % Counter variable\nxs = [x1, x2];    % Array for storing results\nwhile abs(xs(i)-xs(i-1)) &gt; tol && i &lt; Nmax\n    % Append  g(xs(i),xs(i-1)) to xs\n    % Add 1 to i\nend\n\n\n\nFirstly, because the secant method can be viewed as an approximation of Newton’s method, it is sensitive to the starting value \\(x_1\\) like Newton’s method. Specifically, if the slope of the function \\(f(x)\\) is near \\(0\\), the approximate derivative can give strange results. Additionally, if you start with an \\(x_1\\) that is too far away from your fixed point/root \\(x^{*}\\), the method will not converge.\nUsing a similar analysis as we would use with Newton’s method (namely Taylor’s series and mean value theorem), we ultimately get a convergence expression of \\[\n\\begin{align*}\n    C = \\frac{|x_{n + 1} - x^{*}|}{|x_n - x^{*}|^{\\frac{1 + \\sqrt{5} }{2}}}\n\\end{align*}\n\\] which represents convergence of order \\(\\frac{1 + \\sqrt{5}}{2}\\). Although this is slower than Newton’s method, it is still faster than linear (order 1) and is thus faster than a method like bisection method."
+  },
+  {
+    "objectID": "other/teaching/math340/Lab4_secant/Lab4_secant.html#secant-method",
+    "href": "other/teaching/math340/Lab4_secant/Lab4_secant.html#secant-method",
+    "title": "Lab 4 - Secant method",
+    "section": "",
+    "text": "There is an alternative to Newton’s method that does not require a closed form for \\(f'(x)\\) called “Secant method.” Although the method is presented from the context of Newton’s method, it actually predates it by thousands of years. In order to understand it as it relates to Newton’s method, we can consider the definition of the derivative \\(f'(x)\\): \\[\n\\begin{align*}\n    f'(x) = \\lim_{\\delta \\to 0} \\frac{f(x) - f(x-\\delta)}{\\delta}\n.\\end{align*}\n\\] We can rewrite this as: \\[\n\\begin{align*}\n    f'(x) = \\lim_{\\delta \\to 0} \\frac{f(x) - f(x-\\delta)}{x - (x - \\delta)}\n.\\end{align*}\n\\] Taking a fixed small number \\(\\delta\\) and plugging in some value \\(x_n\\) where \\(x_n - \\delta \\approx x_{n-1}\\) to get: \\[\n\\begin{align*}\n    f'(x_n) \\approx \\frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}\n.\\end{align*}\n\\] This is called the “secant line” at \\(x_n\\). If we now plug in this derivative approximation to Newton’s method, we get: \\[\n\\begin{align*}\n    g(x_n, x_{n-1}) = x_n - f(x_n) \\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}\n\\end{align*}\n\\] which is the secant method without an explicit form for \\(f'(x)\\)! Although this has simplified our procedure, there are also some drawbacks in convergence.\n\n\nGiven two initial points \\(x1\\) and \\(x2\\), the fixed point function \\(g\\) (that takes in variables for \\(x_n\\) and \\(x_{n-1}\\)), an ending tolerance \\(tol\\), and a max number of steps \\(Nmax\\), we compute:\ni = 2;            % Counter variable\nxs = [x1, x2];    % Array for storing results\nwhile abs(xs(i)-xs(i-1)) &gt; tol && i &lt; Nmax\n    % Append  g(xs(i),xs(i-1)) to xs\n    % Add 1 to i\nend\n\n\n\nFirstly, because the secant method can be viewed as an approximation of Newton’s method, it is sensitive to the starting value \\(x_1\\) like Newton’s method. Specifically, if the slope of the function \\(f(x)\\) is near \\(0\\), the approximate derivative can give strange results. Additionally, if you start with an \\(x_1\\) that is too far away from your fixed point/root \\(x^{*}\\), the method will not converge.\nUsing a similar analysis as we would use with Newton’s method (namely Taylor’s series and mean value theorem), we ultimately get a convergence expression of \\[\n\\begin{align*}\n    C = \\frac{|x_{n + 1} - x^{*}|}{|x_n - x^{*}|^{\\frac{1 + \\sqrt{5} }{2}}}\n\\end{align*}\n\\] which represents convergence of order \\(\\frac{1 + \\sqrt{5}}{2}\\). Although this is slower than Newton’s method, it is still faster than linear (order 1) and is thus faster than a method like bisection method."
+  },
+  {
+    "objectID": "other/teaching/math340/Lab4_secant/Lab4_secant.html#regula-falsi",
+    "href": "other/teaching/math340/Lab4_secant/Lab4_secant.html#regula-falsi",
+    "title": "Lab 4 - Secant method",
+    "section": "Regula Falsi",
+    "text": "Regula Falsi\nThe secant method addresses the requirement for a closed form derivative \\(f'(x)\\) to be used in Newton’s method, it does not solve the sensitivity to the initial starting point.\nThe “regula falsi” method can be viewed as a further extension of the secant method which is guaranteed to converge to the true root \\(x^{*}\\) by “bracketing” the root like the bisection method (i.e. always considering an interval \\([a,b]\\) for which \\(f(a)f(b) &lt; 0\\)). To do so, it adjusts the bisection method midpoint selection using a secant line: \\[\n\\begin{align*}\n    f'(b) \\approx \\frac{f(b) - f(a)}{b - a}\n.\\end{align*}\n\\] This line is then applied to finding a “pseudo-midpoint” \\(c\\) that is between \\(a\\) and \\(b\\): \\[\n\\begin{align*}\n    c &= b - \\frac{f(b)}{f'(b)} \\\\\n    &\\approx b - f(b) \\frac{b - a}{f(b) - f(a)}\n.\\end{align*}\n\\] After computing the “midpoint” \\(c\\), we can check \\(f(a)f(c) &lt; 0\\) and adjust the interval \\([a,b]\\) accordingly.\n\nPseudocode\nGiven the initial interval \\([a,b]\\), the function \\(f\\), and an ending tolerance \\(tol\\) (the size of the final interval), we compute:\n% Create a function g that computes the midpoint using regula falsi formula\ng = @(a,b) ...\n% While half the interval is bigger than the given accuracy tolerance\nc = g(a,b)\nwhile |f(c)| &gt; tol\n    % c = g(a,b)\n    % If f(c) = 0, stop                  -- this would be lucky (c=root)!\n    % If f(a)f(c) &lt; 0, then b=c          -- the root is between a and c\n    % Else, a=c                          -- the root is between c and b\nend\n% The final c is an approximate root\nNote that this is almost identical to the bisection method with an adjusted calculation of \\(c\\)!\n\n\nConvergence\nThe general concept of the regula falsi method is to use the secant line to identify a point much closer to the root than the bisection method could, while still bracketing the root and guaranteeing convergence. In that sense, it should share a similar convergence rate as the bisection method along with guaranteed convergence.\nHowever, unlike the bisection method, the regula falsi method does not have a guaranteed amount that it will shrink the interval \\([a,b]\\) at each step due to this new “pseudo-midpoint” selection. Thus, it can on occasion converge slower than the bisection method! This demonstrates the challenging trade-offs associated with numerical methods: improved convergence, computational cost, or speed may result in instability, lack of convergence, or more assumptions and vice versa."
+  },
+  {
+    "objectID": "other/teaching/math340/Lab4_secant/Lab4_secant.html#comparison-of-root-finding-methods",
+    "href": "other/teaching/math340/Lab4_secant/Lab4_secant.html#comparison-of-root-finding-methods",
+    "title": "Lab 4 - Secant method",
+    "section": "Comparison of root finding methods",
+    "text": "Comparison of root finding methods\nAs we have explored in the previous sections, there are various pros and cons associated with each of the root finding methods we have discussed. These can be roughly summarized in the following table:\n\n\n\n\n\n\n\n\nMethod\nPros\nCons\n\n\n\n\nBisection\nGuaranteed to converge\nSlow linear convergence\n\n\nNewton’s\nFast quadratic convergence\nNeed to know \\(f'\\), may not converge\n\n\nSecant\nGood superlinear convergence\nMay not converge\n\n\nRegula falsi\nUsually superlinear convergence, guaranteed to converge\nCan have very slow convergence\n\n\n\nTo further illustrate these differences, consider the following plots and table showing the results of these methods on the function \\(f(x) = (x-3)^3\\sin(x) + 3.5\\) on the interval \\([1,3]\\) using a tolerance of \\(10^{-5}\\):\n\nIteration results for: Bisection (\\(a=1,b=3\\)), Newton’s (\\(x_1=2\\)), Secant (\\(x_1=1,x_2=2\\)), Regula Falsi (\\(a=1,b=3\\))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(n\\)\n\\(x_n\\)\n\\(f(x_n)\\)\n\\(x_n\\)\n\\(f(x_n)\\)\n\\(x_n\\)\n\\(f(x_n)\\)\n\\(x_n\\)\n\\(f(x_n)\\)\n\n\n\n\n0\n2.00\n2.59\n2.00\n2.59\n1.00\n-3.23\n1.96\n2.4\n\n\n1\n1.50\n0.13\n1.18\n-2.10\n2.00\n2.59\n1.54\n0.4\n\n\n2\n1.25\n-1.58\n1.48\n0.01\n1.55\n4.83\n1.48\n0.0\n\n\n3\n1.37\n-0.71\n1.47\n0.00\n1.45\n-0.17\n1.48\n0.0\n\n\n4\n1.43\n-0.28\n\n\n1.48\n0.004\n\n\n\n\n5\n1.46\n-0.07\n\n\n1.47\n0.00\n\n\n\n\n6\n1.48\n0.03\n\n\n\n\n\n\n\n\n7\n1.47\n-0.02\n\n\n\n\n\n\n\n\n\nIt can be immediately recognized that Newton’s method converged to a very accurate solution most rapidly followed closely by Regula falsi then Secant and finally Bisection. It is impressive that Regula falsi was so quick but this is not always the case. In addition, we needed more information for Newton’s method and for Regula falsi.\nTo get a sense for how these results can change, consider \\(f(x) = 2x^{3} - 4x^{2} + 3x\\) on the interval \\([-1,2]\\) using a tolerance of \\(1\\times 10^{-2}\\):\n\nIteration results for: Bisection (\\(a=-1,b=2\\)), Newton’s (\\(x_1=-1\\)), Secant (\\(x_1=-1,x_2=0.5\\)), Regula Falsi (\\(a=-1,b=2\\))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(n\\)\n\\(x_n\\)\n\\(f(x_n)\\)\n\\(x_n\\)\n\\(f(x_n)\\)\n\\(x_n\\)\n\\(f(x_n)\\)\n\\(x_n\\)\n\\(f(x_n)\\)\n\n\n\n\n0\n0.50\n0.75\n-1.00\n-9.00\n-1.00\n-9.00\n0.80\n0.86\n\n\n1\n-0.25\n-1.03\n-0.47\n-2.50\n-0.50\n-2.75\n0.64\n0.80\n\n\n2\n0.13\n0.32\n-0.16\n-0.59\n-0.28\n-1.19\n0.50\n0.75\n\n\n3\n-0.06\n-0.20\n-0.02\n-0.08\n-0.11\n-0.38\n0.39\n0.68\n\n\n4\n0.03\n0.09\n-0.00\n-0.00\n-0.03\n-0.09\n0.29\n0.58\n\n\n5\n-0.02\n-0.05\n\n\n-0.00\n-0.01\n0.21\n0.47\n\n\n6\n0.01\n0.02\n\n\n-0.00\n-0.00\n0.15\n0.37\n\n\n7\n-0.00\n-0.01\n\n\n\n\n0.10\n0.27\n\n\n8\n0.00\n0.01\n\n\n\n\n0.07\n0.20\n\n\n\nIn this example, the regula falsi method suffers from a small secant line and shrinks the interval by only about \\(\\frac{1}{3}\\) at each step making it much slower than the bisection method. Although this example was selected specifically to demonstrate this behavior (and it’s not a very common behavior), it is something to be aware of when selecting your root finding method."
+  },
+  {
+    "objectID": "other/teaching/math340/Lab4_secant/Lab4_secant.html#examples",
+    "href": "other/teaching/math340/Lab4_secant/Lab4_secant.html#examples",
+    "title": "Lab 4 - Secant method",
+    "section": "Examples",
+    "text": "Examples\nThe following is a Matlab function that takes in a function handle f, initial points x1 and x2, a tolerance tol, and a max number of possible iterations Nmax. This function performs the secant method iteration until \\(|f(x_n)| &lt; \\text{tol}\\) and return all iterations \\(x_n\\) as an array xs:\n%| output: false\n%%file MySecantMethod.m\nfunction [xs] = MySecantMethod(f, x1, x2, tol, Nmax)\n    g = @(x1,x2) x2 - f(x2) * ((x2 - x1) / (f(x2) - f(x1)));\n    xs = [x1,x2];\n    err = Inf;\n    while err &gt; tol\n        xs = [xs g(xs(end-1), xs(end))];\n        err = abs(f(xs(end)));\n        if length(xs) &gt; Nmax\n            return;\n        end\n    end\nend\nConsidering a function \\(f(x) = (x-3)^3\\sin(x) + 3.5\\):\nf = @(x) (x - 3).^3 .* sin(x) + 3.5;\nxdom = linspace(0, 4, 100);\ny = f(xdom);\nfigure()\nplot(xdom, y);\nhold on; grid on\nxlabel(\"x\", 'Interpreter','latex'); ylabel(\"f(x)\", 'Interpreter','latex');\nlegend(\"$(x-3)^3 \\sin(x) + 3.5$\", 'interpreter','latex')\nhold off\nApplying this function to find an approximate root for the above function with initial points \\(x_1 = 1\\) and \\(x_2=2\\), a tolerance \\(10^{-5}\\), and max number of iterations Nmax=20:\nxs = MySecantMethod(f, 1, 2, 1e-5, 20);\ndisp(xs)\nRepeating this procedure using starting points \\(x_1 = 1\\) and \\(x_2 = 3\\):\nxs = MySecantMethod(f, 1, 3, 1e-5, 20);\ndisp(xs)\nNote that the results change very significantly between the two different initial conditions. In fact, they seem to no longer converge in the second case. This demonstrates the sensitivity of the secant method to the two initial guess points.\n\nRegula falsi\nThe following is a Matlab function that takes in a function handle f, interval lower bound a, interval upper bound b, and a tolerance tol. This function performs the regula falsi iteration until \\(|f(x_n)| &lt; \\text{tol}\\) and return all iterations \\(x_n\\) as an array xs:\n%| output: false\n%%file MyRegulaFalsi.m\nfunction [xs] = MyRegulaFalsi(f, a, b, tol)\n    N = 0;\n    xs = [];\n    c = b - f(b) * ((b - a) / (f(b) - f(a)));\n    while abs(f(c)) &gt; tol\n        c = b - f(b) * ((b - a) / (f(b) - f(a)));\n        xs(N+1) = c;\n        if f(c) == 0\n            return\n        elseif f(a)*f(c) &lt; 0\n            b = c;\n        else\n            a = c;\n        end\n        N = N + 1;\n    end\nend\nApplying the regula falsi function to find an approximate root for \\(f(x) = (x-3)^3\\sin(x) + 3.5\\) with interval \\([1,3]\\) and a tolerance \\(10^{-5}\\):\nxs = MyRegulaFalsi(f, 1, 3, 1e-5);\ndisp(xs)\n\n\nFinding a quantile of a probability distributions\nA very common computation in statistics is to find a “quantile” of a probability distribution. For example, say we have a normal distribution of the heights of people in the class given by the cumulative density function (CDF): \\[\n\\begin{align*}\n    C(x) = \\frac{1}{2}\\left(1 + \\text{erf}\\left(\\frac{x - \\mu}{\\sigma \\sqrt{2}}\\right)\\right)\n\\end{align*}\n\\] where \\(C(x)\\) is the probability that someone in the class is shorter than height \\(x\\) (ft) given the class has average height \\(\\mu\\) (ft) and standard deviation \\(\\sigma\\) (erf is the error function which is also called in Matlab).\nThe 95% “quantile” of this CDF is the height \\(x\\) for which 95% of the class is shorter (i.e. the \\(x^*\\) such that \\(C(x^*) = 0.95\\) given \\(\\mu\\) and \\(\\sigma\\)). This computation is actually a root finding problem! All we need to do is find the root of the function: \\[\n\\begin{align*}\n    f(x) = 0.95 - C(x)\n.\\end{align*}\n\\] The derivative of this function can be written as: \\[\n\\begin{align*}\n    f'(x) = - P(x)\n\\end{align*}\n\\] where \\(P\\) is the probability density function (PDF) of the normal distribution: \\[\n\\begin{align*}\n    P(x) = \\frac{1}{\\sigma \\sqrt{2\\pi} }e^{-\\frac{1}{2}\\left(\\frac{x - \\mu}{\\sigma}\\right)^{2}}\n.\\end{align*}\n\\]\nThe following is a plot of the CDF for \\(x\\) on the interval \\([3, 8]\\) given \\(\\mu = 5.5\\) and \\(\\sigma = 0.35\\).\nm = 5.5;\ns = 0.35;\nC = @(x) (1/2) .* (1 + erf((x - m) ./ (sqrt(2)*s)));\nP = @(x) (1 ./ (s*sqrt(2*pi))) * exp( (-1/2) .* ((x - m) ./ s) .^ 2);\nnquant = @(x) 0.95 - C(x);\n\nxdom = linspace(3, 8);\n% plot(xdom, P(xdom))\nfigure()\nplot(xdom, C(xdom))\nhold on\nxlabel(\"x\", 'Interpreter','latex');\nylabel(\"C(X)\", 'Interpreter','latex');\ngrid on\nhold off\nTo Find the \\(95\\%\\) quantile of this CDF:\n\nUsing Secant method with starting points x1=4.5 and x2=6, tolerance \\(10^{-5}\\), and Nmax=10:\n\nxs3 = MySecantMethod(nquant, 4.5, 6, 1e-5, 10);\ndisp(xs3);\n\nUsing regula falsi with interval \\([4, 7]\\) and tolerance \\(10^{-5}\\):\n\nxs4 = MyRegulaFalsi(nquant, 4, 7, 1e-5);\ndisp(xs4);"
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz9.html",
+    "href": "other/teaching/math111/quizzes/quiz9.html",
+    "title": "Quiz 9 - Newton’s method and antiderivatives",
+    "section": "",
+    "text": "State Newton’s method formula to find the roots of a function \\(f(x) = 0\\) then use Newton’s method to obtain an approximation for the intersection of \\(y = \\tan(x)\\) and \\(y = -1 - x\\). Use \\(x_0 = 0\\) for the initial guess. Find \\(x_1\\).\n\n\n\nNewton’s method can be written as: \\[\n    x_{n-1} = x_n - \\frac{f(x_n)}{f'(x_n)}\n\\] Using this for the intersection we have: \\[\n    f(x) = \\tan(x) + 1 + x\n\\] so, \\[\n\\begin{align*}\n    x_1 &= x_0 - \\frac{f(x_0)}{f'(x_0)} \\\\\n    &= 0 - \\frac{\\tan(0) + 1 + 0}{\\sec^2(0) + 1} \\\\\n    &= - \\frac{0 + 1}{1 + 1} \\\\\n    \\Aboxed{x_1 &= -\\frac{1}{2}}\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 9 - Newton's method and antiderivatives"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz9.html#problem-1",
+    "href": "other/teaching/math111/quizzes/quiz9.html#problem-1",
+    "title": "Quiz 9 - Newton’s method and antiderivatives",
+    "section": "",
+    "text": "State Newton’s method formula to find the roots of a function \\(f(x) = 0\\) then use Newton’s method to obtain an approximation for the intersection of \\(y = \\tan(x)\\) and \\(y = -1 - x\\). Use \\(x_0 = 0\\) for the initial guess. Find \\(x_1\\).\n\n\n\nNewton’s method can be written as: \\[\n    x_{n-1} = x_n - \\frac{f(x_n)}{f'(x_n)}\n\\] Using this for the intersection we have: \\[\n    f(x) = \\tan(x) + 1 + x\n\\] so, \\[\n\\begin{align*}\n    x_1 &= x_0 - \\frac{f(x_0)}{f'(x_0)} \\\\\n    &= 0 - \\frac{\\tan(0) + 1 + 0}{\\sec^2(0) + 1} \\\\\n    &= - \\frac{0 + 1}{1 + 1} \\\\\n    \\Aboxed{x_1 &= -\\frac{1}{2}}\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 9 - Newton's method and antiderivatives"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz9.html#problem-2",
+    "href": "other/teaching/math111/quizzes/quiz9.html#problem-2",
+    "title": "Quiz 9 - Newton’s method and antiderivatives",
+    "section": "Problem 2",
+    "text": "Problem 2\n\nQuestion\nFind the antiderivatives of the following:\n\na)\n\\[\n    f(x) = 4x^2 + 3\n\\]\n\n\nb)\n\\[\n    f(x) = \\frac{2}{3x^4} + x^2\n\\]\n\n\nb)\n\\[\n    f(x) = 6 + \\frac{4}{3}x\n\\]\n\n\n\nSolution\n\na)\n\\[\n\\begin{align*}\n    f(x) &= 4x^2 + 3 \\\\\n    \\Aboxed{F(x) &= \\frac{4}{3}x^3 + 3x}\n\\end{align*}\n\\]\n\n\nb)\n\\[\n\\begin{align*}\n    f(x) &= \\frac{2}{3x^4} + x^2 \\\\\n    \\Aboxed{F(x) &= -\\frac{2}{9x^3} + \\frac{1}{3}x^3}\n\\end{align*}\n\\]\n\n\nc)\n\\[\n\\begin{align*}\n    f(x) &= 6 + \\frac{4}{3}x \\\\\n    \\Aboxed{F(x) &= 6x + \\frac{2}{3}x^2}\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 9 - Newton's method and antiderivatives"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz10.html",
+    "href": "other/teaching/math111/quizzes/quiz10.html",
+    "title": "Quiz 10 - Integration",
+    "section": "",
+    "text": "\\[\n    \\int_1^2\\left(\\cos\\left(\\frac{\\pi x}{4}\\right) + \\frac{4}{x}\\right) dx\n\\]\n\n\n\n\\[\n\\begin{align*}\n    \\int_1^2\\left(\\cos\\left(\\frac{\\pi x}{4}\\right) + \\frac{4}{x}\\right) dx &= \\int_1^2\\cos\\left(\\frac{\\pi x}{4}\\right)dx + \\int_1^2\\frac{4}{x} dx \\\\\n    u &= \\frac{\\pi x}{4} \\\\\n    du &= \\frac{\\pi}{4}dx \\\\\n    \\int_1^2\\left(\\cos\\left(\\frac{\\pi x}{4}\\right) + \\frac{4}{x}\\right) dx &= \\frac{4}{\\pi}\\int_\\frac{\\pi}{4}^\\frac{\\pi}{2}\\cos\\left(u\\right)du + \\int_1^2\\frac{4}{x} dx \\\\\n    &= \\frac{4}{\\pi}\\Big[\\sin(u)\\Big]_\\frac{\\pi}{4}^\\frac{\\pi}{2} + \\Big[4\\ln(x)\\Big]_1^2\\\\\n    &= \\frac{4}{\\pi}\\Big[\\sin(\\pi/2) - \\sin(\\pi/4)\\Big] + 4\\Big[\\ln(2) -\\ln(1)\\Big]\\\\\n    \\Aboxed{&= \\frac{4}{\\pi}- \\frac{4}{\\pi}\\sin\\left(\\frac{\\pi}{4}\\right) + 4\\ln(2)} \\\\\n    \\Aboxed{&= \\frac{4}{\\pi}- \\frac{4\\sqrt{2}}{2\\pi} + 4\\ln(2)} \\\\\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 10 - Integration"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz10.html#problem-1",
+    "href": "other/teaching/math111/quizzes/quiz10.html#problem-1",
+    "title": "Quiz 10 - Integration",
+    "section": "",
+    "text": "\\[\n    \\int_1^2\\left(\\cos\\left(\\frac{\\pi x}{4}\\right) + \\frac{4}{x}\\right) dx\n\\]\n\n\n\n\\[\n\\begin{align*}\n    \\int_1^2\\left(\\cos\\left(\\frac{\\pi x}{4}\\right) + \\frac{4}{x}\\right) dx &= \\int_1^2\\cos\\left(\\frac{\\pi x}{4}\\right)dx + \\int_1^2\\frac{4}{x} dx \\\\\n    u &= \\frac{\\pi x}{4} \\\\\n    du &= \\frac{\\pi}{4}dx \\\\\n    \\int_1^2\\left(\\cos\\left(\\frac{\\pi x}{4}\\right) + \\frac{4}{x}\\right) dx &= \\frac{4}{\\pi}\\int_\\frac{\\pi}{4}^\\frac{\\pi}{2}\\cos\\left(u\\right)du + \\int_1^2\\frac{4}{x} dx \\\\\n    &= \\frac{4}{\\pi}\\Big[\\sin(u)\\Big]_\\frac{\\pi}{4}^\\frac{\\pi}{2} + \\Big[4\\ln(x)\\Big]_1^2\\\\\n    &= \\frac{4}{\\pi}\\Big[\\sin(\\pi/2) - \\sin(\\pi/4)\\Big] + 4\\Big[\\ln(2) -\\ln(1)\\Big]\\\\\n    \\Aboxed{&= \\frac{4}{\\pi}- \\frac{4}{\\pi}\\sin\\left(\\frac{\\pi}{4}\\right) + 4\\ln(2)} \\\\\n    \\Aboxed{&= \\frac{4}{\\pi}- \\frac{4\\sqrt{2}}{2\\pi} + 4\\ln(2)} \\\\\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 10 - Integration"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz10.html#problem-2",
+    "href": "other/teaching/math111/quizzes/quiz10.html#problem-2",
+    "title": "Quiz 10 - Integration",
+    "section": "Problem 2",
+    "text": "Problem 2\n\nQuestion\n\\[\n    \\int \\frac{1 + x^2}{3\\sqrt{x}} dx\n\\]\n\n\nSolution\n\\[\n\\begin{align*}\n    \\int \\frac{1 + x^2}{\\sqrt[3]{x}} dx &= \\int \\frac{1}{\\sqrt[3]{x}}dx + \\int \\frac{x^2}{\\sqrt[3]{x}}dx \\\\\n    &= \\int \\frac{1}{\\sqrt[3]{x}}dx + \\int x^{5/3}dx \\\\\n    \\Aboxed{&= \\frac{3}{2}x^{2/3} + \\frac{3}{8}x^{8/3} + C}\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 10 - Integration"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz2.html",
+    "href": "other/teaching/math111/quizzes/quiz2.html",
+    "title": "Quiz 2 - Continuity",
+    "section": "",
+    "text": "Show that the graph of \\(f(x) = 3x^2 + 5x - 11 = 0\\) has a solution between \\(x=1\\) and \\(x=2\\). State which theorem you used.\n\n\n\nSince we know that \\(f(x)\\) is a polynomial and thus continous, we can use the intermediate value theorem to show that there exists a root between the points. To do so we need to show that the function is above the x-axis at one of the endpoints and below at the other: \\[\n\\begin{align*}\nf(1) &= 3(1)^2 + 5(1) - 11 = 3 + 5 - 11 = -3 &lt; 0 \\\\\nf(2) &= 3(2)^2 + 5(2) - 11 = 12 + 10 - 11 = 11 &gt; 0\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 2 - Continuity"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz2.html#problem-1",
+    "href": "other/teaching/math111/quizzes/quiz2.html#problem-1",
+    "title": "Quiz 2 - Continuity",
+    "section": "",
+    "text": "Show that the graph of \\(f(x) = 3x^2 + 5x - 11 = 0\\) has a solution between \\(x=1\\) and \\(x=2\\). State which theorem you used.\n\n\n\nSince we know that \\(f(x)\\) is a polynomial and thus continous, we can use the intermediate value theorem to show that there exists a root between the points. To do so we need to show that the function is above the x-axis at one of the endpoints and below at the other: \\[\n\\begin{align*}\nf(1) &= 3(1)^2 + 5(1) - 11 = 3 + 5 - 11 = -3 &lt; 0 \\\\\nf(2) &= 3(2)^2 + 5(2) - 11 = 12 + 10 - 11 = 11 &gt; 0\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 2 - Continuity"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz2.html#problem-2",
+    "href": "other/teaching/math111/quizzes/quiz2.html#problem-2",
+    "title": "Quiz 2 - Continuity",
+    "section": "Problem 2",
+    "text": "Problem 2\n\nQuestion\nFind constants \\(a,b\\) so that the function given below is continuous for all \\(x\\): \\[\nf(x) = \\begin{cases}\nx^2 + 3 & x&lt;2 \\\\\na & x = 2 \\\\\nax+b & x &gt; 2\n\\end{cases}\n\\]\n\n\nSolution\nFirst, we need to make sure that the left most part of the function connects with the center part: \\[\n\\begin{align*}\na &= x^2 + 3 \\text{ at }x=2 \\\\\n&= (2)^2 + 3 \\\\\n\\Aboxed{a &= 7}\n\\end{align*}\n\\] Next, we match the center part to the rightmost part: \\[\n\\begin{align*}\na &= ax + b\\text{ at }x=2 \\\\\n7 &= 7(2) + b \\\\\nb &= 7 - 14 \\\\\n\\Aboxed{b &= -7}\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 2 - Continuity"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz5.html",
+    "href": "other/teaching/math111/quizzes/quiz5.html",
+    "title": "Quiz 5 - More chain rule and differentiation of trigonometric functions",
+    "section": "",
+    "text": "Differentiate \\(y = \\sqrt{x}^x\\).\n\n\n\n\\[\n\\begin{align}\ny &= \\sqrt{x}^x \\\\\n\\ln(y) &= \\ln(\\sqrt{x}^x) \\\\\n\\frac{d}{dx}\\ln(y) &= \\frac{d}{dx}\\ln(\\sqrt{x}^x) \\\\\n\\frac{y'}{y} &= \\frac{d}{dx}\\left(x\\ln(\\sqrt{x})\\right) \\\\\ny' &= y\\left(\\ln(\\sqrt{x}) + \\frac{x}{\\sqrt{x}}\\frac{d}{dx}\\sqrt{x}\\right) \\\\\n&= \\sqrt{x}^x\\left(\\ln(\\sqrt{x}) + \\frac{x}{\\sqrt{x}}\\left(\\frac{1}{2\\sqrt{x}}\\right)\\right) \\\\\n&= \\sqrt{x}^x\\left(\\frac{1}{2}\\ln(x) + \\frac{1}{2}\\right) \\\\\n\\Aboxed{y' &= \\frac{1}{2}\\sqrt{x}^x\\left(\\ln(x) + 1\\right)}\n\\end{align}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 5 - More chain rule and differentiation of trigonometric functions"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz5.html#problem-1",
+    "href": "other/teaching/math111/quizzes/quiz5.html#problem-1",
+    "title": "Quiz 5 - More chain rule and differentiation of trigonometric functions",
+    "section": "",
+    "text": "Differentiate \\(y = \\sqrt{x}^x\\).\n\n\n\n\\[\n\\begin{align}\ny &= \\sqrt{x}^x \\\\\n\\ln(y) &= \\ln(\\sqrt{x}^x) \\\\\n\\frac{d}{dx}\\ln(y) &= \\frac{d}{dx}\\ln(\\sqrt{x}^x) \\\\\n\\frac{y'}{y} &= \\frac{d}{dx}\\left(x\\ln(\\sqrt{x})\\right) \\\\\ny' &= y\\left(\\ln(\\sqrt{x}) + \\frac{x}{\\sqrt{x}}\\frac{d}{dx}\\sqrt{x}\\right) \\\\\n&= \\sqrt{x}^x\\left(\\ln(\\sqrt{x}) + \\frac{x}{\\sqrt{x}}\\left(\\frac{1}{2\\sqrt{x}}\\right)\\right) \\\\\n&= \\sqrt{x}^x\\left(\\frac{1}{2}\\ln(x) + \\frac{1}{2}\\right) \\\\\n\\Aboxed{y' &= \\frac{1}{2}\\sqrt{x}^x\\left(\\ln(x) + 1\\right)}\n\\end{align}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 5 - More chain rule and differentiation of trigonometric functions"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz5.html#problem-2",
+    "href": "other/teaching/math111/quizzes/quiz5.html#problem-2",
+    "title": "Quiz 5 - More chain rule and differentiation of trigonometric functions",
+    "section": "Problem 2",
+    "text": "Problem 2\n\nQuestion\nDifferentiate \\(y = 10^{x + \\cos(x)}\\).\n\n\nSolution\n\\[\n\\begin{align}\ny &= 10^{x + \\cos(x)} \\\\\n\\ln(y) &= (x + \\cos(x))\\ln(10) \\\\\n\\frac{d}{dx}\\ln(y) &= \\ln(10)\\frac{d}{dx}(x + \\cos(x)) \\\\\n\\frac{y'}{y} &= \\ln(10)(1 - \\sin(x)) \\\\\ny' &= y\\ln(10)(1 - \\sin(x)) \\\\\n\\Aboxed{y' &= 10^{x+\\cos(x)}\\ln(10)(1 - \\sin(x))}\n\\end{align}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 5 - More chain rule and differentiation of trigonometric functions"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz5.html#problem-3",
+    "href": "other/teaching/math111/quizzes/quiz5.html#problem-3",
+    "title": "Quiz 5 - More chain rule and differentiation of trigonometric functions",
+    "section": "Problem 3",
+    "text": "Problem 3\n\nQuestion\nDifferentiate \\(y = \\frac{\\ln(x)}{x^e + e^e}\\).\n\n\nSolution\n\\[\n\\begin{align}\ny &= \\frac{\\ln(x)}{x^e + e^e} \\\\\ny' &= \\frac{\\frac{1}{x}(x^e + e^e) - \\ln(x)(ex^{e-1})}{(x^e+e^e)^2}\\\\\n&= \\frac{\\frac{1}{x}(x^e + e^e) - \\ln(x)(ex^{e-1})}{(x^e+e^e)^2}\\\\\n\\Aboxed{y' &= \\frac{x^e + e^e - \\ln(x)(ex^e)}{x(x^e+e^e)^2}}\n\\end{align}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 5 - More chain rule and differentiation of trigonometric functions"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz6.html",
+    "href": "other/teaching/math111/quizzes/quiz6.html",
+    "title": "Quiz 6 - More chain rule and differentiation of trigonometric functions",
+    "section": "",
+    "text": "Differentiate \\(y = \\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x)\\).\n\n\n\n\\[\n\\begin{align}\ny &= \\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x) \\\\\n\\frac{d}{dx}y &= \\frac{d}{dx}\\left(\\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x)\\right) \\\\\n&= \\frac{1}{\\sqrt{1-e^{-2x}}}\\frac{d}{dx}e^{-x} + \\frac{1}{e^{2x}\\sqrt{1-e^{-2x}}}\\frac{d}{dx}e^x \\\\\n&= -\\frac{e^{-x}}{\\sqrt{1-e^{-2x}}} + \\frac{e^x}{e^{2x}\\sqrt{1-e^{-2x}}} \\\\\n&= -\\frac{1}{e^x\\sqrt{1-e^{-2x}}} + \\frac{1}{e^{x}\\sqrt{1-e^{-2x}}} \\\\\n\\Aboxed{\\frac{d}{dx}y&= 0}\n\\end{align}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 6 - More chain rule and differentiation of trigonometric functions"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz6.html#problem-1",
+    "href": "other/teaching/math111/quizzes/quiz6.html#problem-1",
+    "title": "Quiz 6 - More chain rule and differentiation of trigonometric functions",
+    "section": "",
+    "text": "Differentiate \\(y = \\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x)\\).\n\n\n\n\\[\n\\begin{align}\ny &= \\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x) \\\\\n\\frac{d}{dx}y &= \\frac{d}{dx}\\left(\\sin^{-1}(e^{-x}) + \\sec^{-1}(e^x)\\right) \\\\\n&= \\frac{1}{\\sqrt{1-e^{-2x}}}\\frac{d}{dx}e^{-x} + \\frac{1}{e^{2x}\\sqrt{1-e^{-2x}}}\\frac{d}{dx}e^x \\\\\n&= -\\frac{e^{-x}}{\\sqrt{1-e^{-2x}}} + \\frac{e^x}{e^{2x}\\sqrt{1-e^{-2x}}} \\\\\n&= -\\frac{1}{e^x\\sqrt{1-e^{-2x}}} + \\frac{1}{e^{x}\\sqrt{1-e^{-2x}}} \\\\\n\\Aboxed{\\frac{d}{dx}y&= 0}\n\\end{align}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 6 - More chain rule and differentiation of trigonometric functions"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/math111.html",
+    "href": "other/teaching/math111/math111.html",
+    "title": "Math 111 - Calculus I",
+    "section": "",
+    "text": "This section contains some resources for the Fall 2022 Math 111 Section 23 at NJIT. Hopefully, the notes, problems, and supplementary plots/videos/animations can help deepen understanding or act as a reference for review.",
+    "crumbs": [
+      "Math 111 - Calculus I"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/math111.html#quiz-solutions",
+    "href": "other/teaching/math111/math111.html#quiz-solutions",
+    "title": "Math 111 - Calculus I",
+    "section": "Quiz Solutions",
+    "text": "Quiz Solutions\n\nQuiz 1: Limits and rate of change\nQuiz 2: Continuity\nQuiz 3: Definition of a derivative\nQuiz 4: Chain rule and implicit differentiation\nQuiz 5: More chain rule and differentiation of trigonometric functions\nQuiz 6: Even more chain rule and differentiation of trigonometric functions\nQuiz 7: First derivative test and linearization\nQuiz 8: Curve sketching\nQuiz 9: Newton’s method and antiderivatives\nQuiz 10: Integration",
+    "crumbs": [
+      "Math 111 - Calculus I"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/math111.html#a-couple-of-notes",
+    "href": "other/teaching/math111/math111.html#a-couple-of-notes",
+    "title": "Math 111 - Calculus I",
+    "section": "A Couple of Notes",
+    "text": "A Couple of Notes\n\nLimits and Continuity\nMotivation: People were interested in the speed and direction of planets at any moment in time. So, they wanted to know if they could calculate that by measuring the path of the planets. We can use a concept called “limits” to find this speed and direction.\n\nCalculus relates the rate of changes of things. i.e. how quickly does water empty out of a barrel is a ratio of the rate of change of the water relative to the rate of change of time.\n\n\nAverage and Instantaneous Rates of Change\n\nAverage speed: Divide the distance traveled by the time elapsed\nInstantaneous speed: The average speed over an infinitely small amount of time\nSecant line: A line connecting two points on a curve\nAs the two points of a secant line get closer and closer, the slope of the secant approaches the instantaneous velocity\nTangent line: A line that only touches one point on a line\nThe slope of a curve at a point \\(x\\) is the slope of the tangent line that passes through only \\(x\\)\nFor a curve that represents a quantity (y-axis) over time (x-axis), the slope of the tangent line at a point \\(t\\) in time is the instantaneous velocity (or rate of change of time) at \\(t\\)\nFormula for secant line / average velocity from time \\(t_1\\) to \\(t_2\\) where function \\(f(t)\\) is the position at time \\(t\\) and \\(\\Delta\\) represents “change in …”: \\[\n\\boxed{\\frac{\\Delta f}{\\Delta t}} = \\frac{f(t_2) - f(t_1)}{t_2 - t_1} = \\frac{f(t+h) - f(t)}{t+h - t} = \\boxed{\\frac{f(t+h) - f(t)}{h}}\n\\]\n\n\n\nHelpful animation\nAnimation of Figure 2.6 from the book.",
+    "crumbs": [
+      "Math 111 - Calculus I"
+    ]
+  },
+  {
+    "objectID": "other/teaching/teaching.html",
+    "href": "other/teaching/teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "This section contains various supplemental resources for the students in my classes in the Department of Mathematical Sciences at NJIT. They are organized by class.",
+    "crumbs": [
+      "Teaching"
+    ]
+  },
+  {
+    "objectID": "other/teaching/teaching.html#classes",
+    "href": "other/teaching/teaching.html#classes",
+    "title": "Teaching",
+    "section": "Classes",
+    "text": "Classes\n\nMath 111 - Calculus 1\nMath 340 - Applied Numerical Methods",
+    "crumbs": [
+      "Teaching"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz7.html",
+    "href": "other/teaching/math111/quizzes/quiz7.html",
+    "title": "Quiz 7 - First derivative test and linearization",
+    "section": "",
+    "text": "Find the absolute maximum and minimum for the function \\(y = 6\\sqrt{x}-2x^{2/3}\\) on the interval \\(0\\leq x \\leq 4\\).\n\n\n\nFirst, we find the critical points on the interval: \\[\n\\begin{align}\ny' = 0 &=3(x)^{-1/2} - \\frac{4}{3}x^{-1/3} \\\\\n\\frac{4}{3}x^{-1/3} &= 3(x)^{-1/2} \\\\\n4 &= 9(x)^{-1/2 + 1/3} \\\\\n\\frac{4}{9} &= (x)^{-1/6} \\\\\n(x)^{1/6} &= \\frac{9}{4} \\\\\nx &= \\left(\\frac{9}{4}\\right)^6\n\\end{align}\n\\] This is obviously outside our interval. So, we check the endpoints: \\[\n\\begin{align}\ny(0) &= 0 \\\\\ny(4) &= 12 - 4\\sqrt[3]{2} \\\\\n\\end{align}\n\\] Thus, our minimum is \\(\\boxed{x=0}\\) and maximum is \\(\\boxed{x=4}\\).",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 7 - First derivative test and linearization"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz7.html#problem-1",
+    "href": "other/teaching/math111/quizzes/quiz7.html#problem-1",
+    "title": "Quiz 7 - First derivative test and linearization",
+    "section": "",
+    "text": "Find the absolute maximum and minimum for the function \\(y = 6\\sqrt{x}-2x^{2/3}\\) on the interval \\(0\\leq x \\leq 4\\).\n\n\n\nFirst, we find the critical points on the interval: \\[\n\\begin{align}\ny' = 0 &=3(x)^{-1/2} - \\frac{4}{3}x^{-1/3} \\\\\n\\frac{4}{3}x^{-1/3} &= 3(x)^{-1/2} \\\\\n4 &= 9(x)^{-1/2 + 1/3} \\\\\n\\frac{4}{9} &= (x)^{-1/6} \\\\\n(x)^{1/6} &= \\frac{9}{4} \\\\\nx &= \\left(\\frac{9}{4}\\right)^6\n\\end{align}\n\\] This is obviously outside our interval. So, we check the endpoints: \\[\n\\begin{align}\ny(0) &= 0 \\\\\ny(4) &= 12 - 4\\sqrt[3]{2} \\\\\n\\end{align}\n\\] Thus, our minimum is \\(\\boxed{x=0}\\) and maximum is \\(\\boxed{x=4}\\).",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 7 - First derivative test and linearization"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz7.html#problem-2",
+    "href": "other/teaching/math111/quizzes/quiz7.html#problem-2",
+    "title": "Quiz 7 - First derivative test and linearization",
+    "section": "Problem 2",
+    "text": "Problem 2\n\nQuestion\nFind the linearization of \\(f(x) = e^{2x}\\) about the point \\(a=1\\) the use that to approximate \\(f(2)\\).\n\n\nSolution\nThe linearization form presented in the book is: \\(f(x) \\approx f(a) + f'(a)(x-a)\\): \\[\n\\begin{align}\nf(x) &\\approx f(a) + f'(a)(x-a) \\\\\n&= f(1) + f'(1)(x-1) \\\\\nf(x) &\\approx e^2 + 2e^2(x-1) \\\\\n\\Aboxed{&= 2e^2x - e^2 }\\\\\n\\end{align}\n\\]\nUsing this, we have: \\[\nf(2) \\approx e^2 + 2e^2 = \\boxed{3e^2}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 7 - First derivative test and linearization"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz4.html",
+    "href": "other/teaching/math111/quizzes/quiz4.html",
+    "title": "Quiz 4 - Chain rule and implicit differentiation",
+    "section": "",
+    "text": "Find the derivative \\(\\frac{dy}{dx}\\) for:\na) \\(y = \\sqrt{x^2 + \\sec^2(x)}\\)\nb) \\(y = \\log_5(\\csc(x))\\)\nc) \\(y = \\tan^2(\\sin(3x))\\)\n\n\n\na) \\[\n\\begin{align}\ny &= \\sqrt{x^2 + \\sec^2(x)} = \\left(x^2 + \\sec^2(x)\\right)^{1/2} \\\\\n\\frac{dy}{dx} &= \\frac{1}{2}\\left(x^2 + \\sec^2(x)\\right)^{-1/2} \\times \\frac{d}{dx}\\left(x^2 + \\sec^2(x)\\right) \\\\\n&= \\frac{1}{2}\\left(x^2 + \\sec^2(x)\\right)^{-1/2} \\times \\left(2x + 2\\sec(x)\\times \\frac{d}{dx} \\sec(x)\\right) \\\\\n&= \\frac{1}{2}\\left(x^2 + \\sec^2(x)\\right)^{-1/2} \\times \\left(2x + 2\\sec^2(x)\\tan(x)\\right) \\\\\n\\Aboxed{\\frac{dy}{dx}&= \\frac{x + \\sec^2(x)\\tan(x)}{\\sqrt{x^2 + \\sec^2(x)}}}\n\\end{align}\n\\]\nb) \\[\n\\begin{align}\ny &= \\log_5(\\csc(x)) \\\\\n\\frac{dy}{dx} &= \\frac{1}{\\csc(x)\\ln(5)} \\times \\frac{d}{dx} \\csc(x) \\\\\n&= \\frac{1}{\\csc(x)\\ln(5)} \\times -\\cot(x)\\csc(x) \\\\\n\\Aboxed{\\frac{dy}{dx} &= -\\frac{\\cot(x)}{\\ln(5)}}\n\\end{align}\n\\]\nc) \\[\n\\begin{align}\ny &= \\tan^2(\\sin(3x)) \\\\\n\\frac{dy}{dx} &= 2\\tan(\\sin(3x)) \\times \\frac{d}{dx} \\tan(\\sin(3x)) \\\\\n&= 2\\tan(\\sin(3x)) \\times \\sec^2(\\sin(3x)) \\times \\frac{d}{dx} \\sin(3x) \\\\\n&= 2\\tan(\\sin(3x)) \\times \\sec^2(\\sin(3x)) \\times \\cos(3x) \\times \\frac{d}{dx} 3x \\\\\n&= 2\\tan(\\sin(3x)) \\times \\sec^2(\\sin(3x)) \\times \\cos(3x) \\times 3 \\\\\n\\Aboxed{\\frac{dy}{dx} &= 6\\tan(\\sin(3x))\\sec^2(\\sin(3x))\\cos(3x)}\n\\end{align}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 4 - Chain rule and implicit differentiation"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz4.html#problem-1",
+    "href": "other/teaching/math111/quizzes/quiz4.html#problem-1",
+    "title": "Quiz 4 - Chain rule and implicit differentiation",
+    "section": "",
+    "text": "Find the derivative \\(\\frac{dy}{dx}\\) for:\na) \\(y = \\sqrt{x^2 + \\sec^2(x)}\\)\nb) \\(y = \\log_5(\\csc(x))\\)\nc) \\(y = \\tan^2(\\sin(3x))\\)\n\n\n\na) \\[\n\\begin{align}\ny &= \\sqrt{x^2 + \\sec^2(x)} = \\left(x^2 + \\sec^2(x)\\right)^{1/2} \\\\\n\\frac{dy}{dx} &= \\frac{1}{2}\\left(x^2 + \\sec^2(x)\\right)^{-1/2} \\times \\frac{d}{dx}\\left(x^2 + \\sec^2(x)\\right) \\\\\n&= \\frac{1}{2}\\left(x^2 + \\sec^2(x)\\right)^{-1/2} \\times \\left(2x + 2\\sec(x)\\times \\frac{d}{dx} \\sec(x)\\right) \\\\\n&= \\frac{1}{2}\\left(x^2 + \\sec^2(x)\\right)^{-1/2} \\times \\left(2x + 2\\sec^2(x)\\tan(x)\\right) \\\\\n\\Aboxed{\\frac{dy}{dx}&= \\frac{x + \\sec^2(x)\\tan(x)}{\\sqrt{x^2 + \\sec^2(x)}}}\n\\end{align}\n\\]\nb) \\[\n\\begin{align}\ny &= \\log_5(\\csc(x)) \\\\\n\\frac{dy}{dx} &= \\frac{1}{\\csc(x)\\ln(5)} \\times \\frac{d}{dx} \\csc(x) \\\\\n&= \\frac{1}{\\csc(x)\\ln(5)} \\times -\\cot(x)\\csc(x) \\\\\n\\Aboxed{\\frac{dy}{dx} &= -\\frac{\\cot(x)}{\\ln(5)}}\n\\end{align}\n\\]\nc) \\[\n\\begin{align}\ny &= \\tan^2(\\sin(3x)) \\\\\n\\frac{dy}{dx} &= 2\\tan(\\sin(3x)) \\times \\frac{d}{dx} \\tan(\\sin(3x)) \\\\\n&= 2\\tan(\\sin(3x)) \\times \\sec^2(\\sin(3x)) \\times \\frac{d}{dx} \\sin(3x) \\\\\n&= 2\\tan(\\sin(3x)) \\times \\sec^2(\\sin(3x)) \\times \\cos(3x) \\times \\frac{d}{dx} 3x \\\\\n&= 2\\tan(\\sin(3x)) \\times \\sec^2(\\sin(3x)) \\times \\cos(3x) \\times 3 \\\\\n\\Aboxed{\\frac{dy}{dx} &= 6\\tan(\\sin(3x))\\sec^2(\\sin(3x))\\cos(3x)}\n\\end{align}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 4 - Chain rule and implicit differentiation"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz1.html",
+    "href": "other/teaching/math111/quizzes/quiz1.html",
+    "title": "Quiz 1 - Limits and rate of change",
+    "section": "",
+    "text": "Find \\[\n\\lim_{t\\rightarrow 0} \\frac{\\tan(t)\\sec(t)}{3t}\n\\]\n\n\n\n\\[\n\\begin{align*}\n\\lim_{t\\rightarrow 0} \\frac{\\tan(t)\\sec(t)}{3t} &= \\frac{1}{3}\\lim_{t\\rightarrow 0} \\frac{\\sin(t)}{\\cos(t)} \\times \\frac{1}{\\cos(t)} \\times \\frac{1}{t} \\\\\n&= \\frac{1}{3} \\lim_{t\\rightarrow 0} \\cancelto{1}{\\frac{\\sin(t)}{t}} \\times \\frac{1}{\\cos^2(t)} \\\\\n&= \\frac{1}{3} \\lim_{t\\rightarrow 0} \\frac{1}{\\cos^2(t)} \\\\\n&= \\boxed{\\frac{1}{3}}\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 1 - Limits and rate of change"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz1.html#problem-1",
+    "href": "other/teaching/math111/quizzes/quiz1.html#problem-1",
+    "title": "Quiz 1 - Limits and rate of change",
+    "section": "",
+    "text": "Find \\[\n\\lim_{t\\rightarrow 0} \\frac{\\tan(t)\\sec(t)}{3t}\n\\]\n\n\n\n\\[\n\\begin{align*}\n\\lim_{t\\rightarrow 0} \\frac{\\tan(t)\\sec(t)}{3t} &= \\frac{1}{3}\\lim_{t\\rightarrow 0} \\frac{\\sin(t)}{\\cos(t)} \\times \\frac{1}{\\cos(t)} \\times \\frac{1}{t} \\\\\n&= \\frac{1}{3} \\lim_{t\\rightarrow 0} \\cancelto{1}{\\frac{\\sin(t)}{t}} \\times \\frac{1}{\\cos^2(t)} \\\\\n&= \\frac{1}{3} \\lim_{t\\rightarrow 0} \\frac{1}{\\cos^2(t)} \\\\\n&= \\boxed{\\frac{1}{3}}\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 1 - Limits and rate of change"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz1.html#problem-2",
+    "href": "other/teaching/math111/quizzes/quiz1.html#problem-2",
+    "title": "Quiz 1 - Limits and rate of change",
+    "section": "Problem 2",
+    "text": "Problem 2\n\nQuestion\nFor function \\(y = f(x) = 3x^2 + 1\\):\n\nFind the rate of change \\(\\frac{\\Delta y}{\\Delta x}\\)\nFind the average rate of change over intervals \\([2,3]\\) and \\([-1,1]\\)\n\n\n\nSolution\n\na.\n\\[\n\\begin{align*}\n\\frac{\\Delta y}{\\Delta x} &= \\frac{f(x + \\Delta x) - f(x)}{x + \\Delta x - x} \\\\\n&= \\frac{3(x+\\Delta x)^2 + 1 - (3x^2 + 1)}{\\Delta x} \\\\\n&= \\frac{\\cancel{3x^2} + 6x\\cancel{(\\Delta x)} + 3(\\Delta x)^\\cancel{2} + \\cancel{1}- \\cancel{ 3x^2} -\\cancel{1} }{\\cancel{\\Delta x}} \\\\\n&= \\boxed{6x + 3(\\Delta x)}\n\\end{align*}\n\\]\n\n\nb.\nFor \\([2,3]\\): \\[\n\\begin{align*}\n\\frac{f(x_2) - f(x_1)}{x_2 - x_1} &= \\frac{f(3) - f(2)}{3 - 2} \\\\\n&= \\frac{3(3)^2 + 1 - (3(2)^2 + 1)}{1} \\\\\n&= 27 - 12 = \\boxed{15}\\\\\n\\end{align*}\n\\] For \\([-1,1]\\): \\[\n\\begin{align*}\n\\frac{f(x_2) - f(x_1)}{x_2 - x_1} &= \\frac{f(1) - f(-1)}{1 + 1} \\\\\n&= \\frac{3(1)^2 + 1 - (3(-1)^2 + 1)}{2} \\\\\n&= \\frac{0}{2} = \\boxed{0}\\\\\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 1 - Limits and rate of change"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz3.html",
+    "href": "other/teaching/math111/quizzes/quiz3.html",
+    "title": "Quiz 3 - Definition of a derivative",
+    "section": "",
+    "text": "Use the definition of a derivative to find the derivative \\(f'(x)\\) of the function \\(f(x) = \\frac{1}{x}\\).\n\n\n\nUsing the definition: \\[\n\\begin{align*}\nf'(x) &= \\lim_{h\\rightarrow 0}\\left(\\frac{f(x + h) - f(x)}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{1}{x+h} - \\frac{1}{x}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{x}{x(x+h)} - \\frac{x+h}{x(x+h)}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{x - (x+h)}{x(x+h)}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{ -h}{x(x+h)}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{-1}{x(x+h)}\\right) \\\\\n\\Aboxed{f'(x) &= -\\frac{1}{x^2}}\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 3 - Definition of a derivative"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz3.html#problem-1",
+    "href": "other/teaching/math111/quizzes/quiz3.html#problem-1",
+    "title": "Quiz 3 - Definition of a derivative",
+    "section": "",
+    "text": "Use the definition of a derivative to find the derivative \\(f'(x)\\) of the function \\(f(x) = \\frac{1}{x}\\).\n\n\n\nUsing the definition: \\[\n\\begin{align*}\nf'(x) &= \\lim_{h\\rightarrow 0}\\left(\\frac{f(x + h) - f(x)}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{1}{x+h} - \\frac{1}{x}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{x}{x(x+h)} - \\frac{x+h}{x(x+h)}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{x - (x+h)}{x(x+h)}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{\\frac{ -h}{x(x+h)}}{h}\\right) \\\\\n&= \\lim_{h\\rightarrow 0}\\left(\\frac{-1}{x(x+h)}\\right) \\\\\n\\Aboxed{f'(x) &= -\\frac{1}{x^2}}\n\\end{align*}\n\\]",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 3 - Definition of a derivative"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz8.html",
+    "href": "other/teaching/math111/quizzes/quiz8.html",
+    "title": "Quiz 8 - Curve sketching",
+    "section": "",
+    "text": "Given the function \\(y = 3x^4 - 4x^3\\),\n\n\nWhere is it increasing or decreasing?\n\n\n\nWhere is it concave up or down?\n\n\n\nWhat are the local minima and maxima?\n\n\n\nSketch the graph\n\n\n\n\n\n\nTo find where it is increasing or decreasing, we can look at the sign of the derivative (the sign of the slope): \\[\n\\begin{align}\ny &= 3x^4 - 4x^3 \\\\\ny' &= 12x^3 - 12x^2 \\\\\n&= 12x^2(x - 1)\n\\end{align}\n\\] This has critical points at \\(x=0,1\\). Since \\(x^2\\) is always positive, we can find our intervals by considering the sign of \\((x-1)\\) in the regions \\((-\\infty,0),(0,1),(1,\\infty)\\). Our intervals are then:\n\nIncreasing: \\((1,\\infty)\\)\nDecreasing: \\((-\\infty,0),(0,1)\\)\n\n\n\n\nTo find where it is concave up or down, we can look at the sign of the second derivative: \\[\n\\begin{align}\ny' &= 12x^3 - 12x^2 \\\\\ny'' &= 36x^2 - 24x \\\\\n&= 12x(3x - 2)\n\\end{align}\n\\] This has inflection points at \\(x=0,2/3\\). Our intervals are then:\n\nConcave down: \\((0,2/3)\\)\nConcave up: \\((-\\infty,0),(2/3,\\infty)\\)\n\n\n\n\nGiven the results in part a, we know that:\n\nLocal minima: \\(x=1\\)\nLocal maxima: None",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 8 - Curve sketching"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz8.html#problem-1",
+    "href": "other/teaching/math111/quizzes/quiz8.html#problem-1",
+    "title": "Quiz 8 - Curve sketching",
+    "section": "",
+    "text": "Given the function \\(y = 3x^4 - 4x^3\\),\n\n\nWhere is it increasing or decreasing?\n\n\n\nWhere is it concave up or down?\n\n\n\nWhat are the local minima and maxima?\n\n\n\nSketch the graph\n\n\n\n\n\n\nTo find where it is increasing or decreasing, we can look at the sign of the derivative (the sign of the slope): \\[\n\\begin{align}\ny &= 3x^4 - 4x^3 \\\\\ny' &= 12x^3 - 12x^2 \\\\\n&= 12x^2(x - 1)\n\\end{align}\n\\] This has critical points at \\(x=0,1\\). Since \\(x^2\\) is always positive, we can find our intervals by considering the sign of \\((x-1)\\) in the regions \\((-\\infty,0),(0,1),(1,\\infty)\\). Our intervals are then:\n\nIncreasing: \\((1,\\infty)\\)\nDecreasing: \\((-\\infty,0),(0,1)\\)\n\n\n\n\nTo find where it is concave up or down, we can look at the sign of the second derivative: \\[\n\\begin{align}\ny' &= 12x^3 - 12x^2 \\\\\ny'' &= 36x^2 - 24x \\\\\n&= 12x(3x - 2)\n\\end{align}\n\\] This has inflection points at \\(x=0,2/3\\). Our intervals are then:\n\nConcave down: \\((0,2/3)\\)\nConcave up: \\((-\\infty,0),(2/3,\\infty)\\)\n\n\n\n\nGiven the results in part a, we know that:\n\nLocal minima: \\(x=1\\)\nLocal maxima: None",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 8 - Curve sketching"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math111/quizzes/quiz8.html#problem-2",
+    "href": "other/teaching/math111/quizzes/quiz8.html#problem-2",
+    "title": "Quiz 8 - Curve sketching",
+    "section": "Problem 2",
+    "text": "Problem 2\n\nQuestion\nGiven the function \\(y = 2 + 3x^2 - x^3\\),\n\na)\nWhere is it increasing or decreasing?\n\n\nb)\nWhere is it concave up or down?\n\n\nc)\nWhat are the local minima and maxima?\n\n\nd)\nSketch the graph\n\n\n\nSolution\n\na)\nTo find where it is increasing or decreasing, we can look at the sign of the derivative (the sign of the slope): \\[\n\\begin{align}\ny &= 2 + 3x^2 - x^3\\\\\ny' &= 6x - 3x^2\\\\\n&= 3x(2 - x)\\\\\n\\end{align}\n\\] This has critical points at \\(x=0,2\\). Our intervals are then:\n\nIncreasing: \\((0,2)\\)\nDecreasing: \\((-\\infty,0),(2,\\infty)\\)\n\n\n\nb)\nTo find where it is concave up or down, we can look at the sign of the second derivative: \\[\n\\begin{align}\ny' &= 6x - 3x^2\\\\\ny'' &= 6 - 6x \\\\\n&= 6(1 - x)\n\\end{align}\n\\] This has an inflection point at \\(x=1\\). Our intervals are then:\n\nConcave down: \\((1,\\infty)\\)\nConcave up: \\((-\\infty,1)\\)\n\n\n\nc)\nGiven the results in part a, we know that:\n\nLocal minima: \\(x=0\\)\nLocal maxima: \\(x=2\\)\n\n\n\nd)",
+    "crumbs": [
+      "Math 111 - Calculus I",
+      "Quiz 8 - Curve sketching"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html",
+    "href": "other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html",
+    "title": "Lab 3 - Fixed point methods",
+    "section": "",
+    "text": "Our goal is to find the fixed point of a function \\(g(x)\\), that is, the value \\(x^*\\) such that \\(x^*= g(x^*)\\) (if it exists). If \\(|g'(x^{*})|&lt;1\\), we can find the fixed point by iteration if we start sufficiently close to \\(x^*\\).\nFor the example problem \\(g(x) = \\cos{(x)}\\), we can begin with an initial guess \\(x_1=0.5\\) and find the next point, \\(x_2\\), by applying \\(g\\): \\(x_2=g(x_1)\\). We repeat this process \\(n\\) times to find \\(x_{n+1}=g(x_n)\\). This can be summarized in the following table:\n\n\n\nn\n$ x_n$\n$x_{n+1}=(x_n) $\n$ E_n=\n\n\n\n\n1\n0.5000\n0.8775\n0.3775\n\n\n2\n0.8775\n0.6390\n0.2385\n\n\n3\n0.6390\n0.8026\n0.1636\n\n\n4\n0.8026\n0.6947\n0.1079\n\n\n5\n0.6947\n0.7681\n0.0734\n\n\n6\n0.7681\n0.7191\n0.0490\n\n\n7\n0.7191\n0.7523\n0.0331\n\n\n8\n0.7523\n0.7300\n0.0222\n\n\n9\n0.7300\n0.7451\n0.0150\n\n\n10\n0.7451\n0.7350\n0.0101\n\n\n11\n0.7350\n0.7418\n0.0068\n\n\n\nThis table shows an iteration \\(n\\), the \\(x\\) value \\(x_n\\), the result of the iteration \\(x_{n+1} = \\cos(x_n)\\), and the difference between the current step and the next \\(E_n = |x_n - x_{n+1}|\\). Note that the difference in \\(x_i\\) between each step gets smaller and smaller as we iterate. This shows that we are indeed approaching a fixed point. In this case, if we continue we will eventually converge to the fixed point \\(x^*\\approx0.739085133\\).\nThis process is only guaranteed to converge if \\(|g'(x^*)|&lt;1\\). In this case, \\(g(x)\\) is “contracting” around \\(x^*\\). To see this contraction visually, we can consider the following image:\n\n\n\nCode for the image\n\n\nIn this image, the dashed line represents the line \\(y=x\\), so the arrows go from \\((x_1, g(x_1))\\to (x_2, x_2) \\to (x_2, g(x_2)) \\to \\ldots (x_4, g(x_4)\\).\nIn practice, we do not know when we have arrived at the fixed point \\(x^*\\), so we instead stop by looking at the difference between iterations: \\(E_n = |x_{n+1} - x_n|\\). When this difference becomes sufficiently small, we can assume that we have the best answer that the fixed point method can give us.\nBelow is a program that performs fixed point iteration for a given function \\(g(x)\\). The convergence criterion for the program will be given by the error condition which can be written as: \\[\n\\begin{align*}\n    E_n={|x_{n+1} - x_n|} &lt;\\text{ tol}\n\\end{align*}\n\\] where tol is a given tolerance.\n\n\n\n\n\n\nNote\n\n\n\nAlthough \\(|g'(x^*)|&lt;1\\) guarantees that the method will converge , in practice we usually do not know the interval. Thus, if your initial guess for \\(x^*\\) is not sufficiently close to the actual value of \\(x^*\\) the method may not converge. Informed initial guesses and trial and error are common techniques for overcoming this shortcoming.",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 3 - Fixed point methods"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html#introduction",
+    "href": "other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html#introduction",
+    "title": "Lab 3 - Fixed point methods",
+    "section": "",
+    "text": "Our goal is to find the fixed point of a function \\(g(x)\\), that is, the value \\(x^*\\) such that \\(x^*= g(x^*)\\) (if it exists). If \\(|g'(x^{*})|&lt;1\\), we can find the fixed point by iteration if we start sufficiently close to \\(x^*\\).\nFor the example problem \\(g(x) = \\cos{(x)}\\), we can begin with an initial guess \\(x_1=0.5\\) and find the next point, \\(x_2\\), by applying \\(g\\): \\(x_2=g(x_1)\\). We repeat this process \\(n\\) times to find \\(x_{n+1}=g(x_n)\\). This can be summarized in the following table:\n\n\n\nn\n$ x_n$\n$x_{n+1}=(x_n) $\n$ E_n=\n\n\n\n\n1\n0.5000\n0.8775\n0.3775\n\n\n2\n0.8775\n0.6390\n0.2385\n\n\n3\n0.6390\n0.8026\n0.1636\n\n\n4\n0.8026\n0.6947\n0.1079\n\n\n5\n0.6947\n0.7681\n0.0734\n\n\n6\n0.7681\n0.7191\n0.0490\n\n\n7\n0.7191\n0.7523\n0.0331\n\n\n8\n0.7523\n0.7300\n0.0222\n\n\n9\n0.7300\n0.7451\n0.0150\n\n\n10\n0.7451\n0.7350\n0.0101\n\n\n11\n0.7350\n0.7418\n0.0068\n\n\n\nThis table shows an iteration \\(n\\), the \\(x\\) value \\(x_n\\), the result of the iteration \\(x_{n+1} = \\cos(x_n)\\), and the difference between the current step and the next \\(E_n = |x_n - x_{n+1}|\\). Note that the difference in \\(x_i\\) between each step gets smaller and smaller as we iterate. This shows that we are indeed approaching a fixed point. In this case, if we continue we will eventually converge to the fixed point \\(x^*\\approx0.739085133\\).\nThis process is only guaranteed to converge if \\(|g'(x^*)|&lt;1\\). In this case, \\(g(x)\\) is “contracting” around \\(x^*\\). To see this contraction visually, we can consider the following image:\n\n\n\nCode for the image\n\n\nIn this image, the dashed line represents the line \\(y=x\\), so the arrows go from \\((x_1, g(x_1))\\to (x_2, x_2) \\to (x_2, g(x_2)) \\to \\ldots (x_4, g(x_4)\\).\nIn practice, we do not know when we have arrived at the fixed point \\(x^*\\), so we instead stop by looking at the difference between iterations: \\(E_n = |x_{n+1} - x_n|\\). When this difference becomes sufficiently small, we can assume that we have the best answer that the fixed point method can give us.\nBelow is a program that performs fixed point iteration for a given function \\(g(x)\\). The convergence criterion for the program will be given by the error condition which can be written as: \\[\n\\begin{align*}\n    E_n={|x_{n+1} - x_n|} &lt;\\text{ tol}\n\\end{align*}\n\\] where tol is a given tolerance.\n\n\n\n\n\n\nNote\n\n\n\nAlthough \\(|g'(x^*)|&lt;1\\) guarantees that the method will converge , in practice we usually do not know the interval. Thus, if your initial guess for \\(x^*\\) is not sufficiently close to the actual value of \\(x^*\\) the method may not converge. Informed initial guesses and trial and error are common techniques for overcoming this shortcoming.",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 3 - Fixed point methods"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html#newtons-method",
+    "href": "other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html#newtons-method",
+    "title": "Lab 3 - Fixed point methods",
+    "section": "Newton’s Method",
+    "text": "Newton’s Method\nNewton’s method is a fixed point iteration that converges to the root of a function \\(f(x)\\). It uses the iteration function: \\[\n\\begin{align*}\n    g(x) = x - \\frac{f(x)}{f'(x)}\n.\\end{align*}\n\\] Analyzing this function, we can see that the fixed point \\(x^*\\) for \\(g(x)\\) is also the root of \\(f(x)\\): \\[\n\\begin{align*}\n    g(x^*) &= x^{*} \\\\\n    x^* - \\frac{f(x^*)}{f'(x^*)}&= x^* \\\\\n    - \\frac{f(x^*)}{f'(x^*)} &= 0 \\\\\n    f(x^*) &= 0\n\\end{align*}\n\\] as long as \\(f'(x^*) \\neq 0\\).\n\nConvergence\nThis method was published in 1685 but is still one of the state-of-the-art methods for root finding because it “converges” so quickly. The idea of convergence is key to numerical methods and refers to the rate at which the error decreases as you perform more iterations. The easiest way to illustrate convergence is to consider the Taylor series of our fixed point iteration centered at \\(x^*\\): \\[\n\\begin{align*}\n    g(x_{n}) &= g(x^*) + g'(c)(x_{n}-x^*)\n\\end{align*}\n\\] for some \\(c \\in (x^*, x_{n})\\). We can then substitute \\(g(x_{n}) = x_{n+1}\\) and rearrange to get: \\[\n\\begin{align*}\n    g(x_{n}) &= g(x^*) + g'(c)(x_{n}-x^*) \\\\\n    x_{n+1} &= x^* + g'(c)(x_{n} - x^*) \\\\\n    \\frac{x_{n+1} - x^*}{x_{n}-x^*} &= g'(c)\\\\\n    \\frac{|x_{n+1} - x^*|}{|x_{n}-x^*|} &= |g'(c)| &lt; 1\\\\\n\\end{align*}\n\\] as long as \\(c\\) is close enough to \\(x^*\\). Thus, we know that \\(|x_n - x^*|\\) is larger than \\(|x_{n+1} - x^*|\\) which means we are getting closer and closer to the fixed point with each iteration. We also know that the error at step \\(n+1\\) over the error at step \\(n\\) is some constant \\(g'(c)\\). If \\(g'(c) \\neq 0\\) and \\(g'(c) &lt; 1\\), then this is called “first-order” convergence. This means, for example, if our error at step \\(n\\) is \\(\\frac{1}{2}\\) and our constant is \\(1\\), our error will be reduced by \\(\\frac{1}{2}\\) after 1 step.\nHowever, if our fixed point iteration has the property that \\(g'(x^*) = 0\\), then we have to take a higher-order Taylor series: \\[\n\\begin{align*}\n    g(x_{n}) &= g(x^*) + g'(x^*)(x_{n}-x^*) +\\frac{1}{2} g\"(c)(x_{n}-x^*)^2 \\\\\n    x_{n+1} &= x^* + \\frac{1}{2} g\"(c)(x_{n}-x^*)^2 \\\\\n    \\frac{x_{n+1} - x^*}{(x_n - x^*)^2} &= \\frac{1}{2} g\"(c) \\\\\n    \\frac{|x_{n+1} - x^*|}{|x_n - x^*|^2} &= \\frac{1}{2} |g\"(c)| = C\n.\\end{align*}\n\\] Now, the error at step \\(n+1\\) over the SQUARE of the error at the previous step is equal to a constant. This is called “second-order” convergence. This means, for example, if our error at step \\(n\\) is \\(\\frac{1}{2}\\) and the constant is \\(1\\), then our error will be reduced by \\(\\frac{1}{2}^{2} = \\frac{1}{4}\\) after 1 step. Thus, it will take far fewer iterations to converge on the true answer. Newton’s method is a “second-order” method.\nOne way to test this convergence is by assuming we are near the fixed point and considering: \\[\n\\begin{align*}\n    E_n = |x_{n} - x_{n-1}|\n\\end{align*}\n\\] then we can write the convergence definition approximately as: \\[\n\\begin{align*}\n    C = \\frac{|x_{n+1} - x^*|}{|x_n - x^*|^d} &\\approx \\frac{|x_{n+1} - x_n|}{|x_n - x_{n-1}|^d} \\\\\n    &= \\frac{E_n}{(E_{n-1})^d}\n\\end{align*}\n\\] where \\(C\\) is some constant and \\(d\\) is our order of convergence. This approximation really only makes sense when \\(x_n\\) and \\(x_{n-1}\\) are close to \\(x^*\\). However, we can check this version numerically by computing the error \\(E_n\\) of our method and then trying \\(\\frac{E_n}{E_{n-1}^d}\\) with different values of \\(d\\) to see which one is roughly constant.",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 3 - Fixed point methods"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html#examples",
+    "href": "other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html#examples",
+    "title": "Lab 3 - Fixed point methods",
+    "section": "Examples",
+    "text": "Examples\nThe following is a Matlab function that takes in a contraction function \\(g\\), a starting value \\(x_1\\), and an error tolerance . It outputs an array that contains all your iteration values: \\(x = [x_1, x_2, x_3, \\ldots, x_N]\\). The convergence criteria for the function is the error: \\(|x_{n+1} - x_n| &lt; \\text{tol}\\).\n%| output: false\n%%file MyFixedPoint.m\nfunction [xs] = MyFixedPoint(g, x1, tol)\n    xs = [x1];\n    err = Inf;\n    while err &gt; tol\n        xs = [xs g(xs(end))];\n        err = abs(xs(end) - xs(end-1));\n    end\nend\nTesting this function on \\(g(x) = \\sin(x-5)\\) with starting point \\(x_1 = 1\\) and a tolerance of \\(10^{-7}\\) is close to \\(0.847\\):\ng = @(x) sin(x - 5);\np1 = MyFixedPoint(g, 1, 1e-7);\np1(end)\n\nNewton’s method\nConsider finding the root of the function \\(f(x) = x - \\cos(x) - 1\\). To find the root of this function with Newton’s method, we need to reformulate it as a fixed point problem in which the fixed point is the root. This can be easily done by considering: \\[\n\\begin{align*}\n    f'(x) &= 1 + sin(x) \\\\\n    g(x) &= x - \\frac{f(x)}{f'(x)} \\\\\n    &= x - \\frac{x - \\cos(x) -1 }{1 + \\sin(x)}\n\\end{align*}\n\\] To approximate the root of the function with an initial guess of \\(x_1 = 2.5\\) and a tolerance of \\(10^{-10}\\):\ng = @(x) x - ((x - 1 - cos(x))/ (1 + sin(x)));\n[xVec] = MyFixedPoint(@(x)g(x), 2.5, 1e-10);\nerrorVec = [0 abs(xVec(2:end) - xVec(1:end-1))];\nnVec=1:1:length(xVec);\np2_table = table(transpose(nVec), transpose(xVec), transpose(errorVec));\np2_table.Properties.VariableNames=[\"n\", \"x_n\", \"E_n\"]; disp(p2_table);\nIf we make a table with the ratios \\(\\frac{E_n}{E_{n-1}}\\), \\(\\frac{E_n}{(E_{n-1})^2}\\), and \\(\\frac{E_n}{(E_{n-1})^3}\\) the preivous results, we can examine an approximate convergence rate for the method:\nerrorVec = [0 abs(xVec(2:end) - xVec(1:end-1))];\nratio1 = errorVec(2:end) ./ errorVec(1:end-1);\nratio2 = errorVec(2:end) ./ (errorVec(1:end-1) .^2);\nratio3 = errorVec(2:end) ./ (errorVec(1:end-1) .^3);\np2_table = table(ratio1', ratio2', ratio3');\np2_table.Properties.VariableNames=[\"E_n / E_n-1\", \"E_n / E_n-1^2\", \"E_n / E_n-1^3\"];\ndisp(p2_table);\nIn this, we can see that the second column (which represents a roughly quadratic convergence) is roughly constant, demonstrating that this ratio is holding true. On the other hand, the first column decays to 0, showing that the errors\n\n\nStability of fixed points\nConsider the function \\(g(x) = 1.8x - x^2\\) which has fixed points \\(x=0\\) and \\(x=0.8\\). If we use an initial guess \\(x_1 = 0.1\\) and tolerance \\(10^{-5}\\):\ng = @(x) 1.8*x - x^2;\np3 = MyFixedPoint(g, .1, 1e-5);\ndisp(p3(end))\nWe approach the fixed point \\(x=0.8\\) because it is a stable (attracting) fixed point. On the other hand, if we start at \\(x_1 = -0.1\\):\ng = @(x) 1.8*x - x^2;\np3 = MyFixedPoint(g, -0.1, 1e-5);\ndisp(['Final answer: ', num2str(p3(end))])\nWe are no longer in the basin of attraction of \\(x=0.8\\) and so our iteration is expelled from the unstable fixed point \\(x=0\\).",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 3 - Fixed point methods"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html",
+    "href": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html",
+    "title": "Lab 1 - Brief Introduction to Matlab",
+    "section": "",
+    "text": "Here are a few basic calculations and constructions that you will need to use throughout the course for building arrays of numbers. Take note of these constructions as they will be useful for the entire course.\n\n\nA row vector, X=(0 1 2 3) is commonly written in three ways:\n1. Using brackets:\nX=[0 1 2 3]\nIf ; is included at the end of the line, the output will be supressed. The command will still be executed, but nothing will be printed.\nX=[0 1 2 3];\n2. Using the linspace function:\nX=linspace(0, 3, 4)\nThis gives 4 equally spaced points between and including 0 and 3 as shown above. linspace is a function included in the Matlab standard library i.e. it is always available.\n3. In the form a:step:b:\nX=0:1:3\nThis will give all points between and including 0 to 3 with step size 1 between each point. It can also be written as X=0:3 which uses the default step size 1.\n\n\n\nOnce we have these arrays, we can apply an operation to each element in the array. For example, to compute \\(Y = [e^0, e^2, e^2, e^3]\\), we use the Matlab standard library function exp for exponential:\nY=exp(X)\nOr to apply sin to each element of the array:\nS=sin(X)\nOr to make an array Q with the square root to each element of the array X:\nQ=sqrt(X)\n\n\n\nTo create a \\(2\\times2\\) identity matrix:\nId=[1 0; 0 1]\nNote that the ; in the array definition marks the end of a row. There is also a Matlab standard library function eye that can be used as:\nId2=eye(2)\nA \\(4\\times 4\\) identity matrix is then:\nId4=eye(4)\nTo make a length 4 column vector (4 rows, 1 column) of all zeros, we can use the standard library zeros function:\nz = zeros(4,1)\nThis can be extended to a \\(4\\times4\\) matrix of all zeros:\nZ=zeros(4,4)\nOr a \\(3\\times3\\) matrix of all ones:\nW=ones(3,3)\n\n\n\nIf we wanted to compute the matrix-vector product of Id4 with our previous row vector X, we would first need to transpose X into a column vector. This can be done with either the standard library transpose function or the operator ':\nY=Id4 * X'\nor\nY=Id4 * transpose(X)\nFailing to transpose will give an error:\nId4 * X",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 1 - Brief Introduction to Matlab"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#example-1-arrays",
+    "href": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#example-1-arrays",
+    "title": "Lab 1 - Brief Introduction to Matlab",
+    "section": "",
+    "text": "Here are a few basic calculations and constructions that you will need to use throughout the course for building arrays of numbers. Take note of these constructions as they will be useful for the entire course.\n\n\nA row vector, X=(0 1 2 3) is commonly written in three ways:\n1. Using brackets:\nX=[0 1 2 3]\nIf ; is included at the end of the line, the output will be supressed. The command will still be executed, but nothing will be printed.\nX=[0 1 2 3];\n2. Using the linspace function:\nX=linspace(0, 3, 4)\nThis gives 4 equally spaced points between and including 0 and 3 as shown above. linspace is a function included in the Matlab standard library i.e. it is always available.\n3. In the form a:step:b:\nX=0:1:3\nThis will give all points between and including 0 to 3 with step size 1 between each point. It can also be written as X=0:3 which uses the default step size 1.\n\n\n\nOnce we have these arrays, we can apply an operation to each element in the array. For example, to compute \\(Y = [e^0, e^2, e^2, e^3]\\), we use the Matlab standard library function exp for exponential:\nY=exp(X)\nOr to apply sin to each element of the array:\nS=sin(X)\nOr to make an array Q with the square root to each element of the array X:\nQ=sqrt(X)\n\n\n\nTo create a \\(2\\times2\\) identity matrix:\nId=[1 0; 0 1]\nNote that the ; in the array definition marks the end of a row. There is also a Matlab standard library function eye that can be used as:\nId2=eye(2)\nA \\(4\\times 4\\) identity matrix is then:\nId4=eye(4)\nTo make a length 4 column vector (4 rows, 1 column) of all zeros, we can use the standard library zeros function:\nz = zeros(4,1)\nThis can be extended to a \\(4\\times4\\) matrix of all zeros:\nZ=zeros(4,4)\nOr a \\(3\\times3\\) matrix of all ones:\nW=ones(3,3)\n\n\n\nIf we wanted to compute the matrix-vector product of Id4 with our previous row vector X, we would first need to transpose X into a column vector. This can be done with either the standard library transpose function or the operator ':\nY=Id4 * X'\nor\nY=Id4 * transpose(X)\nFailing to transpose will give an error:\nId4 * X",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 1 - Brief Introduction to Matlab"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#example-2-common-operations",
+    "href": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#example-2-common-operations",
+    "title": "Lab 1 - Brief Introduction to Matlab",
+    "section": "Example 2: Common operations",
+    "text": "Example 2: Common operations\nIn Matlab, the * operator means “dot product” when working with matrices and vectors. If we instead wish to apply a multiplication operation to each element of an array, we preface the operation with a dot, i.e. .*. This elementwise operator syntax with an additional period extends to division and exponents as ./ and .^ respectively. Observe the difference between the products A*B and A.*B in the following examples:\nA=[1 0; 0 1]\nB=[0 1; 1 0]\nx = [1 ; 0]\nThe dot product is A*B:\nA*B\nA * x\nThe elementwise product is A.*B:\nA.*B\nThis product is the product of each element of A with each corresponding element of B.",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 1 - Brief Introduction to Matlab"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#example-3-plotting-in-matlab",
+    "href": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#example-3-plotting-in-matlab",
+    "title": "Lab 1 - Brief Introduction to Matlab",
+    "section": "Example 3: Plotting in Matlab",
+    "text": "Example 3: Plotting in Matlab\nTo plot a line in Matlab, you will need to pass in arrays of \\(x\\) and \\(y\\) positions to the standard library plot function. These positions will be used as \\((x,y)\\) coordinates through which the line will pass. In this example we will define our function using an inline (or anonymous) function. More complicated functions can be found at the bottom of this page.\nFirst, create the function we would like to plot:\nf=@(x) x.^3;\nThis is now a function variable f to which we can pass in a value x and it will compute \\(x^3\\). We use .^ so that we can pass an array x into the function. We can now create a set of 1000 equally spaced x values between -2 and 2:\nX =linspace(-2, 2, 1000);\nand cube each of them using our function f to get an array of 1000 y points:\nY=f(X);\nWe can now pass X and Y as our \\(x\\) and \\(y\\) positions to the plot function to get a line that passes through each \\((x,y)\\) in order.\nplot(X,Y)\nThere are several additional parameters we can pass into the plot function to change the line style and color of the lines. Judgement should be used to determine which plot options to use to make your results of your work clear.\nWe can now create a new figure (a new plotting area with no lines on it) and plot our points with several additional decorations:\nfigure()\nplot(X,Y,'r','LineWidth',1); % 'r' =&gt; red line\n\nhold on\nplot(X,X);\n\ngrid on\n\naxis([-1 1 -2 2]);\n\nxlabel('x','fontsize',14); \nylabel('f(x)','fontsize',14);\n\ntitle('Plot example',...\n    'fontsize',14);\n\nlegend('x^3', 'x');\nThe 'LineWidth' marks that the width will be changed and 1 is the selected line width. The hold on command will keep the current figure for all new plots and plotting commands until a new figure is created with figure() or the hold is removed with hold off. This allows more lines to be added to the current figure. grid on turns on grid lines for the figure and axis is a function to determine the limits of the x and y axes. xlabel and ylabel are functions for labeling the figure axes and title is a function to give the figure a title. Note that the ... tells Matlab that the function inputs are continued on the next line. The legend function allows for annotating the plots in the figure in the order they were plotted.",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 1 - Brief Introduction to Matlab"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#example-4-control-flow",
+    "href": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#example-4-control-flow",
+    "title": "Lab 1 - Brief Introduction to Matlab",
+    "section": "Example 4: Control flow",
+    "text": "Example 4: Control flow\nOne standard programming construct is that of a “for loop.” The following simple example shows how to implement a for loop to add the numbers between 1 and N. We will find the sum of the first 50 numbers\nN=50;\n\n% Initialize the sum variable as 0. We are going to add to this\nsumN = 0;\nfor i=1:N\n    \n    % In each iteration we will add the new number i to our sum\n    sumN = sumN+i;\nend\ndisp is the matlab function for “displaying” or printing a value or array. num2str is the matlab function to convert a number to a “string” which is a datatype meant for sequences of letters. This is especially useful for printing by combining different strings as shown below:\nresult = ['The sum of the first ' num2str(N) ' numbers is ' num2str(sumN)];\ndisp(result)\nThis algorithm is also packaged as a Matlab function SumN at the bottom of this file. In this course, all algorithms will be written as a function so they can be easily reused. However, all functions in Matlab scripts must be placed at the end of the file, so scroll down to see the function SumN.\ntotal=SumN(N);\nresult2 = ['The Sum is still ', num2str(total)];\ndisp(result2)",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 1 - Brief Introduction to Matlab"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#example-5-a-simple-numerical-method-taylor-series",
+    "href": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#example-5-a-simple-numerical-method-taylor-series",
+    "title": "Lab 1 - Brief Introduction to Matlab",
+    "section": "Example 5: A simple numerical method (Taylor series)",
+    "text": "Example 5: A simple numerical method (Taylor series)\nAs an application of the examples above, the following shows how to approximate the \\(\\sin\\) function at a point \\(x\\)using the Taylor series of \\(\\sin\\) (centered at 0). This makes use of for loops as demonstrated above.\nIf we consider \\(x=1\\) and use the first \\(N=20\\) terms in the Taylor series, we initialize our variables:\nx = 1;\nN = 20;\nWe then initialize a variable my_sin1 in which we will store the result and use the for loop to add each term evaluated at \\(x=1\\) to the variable:\nmy_sin1 = 0;\nfor n=0:N\n    new_term = (-1)^n * (x^(2*n+1)) / factorial(2*n + 1);\n    my_sin1 = my_sin1 + new_term;\nend\nWe can compare our approximation with Matlab’s approximation of \\(\\sin(1)\\) by comparing it with the standard library function sin:\ndisp(\"My answer:\")\ndisp(my_sin1)\ndisp(\"Matlab's answer:\")\ndisp(sin(1))\nA function that takes as inputs x and N and computes the taylor series approximation of \\(\\sin\\) as we just have for x=1,N=20 can be seen at the bottom of this file under the name my_sin. We can verify that it gives the same result:\ndisp(my_sin(1, 20))",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 1 - Brief Introduction to Matlab"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#functions",
+    "href": "other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html#functions",
+    "title": "Lab 1 - Brief Introduction to Matlab",
+    "section": "Functions",
+    "text": "Functions\nfunction [output] = SumN(input)\n    % The names \"input\" and \"output\" are chosen to make it clear how this\n    % function works. The names don't matter as long as they are consistent.\n    N=input;\n    sum=0;\n    for i=1:N\n        % In each iteration we will add the new number to our sum\n        sum=sum+i;\n    end\n    output=sum;\nend;\nfunction [answer] = my_sin(x, N)\n    answer = 0;\n    for n=0:N\n        new_term = (-1)^n * (x^(2*n+1)) / factorial(2*n + 1);\n        answer = answer + new_term;\n    end\nend",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 1 - Brief Introduction to Matlab"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab2_bisection/Lab2_bisection.html",
+    "href": "other/teaching/math340/Lab2_bisection/Lab2_bisection.html",
+    "title": "Lab 2 - Bisection Method",
+    "section": "",
+    "text": "The bisection method is a numerical method for finding the root of a continuous function \\(f(x)\\) that lies between two points \\(a,b\\) where \\(f(a)f(b)&lt;0\\). This means that \\(f(a)\\) and \\(f(b)\\) are of opposite sign, and thus there must be a root between \\(a\\) and \\(b\\). An example of a function like this is shown in Figure 1.\n\n\n\n\n\n\nFigure 1: Example of continuous function between \\(a\\) and \\(b\\) where \\(f(a)f(b) &lt; 0\\) and thus a root lies between \\(a\\) and \\(b\\).\n\n\n\nThe concept that underpins the bisection method is that as long as \\(f(a)f(b)&lt;0\\), there is guaranteed to be a root between \\(a\\) and \\(b\\). Since the initial interval \\((a,b)\\) is given, the method can iteratively make smaller and smaller intervals whose endpoints satisfy the condition \\(f(a)f(b)&lt;0\\). Specifically, the method halves the interval at each step which is what gives it the name “bisection” method. The details of the method can be most easily summarized in the following “pseudocode” algorithm.\nGiven the initial interval \\([a,b]\\), the function \\(f\\) where \\(f(a)f(b) &lt; 0\\), and an ending tolerance, \\(tol\\) (the size of the final interval), we compute:\n% While half the interval is bigger than the given accuracy tolerance\nwhile (b-a)/2 &gt; tol\n    % c = the midpoint of a and b\n    % If f(c) = 0, stop                  -- this would be lucky (c=root)!\n    % If f(a)f(c) &lt; 0, then b=c          -- the root is between a and c\n    % Else, a=c                          -- the root is between c and b\nend\n% The final c is an approximate root\nNote that this formula does not depend on what the function \\(f\\) is. This is a nice property of the bisection method since it allows you to write one piece of code that can be used for any function. Other methods you will see later in this class use information about the function \\(f\\) (such as the derivative) to get faster convergence. However, these methods are also usually do not work for all functions \\(f\\). This is a classic tradeoff in numerical methods (between the generality and speed of the method).",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 2 - Bisection Method"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab2_bisection/Lab2_bisection.html#introduction",
+    "href": "other/teaching/math340/Lab2_bisection/Lab2_bisection.html#introduction",
+    "title": "Lab 2 - Bisection Method",
+    "section": "",
+    "text": "The bisection method is a numerical method for finding the root of a continuous function \\(f(x)\\) that lies between two points \\(a,b\\) where \\(f(a)f(b)&lt;0\\). This means that \\(f(a)\\) and \\(f(b)\\) are of opposite sign, and thus there must be a root between \\(a\\) and \\(b\\). An example of a function like this is shown in Figure 1.\n\n\n\n\n\n\nFigure 1: Example of continuous function between \\(a\\) and \\(b\\) where \\(f(a)f(b) &lt; 0\\) and thus a root lies between \\(a\\) and \\(b\\).\n\n\n\nThe concept that underpins the bisection method is that as long as \\(f(a)f(b)&lt;0\\), there is guaranteed to be a root between \\(a\\) and \\(b\\). Since the initial interval \\((a,b)\\) is given, the method can iteratively make smaller and smaller intervals whose endpoints satisfy the condition \\(f(a)f(b)&lt;0\\). Specifically, the method halves the interval at each step which is what gives it the name “bisection” method. The details of the method can be most easily summarized in the following “pseudocode” algorithm.\nGiven the initial interval \\([a,b]\\), the function \\(f\\) where \\(f(a)f(b) &lt; 0\\), and an ending tolerance, \\(tol\\) (the size of the final interval), we compute:\n% While half the interval is bigger than the given accuracy tolerance\nwhile (b-a)/2 &gt; tol\n    % c = the midpoint of a and b\n    % If f(c) = 0, stop                  -- this would be lucky (c=root)!\n    % If f(a)f(c) &lt; 0, then b=c          -- the root is between a and c\n    % Else, a=c                          -- the root is between c and b\nend\n% The final c is an approximate root\nNote that this formula does not depend on what the function \\(f\\) is. This is a nice property of the bisection method since it allows you to write one piece of code that can be used for any function. Other methods you will see later in this class use information about the function \\(f\\) (such as the derivative) to get faster convergence. However, these methods are also usually do not work for all functions \\(f\\). This is a classic tradeoff in numerical methods (between the generality and speed of the method).",
+    "crumbs": [
+      "Math 340 - Applied Numerical Methods",
+      "Lab 2 - Bisection Method"
+    ]
+  },
+  {
+    "objectID": "other/teaching/math340/Lab2_bisection/Lab2_bisection.html#examples",
+    "href": "other/teaching/math340/Lab2_bisection/Lab2_bisection.html#examples",
+    "title": "Lab 2 - Bisection Method",
+    "section": "Examples",
+    "text": "Examples\nHere I’ll write a bisection method function that takes in \\(f\\), \\(a\\), \\(b\\) and \\(tol\\) and outputs the approximate root \\(c\\) and the number of steps taken, \\(N\\). At each step, the function prints the step number and the current approximate root (the midpoint of the current interval).\n\nMatlab function\n%%file MyBisectionMethod.m\nfunction [c, N] = MyBisectionMethod(f, a, b, tol)\n    N = 0;\n    while (b-a)/2 &gt; tol\n        c = (a + b) / 2;\n        if f(c) == 0\n            return\n        elseif f(a)*f(c) &lt; 0\n            b = c;\n        else\n            a = c;\n        end\n        N = N + 1;\n        disp(['At step ' num2str(N) ' approximation is ' num2str((a+b)/2)])\n    end\nend\n\n\nFind root of simple function\nNow, using this bisection method code on the function \\(f(x)=x^2-7\\) to find the root \\(\\sqrt{7}\\) with interval \\([-1,3]\\) and a tolerance of \\(10^{-5}\\):\na = -1;\nb = 3;\ntol = 1e-5;\n\nf = @(x) x.^2 - 7;\n[root,steps] = MyBisectionMethod(f, a, b, tol);\ntrue = sqrt(7);\nanswer = ['The true root is ' num2str(true) ' while our approximation is ' num2str(root)];\ndisp(answer)\nTheoretically, this should take \\[\n\\begin{align*}\nN=-1 + \\log_2\\frac{b-a}{\\mathrm{Tol}}\n\\end{align*}\n\\] steps on the interval \\((a,b)\\) with tolerance \\(Tol\\):\ntheoryN=log2((b-a)/tol) - 1;    % the value of N as predicted by the formula from class\nanswer = ['We took ' num2str(steps) ' steps while the theory predicts we should take ' num2str(theoryN) ' steps'];\ndisp(answer)\n\n\nFind root of discontinuous function\nThe method does have some drawbacks in the context of discontinuities. For example, consider the function: \\[\n\\begin{align*}\nf(x) = \\frac{|x-3|}{x^3 - 3 x^2 + x -3}\n.\\end{align*}\n\\] on the interval \\([1, 5]\\) which plotted looks like:\nfFun = @(x) abs(x-3) ./ (x.^3 - 3.*x.^2 + x - 3);\nX = linspace(1,5,1000);\nY = fFun(X);\nplot(X,Y,'-r','LineWidth',1);   % plot the function\nxlabel('x');\nylabel('f(x)');\ntitle('Plot of $f(x)=\\frac{|x-3|}{x^3-3x^2+x-3}$','interpreter','latex');\nApplying the bisection code on this interval with a tolerance of \\(10^{-4}\\) gives:\n[c3,N3] = MyBisectionMethod(fFun,1,4,1e-4);\nAlthough the function returned a answer, since the function is discontinuous, the answer does not represent a root.",
+    "crumbs": [
       "Math 340 - Applied Numerical Methods",
       "Lab 2 - Bisection Method"
     ]

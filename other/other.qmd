@@ -2,6 +2,6 @@
 title: Other
 ---
 
-This section is made up of various other resources related to my interests or activities.
-Some are for specific events like the Machine Learning and Optimization seminar at NJIT, some might be useful for other people, and some are just for fun.
+This section is made up of various other resources related to my interests or previous activities.
+Some are for specific events like the Machine Learning and Optimization seminar at NJIT or classes, some might be useful for other people, and some are just for fun.
 
