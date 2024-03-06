@@ -32,8 +32,8 @@ website:
   # --------------------------------------------------------------------------
   # Footer
   # --------------------------------------------------------------------------
-  page-footer: 
-    right: "Connor Robertson, Copyright 2022" 
+  page-footer:
+    right: "Connor Robertson, Copyright 2024"
     left:
       - icon: linkedin
         href: https://www.linkedin.com/in/connor-robertson-773ba8b1/
@@ -101,7 +101,7 @@ website:
 # --------------------------------------------------------------------------
 format:
   html:
-    theme: 
+    theme:
       light: simplex
       dark: cyborg
     css: styles.css
