@@ -1,0 +1,11 @@
+[deps]
+opencv = ""
+matplotlib = ""
+gymnasium = ""
+r = ""
+numpy = ""
+jupyter = ""
+python = "3.12"
+
+[pip.deps]
+shinylive = ""

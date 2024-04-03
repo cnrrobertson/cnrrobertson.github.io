@@ -1,0 +1,4 @@
+[deps]
+CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
+IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
+RCall = "6f49c342-dc21-5d91-9882-a32aef131414"
