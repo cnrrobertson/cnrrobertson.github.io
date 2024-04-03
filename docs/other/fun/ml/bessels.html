@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Connor Robertson">
 
-<title>Connor Robertson - Just for Fun</title>
+<title>Connor Robertson - Bessel’s correction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,30 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<meta name="shinylive:serviceworker_dir" content="../../..">
+<script src="../../../site_libs/quarto-contrib/shinylive-0.2.8/shinylive/load-shinylive-sw.js" type="module"></script>
+<script src="../../../site_libs/quarto-contrib/shinylive-0.2.8/shinylive/run-python-blocks.js" type="module"></script>
+<link href="../../../site_libs/quarto-contrib/shinylive-0.2.8/shinylive/shinylive.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -99,17 +105,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Connor Robertson</span>
     </a>
   </div>
@@ -120,11 +126,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../cv.html"> 
+    <a class="nav-link" href="../../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research/research.html"> 
+    <a class="nav-link" href="../../../research/research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -133,15 +139,15 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
         <li>
-    <a class="dropdown-item" href="../../other/fun/fun.html">
+    <a class="dropdown-item" href="../../../other/fun/fun.html">
  <span class="dropdown-text">Just for Fun</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../other/mlseminar/mlseminar.html">
+    <a class="dropdown-item" href="../../../other/mlseminar/mlseminar.html">
  <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../other/teaching/teaching.html">
+    <a class="dropdown-item" href="../../../other/teaching/teaching.html">
  <span class="dropdown-text">NJIT Teaching</span></a>
   </li>  
     </ul>
@@ -153,79 +159,32 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../other/fun/fun.html">Just for fun</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../other/fun/fun.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Just for fun</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../other/fun/ml/em.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Expectation maximization with GMM</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../other/fun/doodles/polygon_angles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Polygon angles</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../other/fun/doodles/heliocentric_geocentric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Geocentrism</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning">Machine Learning</a></li>
-  <li><a href="#doodles" id="toc-doodles" class="nav-link" data-scroll-target="#doodles">Doodles</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Just for Fun</h1>
+<h1 class="title">Bessel’s correction</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Connor Robertson </p>
+          </div>
+  </div>
     
   
     
@@ -236,23 +195,94 @@ window.Quarto = {
 </header>
 
 
-<p>This is a collection of code doodles (almost literally since most produce nice plots or videos).</p>
-<section id="machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
-<ul>
-<li><a href="../../other/fun/ml/em.html">Visualizing expectation maximization for K-means and Gaussian Mixture Models</a></li>
-<li><a href="../../other/fun/ml/mmm.html">Mean, median, mode dashboard</a></li>
-</ul>
-</section>
-<section id="doodles" class="level2">
-<h2 class="anchored" data-anchor-id="doodles">Doodles</h2>
-<ul>
-<li><a href="../../other/fun/doodles/polygon_angles.html">External angles of a polygon sum to <span class="math inline">\(2\pi\)</span></a></li>
-<li><a href="../../other/fun/doodles/heliocentric_geocentric.html">Visually comparing the complexity of the heliocentric and geocentric models of the solar system</a></li>
-</ul>
+<p>A brief demonstration of how <a href="https://en.wikipedia.org/wiki/Bessel's_correction">Bessel’s correction</a> for the variance better matches the variance of the underlying distribution while introducing error in the variance of the samples.</p>
+<p>As a reminder, the variance of a sample without Bessel’s correction (i.e.&nbsp;a biased estimate) is: <span class="math display">\[
+s_n^2 = \frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2
+\]</span></p>
+<p>while the “sample variance” or variance with Bessel’s correction (i.e.&nbsp;an unbiased estimate) is: <span class="math display">\[
+s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2
+\]</span></p>
+<p>where the sample mean is defined as <span class="math inline">\(\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i\)</span>.</p>
+<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
+#| viewerHeight: 500
+
+from shiny import *
+from scipy.stats import norm
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.set_theme()
+
+prop_cycle = plt.rcParams['axes.prop_cycle']
+colors = prop_cycle.by_key()['color']
+
+app_ui = ui.page_fluid(
+    ui.layout_sidebar(
+        ui.panel_sidebar(
+            ui.input_slider("samples", "# Samples", 5, 50, 5, step=1),
+        ),
+        ui.panel_main(
+            ui.output_plot("plot"),
+        ),
+    ),
+)
+
+def server(input, output, session):
+    @output
+    @render.plot()
+    def plot():
+        rv = norm()
+        xmax = rv.ppf(.999)
+        xmin = rv.ppf(.001)
+        x = np.linspace(xmin, xmax, 200)
+
+        pdf = rv.pdf(x)
+        samples = rv.rvs(size=input.samples(), random_state=0)
+        smean = np.mean(samples)
+        svar_biased = np.var(samples, ddof=0)
+        svar_unbiased = np.var(samples, ddof=1)
+        var = rv.var()
+
+        ax = sns.lineplot(x=x, y=pdf, label="True Distribution")
+        sns.histplot(samples, label="Sample distribution", stat="density")
+        sns.scatterplot(x=samples, y=0, label="Samples", c=colors[0])
+        plt.ylim(-0.05, plt.ylim()[1])
+        ax.vlines(
+            [smean-svar_biased, smean+svar_biased],
+            ymin=plt.ylim()[0],
+            ymax=plt.ylim()[1],
+            label="Variance (uncorrected)",
+            color=colors[1]
+        )
+        ax.vlines(
+            [smean-svar_unbiased, smean+svar_unbiased],
+            ymin=plt.ylim()[0],
+            ymax=plt.ylim()[1],
+            label="Variance (corrected)",
+            color=colors[2]
+        )
+        ax.vlines(
+            [smean-var, smean+var],
+            ymin=plt.ylim()[0],
+            ymax=plt.ylim()[1],
+            label="Variance (true)",
+            color="black",
+            ls="dashed"
+        )
+        plt.legend()
+        sns.move_legend(
+            ax,
+            "upper center",
+            bbox_to_anchor=(.5,-.1),
+            ncol=2,
+            title=None,
+        )
+
+app = App(app_ui, server)
+</code></pre>
+<p>The difference is slight, but the gist of it is that the corrected variance is always larger than the uncorrected, but</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

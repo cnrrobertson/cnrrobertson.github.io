@@ -1,0 +1,7 @@
+[deps]
+matplotlib = ""
+numpy = ""
+jupyter = ""
+
+[pip.deps]
+shinylive = ""

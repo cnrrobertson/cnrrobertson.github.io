@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Connor Robertson">
 
-<title>Connor Robertson - Just for Fun</title>
+<title>Connor Robertson - Mean, median, and mode</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,30 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<meta name="shinylive:serviceworker_dir" content="../../..">
+<script src="../../../site_libs/quarto-contrib/shinylive-0.2.8/shinylive/load-shinylive-sw.js" type="module"></script>
+<script src="../../../site_libs/quarto-contrib/shinylive-0.2.8/shinylive/run-python-blocks.js" type="module"></script>
+<link href="../../../site_libs/quarto-contrib/shinylive-0.2.8/shinylive/shinylive.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -99,17 +105,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Connor Robertson</span>
     </a>
   </div>
@@ -120,11 +126,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../cv.html"> 
+    <a class="nav-link" href="../../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research/research.html"> 
+    <a class="nav-link" href="../../../research/research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -133,15 +139,15 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
         <li>
-    <a class="dropdown-item" href="../../other/fun/fun.html">
+    <a class="dropdown-item" href="../../../other/fun/fun.html">
  <span class="dropdown-text">Just for Fun</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../other/mlseminar/mlseminar.html">
+    <a class="dropdown-item" href="../../../other/mlseminar/mlseminar.html">
  <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../other/teaching/teaching.html">
+    <a class="dropdown-item" href="../../../other/teaching/teaching.html">
  <span class="dropdown-text">NJIT Teaching</span></a>
   </li>  
     </ul>
@@ -153,79 +159,32 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../other/fun/fun.html">Just for fun</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../other/fun/fun.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Just for fun</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../other/fun/ml/em.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Expectation maximization with GMM</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../other/fun/doodles/polygon_angles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Polygon angles</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../other/fun/doodles/heliocentric_geocentric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Geocentrism</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning">Machine Learning</a></li>
-  <li><a href="#doodles" id="toc-doodles" class="nav-link" data-scroll-target="#doodles">Doodles</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Just for Fun</h1>
+<h1 class="title">Mean, median, and mode</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Connor Robertson </p>
+          </div>
+  </div>
     
   
     
@@ -236,23 +195,56 @@ window.Quarto = {
 </header>
 
 
-<p>This is a collection of code doodles (almost literally since most produce nice plots or videos).</p>
-<section id="machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
-<ul>
-<li><a href="../../other/fun/ml/em.html">Visualizing expectation maximization for K-means and Gaussian Mixture Models</a></li>
-<li><a href="../../other/fun/ml/mmm.html">Mean, median, mode dashboard</a></li>
-</ul>
-</section>
-<section id="doodles" class="level2">
-<h2 class="anchored" data-anchor-id="doodles">Doodles</h2>
-<ul>
-<li><a href="../../other/fun/doodles/polygon_angles.html">External angles of a polygon sum to <span class="math inline">\(2\pi\)</span></a></li>
-<li><a href="../../other/fun/doodles/heliocentric_geocentric.html">Visually comparing the complexity of the heliocentric and geocentric models of the solar system</a></li>
-</ul>
+<p>A brief demonstration of the different biases between mean, median, and mode as outliers are added to the data.</p>
+<p>The distribution starts as a Gamma with large <span class="math inline">\(k\)</span> (to approximate a Gaussian, which has mean=median=mode). As the <code>shape</code> (<span class="math inline">\(k\)</span>) parameter is decreased, the Gamma distribution is skewed and more weight is added to the tail, consequently pulling the mean out, the mode in, and setting the median between.</p>
+<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
+#| viewerHeight: 500
+
+from shiny import *
+from scipy.stats import gamma
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.set_theme()
+
+prop_cycle = plt.rcParams['axes.prop_cycle']
+colors = prop_cycle.by_key()['color']
+
+app_ui = ui.page_fluid(
+    ui.layout_sidebar(
+        ui.panel_sidebar(
+            ui.input_slider("shape", "Shape", 0, 50, 50, step=0.1),
+        ),
+        ui.panel_main(
+            ui.output_plot("plot"),
+        ),
+    ),
+)
+
+def server(input, output, session):
+    @output
+    @render.plot(alt = "Sine")
+    def plot():
+        rv = gamma(input.shape())
+        xmax = rv.ppf(.999)
+        x = np.linspace(0, xmax, 200)
+
+        pdf = rv.pdf(x)
+        mean = rv.mean()
+        median = rv.median()
+        mode = x[np.argmax(pdf)]
+
+        ax = sns.lineplot(x=x, y=pdf)
+        ax.axvline(x=mean, ymin=0, ymax=1, label="Mean", c=colors[1])
+        ax.axvline(x=median, ymin=0, ymax=1, label="Median", c=colors[2])
+        ax.axvline(x=mode, ymin=0, ymax=1, label="Mode", c=colors[3])
+        plt.legend()
 
 
-</section>
+app = App(app_ui, server)
+</code></pre>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

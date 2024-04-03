@@ -61,6 +61,8 @@ website:
         - section: "Just for fun"
           href: other/fun/fun.qmd
           contents:
+            - text: "Expectation maximization with GMM"
+              href: other/fun/ml/em.qmd
             - text: "Polygon angles"
               href: other/fun/doodles/polygon_angles.qmd
             - text: "Geocentrism"
