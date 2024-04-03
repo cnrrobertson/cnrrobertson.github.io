@@ -62,9 +62,9 @@ website:
           href: other/fun/fun.qmd
           contents:
             - text: "Polygon angles"
-              href: other/fun/polygon_angles.qmd
+              href: other/fun/doodles/polygon_angles.qmd
             - text: "Geocentrism"
-              href: other/fun/heliocentric_geocentric.qmd
+              href: other/fun/doodles/heliocentric_geocentric.qmd
     - title: "Machine Learning and Optimization Seminar"
       style: "floating"
       collapse-level: 1

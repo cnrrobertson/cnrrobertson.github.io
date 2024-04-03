@@ -6,5 +6,5 @@ This is a collection of code doodles (almost literally since most produce nice p
 
 ## Doodles
 
-- [External angles of a polygon sum to $2\pi$](polygon_angles.qmd)
-- [Visually comparing the complexity of the heliocentric and geocentric models of the solar system](heliocentric_geocentric.qmd)
+- [External angles of a polygon sum to $2\pi$](doodles/polygon_angles.qmd)
+- [Visually comparing the complexity of the heliocentric and geocentric models of the solar system](doodles/heliocentric_geocentric.qmd)

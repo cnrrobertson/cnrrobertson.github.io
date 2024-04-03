@@ -1,0 +1,7 @@
+[deps]
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+Conda = "8f4d0f93-b110-5947-807f-2305c1781a2d"
+CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
+Feather = "becb17da-46f6-5d3c-ad1b-1c5fe96bc73c"
+IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
+PythonCall = "6099a3de-0909-46bc-b1f4-468b9a2dfc0d"
