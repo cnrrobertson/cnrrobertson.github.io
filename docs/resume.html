@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Connor Robertson">
 
-<title>Connor Robertson - Bessel’s correction</title>
+<title>Connor Robertson</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,30 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<meta name="shinylive:serviceworker_dir" content="../../..">
-<script src="../../../site_libs/quarto-contrib/shinylive-0.2.8/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="../../../site_libs/quarto-contrib/shinylive-0.2.8/shinylive/run-python-blocks.js" type="module"></script>
-<link href="../../../site_libs/quarto-contrib/shinylive-0.2.8/shinylive/shinylive.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,37 +69,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -115,7 +80,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Connor Robertson</span>
     </a>
   </div>
@@ -131,18 +96,22 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-resumecv">    
         <li>
-    <a class="dropdown-item" href="../../../resume.html">
+    <a class="dropdown-item" href="./resume.html">
  <span class="dropdown-text">Resume</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../cv.html">
+    <a class="dropdown-item" href="./cv.html">
  <span class="dropdown-text">Academic CV</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../research/research.html"> 
+    <a class="nav-link" href="./research/research.html"> 
 <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./other/fun/fun.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -150,16 +119,12 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
         <li>
-    <a class="dropdown-item" href="../../../other/fun/fun.html">
- <span class="dropdown-text">Just for Fun</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../other/mlseminar/mlseminar.html">
+    <a class="dropdown-item" href="./other/mlseminar/mlseminar.html">
  <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../other/teaching/teaching.html">
- <span class="dropdown-text">NJIT Teaching</span></a>
+    <a class="dropdown-item" href="./other/teaching/teaching.html">
+ <span class="dropdown-text">Teaching (NJIT)</span></a>
   </li>  
     </ul>
   </li>
@@ -181,117 +146,17 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Bessel’s correction</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Connor Robertson </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
+<meta http-equiv="refresh" content="0; URL=assets/Resume_Connor_Robertson.pdf">
 
 
-</header>
+<p>
+If you are not redirected, <a href="assets/Resume_Connor_Robertson.pdf">click here</a>.
+</p>
 
-
-<p>A brief demonstration of how <a href="https://en.wikipedia.org/wiki/Bessel's_correction">Bessel’s correction</a> for the variance better matches the variance of the underlying distribution while introducing error in the variance of the samples.</p>
-<p>As a reminder, the variance of a sample without Bessel’s correction (i.e.&nbsp;a biased estimate) is: <span class="math display">\[
-s_n^2 = \frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2
-\]</span></p>
-<p>while the “sample variance” or variance with Bessel’s correction (i.e.&nbsp;an unbiased estimate) is: <span class="math display">\[
-s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2
-\]</span></p>
-<p>where the sample mean is defined as <span class="math inline">\(\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i\)</span>.</p>
-<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
-#| viewerHeight: 500
-
-from shiny import *
-from scipy.stats import norm
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-sns.set_theme()
-
-prop_cycle = plt.rcParams['axes.prop_cycle']
-colors = prop_cycle.by_key()['color']
-
-app_ui = ui.page_fluid(
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_slider("samples", "# Samples", 5, 50, 5, step=1),
-        ),
-        ui.panel_main(
-            ui.output_plot("plot"),
-        ),
-    ),
-)
-
-def server(input, output, session):
-    @output
-    @render.plot()
-    def plot():
-        rv = norm()
-        xmax = rv.ppf(.999)
-        xmin = rv.ppf(.001)
-        x = np.linspace(xmin, xmax, 200)
-
-        pdf = rv.pdf(x)
-        samples = rv.rvs(size=input.samples(), random_state=0)
-        smean = np.mean(samples)
-        svar_biased = np.var(samples, ddof=0)
-        svar_unbiased = np.var(samples, ddof=1)
-        var = rv.var()
-
-        ax = sns.lineplot(x=x, y=pdf, label="True Distribution")
-        sns.histplot(samples, label="Sample distribution", stat="density")
-        sns.scatterplot(x=samples, y=0, label="Samples", c=colors[0])
-        plt.ylim(-0.05, plt.ylim()[1])
-        ax.vlines(
-            [smean-svar_biased, smean+svar_biased],
-            ymin=plt.ylim()[0],
-            ymax=plt.ylim()[1],
-            label="Variance (uncorrected)",
-            color=colors[1]
-        )
-        ax.vlines(
-            [smean-svar_unbiased, smean+svar_unbiased],
-            ymin=plt.ylim()[0],
-            ymax=plt.ylim()[1],
-            label="Variance (corrected)",
-            color=colors[2]
-        )
-        ax.vlines(
-            [smean-var, smean+var],
-            ymin=plt.ylim()[0],
-            ymax=plt.ylim()[1],
-            label="Variance (true)",
-            color="black",
-            ls="dashed"
-        )
-        plt.legend()
-        sns.move_legend(
-            ax,
-            "upper center",
-            bbox_to_anchor=(.5,-.1),
-            ncol=2,
-            title=None,
-        )
-
-app = App(app_ui, server)
-</code></pre>
-<p>The difference is slight, but the gist of it is that the corrected variance is always larger than the uncorrected, but</p>
 
 
 

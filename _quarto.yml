@@ -17,17 +17,21 @@ website:
   # --------------------------------------------------------------------------
   navbar:
     left:
-      - text: "CV"
-        href: cv.qmd
+      - text: "Resume/CV"
+        menu:
+          - text: "Resume"
+            href: resume.qmd
+          - text: "Academic CV"
+            href: cv.qmd
       - text: "Research"
         file: research/research.qmd
+      - text: "Blog"
+        file: other/fun/fun.qmd
       - text: "Other"
         menu:
-          - text: "Just for Fun"
-            file: other/fun/fun.qmd
           - text: "Machine Learning and Optimization Seminar"
             file: other/mlseminar/mlseminar.qmd
-          - text: "NJIT Teaching"
+          - text: "Teaching (NJIT)"
             file: other/teaching/teaching.qmd
   # --------------------------------------------------------------------------
   # Footer
@@ -54,15 +58,17 @@ website:
               href: research/active_nematics.qmd
             - text: "Prediction of bacterial growth via recurrent neural network"
               href: research/bacteria.qmd
-    - title: "Just for Fun"
+    - title: "Blog"
       style: "floating"
       collapse-level: 1
       contents:
-        - section: "Just for fun"
+        - section: "Doodles"
           href: other/fun/fun.qmd
           contents:
             - text: "Expectation maximization with GMM"
               href: other/fun/ml/em.qmd
+            - text: "Mean, median, mode dashboard"
+              href: other/fun/ml/mmm.qmd
             - text: "Polygon angles"
               href: other/fun/doodles/polygon_angles.qmd
             - text: "Geocentrism"

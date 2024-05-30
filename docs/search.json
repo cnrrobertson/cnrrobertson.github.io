@@ -447,7 +447,12 @@
     "href": "other/fun/ml/mmm.html",
     "title": "Mean, median, and mode",
     "section": "",
-    "text": "A brief demonstration of the different biases between mean, median, and mode as outliers are added to the data.\nThe distribution starts as a Gamma with large \\(k\\) (to approximate a Gaussian, which has mean=median=mode). As the shape (\\(k\\)) parameter is decreased, the Gamma distribution is skewed and more weight is added to the tail, consequently pulling the mean out, the mode in, and setting the median between.\n#| standalone: true\n#| viewerHeight: 500\n\nfrom shiny import *\nfrom scipy.stats import gamma\nimport numpy as np\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nsns.set_theme()\n\nprop_cycle = plt.rcParams['axes.prop_cycle']\ncolors = prop_cycle.by_key()['color']\n\napp_ui = ui.page_fluid(\n    ui.layout_sidebar(\n        ui.panel_sidebar(\n            ui.input_slider(\"shape\", \"Shape\", 0, 50, 50, step=0.1),\n        ),\n        ui.panel_main(\n            ui.output_plot(\"plot\"),\n        ),\n    ),\n)\n\ndef server(input, output, session):\n    @output\n    @render.plot(alt = \"Sine\")\n    def plot():\n        rv = gamma(input.shape())\n        xmax = rv.ppf(.999)\n        x = np.linspace(0, xmax, 200)\n\n        pdf = rv.pdf(x)\n        mean = rv.mean()\n        median = rv.median()\n        mode = x[np.argmax(pdf)]\n\n        ax = sns.lineplot(x=x, y=pdf)\n        ax.axvline(x=mean, ymin=0, ymax=1, label=\"Mean\", c=colors[1])\n        ax.axvline(x=median, ymin=0, ymax=1, label=\"Median\", c=colors[2])\n        ax.axvline(x=mode, ymin=0, ymax=1, label=\"Mode\", c=colors[3])\n        plt.legend()\n\n\napp = App(app_ui, server)"
+    "text": "A brief demonstration of the different biases between mean, median, and mode as outliers are added to the data. (Really just a test of using a Shiny app in a Quarto website via shinylive).\nThe distribution starts as a Gamma with large \\(k\\) (to approximate a Gaussian, which has mean=median=mode). As the shape (\\(k\\)) parameter is decreased, the Gamma distribution is skewed and more weight is added to the tail, consequently pulling the mean out, the mode in, and setting the median between.\n#| standalone: true\n#| viewerHeight: 500\n\nfrom shiny import *\nfrom scipy.stats import gamma\nimport numpy as np\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nsns.set_theme()\n\nprop_cycle = plt.rcParams['axes.prop_cycle']\ncolors = prop_cycle.by_key()['color']\n\napp_ui = ui.page_fluid(\n    ui.layout_sidebar(\n        ui.panel_sidebar(\n            ui.input_slider(\"shape\", \"Shape\", 0, 50, 50, step=0.1),\n        ),\n        ui.panel_main(\n            ui.output_plot(\"plot\"),\n        ),\n    ),\n)\n\ndef server(input, output, session):\n    @output\n    @render.plot(alt = \"Sine\")\n    def plot():\n        rv = gamma(input.shape())\n        xmax = rv.ppf(.999)\n        x = np.linspace(0, xmax, 200)\n\n        pdf = rv.pdf(x)\n        mean = rv.mean()\n        median = rv.median()\n        mode = x[np.argmax(pdf)]\n\n        ax = sns.lineplot(x=x, y=pdf)\n        ax.axvline(x=mean, ymin=0, ymax=1, label=\"Mean\", c=colors[1])\n        ax.axvline(x=median, ymin=0, ymax=1, label=\"Median\", c=colors[2])\n        ax.axvline(x=mode, ymin=0, ymax=1, label=\"Mode\", c=colors[3])\n        plt.legend()\n\n\napp = App(app_ui, server)",
+    "crumbs": [
+      "Blog",
+      "Doodles",
+      "Mean, median, mode dashboard"
+    ]
   },
   {
     "objectID": "other/fun/ml/em.html",
@@ -533,7 +538,8 @@
     "section": "",
     "text": "I recently saw a fun little GIF from a weekly news email I get called the New Paper. It shows a simple plot of the exterior angles of a few polygons. As the polygons shrink, the exterior angles combine to eventually make a circle, which shows a simple graphical example of how the exterior angles of any polygon add to \\(2\\pi\\). \n\nI thought I’d try to recreate this little GIF with my favorite plotting library Makie.jl.",
     "crumbs": [
-      "Just for fun",
+      "Blog",
+      "Doodles",
       "Polygon angles"
     ]
   },
@@ -544,7 +550,8 @@
     "section": "",
     "text": "I recently saw a fun little GIF from a weekly news email I get called the New Paper. It shows a simple plot of the exterior angles of a few polygons. As the polygons shrink, the exterior angles combine to eventually make a circle, which shows a simple graphical example of how the exterior angles of any polygon add to \\(2\\pi\\). \n\nI thought I’d try to recreate this little GIF with my favorite plotting library Makie.jl.",
     "crumbs": [
-      "Just for fun",
+      "Blog",
+      "Doodles",
       "Polygon angles"
     ]
   },
@@ -555,7 +562,8 @@
     "section": "Setting up",
     "text": "Setting up\nBasically, we can start by getting the plots of each polygon set. We can then animate the sides of the polygons shrinking.\nTo start we are going to need a Figure with 4 axes:\n\nusing Pkg;\nPkg.activate(\".\");\nusing CairoMakie;\n\n\nf = Figure(resolution=(800,800));\naxes = [\n  Axis(f[1,1]) Axis(f[1,2]);\n  Axis(f[2,1]) Axis(f[2,2])\n]\nfor ax in axes ax.limits=(-6,6,-6,6) end\n\nWe can now list the vertices for each polygon:\n\npoly11 = [(-2.0,3.0),(3.0,-3.0),(-4.0,-2.0),(-2.0,3.0)];\npoly12 = [(-3.0,2.0),(1.0,1.0),(3.0,-2.0),(-4.0,-1.0),(-3.0,2.0)];\npoly21 = [(-1.0,3.0),(1.0,3.0),(3.0,-1.0),(1.0,-3.0),(-2.0,-2.0),(-3.0,1.0),(-1.0,3.0)];\npoly22 = [(-1.0,2.0),(1.0,2.0),(4.0,-1.0),(2.0,-3.0),(-4.0,-1.0),(-1.0,2.0)];\n\nwhere poly11 is the polygon in the 1st row and 1st column. Plotting these lines on each respective axis, we get:\n\nlines!(axes[1,1],poly11,color=:black);\nlines!(axes[1,2],poly12,color=:black);\nlines!(axes[2,1],poly21,color=:black);\nlines!(axes[2,2],poly22,color=:black);\npoly!(axes[1,1],poly11,transparency=true,color=RGBAf(1.0,0.6,0.0,0.2));\npoly!(axes[1,2],poly12,transparency=true,color=RGBAf(0.0,0.0,1.0,0.2));\npoly!(axes[2,1],poly21,transparency=true,color=RGBAf(0.5,0.0,0.5,0.2));\npoly!(axes[2,2],poly22,transparency=true,color=RGBAf(0.0,0.5,0.0,0.2));\ndisplay(f)\n\n\n\n\n\n\n\n\nCairoMakie.Screen{IMAGE}\n\n\nThese are obviously not exactly the polygons in the GIF, but they are generally similar and use nice easy vertex coordinates. Now, in order to accentuate the exterior angles, the GIF uses lines which extend beyond the vertices. To achieve this, we can consider each line segment and shift the first vertex some distance in the opposite direction of the second vertex. To do so, we should shift adjust our polygon representation to separate each line segment:\n\nlpoly11 = [[poly11[i],poly11[i+1]] for i in 1:length(poly11)-1];\nlpoly12 = [[poly12[i],poly12[i+1]] for i in 1:length(poly12)-1];\nlpoly21 = [[poly21[i],poly21[i+1]] for i in 1:length(poly21)-1];\nlpoly22 = [[poly22[i],poly22[i+1]] for i in 1:length(poly22)-1];\ndisplay(lpoly11)\n\n3-element Vector{Vector{Tuple{Float64, Float64}}}:\n [(-2.0, 3.0), (3.0, -3.0)]\n [(3.0, -3.0), (-4.0, -2.0)]\n [(-4.0, -2.0), (-2.0, 3.0)]\n\n\nWe can now the vector between the first and second indices of each line segment and shift our first vertex by the negative of that vector. That is a mouthful but more easily written mathematically. If we consider a single line segment with vertices \\(v_1\\) and \\(v_2\\), we can calculate the distance between them \\(d = v_2 - v_1\\) such that \\(v_1 + d = v_2\\) and then redefine our first vertex in the opposite direction as \\(v_1^* = v_1 - l\\frac{d}{\\|d\\|}\\) where \\(l\\) is the length of the external line. This boils down to the following:\n\nfunction shift_first_vertices!(lpoly, l=2)\n   for line in lpoly\n     v1 = collect(line[1]); v2 = collect(line[2])\n     d = v2 - v1\n     v1star = v1 - l*d/sqrt(d[1]^2+d[2]^2)\n     line[1] = tuple(v1star...)\n   end\nend\nshift_first_vertices!(lpoly11)\nshift_first_vertices!(lpoly12)\nshift_first_vertices!(lpoly21)\nshift_first_vertices!(lpoly22)\nfunction plot_line_segments!(ax,lpoly)\n  lines = []\n  for line in lpoly push!(lines,lines!(ax,line,color=:black)) end\n  return lines\nend\nplot_line_segments!(axes[1,1],lpoly11)\nplot_line_segments!(axes[1,2],lpoly12)\nplot_line_segments!(axes[2,1],lpoly21)\nplot_line_segments!(axes[2,2],lpoly22)\ndisplay(f)\n\n\n\n\n\n\n\n\nCairoMakie.Screen{IMAGE}\n\n\nOnce we have these lines in place, we can add the external angles. Ironically, the best tool in Makie for these angle drawings is the poly! function which plots a filled polygon from some given vertices. Thus, we need to compute the vertices of the arc for each angle of each polygon.\nThis computation can be done by taking two connected line segments \\(d_1\\) and \\(d_2\\), identifying the angle between them using the law of cosines \\(\\arccos(d_1 \\cdot d_2)\\), and sampling points along the arc of given radius \\(l\\). Sampling the arc requires a little change of coordinates to center the points around the vertex connecting the two line segments and to rotate the standard \\(x\\) and \\(y\\) coordinates to align \\(x\\) with \\(d_1\\) and \\(y\\) with \\(d_1^\\perp\\). This is, in my opinion, the most challenging part of the plot.\n\nfunction angle_vertices(line1,line2,l=1)\n  v1 = collect(line1[1])\n  v2 = collect(line1[2]) # Shared vertex\n  v3 = collect(line2[2])\n  d1 = v2-v1\n  d2 = v3-v2\n  # Line segment directions (normalized\n  d1 ./= sqrt(d1[1]^2+d1[2]^2)\n  d2 ./= sqrt(d2[1]^2+d2[2]^2)\n  d1perp = [d1[2],-d1[1]]\n  vertex = tuple(v2...)\n  # Computing angle between lines, then sampling arc points\n  angle = acos(d1'*d2)\n  angle = isnan(angle) ? 0.0 : angle\n  angles = range(0, angle, length=10)\n  # arc has radius l, origin at v2, \"x\"-direction is d1, \"y\"-direction is d1perp\n  arc_points = [tuple(@.( v2 - l*(d1*cos(a) + d1perp*sin(a)))...) for a in angles]\n  vertices = vcat(vertex,arc_points,vertex)\n  return vertices\nend\nfunction plot_arcs!(ax,lpoly)\n  arcs = []\n  colors = to_colormap(:seaborn_colorblind)\n  for i in 1:length(lpoly)\n    if i+1 &gt; length(lpoly) # The angle between the last line segment and first\n      color = colors[i+1]\n      arc_vertices = angle_vertices(lpoly[i],lpoly[1])\n    else\n      color = colors[i]\n      arc_vertices = angle_vertices(lpoly[i],lpoly[i+1])\n    end\n    push!(arcs,poly!(ax,arc_vertices,color=color))\n  end\n  return arcs\nend\nplot_arcs!(axes[1,1],lpoly11)\nplot_arcs!(axes[1,2],lpoly12)\nplot_arcs!(axes[2,1],lpoly21)\nplot_arcs!(axes[2,2],lpoly22)\ndisplay(f)\n\n\n\n\n\n\n\n\nCairoMakie.Screen{IMAGE}\n\n\nNow, removing the axes decorations, we have a clean plot of (almost) the first frame of the GIF:\n\nfunction remove_axis_decor!(ax)\n  ax.topspinevisible = false; ax.bottomspinevisible = false\n  ax.leftspinevisible = false; ax.rightspinevisible = false\n  ax.xgridvisible = false; ax.ygridvisible = false\n  ax.xticksvisible = false; ax.yticksvisible = false\n  ax.xticklabelsvisible = false; ax.yticklabelsvisible = false\nend\nremove_axis_decor!.(axes)\ndisplay(f)\n\n\n\n\n\n\n\n\nCairoMakie.Screen{IMAGE}",
     "crumbs": [
-      "Just for fun",
+      "Blog",
+      "Doodles",
       "Polygon angles"
     ]
   },
@@ -566,7 +574,8 @@
     "section": "Animating",
     "text": "Animating\nWith the initial plot now done, to complete the animation, it remains to shrink each polygon until the angles come together to form a circle. This can be simply done (with slight error) by computing the center of each polygon via averaging, centering the vertices around that center, then shrinking the vertices proportional to the number of steps in the animation. Putting everything together:\n\n# Initialize\nf = Figure(resolution=(800,800));\naxes = [\n  Axis(f[1,1]) Axis(f[1,2]);\n  Axis(f[2,1]) Axis(f[2,2])\n]\nfor ax in axes ax.limits = (-6,6,-6,6) end\nremove_axis_decor!.(axes)\npoly11 = [(-2.0,3.0),(3.0,-3.0),(-4.0,-2.0),(-2.0,3.0)];\npoly12 = [(-3.0,2.0),(1.0,1.0),(3.0,-2.0),(-4.0,-1.0),(-3.0,2.0)];\npoly21 = [(-1.0,3.0),(1.0,3.0),(3.0,-1.0),(1.0,-3.0),(-2.0,-2.0),(-3.0,1.0),(-1.0,3.0)];\npoly22 = [(-1.0,2.0),(1.0,2.0),(4.0,-1.0),(2.0,-3.0),(-4.0,-1.0),(-1.0,2.0)];\n# Polygon average centers\nfunction compute_center(poly)\n  vec(sum(hcat(collect.(poly)...),dims=2)./length(poly))\nend\nc11 = compute_center(poly11)\nc12 = compute_center(poly12)\nc21 = compute_center(poly21)\nc22 = compute_center(poly22)\nfunction shrink_polygon(poly,c,step,steps)\n  new_vertices = similar(poly)\n  for i in eachindex(poly)\n    vertex = collect(poly[i]) - c\n    new_vertex = @. vertex*((steps-step)/(steps))\n    new_vertices[i] = tuple((new_vertex + c)...)\n  end\n  return new_vertices\nend\n\n# Animation (somewhat inefficient since it doesn't use Observables)\nsteps = 120\nrecord(f, \"gifs/angle_gif.gif\", vcat(1:(steps-1),fill(steps-1,steps÷4),(steps-1):-1:1)) do t\n  empty!(axes[1,1].scene.plots)\n  empty!(axes[1,2].scene.plots)\n  empty!(axes[2,1].scene.plots)\n  empty!(axes[2,2].scene.plots)\n  npoly11 = shrink_polygon(poly11,c11,t,steps)\n  npoly12 = shrink_polygon(poly12,c12,t,steps)\n  npoly21 = shrink_polygon(poly21,c21,t,steps)\n  npoly22 = shrink_polygon(poly22,c22,t,steps)\n  lpoly11 = [[npoly11[i],npoly11[i+1]] for i in 1:length(npoly11)-1];\n  lpoly12 = [[npoly12[i],npoly12[i+1]] for i in 1:length(npoly12)-1];\n  lpoly21 = [[npoly21[i],npoly21[i+1]] for i in 1:length(npoly21)-1];\n  lpoly22 = [[npoly22[i],npoly22[i+1]] for i in 1:length(npoly22)-1];\n  shift_first_vertices!(lpoly11)\n  shift_first_vertices!(lpoly12)\n  shift_first_vertices!(lpoly21)\n  shift_first_vertices!(lpoly22)\n  poly!(axes[1,1],npoly11,transparency=true,color=RGBAf(1.0,0.6,0.0,0.2));\n  poly!(axes[1,2],npoly12,transparency=true,color=RGBAf(0.0,0.0,1.0,0.2));\n  poly!(axes[2,1],npoly21,transparency=true,color=RGBAf(0.5,0.0,0.5,0.2));\n  poly!(axes[2,2],npoly22,transparency=true,color=RGBAf(0.0,0.5,0.0,0.2));\n  plot_arcs!(axes[1,1],lpoly11)\n  plot_arcs!(axes[1,2],lpoly12)\n  plot_arcs!(axes[2,1],lpoly21)\n  plot_arcs!(axes[2,2],lpoly22)\n  plot_line_segments!(axes[1,1],lpoly11)\n  plot_line_segments!(axes[1,2],lpoly12)\n  plot_line_segments!(axes[2,1],lpoly21)\n  plot_line_segments!(axes[2,2],lpoly22)\nend",
     "crumbs": [
-      "Just for fun",
+      "Blog",
+      "Doodles",
       "Polygon angles"
     ]
   },
@@ -619,7 +628,8 @@
     "section": "",
     "text": "Another fun little animation that I saw recently was the difference in the dynamics of the solar system when approaching the equations from a heliocentric (sun-centered) or geocentric (Earth-centered) perspective. Although it’s clear now that we orbit the sun and a sun-centered model of the solar system is more correct, it wasn’t always obvious. This concept extends to systems that we have not yet nailed down completely. This simple animation demonstrates that identifying the correct perspective when modeling a system can have a huge pay off in the simplicity of your result.\nI thought I’d try to recreate this little animation with Makie.jl as I did previously with the polygon GIF.",
     "crumbs": [
-      "Just for fun",
+      "Blog",
+      "Doodles",
       "Geocentrism"
     ]
   },
@@ -630,7 +640,8 @@
     "section": "",
     "text": "Another fun little animation that I saw recently was the difference in the dynamics of the solar system when approaching the equations from a heliocentric (sun-centered) or geocentric (Earth-centered) perspective. Although it’s clear now that we orbit the sun and a sun-centered model of the solar system is more correct, it wasn’t always obvious. This concept extends to systems that we have not yet nailed down completely. This simple animation demonstrates that identifying the correct perspective when modeling a system can have a huge pay off in the simplicity of your result.\nI thought I’d try to recreate this little animation with Makie.jl as I did previously with the polygon GIF.",
     "crumbs": [
-      "Just for fun",
+      "Blog",
+      "Doodles",
       "Geocentrism"
     ]
   },
@@ -641,7 +652,8 @@
     "section": "Setting up",
     "text": "Setting up\nIn this animation, we’ll be rotating some circular shapes around the point representing either the sun or the Earth and tracing their paths as they progress. First, let’s plot the initial frame of the animation using a Figure with 2 axes:\n\nusing Pkg;\nPkg.activate(\".\");\nusing CairoMakie;\n\n\nf = Figure(resolution=(800,400));\naxes = [Axis(f[1,1]);Axis(f[1,2])]\nfor ax in axes ax.limits=(-22,22,-22,22) end\nfunction remove_axis_decor!(ax)\n  ax.topspinevisible = false; ax.bottomspinevisible = false\n  ax.leftspinevisible = false; ax.rightspinevisible = false\n  ax.xgridvisible = false; ax.ygridvisible = false\n  ax.xticksvisible = false; ax.yticksvisible = false\n  ax.xticklabelsvisible = false; ax.yticklabelsvisible = false\nend\nremove_axis_decor!.(axes)\n\nWe can now layout the different planets via a simple scatter plot in each axis. Of course, we cannot use the correct proportions or distances or the plot would be hard to understand. Instead, I’ll settle for simple size differences between the planets and the sun and a somewhat uniform distance between each.\n\nnum_bodies = 9\nbody_locs1 = [(float(i),0.0) for i in 0:2:2(num_bodies-1)]\nbody_locs2 = [(float(i),0.0) for i in -6:2:2(num_bodies-1)-6]\nbody_sizes = 3 .* [9,3,3,4,2,5,6,4,4]\nbody_colors = [:yellow,:red,:red,:blue,:red,:red,:red,:red,:red]\ns1 = scatter!(axes[1], body_locs1, markersize=body_sizes, color=body_colors)\ns2 = scatter!(axes[2], body_locs2, markersize=body_sizes, color=body_colors)\ndisplay(f)\n\n\n\n\n\n\n\n\nCairoMakie.Screen{IMAGE}",
     "crumbs": [
-      "Just for fun",
+      "Blog",
+      "Doodles",
       "Geocentrism"
     ]
   },
@@ -652,38 +664,42 @@
     "section": "Animation",
     "text": "Animation\nOkay! Easy as that. Now, we can move on to animating the rotation of the bodies. Each planet will rotate at a different speed and will go until again lining up as they started.\n\nbody_speeds = [0.0,47.87,35.02,29.78,24.077,13.07,9.69,6.81,5.43] ./ 200\nsun_speed2 = body_speeds[4]\norbit_radii1 = [bl[1] for bl in body_locs1]\norbit_radii2 = [bl[1] for bl in body_locs2]\n\n# Use Observable to add time dependence to planet locations\ntime_i = Observable(0.0)\nbody_xs1 = @lift(orbit_radii1 .* cos.(-1 .* body_speeds .* $time_i))\nbody_ys1 = @lift(orbit_radii1 .* sin.(-1 .* body_speeds .* $time_i))\nbody_xs2 = @lift(vcat(\n    orbit_radii2[1]*cos(-sun_speed2*$time_i),\n    orbit_radii2[1]*cos(-sun_speed2*$time_i) + orbit_radii1[2]*cos(-body_speeds[2]*$time_i),\n    orbit_radii2[1]*cos(-sun_speed2*$time_i) + orbit_radii1[3]*cos(-body_speeds[3]*$time_i),\n    0.0,\n    orbit_radii2[1]*cos(-sun_speed2*$time_i) .+ orbit_radii1[5:end] .* cos.(-1 .* body_speeds[5:end] .* $time_i)\n))\nbody_ys2 = @lift(vcat(\n    orbit_radii2[1]*sin(-sun_speed2*$time_i),\n    orbit_radii2[1]*sin(-sun_speed2*$time_i) + orbit_radii1[2]*sin(-body_speeds[2]*$time_i),\n    orbit_radii2[1]*sin(-sun_speed2*$time_i) + orbit_radii1[3]*sin(-body_speeds[3]*$time_i),\n    0.0,\n    orbit_radii2[1]*sin(-sun_speed2*$time_i) .+ orbit_radii1[5:end] .* sin.(-1 .* body_speeds[5:end] .* $time_i)\n))\n\nempty!(axes[1].scene.plots)\nempty!(axes[2].scene.plots)\ns1 = scatter!(axes[1], body_xs1, body_ys1, markersize=body_sizes, color=body_colors)\ns2 = scatter!(axes[2], body_xs2, body_ys2, markersize=body_sizes, color=body_colors)\n\n# Create GIF by iterating time\nsteps = 300\nrecord(f, \"gifs/heliocentric_geocentric1.gif\", 1:steps) do t\n    time_i[] = t\nend\n\n\nNice! We’ve got the two animations moving well. Note that since the animation was fairly straightforward and only required updating the scatter plot locations, we were able to use an Observable for time in Makie. This object allows us to create the initial scatter plots where the scatter locations are wrapped with the @lift macro with the interpolating $time_i. Now, when our Observable, time_i is updated, the scatter points and subsequently the scatter plots are updated. Using this nifty tool, our recording loop is very straightforward. However, using the @lift macro is not particularly intuitive and it took some trial and error to get the definition of the scatter points correctly wrapped in an Observable. Hence, the definitions of body_xs2 and body_ys2 are so messy..\nOur next step is to add the path tracing of the planets to each plot. Again, this is a fairly simple procedure that could be completed with an Observable.\n\n# Line observables\nline_locs1 = [Observable([body_locs1[i]]) for i in 1:num_bodies]\nline_locs2 = [Observable([body_locs2[i]]) for i in 1:num_bodies]\n\nempty!(axes[1].scene.plots)\nempty!(axes[2].scene.plots)\nfor i in 1:num_bodies\n    lines!(axes[1], line_locs1[i], color=body_colors[i])\n    lines!(axes[2], line_locs2[i], color=body_colors[i])\nend\ns1 = scatter!(axes[1], body_xs1, body_ys1, markersize=body_sizes, color=body_colors)\ns2 = scatter!(axes[2], body_xs2, body_ys2, markersize=body_sizes, color=body_colors)\n\n# Create GIF by iterating time\nsteps = 300\nrecord(f, \"gifs/heliocentric_geocentric.gif\", 1:steps) do t\n    time_i[] = t\n    for i in 1:num_bodies\n        line_locs1[i][] = push!(line_locs1[i][], (body_xs1[][i], body_ys1[][i]))\n        line_locs2[i][] = push!(line_locs2[i][], (body_xs2[][i], body_ys2[][i]))\n    end\nend\n\n\nAlright! Our animation is now complete.",
     "crumbs": [
-      "Just for fun",
+      "Blog",
+      "Doodles",
       "Geocentrism"
     ]
   },
   {
     "objectID": "other/fun/fun.html",
     "href": "other/fun/fun.html",
-    "title": "Just for Fun",
+    "title": "Blog",
     "section": "",
     "text": "This is a collection of code doodles (almost literally since most produce nice plots or videos).",
     "crumbs": [
-      "Just for fun"
+      "Blog",
+      "Doodles"
     ]
   },
   {
     "objectID": "other/fun/fun.html#machine-learning",
     "href": "other/fun/fun.html#machine-learning",
-    "title": "Just for Fun",
+    "title": "Blog",
     "section": "Machine Learning",
     "text": "Machine Learning\n\nVisualizing expectation maximization for K-means and Gaussian Mixture Models\nMean, median, mode dashboard",
     "crumbs": [
-      "Just for fun"
+      "Blog",
+      "Doodles"
     ]
   },
   {
     "objectID": "other/fun/fun.html#doodles",
     "href": "other/fun/fun.html#doodles",
-    "title": "Just for Fun",
+    "title": "Blog",
     "section": "Doodles",
     "text": "Doodles\n\nExternal angles of a polygon sum to \\(2\\pi\\)\nVisually comparing the complexity of the heliocentric and geocentric models of the solar system",
     "crumbs": [
-      "Just for fun"
+      "Blog",
+      "Doodles"
     ]
   },
   {
@@ -1042,6 +1058,13 @@
     "href": "index.html",
     "title": "Connor Robertson",
     "section": "",
-    "text": "I am a postdoctoral researcher at Sandia National Laboratories researching how to accelerate modeling and simulation by leveraging scientific machine learning tools. Specifically, I have been working to use these accelerations to calibrate expensive epidemiological models with real world observations.\nPreviously, I was a PhD student of Applied Mathematics at the New Jersey Institute of Technology researching data-driven model discovery for active nematic fluid systems.\nI’m generally interested in the intersections between machine learning and data science with traditional computational science.\n\n\nOn this site you can find my CV, my LinkedIn and Github profiles, and some other little tidbits for research, seminars, teaching, and general exploration."
+    "text": "I am a postdoctoral researcher at Sandia National Laboratories working on accelerating modeling and simulation by leveraging scientific machine learning tools. Specifically, I have been working to speed up calibrations of expensive models of epidemics to match real world observations.\nPreviously, I was a PhD student of Applied Mathematics at the New Jersey Institute of Technology researching data-driven model discovery for active nematic fluid systems.\nI’m generally interested in a wide range of machine learning and data science applications and have experience with a range of different physical systems.\n\n\nOn this site you can find my resume (or academic CV), my LinkedIn and Github profiles, and some other little tidbits for research, seminars, teaching, and general exploration."
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Connor Robertson",
+    "section": "",
+    "text": "If you are not redirected, click here."
   }
 ]

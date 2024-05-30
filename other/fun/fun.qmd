@@ -1,5 +1,5 @@
 ---
-title: Just for Fun
+title: Blog
 ---
 
 This is a collection of code doodles (almost literally since most produce nice plots or videos).

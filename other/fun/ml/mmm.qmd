@@ -6,7 +6,7 @@ filters:
   - shinylive
 ---
 
-A brief demonstration of the different biases between mean, median, and mode as outliers are added to the data.
+A brief demonstration of the different biases between mean, median, and mode as outliers are added to the data. (Really just a test of using a Shiny app in a Quarto website via [shinylive](https://posit-dev.github.io/r-shinylive/)).
 
 The distribution starts as a Gamma with large $k$ (to approximate a Gaussian, which has mean=median=mode).
 As the `shape` ($k$) parameter is decreased, the Gamma distribution is skewed and more weight is added to the tail, consequently pulling the mean out, the mode in, and setting the median between.
