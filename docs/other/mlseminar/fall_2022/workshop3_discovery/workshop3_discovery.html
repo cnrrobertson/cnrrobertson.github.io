@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.557">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -128,7 +128,7 @@ div.csl-indent {
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -179,12 +179,16 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../cv.html"> 
-<span class="menu-text">CV</span></a>
+    <a class="nav-link" href="../../../../resume.html"> 
+<span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../../research/research.html"> 
 <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../other/fun/fun.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -192,16 +196,12 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-other">    
         <li>
-    <a class="dropdown-item" href="../../../../other/fun/fun.html">
- <span class="dropdown-text">Just for Fun</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../../../other/mlseminar/mlseminar.html">
  <span class="dropdown-text">Machine Learning and Optimization Seminar</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../../other/teaching/teaching.html">
- <span class="dropdown-text">NJIT Teaching</span></a>
+ <span class="dropdown-text">Teaching (NJIT)</span></a>
   </li>  
     </ul>
   </li>
@@ -761,10 +761,9 @@ Note
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>term_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1100,7 +1099,6 @@ Note
 </div>
 </div>
 </div>
-</div>
 <p>We then use another extremely popular machine learning Python package called <code>scikit-learn</code> to easily work with our regression models.</p>
 <section id="ordinary-least-squares" class="level4">
 <h4 class="anchored" data-anchor-id="ordinary-least-squares">Ordinary least squares</h4>
@@ -1126,10 +1124,9 @@ Note
 </div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1188,7 +1185,6 @@ Note
 </div>
 </div>
 </div>
-</div>
 <p>Although the <span class="math inline">\(R^2\)</span> value implies that we have successful explained the variance in <span class="math inline">\(h_t\)</span> by linearly combining our term library, it is unclear which of all the terms most contributes to the time evolution from their coefficients.</p>
 </section>
 <section id="lasso" class="level4">
@@ -1211,10 +1207,9 @@ Note
 </div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1273,7 +1268,6 @@ Note
 </div>
 </div>
 </div>
-</div>
 <p>Now this at least removed some of the terms, but it also removed the term we know is correct! It’s somewhat hard to interpret exactly what this means. A convenient analysis using the Lasso method is to perform a “lasso path” in which we steadily decrease the regularization <span class="math inline">\(\lambda\)</span> to add more and more terms and pay attention to the order with which they are added:</p>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_lasso_path_results(A,b):</span>
@@ -1308,10 +1302,9 @@ lambda = 2</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1369,13 +1362,11 @@ lambda = 2</code></pre>
 <p>1 rows × 65 columns</p>
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1433,13 +1424,11 @@ lambda = 2</code></pre>
 <p>1 rows × 73 columns</p>
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1497,13 +1486,11 @@ lambda = 2</code></pre>
 <p>1 rows × 73 columns</p>
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1561,13 +1548,11 @@ lambda = 2</code></pre>
 <p>1 rows × 88 columns</p>
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1626,7 +1611,6 @@ lambda = 2</code></pre>
 </div>
 </div>
 </div>
-</div>
 <p>Again, although this gives us a sense of sparsity, it also doesn’t seem to capture the solution well.</p>
 </section>
 <section id="greedy-forward-selection" class="level4">
@@ -1664,10 +1648,9 @@ R^2: 0.999896315291591</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1684,13 +1667,11 @@ R^2: 0.999896315291591</code></pre>
 
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1709,13 +1690,11 @@ R^2: 0.999896315291591</code></pre>
 
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1736,13 +1715,11 @@ R^2: 0.999896315291591</code></pre>
 
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1763,7 +1740,6 @@ R^2: 0.999896315291591</code></pre>
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
@@ -1937,10 +1913,9 @@ R^2: 0.9993156257451148</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1957,13 +1932,11 @@ R^2: 0.9993156257451148</code></pre>
 
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1982,13 +1955,11 @@ R^2: 0.9993156257451148</code></pre>
 
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2009,13 +1980,11 @@ R^2: 0.9993156257451148</code></pre>
 
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2036,7 +2005,6 @@ R^2: 0.9993156257451148</code></pre>
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>
@@ -2329,10 +2297,9 @@ R^2: 0.991064364883932</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2349,13 +2316,11 @@ R^2: 0.991064364883932</code></pre>
 
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2374,13 +2339,11 @@ R^2: 0.991064364883932</code></pre>
 
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2401,13 +2364,11 @@ R^2: 0.991064364883932</code></pre>
 
 </div>
 </div>
-</div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2428,7 +2389,6 @@ R^2: 0.991064364883932</code></pre>
 </tbody>
 </table>
 
-</div>
 </div>
 </div>
 </div>

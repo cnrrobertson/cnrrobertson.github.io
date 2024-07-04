@@ -17,12 +17,8 @@ website:
   # --------------------------------------------------------------------------
   navbar:
     left:
-      - text: "Resume/CV"
-        menu:
-          - text: "Resume"
-            href: resume.qmd
-          - text: "Academic CV"
-            href: cv.qmd
+      - text: "Resume"
+        file: resume.qmd
       - text: "Research"
         file: research/research.qmd
       - text: "Blog"
