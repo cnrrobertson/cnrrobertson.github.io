@@ -137,7 +137,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -163,8 +163,8 @@ window.Quarto = {
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../../other/fun/fun.html" aria-current="page"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../other/fun/fun.html"> 
+<span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -188,62 +188,10 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../other/fun/fun.html">Doodles</a></li><li class="breadcrumb-item"><a href="../../../other/fun/doodles/polygon_angles.html">Polygon angles</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../../other/fun/fun.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Doodles</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../other/fun/ml/em.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Expectation maximization with GMM</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../other/fun/ml/mmm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mean, median, mode dashboard</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../other/fun/doodles/polygon_angles.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Polygon angles</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../other/fun/doodles/heliocentric_geocentric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Geocentrism</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -259,10 +207,13 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../other/fun/fun.html">Doodles</a></li><li class="breadcrumb-item"><a href="../../../other/fun/doodles/polygon_angles.html">Polygon angles</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">The exterior angles of a polygon make a circle</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Doodles</div>
+  </div>
+  </div>
 
 
 
@@ -294,12 +245,12 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="setting-up">Setting up</h2>
 <p>Basically, we can start by getting the plots of each polygon set. We can then animate the sides of the polygons shrinking.</p>
 <p>To start we are going to need a <code>Figure</code> with 4 <code>axes</code>:</p>
-<div id="a2322d40" class="cell" data-execution_count="1">
+<div id="2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">activate</span>(<span class="st">"."</span>);</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CairoMakie;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b7cf19c9" class="cell" data-execution_count="2">
+<div id="4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fu">Figure</span>(resolution<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">800</span>));</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>axes <span class="op">=</span> [</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Axis</span>(f[<span class="fl">1</span>,<span class="fl">1</span>]) <span class="fu">Axis</span>(f[<span class="fl">1</span>,<span class="fl">2</span>]);</span>
@@ -308,14 +259,14 @@ window.Quarto = {
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes ax.limits<span class="op">=</span>(<span class="op">-</span><span class="fl">6</span>,<span class="fl">6</span>,<span class="op">-</span><span class="fl">6</span>,<span class="fl">6</span>) <span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can now list the vertices for each polygon:</p>
-<div id="f55fac85" class="cell" data-execution_count="3">
+<div id="6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>poly11 <span class="op">=</span> [(<span class="op">-</span><span class="fl">2.0</span>,<span class="fl">3.0</span>),(<span class="fl">3.0</span>,<span class="op">-</span><span class="fl">3.0</span>),(<span class="op">-</span><span class="fl">4.0</span>,<span class="op">-</span><span class="fl">2.0</span>),(<span class="op">-</span><span class="fl">2.0</span>,<span class="fl">3.0</span>)];</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>poly12 <span class="op">=</span> [(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">2.0</span>),(<span class="fl">1.0</span>,<span class="fl">1.0</span>),(<span class="fl">3.0</span>,<span class="op">-</span><span class="fl">2.0</span>),(<span class="op">-</span><span class="fl">4.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">2.0</span>)];</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>poly21 <span class="op">=</span> [(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">3.0</span>),(<span class="fl">1.0</span>,<span class="fl">3.0</span>),(<span class="fl">3.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="fl">1.0</span>,<span class="op">-</span><span class="fl">3.0</span>),(<span class="op">-</span><span class="fl">2.0</span>,<span class="op">-</span><span class="fl">2.0</span>),(<span class="op">-</span><span class="fl">3.0</span>,<span class="fl">1.0</span>),(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">3.0</span>)];</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>poly22 <span class="op">=</span> [(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">2.0</span>),(<span class="fl">1.0</span>,<span class="fl">2.0</span>),(<span class="fl">4.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="fl">2.0</span>,<span class="op">-</span><span class="fl">3.0</span>),(<span class="op">-</span><span class="fl">4.0</span>,<span class="op">-</span><span class="fl">1.0</span>),(<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">2.0</span>)];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>where <code>poly11</code> is the polygon in the 1st row and 1st column. Plotting these lines on each respective axis, we get:</p>
-<div id="8ff94bbe" class="cell" data-execution_count="4">
+<div id="8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lines!</span>(axes[<span class="fl">1</span>,<span class="fl">1</span>],poly11,color<span class="op">=:</span>black);</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines!</span>(axes[<span class="fl">1</span>,<span class="fl">2</span>],poly12,color<span class="op">=:</span>black);</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines!</span>(axes[<span class="fl">2</span>,<span class="fl">1</span>],poly21,color<span class="op">=:</span>black);</span>
@@ -332,12 +283,12 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>CairoMakie.Screen{IMAGE}</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>CairoMakie.Screen{PDF}</code></pre>
 </div>
 </div>
 <p>These are obviously not exactly the polygons in the GIF, but they are generally similar and use nice easy vertex coordinates. Now, in order to accentuate the exterior angles, the GIF uses lines which extend beyond the vertices. To achieve this, we can consider each line segment and shift the first vertex some distance in the opposite direction of the second vertex. To do so, we should shift adjust our polygon representation to separate each line segment:</p>
-<div id="d1f3a9e5" class="cell" data-execution_count="5">
+<div id="10" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lpoly11 <span class="op">=</span> [[poly11[i],poly11[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(poly11)<span class="op">-</span><span class="fl">1</span>];</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lpoly12 <span class="op">=</span> [[poly12[i],poly12[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(poly12)<span class="op">-</span><span class="fl">1</span>];</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>lpoly21 <span class="op">=</span> [[poly21[i],poly21[i<span class="op">+</span><span class="fl">1</span>]] for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(poly21)<span class="op">-</span><span class="fl">1</span>];</span>
@@ -351,7 +302,7 @@ window.Quarto = {
 </div>
 </div>
 <p>We can now the vector between the first and second indices of each line segment and shift our first vertex by the negative of that vector. That is a mouthful but more easily written mathematically. If we consider a single line segment with vertices <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span>, we can calculate the distance between them <span class="math inline">\(d = v_2 - v_1\)</span> such that <span class="math inline">\(v_1 + d = v_2\)</span> and then redefine our first vertex in the opposite direction as <span class="math inline">\(v_1^* = v_1 - l\frac{d}{\|d\|}\)</span> where <span class="math inline">\(l\)</span> is the length of the external line. This boils down to the following:</p>
-<div id="a06c4970" class="cell" data-execution_count="6">
+<div id="12" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">shift_first_vertices!</span>(lpoly, l<span class="op">=</span><span class="fl">2</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> line <span class="kw">in</span> lpoly</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>     v1 <span class="op">=</span> <span class="fu">collect</span>(line[<span class="fl">1</span>]); v2 <span class="op">=</span> <span class="fu">collect</span>(line[<span class="fl">2</span>])</span>
@@ -381,13 +332,13 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>CairoMakie.Screen{IMAGE}</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>CairoMakie.Screen{PDF}</code></pre>
 </div>
 </div>
 <p>Once we have these lines in place, we can add the external angles. Ironically, the best tool in Makie for these angle drawings is the <code>poly!</code> function which plots a filled polygon from some given vertices. Thus, we need to compute the vertices of the arc for each angle of each polygon.</p>
 <p>This computation can be done by taking two connected line segments <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span>, identifying the angle between them using the law of cosines <span class="math inline">\(\arccos(d_1 \cdot d_2)\)</span>, and sampling points along the arc of given radius <span class="math inline">\(l\)</span>. Sampling the arc requires a little change of coordinates to center the points around the vertex connecting the two line segments and to rotate the standard <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> coordinates to align <span class="math inline">\(x\)</span> with <span class="math inline">\(d_1\)</span> and <span class="math inline">\(y\)</span> with <span class="math inline">\(d_1^\perp\)</span>. This is, in my opinion, the most challenging part of the plot.</p>
-<div id="9398063a" class="cell" data-execution_count="7">
+<div id="14" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">angle_vertices</span>(line1,line2,l<span class="op">=</span><span class="fl">1</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  v1 <span class="op">=</span> <span class="fu">collect</span>(line1[<span class="fl">1</span>])</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  v2 <span class="op">=</span> <span class="fu">collect</span>(line1[<span class="fl">2</span>]) <span class="co"># Shared vertex</span></span>
@@ -435,12 +386,12 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>CairoMakie.Screen{IMAGE}</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>CairoMakie.Screen{PDF}</code></pre>
 </div>
 </div>
 <p>Now, removing the axes decorations, we have a clean plot of (almost) the first frame of the GIF:</p>
-<div id="efca1bba" class="cell" data-execution_count="8">
+<div id="16" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">remove_axis_decor!</span>(ax)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  ax.topspinevisible <span class="op">=</span> <span class="cn">false</span>; ax.bottomspinevisible <span class="op">=</span> <span class="cn">false</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  ax.leftspinevisible <span class="op">=</span> <span class="cn">false</span>; ax.rightspinevisible <span class="op">=</span> <span class="cn">false</span></span>
@@ -457,15 +408,15 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>CairoMakie.Screen{IMAGE}</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>CairoMakie.Screen{PDF}</code></pre>
 </div>
 </div>
 </section>
 <section id="animating" class="level2">
 <h2 class="anchored" data-anchor-id="animating">Animating</h2>
 <p>With the initial plot now done, to complete the animation, it remains to shrink each polygon until the angles come together to form a circle. This can be simply done (with slight error) by computing the center of each polygon via averaging, centering the vertices around that center, then shrinking the vertices proportional to the number of steps in the animation. Putting everything together:</p>
-<div id="4d6c6f6a" class="cell" data-execution_count="9">
+<div id="18" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fu">Figure</span>(resolution<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">800</span>));</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>axes <span class="op">=</span> [</span>

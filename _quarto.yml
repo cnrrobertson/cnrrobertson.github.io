@@ -21,8 +21,8 @@ website:
         file: resume.qmd
       - text: "Research"
         file: research/research.qmd
-      - text: "Blog"
-        file: other/fun/fun.qmd
+      - text: "Docs"
+        file: other/docs/docs.qmd
       - text: "Other"
         menu:
           - text: "Machine Learning and Optimization Seminar"
@@ -43,39 +43,6 @@ website:
   # Sidebar
   # --------------------------------------------------------------------------
   sidebar:
-    - title: "Research"
-      style: "floating"
-      collapse-level: 1
-      contents:
-        - section: "Research"
-          href: research/research.qmd
-          contents:
-            - text: "Data-driven modeling of active nematics"
-              href: research/active_nematics.qmd
-            - text: "Prediction of bacterial growth via recurrent neural network"
-              href: research/bacteria.qmd
-    - title: "Blog"
-      style: "floating"
-      collapse-level: 1
-      contents:
-        - section: "Doodles"
-          href: other/fun/fun.qmd
-          contents:
-            - text: "Expectation maximization with GMM"
-              href: other/fun/ml/em.qmd
-            - text: "Mean, median, mode dashboard"
-              href: other/fun/ml/mmm.qmd
-            - text: "Polygon angles"
-              href: other/fun/doodles/polygon_angles.qmd
-            - text: "Geocentrism"
-              href: other/fun/doodles/heliocentric_geocentric.qmd
-    - title: "Machine Learning and Optimization Seminar"
-      style: "floating"
-      collapse-level: 1
-      contents:
-        - section: "Machine Learning and Optimization Seminar"
-          href: other/mlseminar/mlseminar.qmd
-          contents:
     - title: "Teaching"
       style: "floating"
       collapse-level: 1
@@ -99,6 +66,7 @@ website:
             - other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.qmd
             - other/teaching/math340/Lab2_bisection/Lab2_bisection.qmd
             - other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.qmd
+            - other/teaching/math340/Lab4_secant/Lab4_secant.qmd
 
 # --------------------------------------------------------------------------
 # Theme

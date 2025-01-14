@@ -1,6 +1,7 @@
 ---
 title: Lab 4 - Secant method
 author: Connor Robertson
+categories: [Math 340]
 ---
 
 ## Secant method
@@ -303,4 +304,3 @@ disp(xs3);
 xs4 = MyRegulaFalsi(nquant, 4, 7, 1e-5);
 disp(xs4);
 ```
-

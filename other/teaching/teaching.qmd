@@ -1,5 +1,13 @@
 ---
 title: Teaching
+toc: false
+listing:
+    type: table
+    sort:
+        - "categories"
+        - "title"
+    categories: true
+    fields: [title, categories]
 ---
 
 This section contains various supplemental resources for the students in my classes in the Department of Mathematical Sciences at NJIT.
@@ -7,5 +15,5 @@ They are organized by class.
 
 ## Classes
 
-- [Math 111 - Calculus 1](math111/math111.qmd)
-- [Math 340 - Applied Numerical Methods](math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.qmd)
+<!-- - [Math 111 - Calculus 1](math111/math111.qmd) -->
+<!-- - [Math 340 - Applied Numerical Methods](math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.qmd) -->

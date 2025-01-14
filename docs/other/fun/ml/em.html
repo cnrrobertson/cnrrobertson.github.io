@@ -137,7 +137,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -163,8 +163,8 @@ window.Quarto = {
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../../other/fun/fun.html" aria-current="page"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../../other/fun/fun.html"> 
+<span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -188,62 +188,10 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../other/fun/fun.html">Doodles</a></li><li class="breadcrumb-item"><a href="../../../other/fun/ml/em.html">Expectation maximization with GMM</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../../other/fun/fun.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Doodles</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../other/fun/ml/em.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Expectation maximization with GMM</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../other/fun/ml/mmm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mean, median, mode dashboard</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../other/fun/doodles/polygon_angles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Polygon angles</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../other/fun/doodles/heliocentric_geocentric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Geocentrism</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -274,11 +222,14 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../other/fun/fun.html">Doodles</a></li><li class="breadcrumb-item"><a href="../../../other/fun/ml/em.html">Expectation maximization with GMM</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Visualizing Expectation Maximization</h1>
 <p class="subtitle lead">k-means vs.&nbsp;Gaussian Mixture Models (GMM)</p>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">ML</div>
+  </div>
+  </div>
 
 
 
@@ -351,7 +302,7 @@ Important&nbsp;2: k-means steps
 <section id="creating-sample-data" class="level3">
 <h3 class="anchored" data-anchor-id="creating-sample-data">Creating sample data</h3>
 <p>To explore this idea, let’s consider two sets of sample data from some Gaussian distributions in two dimensions. The first will be circular (diagonal covariance matrix) and the second will be skewed (dense covariance matrix). Let’s write this out in simple code:</p>
-<div id="f809c5b9" class="cell" data-execution_count="1">
+<div id="2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Imports</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Distributions</span></span>
@@ -364,7 +315,7 @@ Important&nbsp;2: k-means steps
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> ColorSchemes.seaborn_colorblind6;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="2985af2d" class="cell" data-execution_count="2">
+<div id="4" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Distribution creation functions</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">create_spherical_gaussian</span>(mu, var)</span>
@@ -377,7 +328,7 @@ Important&nbsp;2: k-means steps
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="e6aa65d7" class="cell" data-execution_count="3">
+<div id="6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Settings</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n_distributions <span class="op">=</span> <span class="fl">5</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>n_samples <span class="op">=</span> <span class="fl">20</span></span>
@@ -406,7 +357,7 @@ Important&nbsp;2: k-means steps
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>data_2 <span class="op">=</span> <span class="fu">hcat</span>(samples_2<span class="op">...</span>)[<span class="op">:</span>,<span class="fu">randperm</span>(n_distributions<span class="op">*</span>n_samples)];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can plot the samples we’ve taken from the distributions to get a sense of the clustering:</p>
-<div id="04529378" class="cell" data-fig-width="100%" data-execution_count="4">
+<div id="8" class="cell" data-fig-width="100%" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">1</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">2</span>])</span>
@@ -418,14 +369,10 @@ Important&nbsp;2: k-means steps
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hidedecorations!</span>(ax2, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">axislegend</span>(ax2; position<span class="op">=:</span>lt)</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fig);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="em_files/figure-html/cell-5-output-2.svg" class="img-fluid figure-img"></p>
+<p><img src="em_files/figure-html/cell-5-output-1.svg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -434,170 +381,158 @@ Important&nbsp;2: k-means steps
 <section id="implementation" class="level3">
 <h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
 <p>Now that we have some sample data to try to cluster, let’s implement a simple k-means algorithm using the steps in <a href="#imp-kmsteps" class="quarto-xref">Important&nbsp;2</a>:</p>
-<div id="79463777" class="cell" data-execution_count="5">
+<div id="10" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Utilities</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">distances_to_center</span>(data, center)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    distances <span class="op">=</span> <span class="fu">zeros</span>(<span class="fu">size</span>(data,<span class="fl">2</span>))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">size</span>(data,<span class="fl">2</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        distances[i] <span class="op">=</span> <span class="fu">mean</span>((data[<span class="op">:</span>,i] <span class="op">.-</span> center)<span class="op">.^</span><span class="fl">2</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> distances</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_cluster_results!</span>(fig, centers, labels, data, true_data)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    n_clusters <span class="op">=</span> <span class="fu">length</span>(true_data)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">size</span>(centers, <span class="fl">2</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    ax1 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">1</span>])</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    ax2 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">2</span>])</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        approx_cluster <span class="op">=</span> data[<span class="op">:</span>,labels <span class="op">.==</span> i]</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax1, approx_cluster[<span class="fl">1</span>,<span class="op">:</span>], approx_cluster[<span class="fl">2</span>,<span class="op">:</span>], color<span class="op">=</span>cmap[i], label<span class="op">=</span><span class="st">"Approx cluster </span><span class="sc">$</span>i<span class="st">"</span>)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax1, [centers[<span class="fl">1</span>,i]], [centers[<span class="fl">2</span>,i]], color<span class="op">=</span>cmap[i], marker<span class="op">=:</span>star5, markersize<span class="op">=</span><span class="fl">10</span>, label<span class="op">=</span><span class="cn">nothing</span>, strokewidth<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>n_clusters</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax2, true_data[i][<span class="fl">1</span>,<span class="op">:</span>], true_data[i][<span class="fl">2</span>,<span class="op">:</span>], color<span class="op">=</span>cmap[i], label<span class="op">=</span><span class="st">"True cluster </span><span class="sc">$</span>i<span class="st">"</span>)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax1, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax2, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax1; position<span class="op">=:</span>rb)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax2; position<span class="op">=:</span>rb)</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">animate_kmeans!!</span>(centers, data_labels, data, samples, filename)</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">record</span>(fig, filename; framerate<span class="op">=</span><span class="fl">2</span>) <span class="cf">do</span> io</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        converged <span class="op">=</span> <span class="cn">false</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        nsteps <span class="op">=</span> <span class="fl">1</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> converged <span class="op">==</span> <span class="cn">false</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Clear the figure</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>            <span class="fu">empty!</span>(fig)</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Step</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>            converged <span class="op">=</span> <span class="fu">kmeans!!</span>(centers, data_labels, data, <span class="fl">1</span>)</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Plot</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data, samples)</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>            <span class="fu">text!</span>(fig.scene, <span class="fl">5</span>, <span class="fl">0</span>, text<span class="op">=</span><span class="st">"Step: </span><span class="sc">$</span>nsteps<span class="st">"</span>, font<span class="op">=:</span>bold)</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Capture frame</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>            <span class="fu">recordframe!</span>(io)</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>            nsteps <span class="op">+=</span> <span class="fl">1</span></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">distances_to_center</span>(data, center)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    distances <span class="op">=</span> <span class="fu">zeros</span>(<span class="fu">size</span>(data,<span class="fl">2</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">size</span>(data,<span class="fl">2</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        distances[i] <span class="op">=</span> <span class="fu">mean</span>((data[<span class="op">:</span>,i] <span class="op">.-</span> center)<span class="op">.^</span><span class="fl">2</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> distances</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_cluster_results!</span>(fig, centers, labels, data, true_data)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    n_clusters <span class="op">=</span> <span class="fu">length</span>(true_data)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">size</span>(centers, <span class="fl">2</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    ax1 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">1</span>])</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    ax2 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">2</span>])</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        approx_cluster <span class="op">=</span> data[<span class="op">:</span>,labels <span class="op">.==</span> i]</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax1, approx_cluster[<span class="fl">1</span>,<span class="op">:</span>], approx_cluster[<span class="fl">2</span>,<span class="op">:</span>], color<span class="op">=</span>cmap[i], label<span class="op">=</span><span class="st">"Approx cluster </span><span class="sc">$</span>i<span class="st">"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax1, [centers[<span class="fl">1</span>,i]], [centers[<span class="fl">2</span>,i]], color<span class="op">=</span>cmap[i], marker<span class="op">=:</span>star5, markersize<span class="op">=</span><span class="fl">10</span>, label<span class="op">=</span><span class="cn">nothing</span>, strokewidth<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>n_clusters</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax2, true_data[i][<span class="fl">1</span>,<span class="op">:</span>], true_data[i][<span class="fl">2</span>,<span class="op">:</span>], color<span class="op">=</span>cmap[i], label<span class="op">=</span><span class="st">"True cluster </span><span class="sc">$</span>i<span class="st">"</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax1, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax2, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax1; position<span class="op">=:</span>rb)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax2; position<span class="op">=:</span>rb)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">animate_kmeans!!</span>(centers, data_labels, data, samples, filename)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">record</span>(fig, filename; framerate<span class="op">=</span><span class="fl">2</span>) <span class="cf">do</span> io</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        converged <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        nsteps <span class="op">=</span> <span class="fl">1</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> converged <span class="op">==</span> <span class="cn">false</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Clear the figure</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>            <span class="fu">empty!</span>(fig)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Step</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>            converged <span class="op">=</span> <span class="fu">kmeans!!</span>(centers, data_labels, data, <span class="fl">1</span>)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Plot</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data, samples)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>            <span class="fu">text!</span>(fig.scene, <span class="fl">5</span>, <span class="fl">0</span>, text<span class="op">=</span><span class="st">"Step: </span><span class="sc">$</span>nsteps<span class="st">"</span>, font<span class="op">=:</span>bold)</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Capture frame</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>            <span class="fu">recordframe!</span>(io)</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>            nsteps <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="c24d179a" class="cell" data-execution_count="6">
+<div id="12" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>kmeans</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">kmeans!!</span>(centers, data_labels, data, max_steps<span class="op">=</span><span class="fl">100</span>, tol<span class="op">=</span><span class="fl">1e-5</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">size</span>(centers,<span class="fl">2</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    center_shift <span class="op">=</span> <span class="cn">Inf</span> <span class="op">*</span> <span class="fu">ones</span>(k)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    nsteps <span class="op">=</span> <span class="fl">0</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (<span class="fu">maximum</span>(center_shift) <span class="op">&gt;</span> tol) <span class="op">&amp;</span> (nsteps <span class="op">&lt;</span> max_steps)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the distance from each center to our data and assign closest</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        distances <span class="op">=</span> <span class="fu">hcat</span>([<span class="fu">distances_to_center</span>(data, c) for c <span class="kw">in</span> <span class="fu">eachcol</span>(centers)]<span class="op">...</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        data_labels <span class="op">.=</span> [<span class="fu">argmin</span>(d) for d <span class="kw">in</span> <span class="fu">eachrow</span>(distances)]</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Reassign centers to mean of closest data</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            closest_data <span class="op">=</span> data[<span class="op">:</span>,data_labels <span class="op">.==</span> i]</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            new_center <span class="op">=</span> <span class="fu">mean</span>(closest_data, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            center_shift[i] <span class="op">=</span> <span class="fu">norm</span>(centers[<span class="op">:</span>,i] <span class="op">.-</span> new_center)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>            centers[<span class="op">:</span>,i] <span class="op">.=</span> new_center</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        nsteps <span class="op">+=</span> <span class="fl">1</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="fu">maximum</span>(center_shift) <span class="op">&lt;</span> tol)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">kmeans!!</span>(centers, data_labels, data, max_steps<span class="op">=</span><span class="fl">100</span>, tol<span class="op">=</span><span class="fl">1e-5</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">size</span>(centers,<span class="fl">2</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    center_shift <span class="op">=</span> <span class="cn">Inf</span> <span class="op">*</span> <span class="fu">ones</span>(k)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    nsteps <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (<span class="fu">maximum</span>(center_shift) <span class="op">&gt;</span> tol) <span class="op">&amp;</span> (nsteps <span class="op">&lt;</span> max_steps)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the distance from each center to our data and assign closest</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        distances <span class="op">=</span> <span class="fu">hcat</span>([<span class="fu">distances_to_center</span>(data, c) for c <span class="kw">in</span> <span class="fu">eachcol</span>(centers)]<span class="op">...</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        data_labels <span class="op">.=</span> [<span class="fu">argmin</span>(d) for d <span class="kw">in</span> <span class="fu">eachrow</span>(distances)]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Reassign centers to mean of closest data</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            closest_data <span class="op">=</span> data[<span class="op">:</span>,data_labels <span class="op">.==</span> i]</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            new_center <span class="op">=</span> <span class="fu">mean</span>(closest_data, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>            center_shift[i] <span class="op">=</span> <span class="fu">norm</span>(centers[<span class="op">:</span>,i] <span class="op">.-</span> new_center)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            centers[<span class="op">:</span>,i] <span class="op">.=</span> new_center</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        nsteps <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="fu">maximum</span>(center_shift) <span class="op">&lt;</span> tol)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>kmeans!! (generic function with 3 methods)</code></pre>
 </div>
 </div>
-<div id="f821f7dd" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample initial cluster centers within our sample data</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="dt">Int64</span>, <span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat steps 2 and 3 until centers aren't moving</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kmeans!!</span>(centers, data_labels, data_1)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize results</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data_1, samples_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="14" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample initial cluster centers within our sample data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="dt">Int64</span>, <span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat steps 2 and 3 until centers aren't moving</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kmeans!!</span>(centers, data_labels, data_1)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize results</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data_1, samples_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
-<p><img src="em_files/figure-html/cell-8-output-2.svg" class="img-fluid figure-img"></p>
+<p><img src="em_files/figure-html/cell-8-output-1.svg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Notice that the results are highly dependent on our initial sampling. If we adjust the random seeding for the initial centers, we don’t get such nice results:</p>
-<div id="7db88fe3" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample initial cluster centers within our sample data</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kmeans!!</span>(centers, data_labels, data_1)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize results</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data_1, samples_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div id="16" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample initial cluster centers within our sample data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kmeans!!</span>(centers, data_labels, data_1)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize results</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data_1, samples_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
-<p><img src="em_files/figure-html/cell-9-output-2.svg" class="img-fluid figure-img"></p>
+<p><img src="em_files/figure-html/cell-9-output-1.svg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>We can also try this on our second dataset:</p>
-<div id="72825580" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample initial cluster centers within our sample data</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_2, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_2, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kmeans!!</span>(centers, data_labels, data_2)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize results</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data_2, samples_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div id="18" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample initial cluster centers within our sample data</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_2, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_2, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kmeans!!</span>(centers, data_labels, data_2)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize results</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data_2, samples_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
-<p><img src="em_files/figure-html/cell-10-output-2.svg" class="img-fluid figure-img"></p>
+<p><img src="em_files/figure-html/cell-10-output-1.svg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -606,20 +541,16 @@ Important&nbsp;2: k-means steps
 <section id="animating-the-process" class="level3">
 <h3 class="anchored" data-anchor-id="animating-the-process">Animating the process</h3>
 <p>Now, the entire purpose of this document is actually to visually explore the methods as they evolve, so let’s set up some animation structure. Fortunately, <code>Makie.jl</code> makes this easy. We only need to iteratively take a step and capture the plotted frame at each step.</p>
-<div id="72429596" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">5</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">animate_kmeans!!</span>(centers, data_labels, data_1, samples_1, <span class="st">"gifs/kmeans.gif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="20" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">5</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">animate_kmeans!!</span>(centers, data_labels, data_1, samples_1, <span class="st">"gifs/kmeans.gif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>"gifs/kmeans.gif"</code></pre>
 </div>
 </div>
@@ -652,225 +583,209 @@ Important&nbsp;3: GMM steps
 <section id="implementing-em" class="level3">
 <h3 class="anchored" data-anchor-id="implementing-em">Implementing EM</h3>
 <p>To start, we are going to implement <a href="#imp-gmmsteps" class="quarto-xref">Important&nbsp;3</a> by considering spherical Gaussians in which the covariance is a diagonally constrained.</p>
-<div id="d3f156fa" class="cell" data-execution_count="11">
+<div id="22" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Utilities</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_gaussians</span>(gaussians)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Show initial gaussian clusters</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> <span class="fu">Figure</span>()</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">1</span>])</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    sample_x <span class="op">=</span> <span class="fu">range</span>(smin[<span class="fl">1</span>], smax[<span class="fl">1</span>], <span class="fl">1000</span>)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    sample_y <span class="op">=</span> <span class="fu">range</span>(smin[<span class="fl">2</span>], smax[<span class="fl">2</span>], <span class="fl">1000</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i,g) <span class="kw">in</span> <span class="fu">enumerate</span>(gaussians)</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        sample_pdfs <span class="op">=</span> [<span class="fu">pdf</span>(g, [x,y]) for x <span class="kw">in</span> sample_x, y <span class="kw">in</span> sample_y]</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        sample_pdfs <span class="op">./=</span> <span class="fu">sum</span>(sample_pdfs)</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        my_colormap <span class="op">=</span> <span class="fu">reverse</span>([cmap[i]<span class="fu">*</span>(<span class="fl">1</span> <span class="op">-</span> j<span class="op">/</span><span class="fl">256</span>) <span class="op">+</span> <span class="fu">RGB</span>(<span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>)<span class="fu">*</span>(j<span class="op">/</span><span class="fl">256</span>) <span class="op">-</span> <span class="fu">RGBAf</span>(<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,j<span class="op">/</span><span class="fl">256</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">256</span><span class="op">-</span><span class="fl">1</span>])</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">contourf!</span>(sample_x, sample_y, sample_pdfs, colormap<span class="op">=</span>my_colormap, label<span class="op">=</span><span class="st">"Gaussian </span><span class="sc">$</span>i<span class="st">"</span>)</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax; position<span class="op">=:</span>rb)</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_gmm_results!</span>(fig, gaussians, labels, data, true_data)</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    n_clusters <span class="op">=</span> <span class="fu">length</span>(true_data)</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">size</span>(centers, <span class="fl">2</span>)</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    sample_x <span class="op">=</span> <span class="fu">range</span>(smin[<span class="fl">1</span>], smax[<span class="fl">1</span>], <span class="fl">1000</span>)</span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    sample_y <span class="op">=</span> <span class="fu">range</span>(smin[<span class="fl">2</span>], smax[<span class="fl">2</span>], <span class="fl">1000</span>)</span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    ax1 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">1</span>])</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    ax2 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">2</span>])</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>        approx_cluster <span class="op">=</span> data[<span class="op">:</span>,labels <span class="op">.==</span> i]</span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax1, approx_cluster[<span class="fl">1</span>,<span class="op">:</span>], approx_cluster[<span class="fl">2</span>,<span class="op">:</span>], color<span class="op">=</span>cmap[i], label<span class="op">=</span><span class="st">"Approx cluster </span><span class="sc">$</span>i<span class="st">"</span>)</span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>        sample_pdfs <span class="op">=</span> [<span class="fu">pdf</span>(gaussians[i], [x,y]) for x <span class="kw">in</span> sample_x, y <span class="kw">in</span> sample_y]</span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>        my_colormap <span class="op">=</span> <span class="fu">reverse</span>([cmap[i]<span class="fu">*</span>(<span class="fl">1</span> <span class="op">-</span> j<span class="op">/</span><span class="fl">256</span>) <span class="op">+</span> <span class="fu">RGB</span>(<span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>)<span class="fu">*</span>(j<span class="op">/</span><span class="fl">256</span>) <span class="op">-</span> <span class="fu">RGBAf</span>(<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,j<span class="op">/</span><span class="fl">256</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">256</span><span class="op">-</span><span class="fl">1</span>])</span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">contourf!</span>(ax1, sample_x, sample_y, sample_pdfs, colormap<span class="op">=</span>my_colormap, label<span class="op">=</span><span class="cn">nothing</span>)</span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>n_clusters</span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax2, true_data[i][<span class="fl">1</span>,<span class="op">:</span>], true_data[i][<span class="fl">2</span>,<span class="op">:</span>], color<span class="op">=</span>cmap[i], label<span class="op">=</span><span class="st">"True cluster </span><span class="sc">$</span>i<span class="st">"</span>)</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax1, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax2, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax1; position<span class="op">=:</span>rb)</span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax2; position<span class="op">=:</span>rb)</span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute one step at a time, visualize results at each step, then record a frame</span></span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">animate_gmm!!</span>(gaussians, data_labels, data, samples, filename)</span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">record</span>(fig, filename; framerate<span class="op">=</span><span class="fl">2</span>) <span class="cf">do</span> io</span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>        converged <span class="op">=</span> <span class="cn">false</span></span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>        nsteps <span class="op">=</span> <span class="fl">1</span></span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> converged <span class="op">==</span> <span class="cn">false</span></span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Clear the figure</span></span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>            <span class="fu">empty!</span>(fig)</span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Step</span></span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>            converged <span class="op">=</span> <span class="fu">gmm!!</span>(gaussians, data_labels, data, <span class="fl">1</span>)</span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Plot</span></span>
-<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plot_gmm_results!</span>(fig, gaussians, data_labels, data, samples)</span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>            <span class="fu">text!</span>(fig.scene, <span class="fl">5</span>, <span class="fl">0</span>, text<span class="op">=</span><span class="st">"Step: </span><span class="sc">$</span>nsteps<span class="st">"</span>, font<span class="op">=:</span>bold)</span>
-<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Capture frame</span></span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>            <span class="fu">recordframe!</span>(io)</span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>            nsteps <span class="op">+=</span> <span class="fl">1</span></span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span>;</span>
-<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_gaussians</span>(gaussians)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Show initial gaussian clusters</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> <span class="fu">Figure</span>()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">1</span>])</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    sample_x <span class="op">=</span> <span class="fu">range</span>(smin[<span class="fl">1</span>], smax[<span class="fl">1</span>], <span class="fl">1000</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    sample_y <span class="op">=</span> <span class="fu">range</span>(smin[<span class="fl">2</span>], smax[<span class="fl">2</span>], <span class="fl">1000</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i,g) <span class="kw">in</span> <span class="fu">enumerate</span>(gaussians)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        sample_pdfs <span class="op">=</span> [<span class="fu">pdf</span>(g, [x,y]) for x <span class="kw">in</span> sample_x, y <span class="kw">in</span> sample_y]</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        sample_pdfs <span class="op">./=</span> <span class="fu">sum</span>(sample_pdfs)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        my_colormap <span class="op">=</span> <span class="fu">reverse</span>([cmap[i]<span class="fu">*</span>(<span class="fl">1</span> <span class="op">-</span> j<span class="op">/</span><span class="fl">256</span>) <span class="op">+</span> <span class="fu">RGB</span>(<span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>)<span class="fu">*</span>(j<span class="op">/</span><span class="fl">256</span>) <span class="op">-</span> <span class="fu">RGBAf</span>(<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,j<span class="op">/</span><span class="fl">256</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">256</span><span class="op">-</span><span class="fl">1</span>])</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">contourf!</span>(sample_x, sample_y, sample_pdfs, colormap<span class="op">=</span>my_colormap, label<span class="op">=</span><span class="st">"Gaussian </span><span class="sc">$</span>i<span class="st">"</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax; position<span class="op">=:</span>rb)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_gmm_results!</span>(fig, gaussians, labels, data, true_data)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    n_clusters <span class="op">=</span> <span class="fu">length</span>(true_data)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">size</span>(centers, <span class="fl">2</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    sample_x <span class="op">=</span> <span class="fu">range</span>(smin[<span class="fl">1</span>], smax[<span class="fl">1</span>], <span class="fl">1000</span>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    sample_y <span class="op">=</span> <span class="fu">range</span>(smin[<span class="fl">2</span>], smax[<span class="fl">2</span>], <span class="fl">1000</span>)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    ax1 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">1</span>])</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    ax2 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">2</span>])</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>        approx_cluster <span class="op">=</span> data[<span class="op">:</span>,labels <span class="op">.==</span> i]</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax1, approx_cluster[<span class="fl">1</span>,<span class="op">:</span>], approx_cluster[<span class="fl">2</span>,<span class="op">:</span>], color<span class="op">=</span>cmap[i], label<span class="op">=</span><span class="st">"Approx cluster </span><span class="sc">$</span>i<span class="st">"</span>)</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>        sample_pdfs <span class="op">=</span> [<span class="fu">pdf</span>(gaussians[i], [x,y]) for x <span class="kw">in</span> sample_x, y <span class="kw">in</span> sample_y]</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>        my_colormap <span class="op">=</span> <span class="fu">reverse</span>([cmap[i]<span class="fu">*</span>(<span class="fl">1</span> <span class="op">-</span> j<span class="op">/</span><span class="fl">256</span>) <span class="op">+</span> <span class="fu">RGB</span>(<span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>)<span class="fu">*</span>(j<span class="op">/</span><span class="fl">256</span>) <span class="op">-</span> <span class="fu">RGBAf</span>(<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,j<span class="op">/</span><span class="fl">256</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">256</span><span class="op">-</span><span class="fl">1</span>])</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">contourf!</span>(ax1, sample_x, sample_y, sample_pdfs, colormap<span class="op">=</span>my_colormap, label<span class="op">=</span><span class="cn">nothing</span>)</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>n_clusters</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax2, true_data[i][<span class="fl">1</span>,<span class="op">:</span>], true_data[i][<span class="fl">2</span>,<span class="op">:</span>], color<span class="op">=</span>cmap[i], label<span class="op">=</span><span class="st">"True cluster </span><span class="sc">$</span>i<span class="st">"</span>)</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax1, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax2, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax1; position<span class="op">=:</span>rb)</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax2; position<span class="op">=:</span>rb)</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute one step at a time, visualize results at each step, then record a frame</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">animate_gmm!!</span>(gaussians, data_labels, data, samples, filename)</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">record</span>(fig, filename; framerate<span class="op">=</span><span class="fl">2</span>) <span class="cf">do</span> io</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>        converged <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>        nsteps <span class="op">=</span> <span class="fl">1</span></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> converged <span class="op">==</span> <span class="cn">false</span></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Clear the figure</span></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>            <span class="fu">empty!</span>(fig)</span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Step</span></span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>            converged <span class="op">=</span> <span class="fu">gmm!!</span>(gaussians, data_labels, data, <span class="fl">1</span>)</span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Plot</span></span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plot_gmm_results!</span>(fig, gaussians, data_labels, data, samples)</span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>            <span class="fu">text!</span>(fig.scene, <span class="fl">5</span>, <span class="fl">0</span>, text<span class="op">=</span><span class="st">"Step: </span><span class="sc">$</span>nsteps<span class="st">"</span>, font<span class="op">=:</span>bold)</span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Capture frame</span></span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a>            <span class="fu">recordframe!</span>(io)</span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a>            nsteps <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span>;</span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>animate_gmm!! (generic function with 1 method)</code></pre>
 </div>
 </div>
-<div id="6c5faebc" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample initial cluster means and variances</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> <span class="fu">ones</span>(k)</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="dt">Int64</span>, <span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_gaussians</span>(gaussians);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
+<div id="24" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample initial cluster means and variances</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> <span class="fu">ones</span>(k)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="dt">Int64</span>, <span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_gaussians</span>(gaussians);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As you can observe, we have some great circular starting distributions. We now need to align these with the data. Let’s implement the GMM procedure from <a href="#imp-gmmsteps" class="quarto-xref">Important&nbsp;3</a>:</p>
-<div id="7722da20" class="cell" data-execution_count="13">
+<div id="26" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>GMM</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">gmm!!</span>(gaussians<span class="op">::</span><span class="dt">Vector{IsoNormal}</span>, data_labels, data, max_steps<span class="op">=</span><span class="fl">100</span>, tol<span class="op">=</span><span class="fl">1e-5</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">length</span>(gaussians)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    ll_shift <span class="op">=</span> <span class="fl">10.0</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    nsteps <span class="op">=</span> <span class="fl">0</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    gweights <span class="op">=</span> <span class="fu">ones</span>(k) <span class="op">./</span> k</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    data_weights <span class="op">=</span> <span class="fu">zeros</span>(<span class="fu">length</span>(data_labels),k)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (ll_shift <span class="op">&gt;</span> tol) <span class="op">&amp;</span> (nsteps <span class="op">&lt;</span> max_steps)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the pdfs for each datapoint to each gaussian and assign the most probable</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        cluster_probs <span class="op">=</span> <span class="fu">hcat</span>([<span class="fu">pdf</span>(g, data) for g <span class="kw">in</span> gaussians]<span class="op">...</span>)</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>        ll_old <span class="op">=</span> <span class="fu">sum</span>(<span class="fu">log</span>.(cluster_probs <span class="op">*</span> gweights))</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>        all_weight <span class="op">=</span> cluster_probs <span class="op">*</span> gweights</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>        data_weights <span class="op">.=</span> gweights<span class="op">'</span> <span class="op">.*</span> cluster_probs <span class="op">./</span> all_weight</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Reassign gaussians to weighted means and std devs</span></span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>            Nk <span class="op">=</span> <span class="fu">sum</span>(data_weights[<span class="op">:</span>,i])</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>            new_mean <span class="op">=</span> <span class="fu">sum</span>(data <span class="op">.*</span> data_weights[<span class="op">:</span>,i]<span class="ch">', dims=2) ./ Nk</span></span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>            new_std <span class="op">=</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(<span class="fu">sum</span>((data <span class="op">.-</span> new_mean)<span class="op">.^</span><span class="fl">2</span> <span class="op">.*</span> data_weights[<span class="op">:</span>,i]<span class="ch">', dims=2) ./ Nk))</span></span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>            gaussians[i] <span class="op">=</span> <span class="fu">MvNormal</span>(<span class="fu">vec</span>(new_mean), new_std)</span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check change in log likelihood for convergence</span></span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>        cluster_probs <span class="op">=</span> <span class="fu">hcat</span>([<span class="fu">pdf</span>(g, data) for g <span class="kw">in</span> gaussians]<span class="op">...</span>)</span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>        ll_new <span class="op">=</span> <span class="fu">sum</span>(<span class="fu">log</span>.(cluster_probs <span class="op">*</span> gweights))</span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>        ll_shift <span class="op">=</span> ll_new <span class="op">-</span> ll_old</span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>        ll_old <span class="op">=</span> ll_new</span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>        nsteps <span class="op">+=</span> <span class="fl">1</span></span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    data_labels <span class="op">.=</span> [<span class="fu">argmax</span>(d) for d <span class="kw">in</span> <span class="fu">eachrow</span>(data_weights)]</span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (ll_shift <span class="op">&lt;</span> tol)</span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">gmm!!</span>(gaussians<span class="op">::</span><span class="dt">Vector{IsoNormal}</span>, data_labels, data, max_steps<span class="op">=</span><span class="fl">100</span>, tol<span class="op">=</span><span class="fl">1e-5</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">length</span>(gaussians)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    ll_shift <span class="op">=</span> <span class="fl">10.0</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    nsteps <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    gweights <span class="op">=</span> <span class="fu">ones</span>(k) <span class="op">./</span> k</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    data_weights <span class="op">=</span> <span class="fu">zeros</span>(<span class="fu">length</span>(data_labels),k)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (ll_shift <span class="op">&gt;</span> tol) <span class="op">&amp;</span> (nsteps <span class="op">&lt;</span> max_steps)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the pdfs for each datapoint to each gaussian and assign the most probable</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>        cluster_probs <span class="op">=</span> <span class="fu">hcat</span>([<span class="fu">pdf</span>(g, data) for g <span class="kw">in</span> gaussians]<span class="op">...</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        ll_old <span class="op">=</span> <span class="fu">sum</span>(<span class="fu">log</span>.(cluster_probs <span class="op">*</span> gweights))</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        all_weight <span class="op">=</span> cluster_probs <span class="op">*</span> gweights</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        data_weights <span class="op">.=</span> gweights<span class="op">'</span> <span class="op">.*</span> cluster_probs <span class="op">./</span> all_weight</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Reassign gaussians to weighted means and std devs</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>            Nk <span class="op">=</span> <span class="fu">sum</span>(data_weights[<span class="op">:</span>,i])</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>            new_mean <span class="op">=</span> <span class="fu">sum</span>(data <span class="op">.*</span> data_weights[<span class="op">:</span>,i]<span class="ch">', dims=2) ./ Nk</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>            new_std <span class="op">=</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(<span class="fu">sum</span>((data <span class="op">.-</span> new_mean)<span class="op">.^</span><span class="fl">2</span> <span class="op">.*</span> data_weights[<span class="op">:</span>,i]<span class="ch">', dims=2) ./ Nk))</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>            gaussians[i] <span class="op">=</span> <span class="fu">MvNormal</span>(<span class="fu">vec</span>(new_mean), new_std)</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check change in log likelihood for convergence</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>        cluster_probs <span class="op">=</span> <span class="fu">hcat</span>([<span class="fu">pdf</span>(g, data) for g <span class="kw">in</span> gaussians]<span class="op">...</span>)</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>        ll_new <span class="op">=</span> <span class="fu">sum</span>(<span class="fu">log</span>.(cluster_probs <span class="op">*</span> gweights))</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>        ll_shift <span class="op">=</span> ll_new <span class="op">-</span> ll_old</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>        ll_old <span class="op">=</span> ll_new</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>        nsteps <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>    data_labels <span class="op">.=</span> [<span class="fu">argmax</span>(d) for d <span class="kw">in</span> <span class="fu">eachrow</span>(data_weights)]</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (ll_shift <span class="op">&lt;</span> tol)</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Now, let’s put it all together and run it for our initial distributions.</p>
-<div id="cfd39015" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">5</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> <span class="fu">ones</span>(k)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="dt">Int64</span>, <span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="fu">animate_gmm!!</span>(gaussians, data_labels, data_1, samples_1, <span class="st">"gifs/gmm1.gif"</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
+<div id="28" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">5</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> <span class="fu">ones</span>(k)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="dt">Int64</span>, <span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">animate_gmm!!</span>(gaussians, data_labels, data_1, samples_1, <span class="st">"gifs/gmm1.gif"</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="gifs/gmm1.gif" class="img-fluid"></p>
 <p>Great! These are pretty good fits. However, applying it to our second dataset quickly reveals that spherical Gaussians just won’t cut it:</p>
-<div id="3960f7a0" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> <span class="fu">ones</span>(k)</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="dt">Int64</span>, <span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">animate_gmm!!</span>(gaussians, data_labels, data_2, samples_2, <span class="st">"gifs/gmm2.gif"</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
+<div id="30" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> <span class="fu">ones</span>(k)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="dt">Int64</span>, <span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">animate_gmm!!</span>(gaussians, data_labels, data_2, samples_2, <span class="st">"gifs/gmm2.gif"</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Instead, we can modify our calculation of the variance in the <code>gmm!!</code> function to calculate the full covariance matrix:</p>
-<div id="2bf07107" class="cell" data-execution_count="16">
+<div id="32" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>GMM (full covariance)</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">gmm!!</span>(gaussians<span class="op">::</span><span class="dt">Vector{FullNormal}</span>, data_labels, data, max_steps<span class="op">=</span><span class="fl">100</span>, tol<span class="op">=</span><span class="fl">1e-5</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">length</span>(gaussians)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    ll_shift <span class="op">=</span> <span class="fl">10.0</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    nsteps <span class="op">=</span> <span class="fl">0</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    gweights <span class="op">=</span> <span class="fu">ones</span>(k) <span class="op">./</span> k</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    data_weights <span class="op">=</span> <span class="fu">zeros</span>(<span class="fu">length</span>(data_labels),k)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (ll_shift <span class="op">&gt;</span> tol) <span class="op">&amp;</span> (nsteps <span class="op">&lt;</span> max_steps)</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the pdfs for each datapoint to each gaussian and assign the most probable</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>        cluster_probs <span class="op">=</span> <span class="fu">hcat</span>([<span class="fu">pdf</span>(g, data) for g <span class="kw">in</span> gaussians]<span class="op">...</span>)</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>        ll_old <span class="op">=</span> <span class="fu">sum</span>(<span class="fu">log</span>.(cluster_probs <span class="op">*</span> gweights))</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>        all_weight <span class="op">=</span> cluster_probs <span class="op">*</span> gweights</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>        data_weights <span class="op">.=</span> gweights<span class="op">'</span> <span class="op">.*</span> cluster_probs <span class="op">./</span> all_weight</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Reassign gaussians to weighted means and std devs</span></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>            Nk <span class="op">=</span> <span class="fu">sum</span>(data_weights[<span class="op">:</span>,i])</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>            new_mean <span class="op">=</span> <span class="fu">sum</span>(data <span class="op">.*</span> data_weights[<span class="op">:</span>,i]<span class="ch">', dims=2) ./ Nk</span></span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>            new_std <span class="op">=</span> <span class="fu">mean</span>([(d <span class="op">.-</span> new_mean)<span class="fu">*</span>(d <span class="op">.-</span> new_mean)<span class="ch">' for d in eachcol(data)], weights(data_weights[:,i]))</span></span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>            gaussians[i] <span class="op">=</span> <span class="fu">MvNormal</span>(<span class="fu">vec</span>(new_mean), new_std)</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>        <span class="kw">end</span></span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check change in log likelihood for convergence</span></span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>        cluster_probs <span class="op">=</span> <span class="fu">hcat</span>([<span class="fu">pdf</span>(g, data) for g <span class="kw">in</span> gaussians]<span class="op">...</span>)</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>        ll_new <span class="op">=</span> <span class="fu">sum</span>(<span class="fu">log</span>.(cluster_probs <span class="op">*</span> gweights))</span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>        ll_shift <span class="op">=</span> ll_new <span class="op">-</span> ll_old</span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>        ll_old <span class="op">=</span> ll_new</span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>        nsteps <span class="op">+=</span> <span class="fl">1</span></span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>    data_labels <span class="op">.=</span> [<span class="fu">argmax</span>(d) for d <span class="kw">in</span> <span class="fu">eachrow</span>(data_weights)]</span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    return (ll_shift <span class="op">&lt;</span> tol)</span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">gmm!!</span>(gaussians<span class="op">::</span><span class="dt">Vector{FullNormal}</span>, data_labels, data, max_steps<span class="op">=</span><span class="fl">100</span>, tol<span class="op">=</span><span class="fl">1e-5</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">length</span>(gaussians)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    ll_shift <span class="op">=</span> <span class="fl">10.0</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    nsteps <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    gweights <span class="op">=</span> <span class="fu">ones</span>(k) <span class="op">./</span> k</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    data_weights <span class="op">=</span> <span class="fu">zeros</span>(<span class="fu">length</span>(data_labels),k)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (ll_shift <span class="op">&gt;</span> tol) <span class="op">&amp;</span> (nsteps <span class="op">&lt;</span> max_steps)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the pdfs for each datapoint to each gaussian and assign the most probable</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        cluster_probs <span class="op">=</span> <span class="fu">hcat</span>([<span class="fu">pdf</span>(g, data) for g <span class="kw">in</span> gaussians]<span class="op">...</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        ll_old <span class="op">=</span> <span class="fu">sum</span>(<span class="fu">log</span>.(cluster_probs <span class="op">*</span> gweights))</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        all_weight <span class="op">=</span> cluster_probs <span class="op">*</span> gweights</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        data_weights <span class="op">.=</span> gweights<span class="op">'</span> <span class="op">.*</span> cluster_probs <span class="op">./</span> all_weight</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Reassign gaussians to weighted means and std devs</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>            Nk <span class="op">=</span> <span class="fu">sum</span>(data_weights[<span class="op">:</span>,i])</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>            new_mean <span class="op">=</span> <span class="fu">sum</span>(data <span class="op">.*</span> data_weights[<span class="op">:</span>,i]<span class="ch">', dims=2) ./ Nk</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>            new_std <span class="op">=</span> <span class="fu">mean</span>([(d <span class="op">.-</span> new_mean)<span class="fu">*</span>(d <span class="op">.-</span> new_mean)<span class="ch">' for d in eachcol(data)], weights(data_weights[:,i]))</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>            gaussians[i] <span class="op">=</span> <span class="fu">MvNormal</span>(<span class="fu">vec</span>(new_mean), new_std)</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        <span class="kw">end</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check change in log likelihood for convergence</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>        cluster_probs <span class="op">=</span> <span class="fu">hcat</span>([<span class="fu">pdf</span>(g, data) for g <span class="kw">in</span> gaussians]<span class="op">...</span>)</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>        ll_new <span class="op">=</span> <span class="fu">sum</span>(<span class="fu">log</span>.(cluster_probs <span class="op">*</span> gweights))</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>        ll_shift <span class="op">=</span> ll_new <span class="op">-</span> ll_old</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        ll_old <span class="op">=</span> ll_new</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>        nsteps <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>    data_labels <span class="op">.=</span> [<span class="fu">argmax</span>(d) for d <span class="kw">in</span> <span class="fu">eachrow</span>(data_weights)]</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>    return (ll_shift <span class="op">&lt;</span> tol)</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="1d8ea610" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> []</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> <span class="fu">I</span>(<span class="fl">2</span>) <span class="op">.+</span> <span class="fu">rand</span>(<span class="fl">2</span>,<span class="fl">2</span>)</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(vars,A<span class="op">'</span> <span class="op">*</span> A)</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="dt">Int64</span>, <span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="fu">animate_gmm!!</span>(gaussians, data_labels, data_2, samples_2, <span class="st">"gifs/gmm3.gif"</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
+<div id="34" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>smin <span class="op">=</span> <span class="fu">minimum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>smax <span class="op">=</span> <span class="fu">maximum</span>(data_1, dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> (smax <span class="op">-</span> smin) <span class="op">.*</span> <span class="fu">rand</span>(<span class="fl">2</span>,k) <span class="op">.+</span> smin</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> []</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> <span class="fu">I</span>(<span class="fl">2</span>) <span class="op">.+</span> <span class="fu">rand</span>(<span class="fl">2</span>,<span class="fl">2</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(vars,A<span class="op">'</span> <span class="op">*</span> A)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="dt">Int64</span>, <span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="fu">animate_gmm!!</span>(gaussians, data_labels, data_2, samples_2, <span class="st">"gifs/gmm3.gif"</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="gifs/gmm3.gif" class="img-fluid"></p>
 <p>The clusters aren’t perfectly recovered (due to the initialization), but you can see that the Gaussians cover the data much more precisely.</p>
@@ -884,77 +799,76 @@ Important&nbsp;3: GMM steps
 <li><strong>Random partitions</strong>: Randomly assign cluster ids then average to yield the initial points</li>
 <li><strong>kmeans++</strong>: Choose each mean from the data a large distance from the previously selected (proportional to the squared distance)</li>
 </ol>
-<div id="e0957e2f" class="cell" data-execution_count="18">
+<div id="36" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Plotting function</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_centers!</span>(fig, centers, true_data)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    n_clusters <span class="op">=</span> <span class="fu">length</span>(true_data)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">size</span>(centers, <span class="fl">2</span>)</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    ax1 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">1</span>])</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>n_clusters</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax1, true_data[i][<span class="fl">1</span>,<span class="op">:</span>], true_data[i][<span class="fl">2</span>,<span class="op">:</span>], color<span class="op">=</span>cmap[i], label<span class="op">=</span><span class="st">"True cluster </span><span class="sc">$</span>i<span class="st">"</span>)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax1, [centers[<span class="fl">1</span>,i]], [centers[<span class="fl">2</span>,i]], color<span class="op">=:</span>black, marker<span class="op">=:</span>star5, markersize<span class="op">=</span><span class="fl">10</span>, label<span class="op">=</span><span class="cn">nothing</span>, strokewidth<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax1, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax1; position<span class="op">=:</span>rb)</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_centers!</span>(fig, centers, true_data)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    n_clusters <span class="op">=</span> <span class="fu">length</span>(true_data)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="fu">size</span>(centers, <span class="fl">2</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    ax1 <span class="op">=</span> <span class="fu">Axis</span>(fig[<span class="fl">1</span>,<span class="fl">1</span>])</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>n_clusters</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax1, true_data[i][<span class="fl">1</span>,<span class="op">:</span>], true_data[i][<span class="fl">2</span>,<span class="op">:</span>], color<span class="op">=</span>cmap[i], label<span class="op">=</span><span class="st">"True cluster </span><span class="sc">$</span>i<span class="st">"</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scatter!</span>(ax1, [centers[<span class="fl">1</span>,i]], [centers[<span class="fl">2</span>,i]], color<span class="op">=:</span>black, marker<span class="op">=:</span>star5, markersize<span class="op">=</span><span class="fl">10</span>, label<span class="op">=</span><span class="cn">nothing</span>, strokewidth<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidedecorations!</span>(ax1, ticklabels<span class="op">=</span><span class="cn">false</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">axislegend</span>(ax1; position<span class="op">=:</span>rb)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="6394d29d" class="cell" data-execution_count="19">
+<div id="38" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Initialization functions</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">forgy_init</span>(data, k)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">hcat</span>(<span class="fu">sample</span>(<span class="fu">eachcol</span>(data), k, replace<span class="op">=</span><span class="cn">false</span>)<span class="op">...</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">random_init</span>(data, k)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    cluster_ids <span class="op">=</span> <span class="fu">sample</span>(<span class="fl">1</span><span class="op">:</span>k, <span class="fu">size</span>(data,<span class="fl">2</span>))</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">hcat</span>([<span class="fu">mean</span>(data[<span class="op">:</span>,cluster_ids <span class="op">.==</span> i], dims<span class="op">=</span><span class="fl">2</span>) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]<span class="op">...</span>)</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">kpp_init</span>(data, k)</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    means <span class="op">=</span> [<span class="fu">sample</span>(<span class="fu">eachcol</span>(data))]</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span>k</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>        dists <span class="op">=</span> <span class="fu">sum</span>(<span class="fu">hcat</span>([<span class="fu">norm</span>.(<span class="fu">eachcol</span>(data <span class="op">.-</span> m))<span class="op">.^</span><span class="fl">2</span> for m <span class="kw">in</span> means]<span class="op">...</span>), dims<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        dists <span class="op">./=</span> <span class="fu">sum</span>(dists)</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>        new_mean <span class="op">=</span> <span class="fu">sample</span>(<span class="fu">eachcol</span>(data), <span class="fu">weights</span>(dists))</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">push!</span>(means, new_mean)</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">hcat</span>(means<span class="op">...</span>)</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">forgy_init</span>(data, k)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">hcat</span>(<span class="fu">sample</span>(<span class="fu">eachcol</span>(data), k, replace<span class="op">=</span><span class="cn">false</span>)<span class="op">...</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">random_init</span>(data, k)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    cluster_ids <span class="op">=</span> <span class="fu">sample</span>(<span class="fl">1</span><span class="op">:</span>k, <span class="fu">size</span>(data,<span class="fl">2</span>))</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">hcat</span>([<span class="fu">mean</span>(data[<span class="op">:</span>,cluster_ids <span class="op">.==</span> i], dims<span class="op">=</span><span class="fl">2</span>) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]<span class="op">...</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">kpp_init</span>(data, k)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    means <span class="op">=</span> [<span class="fu">sample</span>(<span class="fu">eachcol</span>(data))]</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span>k</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>        dists <span class="op">=</span> <span class="fu">sum</span>(<span class="fu">hcat</span>([<span class="fu">norm</span>.(<span class="fu">eachcol</span>(data <span class="op">.-</span> m))<span class="op">.^</span><span class="fl">2</span> for m <span class="kw">in</span> means]<span class="op">...</span>), dims<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>        dists <span class="op">./=</span> <span class="fu">sum</span>(dists)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>        new_mean <span class="op">=</span> <span class="fu">sample</span>(<span class="fu">eachcol</span>(data), <span class="fu">weights</span>(dists))</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">push!</span>(means, new_mean)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">hcat</span>(means<span class="op">...</span>)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="351fac81" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Forgy</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">600</span>,<span class="fl">400</span>))</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> <span class="fu">forgy_init</span>(data_1, <span class="fl">5</span>)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_centers!</span>(fig, centers, samples_1)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>fig.content[<span class="fl">1</span>].title <span class="op">=</span> <span class="st">"Forgy"</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fig);</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Random partition</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">600</span>,<span class="fl">400</span>))</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> <span class="fu">random_init</span>(data_1, <span class="fl">5</span>)</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_centers!</span>(fig, centers, samples_1)</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>fig.content[<span class="fl">1</span>].title <span class="op">=</span> <span class="st">"Random partition"</span></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fig);</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Kpp</span></span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">600</span>,<span class="fl">400</span>))</span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> <span class="fu">kpp_init</span>(data_1, <span class="fl">5</span>)</span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_centers!</span>(fig, centers, samples_1)</span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>fig.content[<span class="fl">1</span>].title <span class="op">=</span> <span class="st">"Kpp"</span>;</span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fig);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220
-┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220
-┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
+<div id="40" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Forgy</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">600</span>,<span class="fl">400</span>))</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> <span class="fu">forgy_init</span>(data_1, <span class="fl">5</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_centers!</span>(fig, centers, samples_1)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>fig.content[<span class="fl">1</span>].title <span class="op">=</span> <span class="st">"Forgy"</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fig);</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Random partition</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">600</span>,<span class="fl">400</span>))</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> <span class="fu">random_init</span>(data_1, <span class="fl">5</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_centers!</span>(fig, centers, samples_1)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>fig.content[<span class="fl">1</span>].title <span class="op">=</span> <span class="st">"Random partition"</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fig);</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Kpp</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">600</span>,<span class="fl">400</span>))</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> <span class="fu">kpp_init</span>(data_1, <span class="fl">5</span>)</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_centers!</span>(fig, centers, samples_1)</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>fig.content[<span class="fl">1</span>].title <span class="op">=</span> <span class="st">"Kpp"</span>;</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fig);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="em_files/figure-html/cell-21-output-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -970,13 +884,6 @@ Important&nbsp;3: GMM steps
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="em_files/figure-html/cell-21-output-4.svg" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
 </div>
 <p>In this case, it is immediately obvious that the kmeans++ technique yielded the best, most spread centers that will work well with either our kmeans or GMM algorithms. On the other hand, the Forgy yielded data which was too clustered, something that can easily occur if there is an imbalance in representation between samples from different clusters. The Random partition approach gave points which were somewhat reasonable, but very centered. In this case, it is possible that kmeans or GMM does capture the correct cluster partitions, but also possible that some clusters are grouped.</p>
 </section>
@@ -985,49 +892,41 @@ Important&nbsp;3: GMM steps
 <p>Now, given improved initialization approaches, let’s rerun our kmeans and GMM approaches with random seeds that previously posed challenges:</p>
 <section id="kmeans" class="level3">
 <h3 class="anchored" data-anchor-id="kmeans">Kmeans</h3>
-<div id="92242111" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For dataset 1</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> <span class="fu">kpp_init</span>(data_1, k)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kmeans!!</span>(centers, data_labels, data_1)</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data_1, samples_1)</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fig);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
+<div id="42" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For dataset 1</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> <span class="fu">kpp_init</span>(data_1, k)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_1,<span class="fl">2</span>))</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kmeans!!</span>(centers, data_labels, data_1)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data_1, samples_1)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(fig);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="em_files/figure-html/cell-22-output-2.svg" class="img-fluid figure-img"></p>
+<p><img src="em_files/figure-html/cell-22-output-1.svg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="7523c32c" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For dataset 2</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2</span>)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> <span class="fu">kpp_init</span>(data_2, k)</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kmeans!!</span>(centers, data_labels, data_2)</span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data_2, samples_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div id="44" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For dataset 2</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>centers <span class="op">=</span> <span class="fu">kpp_init</span>(data_2, k)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kmeans!!</span>(centers, data_labels, data_2)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cluster_results!</span>(fig, centers, data_labels, data_2, samples_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
-<p><img src="em_files/figure-html/cell-23-output-2.svg" class="img-fluid figure-img"></p>
+<p><img src="em_files/figure-html/cell-23-output-1.svg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1035,60 +934,52 @@ Important&nbsp;3: GMM steps
 </section>
 <section id="gmm" class="level3">
 <h3 class="anchored" data-anchor-id="gmm">GMM</h3>
-<div id="a4aeb5b1" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For dataset 1</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2</span>)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> <span class="fu">kpp_init</span>(data_1, k)</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> []</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> <span class="fu">I</span>(<span class="fl">2</span>) <span class="op">.+</span> <span class="fu">rand</span>(<span class="fl">2</span>,<span class="fl">2</span>)</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(vars,A<span class="op">'</span> <span class="op">*</span> A)</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="fu">gmm!!</span>(gaussians, data_labels, data_1)</span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
-<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_gmm_results!</span>(fig, gaussians, data_labels, data_1, samples_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div id="46" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For dataset 1</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> <span class="fu">kpp_init</span>(data_1, k)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> []</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> <span class="fu">I</span>(<span class="fl">2</span>) <span class="op">.+</span> <span class="fu">rand</span>(<span class="fl">2</span>,<span class="fl">2</span>)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(vars,A<span class="op">'</span> <span class="op">*</span> A)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="fu">gmm!!</span>(gaussians, data_labels, data_1)</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_gmm_results!</span>(fig, gaussians, data_labels, data_1, samples_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
-<p><img src="em_files/figure-html/cell-24-output-2.svg" class="img-fluid figure-img"></p>
+<p><img src="em_files/figure-html/cell-24-output-1.svg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="62f5454a" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For dataset 2</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2</span>)</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> <span class="fu">kpp_init</span>(data_2, k)</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> []</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> <span class="fu">I</span>(<span class="fl">2</span>) <span class="op">.+</span> <span class="fu">rand</span>(<span class="fl">2</span>,<span class="fl">2</span>)</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(vars,A<span class="op">'</span> <span class="op">*</span> A)</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="fu">gmm!!</span>(gaussians, data_labels, data_2)</span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_gmm_results!</span>(fig, gaussians, data_labels, data_2, samples_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: Found `resolution` in the theme when creating a `Scene`. The `resolution` keyword for `Scene`s and `Figure`s has been deprecated. Use `Figure(; size = ...` or `Scene(; size = ...)` instead, which better reflects that this is a unitless size and not a pixel resolution. The key could also come from `set_theme!` calls or related theming functions.
-└ @ Makie ~/.julia/packages/Makie/VRavR/src/scenes.jl:220</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div id="48" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For dataset 2</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> <span class="fu">kpp_init</span>(data_2, k)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>vars <span class="op">=</span> []</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> <span class="fu">I</span>(<span class="fl">2</span>) <span class="op">.+</span> <span class="fu">rand</span>(<span class="fl">2</span>,<span class="fl">2</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">push!</span>(vars,A<span class="op">'</span> <span class="op">*</span> A)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>gaussians <span class="op">=</span> [<span class="fu">MvNormal</span>(means[<span class="op">:</span>,i],vars[i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>k]</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>data_labels <span class="op">=</span> <span class="fu">ones</span>(<span class="fu">size</span>(data_2,<span class="fl">2</span>))</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="fu">gmm!!</span>(gaussians, data_labels, data_2)</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> <span class="fu">Figure</span>(size<span class="op">=</span>(<span class="fl">800</span>,<span class="fl">400</span>))</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_gmm_results!</span>(fig, gaussians, data_labels, data_2, samples_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
-<p><img src="em_files/figure-html/cell-25-output-2.svg" class="img-fluid figure-img"></p>
+<p><img src="em_files/figure-html/cell-25-output-1.svg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>

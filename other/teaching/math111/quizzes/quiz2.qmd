@@ -1,5 +1,6 @@
 ---
 title: Quiz 2 - Continuity
+categories: [Math 111]
 ---
 
 ## Problem 1
@@ -47,5 +48,3 @@ b &= 7 - 14 \\
 \Aboxed{b &= -7}
 \end{align*}
 $$
-
-

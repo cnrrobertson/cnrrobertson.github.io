@@ -27,3 +27,5 @@ It involves:
 4. Simulating the resulting models and comparing the results both qualitatively and quantitatively with the information extracted from the experimental images
 
 This work was presented at the [APS March meeting 2022](https://meetings.aps.org/Meeting/MAR22/Session/M20.7), [APS DFD meeting 2022](https://meetings.aps.org/Meeting/DFD22/Session/Z04.6), and [SIAM CSE 2023](https://meetings.siam.org/sess/dsp_programsess.cfm?SESSIONCODE=75518).
+
+My dissertation on the topic can be found on [ProQuest](https://www.proquest.com/openview/53334f73f7bf100947502832d16c52ea/1?pq-origsite=gscholar&cbl=18750&diss=y).

@@ -1,0 +1,49 @@
+[
+  {
+    "listing": "/research/research.html",
+    "items": [
+      "/research/active_nematics.html",
+      "/research/bacteria.html"
+    ]
+  },
+  {
+    "listing": "/other/teaching/teaching.html",
+    "items": [
+      "/other/teaching/math111/math111.html",
+      "/other/teaching/math111/quizzes/quiz1.html",
+      "/other/teaching/math111/quizzes/quiz10.html",
+      "/other/teaching/math111/quizzes/quiz2.html",
+      "/other/teaching/math111/quizzes/quiz3.html",
+      "/other/teaching/math111/quizzes/quiz4.html",
+      "/other/teaching/math111/quizzes/quiz5.html",
+      "/other/teaching/math111/quizzes/quiz6.html",
+      "/other/teaching/math111/quizzes/quiz7.html",
+      "/other/teaching/math111/quizzes/quiz8.html",
+      "/other/teaching/math111/quizzes/quiz9.html",
+      "/other/teaching/math340/Lab1_matlab_taylor_series/Lab1_matlab_intro.html",
+      "/other/teaching/math340/Lab2_bisection/Lab2_bisection.html",
+      "/other/teaching/math340/Lab3_fixed_point/Lab3_fixed_points.html",
+      "/other/teaching/math340/Lab4_secant/Lab4_secant.html"
+    ]
+  },
+  {
+    "listing": "/other/fun/fun.html",
+    "items": [
+      "/other/fun/ml/bessels.html",
+      "/other/fun/doodles/heliocentric_geocentric.html",
+      "/other/fun/ml/mmm.html",
+      "/other/fun/doodles/polygon_angles.html",
+      "/other/fun/ml/em.html"
+    ]
+  },
+  {
+    "listing": "/other/docs/docs.html",
+    "items": [
+      "/other/docs/doodles/heliocentric_geocentric.html",
+      "/other/docs/doodles/polygon_angles.html",
+      "/other/docs/ml/bessels.html",
+      "/other/docs/ml/mmm.html",
+      "/other/docs/ml/em.html"
+    ]
+  }
+]

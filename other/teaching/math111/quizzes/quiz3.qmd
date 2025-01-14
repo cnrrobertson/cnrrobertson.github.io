@@ -1,5 +1,6 @@
 ---
 title: Quiz 3 - Definition of a derivative
+categories: [Math 111]
 ---
 
 ## Problem 1
@@ -19,5 +20,3 @@ f'(x) &= \lim_{h\rightarrow 0}\left(\frac{f(x + h) - f(x)}{h}\right) \\
 \Aboxed{f'(x) &= -\frac{1}{x^2}}
 \end{align*}
 $$
-
-

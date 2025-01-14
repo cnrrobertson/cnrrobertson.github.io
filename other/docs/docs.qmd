@@ -1,0 +1,15 @@
+---
+title: Docs
+toc: false
+listing:
+    type: table
+    max-description-length: 50
+    sort:
+        - "categories"
+        - "title"
+    categories: true
+    fields: [title, categories]
+sidebar: true
+---
+
+This is a collection of explorations and doodles.

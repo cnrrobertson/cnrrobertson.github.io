@@ -1,5 +1,6 @@
 ---
 title: Quiz 10 - Integration
+categories: [Math 111]
 ---
 
 ## Problem 1
@@ -37,4 +38,3 @@ $$
     \Aboxed{&= \frac{3}{2}x^{2/3} + \frac{3}{8}x^{8/3} + C}
 \end{align*}
 $$
-

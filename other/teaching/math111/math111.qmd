@@ -1,5 +1,6 @@
 ---
 title: Math 111 - Calculus I
+categories: [Math 111]
 ---
 
 This section contains some resources for the Fall 2022 Math 111 Section 23 at NJIT.
@@ -46,4 +47,3 @@ $$
 Animation of **Figure 2.6** from the book.
 
 ![](animations/section2_1.gif)
-

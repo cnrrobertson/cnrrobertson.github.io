@@ -31,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,12 +70,70 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -99,8 +159,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../other/fun/fun.html"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../other/docs/docs.html"> 
+<span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -124,60 +184,12 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../research/research.html">Research</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../research/research.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Research</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../research/active_nematics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data-driven modeling of active nematics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../research/bacteria.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prediction of bacterial growth via recurrent neural network</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#projects" id="toc-projects" class="nav-link active" data-scroll-target="#projects">Projects</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -203,15 +215,74 @@ ul.task-list li input[type="checkbox"] {
 <p>This section contains various overviews of the research projects that I have worked on or which I am currently working on. They are high level overviews of the project scope as well as references to papers and results.</p>
 <section id="projects" class="level2">
 <h2 class="anchored" data-anchor-id="projects">Projects</h2>
-<ul>
-<li><a href="../research/active_nematics.html">Data-driven discovery of a PDE model for an active nematic system</a></li>
-<li><a href="../research/bacteria.html">Predicting bacterial growth in experimental images using recurrent neural networks</a> <!-- - [Predicting water main breaks for public utilities]() --> <!-- - [Optimizing decision-making for new water infrastructure in developing areas]() --></li>
-</ul>
+<!-- - [Bayesian calibration of CityCOVID epidemiological agent based model]() -->
+<!-- - [Extracting local symbolic forms for neural network interpretation]() -->
+<!-- - [Data-driven discovery of a PDE model for an active nematic system](active_nematics.qmd) -->
+<!-- - [Predicting bacterial growth in experimental images using recurrent neural networks](bacteria.qmd) -->
+<!-- - [Predicting water main breaks for public utilities]() -->
+<!-- - [Optimizing decision-making for new water infrastructure in developing areas]() -->
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1736890131917" data-listing-reading-time-sort="2" data-listing-word-count-sort="281">
+<div class="thumbnail">
+<p><a href="../research/active_nematics.html" class="no-external"></a></p><a href="../research/active_nematics.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../research/active_nematics.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../research/active_nematics.html" class="no-external">Data-driven model discovery for an active nematic system</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../research/active_nematics.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../research/active_nematics.html" class="no-external">Active nematics refer to active matter systems…<span class="citation" data-cites="Pringle_2013"></span><span class="citation" data-cites="decamp2015orientational"></span></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../research/active_nematics.html" class="no-external"></a></p><a href="../research/active_nematics.html" class="no-external">
+</a><div class="listing-author"><a href="../research/active_nematics.html" class="no-external">
+Connor Robertson, </a><a href="https://people.njit.edu/faculty/oza">Anand Oza (NJIT)</a>, <a href="https://people.njit.edu/faculty/askham">Travis Askham (NJIT)</a>
+</div>
+
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1736890258953" data-listing-reading-time-sort="2" data-listing-word-count-sort="260">
+<div class="thumbnail">
+<p><a href="../research/bacteria.html" class="no-external"></a></p><a href="../research/bacteria.html" class="no-external">
+<p class="card-img-top"><img src="resources/show_well.jpg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../research/bacteria.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../research/bacteria.html" class="no-external">Predicting bacterial growth in experimental images via recurrent neural networks</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../research/bacteria.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../research/bacteria.html" class="no-external">Over the last several decades, advances in…</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../research/bacteria.html" class="no-external"></a></p><a href="../research/bacteria.html" class="no-external">
+<div class="listing-author">
+Connor Robertson, Miguel Fuentes-Cabrera
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

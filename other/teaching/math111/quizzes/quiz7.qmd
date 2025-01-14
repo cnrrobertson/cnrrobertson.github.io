@@ -1,5 +1,6 @@
 ---
 title: Quiz 7 - First derivative test and linearization
+categories: [Math 111]
 ---
 
 ## Problem 1
@@ -47,5 +48,3 @@ Using this, we have:
 $$
 f(2) \approx e^2 + 2e^2 = \boxed{3e^2}
 $$
-
-

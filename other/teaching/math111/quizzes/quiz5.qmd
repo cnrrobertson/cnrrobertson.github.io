@@ -1,5 +1,6 @@
 ---
 title: Quiz 5 - More chain rule and differentiation of trigonometric functions
+categories: [Math 111]
 ---
 
 ## Problem 1
@@ -50,4 +51,3 @@ y' &= \frac{\frac{1}{x}(x^e + e^e) - \ln(x)(ex^{e-1})}{(x^e+e^e)^2}\\
 \Aboxed{y' &= \frac{x^e + e^e - \ln(x)(ex^e)}{x(x^e+e^e)^2}}
 \end{align}
 $$
-

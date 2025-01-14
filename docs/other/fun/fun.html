@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Blog – Connor Robertson</title>
+<title>Docs – Connor Robertson</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../assets/circle-svgrepo-com.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -102,7 +133,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -129,7 +160,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../../other/fun/fun.html" aria-current="page"> 
-<span class="menu-text">Blog</span></a>
+<span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -153,79 +184,19 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../other/fun/fun.html">Doodles</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../other/fun/fun.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Doodles</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../other/fun/ml/em.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Expectation maximization with GMM</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../other/fun/ml/mmm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mean, median, mode dashboard</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../other/fun/doodles/polygon_angles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Polygon angles</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../other/fun/doodles/heliocentric_geocentric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Geocentrism</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning">Machine Learning</a></li>
-  <li><a href="#doodles" id="toc-doodles" class="nav-link" data-scroll-target="#doodles">Doodles</a></li>
-  </ul>
-</nav>
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="RG9vZGxlcw==">Doodles <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TUw=">ML <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
+<h1 class="title">Docs</h1>
 </div>
 
 
@@ -242,25 +213,177 @@ window.Quarto = {
 </header>
 
 
-<p>This is a collection of code doodles (almost literally since most produce nice plots or videos).</p>
-<section id="machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
-<ul>
-<li><a href="../../other/fun/ml/em.html">Visualizing expectation maximization for K-means and Gaussian Mixture Models</a></li>
-<li><a href="../../other/fun/ml/mmm.html">Mean, median, mode dashboard</a></li>
-</ul>
-</section>
-<section id="doodles" class="level2">
-<h2 class="anchored" data-anchor-id="doodles">Doodles</h2>
-<ul>
-<li><a href="../../other/fun/doodles/polygon_angles.html">External angles of a polygon sum to <span class="math inline">\(2\pi\)</span></a></li>
-<li><a href="../../other/fun/doodles/heliocentric_geocentric.html">Visually comparing the complexity of the heliocentric and geocentric models of the solar system</a></li>
-</ul>
+<p>This is a collection of explorations and doodles.</p>
+<!-- ## Machine Learning -->
+<!---->
+<!-- - [Visualizing expectation maximization for K-means and Gaussian Mixture Models](ml/em.qmd) -->
+<!-- - [Mean, median, mode dashboard](ml/mmm.qmd) -->
+<!---->
+<!-- ## Doodles -->
+<!---->
+<!-- - [External angles of a polygon sum to $2\pi$](doodles/polygon_angles.qmd) -->
+<!-- - [Visually comparing the complexity of the heliocentric and geocentric models of the solar system](doodles/heliocentric_geocentric.qmd) -->
 
 
-</section>
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="TUw=" data-listing-file-modified-sort="1736892541931" data-listing-reading-time-sort="4" data-listing-word-count-sort="689">
+<div class="thumbnail">
+<p><a href="../../other/fun/ml/bessels.html" class="no-external"></a></p><a href="../../other/fun/ml/bessels.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../../other/fun/ml/bessels.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../other/fun/ml/bessels.html" class="no-external">Bessel’s correction</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../other/fun/ml/bessels.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('TUw='); return false;">
+ML
+</div>
+</div>
+<div class="listing-description">
+<a href="../../other/fun/ml/bessels.html" class="no-external">A brief demonstration of how Bessel’s correction for the variance better matches the variance of the underlying distribution while introducing error in the variance of the…</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../../other/fun/ml/bessels.html" class="no-external"></a></p><a href="../../other/fun/ml/bessels.html" class="no-external">
+<div class="listing-author">
+Connor Robertson
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="RG9vZGxlcw==" data-listing-file-modified-sort="1736893288491" data-listing-reading-time-sort="4" data-listing-word-count-sort="699">
+<div class="thumbnail">
+<p><a href="../../other/fun/doodles/heliocentric_geocentric.html" class="no-external"></a></p><a href="../../other/fun/doodles/heliocentric_geocentric.html" class="no-external">
+<p class="card-img-top"><img src="doodles/heliocentric_geocentric_files/figure-html/cell-4-output-1.svg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../../other/fun/doodles/heliocentric_geocentric.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../other/fun/doodles/heliocentric_geocentric.html" class="no-external">Heliocentrism vs Geocentrism</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../other/fun/doodles/heliocentric_geocentric.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('RG9vZGxlcw=='); return false;">
+Doodles
+</div>
+</div>
+<div class="listing-description">
+<a href="../../other/fun/doodles/heliocentric_geocentric.html" class="no-external">Another fun little animation that I saw recently was the difference in the dynamics of the solar system when approaching the equations from a heliocentric (sun-centered) or…</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../../other/fun/doodles/heliocentric_geocentric.html" class="no-external"></a></p><a href="../../other/fun/doodles/heliocentric_geocentric.html" class="no-external">
+<div class="listing-author">
+Connor Robertson
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="TUw=" data-listing-file-modified-sort="1736892552787" data-listing-reading-time-sort="2" data-listing-word-count-sort="323">
+<div class="thumbnail">
+<p><a href="../../other/fun/ml/mmm.html" class="no-external"></a></p><a href="../../other/fun/ml/mmm.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="../../other/fun/ml/mmm.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../other/fun/ml/mmm.html" class="no-external">Mean, median, and mode</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../other/fun/ml/mmm.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('TUw='); return false;">
+ML
+</div>
+</div>
+<div class="listing-description">
+<a href="../../other/fun/ml/mmm.html" class="no-external">A brief demonstration of the different biases between mean, median, and mode as outliers are added to the data. (Really just a test of using a Shiny app in a Quarto website…</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../../other/fun/ml/mmm.html" class="no-external"></a></p><a href="../../other/fun/ml/mmm.html" class="no-external">
+<div class="listing-author">
+Connor Robertson
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="RG9vZGxlcw==" data-listing-file-modified-sort="1736893282789" data-listing-reading-time-sort="6" data-listing-word-count-sort="1055">
+<div class="thumbnail">
+<p><a href="../../other/fun/doodles/polygon_angles.html" class="no-external"></a></p><a href="../../other/fun/doodles/polygon_angles.html" class="no-external">
+<p class="card-img-top"><img src="doodles/polygon_angles_files/figure-html/cell-5-output-1.svg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../../other/fun/doodles/polygon_angles.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../other/fun/doodles/polygon_angles.html" class="no-external">The exterior angles of a polygon make a circle</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../other/fun/doodles/polygon_angles.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('RG9vZGxlcw=='); return false;">
+Doodles
+</div>
+</div>
+<div class="listing-description">
+<a href="../../other/fun/doodles/polygon_angles.html" class="no-external">I recently saw a fun little GIF from a weekly news email I get called the New Paper. It shows a simple plot of the exterior angles of a few polygons. As the polygons shrink…<span class="math inline"></span><!-- The GIF can be seen below: --></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../../other/fun/doodles/polygon_angles.html" class="no-external"></a></p><a href="../../other/fun/doodles/polygon_angles.html" class="no-external">
+<div class="listing-author">
+Connor Robertson
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="TUw=" data-listing-file-modified-sort="1736892643272" data-listing-reading-time-sort="17" data-listing-word-count-sort="3336">
+<div class="thumbnail">
+<p><a href="../../other/fun/ml/em.html" class="no-external"></a></p><a href="../../other/fun/ml/em.html" class="no-external">
+<p class="card-img-top"><img src="ml/em_files/figure-html/cell-5-output-1.svg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../../other/fun/ml/em.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../other/fun/ml/em.html" class="no-external">Visualizing Expectation Maximization</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../other/fun/ml/em.html" class="no-external">k-means vs.&nbsp;Gaussian Mixture Models (GMM)</a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('TUw='); return false;">
+ML
+</div>
+</div>
+<div class="listing-description">
+<a href="../../other/fun/ml/em.html" class="no-external">I recently read a great overview of Gaussian Mixture Models and thought, “Man, I’d like to see this clustering visualized.” So here I am to visualize it myself.</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../../other/fun/ml/em.html" class="no-external"></a></p><a href="../../other/fun/ml/em.html" class="no-external">
+<div class="listing-author">
+Connor Robertson
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,5 +1,6 @@
 ---
 title: Quiz 6 - More chain rule and differentiation of trigonometric functions
+categories: [Math 111]
 ---
 
 ## Problem 1
@@ -17,4 +18,3 @@ y &= \sin^{-1}(e^{-x}) + \sec^{-1}(e^x) \\
 \Aboxed{\frac{d}{dx}y&= 0}
 \end{align}
 $$
-

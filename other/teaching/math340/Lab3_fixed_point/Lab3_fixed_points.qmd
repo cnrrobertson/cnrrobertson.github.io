@@ -1,6 +1,7 @@
 ---
 title: Lab 3 - Fixed point methods
 author: Connor Robertson
+categories: [Math 340]
 ---
 
 ## Introduction

@@ -1,5 +1,6 @@
 ---
 title: Quiz 1 - Limits and rate of change
+categories: [Math 111]
 ---
 
 ## Problem 1
@@ -56,4 +57,3 @@ $$
 &= \frac{0}{2} = \boxed{0}\\
 \end{align*}
 $$
-

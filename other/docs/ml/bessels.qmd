@@ -1,0 +1,104 @@
+---
+title: Bessel's correction
+author: Connor Robertson
+format: html
+filters:
+  - shinylive
+categories: [Machine Learning]
+---
+
+A brief demonstration of how [Bessel's correction](https://en.wikipedia.org/wiki/Bessel's_correction) for the variance better matches the variance of the underlying distribution while introducing error in the variance of the samples.
+
+As a reminder, the variance of a sample without Bessel's correction (i.e. a biased estimate) is:
+$$
+s_n^2 = \frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2
+$$
+
+while the "sample variance" or variance with Bessel's correction (i.e. an unbiased estimate) is:
+$$
+s^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2
+$$
+
+where the sample mean is defined as $\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i$.
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 500
+
+from shiny import *
+from scipy.stats import norm
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.set_theme()
+
+prop_cycle = plt.rcParams['axes.prop_cycle']
+colors = prop_cycle.by_key()['color']
+
+app_ui = ui.page_fluid(
+    ui.layout_sidebar(
+        ui.panel_sidebar(
+            ui.input_slider("samples", "# Samples", 5, 50, 5, step=1),
+        ),
+        ui.panel_main(
+            ui.output_plot("plot"),
+        ),
+    ),
+)
+
+def server(input, output, session):
+    @output
+    @render.plot()
+    def plot():
+        rv = norm()
+        xmax = rv.ppf(.999)
+        xmin = rv.ppf(.001)
+        x = np.linspace(xmin, xmax, 200)
+
+        pdf = rv.pdf(x)
+        samples = rv.rvs(size=input.samples(), random_state=0)
+        smean = np.mean(samples)
+        svar_biased = np.var(samples, ddof=0)
+        svar_unbiased = np.var(samples, ddof=1)
+        var = rv.var()
+
+        ax = sns.lineplot(x=x, y=pdf, label="True Distribution")
+        sns.histplot(samples, label="Sample distribution", stat="density")
+        sns.scatterplot(x=samples, y=0, label="Samples", c=colors[0])
+        plt.ylim(-0.05, plt.ylim()[1])
+        ax.vlines(
+            [smean-svar_biased, smean+svar_biased],
+            ymin=plt.ylim()[0],
+            ymax=plt.ylim()[1],
+            label="Variance (uncorrected)",
+            color=colors[1]
+        )
+        ax.vlines(
+            [smean-svar_unbiased, smean+svar_unbiased],
+            ymin=plt.ylim()[0],
+            ymax=plt.ylim()[1],
+            label="Variance (corrected)",
+            color=colors[2]
+        )
+        ax.vlines(
+            [smean-var, smean+var],
+            ymin=plt.ylim()[0],
+            ymax=plt.ylim()[1],
+            label="Variance (true)",
+            color="black",
+            ls="dashed"
+        )
+        plt.legend()
+        sns.move_legend(
+            ax,
+            "upper center",
+            bbox_to_anchor=(.5,-.1),
+            ncol=2,
+            title=None,
+        )
+
+app = App(app_ui, server)
+
+```
+
+The difference is slight, but the gist of it is that the corrected variance is always larger than the uncorrected, but

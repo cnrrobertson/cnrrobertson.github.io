@@ -1,5 +1,6 @@
 ---
 title: Quiz 9 - Newton's method and antiderivatives
+categories: [Math 111]
 ---
 
 ## Problem 1

@@ -2,7 +2,7 @@
 title: Predicting bacterial growth in experimental images via recurrent neural networks
 bibliography: bacteria.bib
 csl: american-physics-society.csl
-author: Connor Robertson, [Miguel Fuentes-Cabrera (ORNL)](https://www.ornl.gov/staff-profile/miguel-fuentes-cabrera)
+author: Connor Robertson, Miguel Fuentes-Cabrera
 ---
 
 Over the last several decades, advances in genetic sequencing and identification have massively expanded the catalog of bacterial species and strains.
