@@ -1,12 +1,5 @@
 [
   {
-    "listing": "/research/research.html",
-    "items": [
-      "/research/active_nematics.html",
-      "/research/bacteria.html"
-    ]
-  },
-  {
     "listing": "/other/teaching/teaching.html",
     "items": [
       "/other/teaching/math111/math111.html",
@@ -27,16 +20,6 @@
     ]
   },
   {
-    "listing": "/other/fun/fun.html",
-    "items": [
-      "/other/fun/ml/bessels.html",
-      "/other/fun/doodles/heliocentric_geocentric.html",
-      "/other/fun/ml/mmm.html",
-      "/other/fun/doodles/polygon_angles.html",
-      "/other/fun/ml/em.html"
-    ]
-  },
-  {
     "listing": "/other/docs/docs.html",
     "items": [
       "/other/docs/doodles/heliocentric_geocentric.html",
@@ -44,6 +27,13 @@
       "/other/docs/ml/bessels.html",
       "/other/docs/ml/mmm.html",
       "/other/docs/ml/em.html"
+    ]
+  },
+  {
+    "listing": "/research/research.html",
+    "items": [
+      "/research/active_nematics.html",
+      "/research/bacteria.html"
     ]
   }
 ]
