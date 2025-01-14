@@ -33,7 +33,7 @@ website:
   # Footer
   # --------------------------------------------------------------------------
   page-footer:
-    right: "Connor Robertson, Copyright 2024"
+    right: "Connor Robertson, Copyright 2025"
     left:
       - icon: linkedin
         href: https://www.linkedin.com/in/connor-robertson-773ba8b1/
@@ -122,4 +122,3 @@ execute:
 # --------------------------------------------------------------------------
 filters:
   - shinylive
-
