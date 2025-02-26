@@ -22,7 +22,7 @@ I'm generally interested in a wide range of machine learning and data science ap
 <!-- I am also fascinated by the topics of public infrastructure and agriculture, although they are quite unrelated to my current work. -->
 <!-- Honestly, I'm interested in most topics once I get chatting, so please reach out! -->
 
-On this site you can find my [resume](resume.qmd), my [LinkedIn](https://www.linkedin.com/in/connor-robertson-773ba8b1/) and [Github](https://github.com/cnrrobertson) profiles, and some other little tidbits for [research](research/research.html), [seminars](other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd), [teaching](other/teaching/teaching.html), and [general exploration](other/fun/fun.qmd).
+On this site you can find my [resume](resume.qmd), my [LinkedIn](https://www.linkedin.com/in/connor-robertson-773ba8b1/) and [Github](https://github.com/cnrrobertson) profiles, and some other little tidbits for [research](research/research.html), [seminars](other/machinelearning_optimization_seminar/machinelearning_optimization_seminar.qmd), [teaching](other/teaching/teaching.html), and [general exploration](other/docs/docs.qmd).
 
 <!-- ## Education -->
 <!---->
@@ -31,4 +31,3 @@ On this site you can find my [resume](resume.qmd), my [LinkedIn](https://www.lin
 <!---->
 <!-- **B.S. in Applied and Computational Mathematics** | Sep 2012 - Apr 2018 |  -->
 <!-- Brigham Young University | Provo, UT -->
-
